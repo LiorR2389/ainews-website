@@ -1,275 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
+    <title>AI News - Cyprus Daily Digest for Sunday, 2025-07-13</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI News - Cyprus Daily Digest for Sunday, 2025-07-13</title>
-    <meta name="description" content="Your daily Cyprus AI-powered news digest in 4 languages. Updated every morning at 7 AM.">
     <style>
-        body { 
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6; 
-            margin: 0;
-            padding: 20px; 
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-        }
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            background: white;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-        }
-        .header {
-            text-align: center;
-            margin-bottom: 40px;
-            padding-bottom: 30px;
-            border-bottom: 3px solid #667eea;
-        }
-        .logo { 
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .tagline {
-            color: #666;
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-            font-style: italic;
-        }
-        .date-info {
-            color: #666;
-            font-size: 1.1rem;
-            margin-bottom: 20px;
-        }
-        .update-time {
-            background: #667eea;
-            color: white;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 600;
-        }
-        .lang-buttons { 
-            text-align: center;
-            margin: 30px 0; 
-            padding: 20px;
-            background: #f8f9fa;
-            border-radius: 15px;
-        }
-        .lang-buttons button { 
-            margin: 5px; 
-            padding: 10px 20px; 
-            border: none;
-            border-radius: 25px;
-            background: #667eea;
-            color: white;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s;
-            font-size: 0.9rem;
-        }
-        .lang-buttons button:hover { 
-            background: #5a6fd8;
-            transform: translateY(-2px);
-        }
-        .lang-buttons button.active { 
-            background: #764ba2;
-            color: white;
-        }
-        h2 { 
-            color: #333; 
-            margin: 40px 0 20px 0; 
-            font-size: 1.8rem;
-            padding-left: 15px;
-            border-left: 4px solid #667eea;
-        }
-        h2 .lang { 
-            display: none; 
-        }
-        h2 .lang.active { 
-            display: inline; 
-        }
-        .article { 
-            margin-bottom: 20px; 
-            padding: 20px; 
-            border-left: 4px solid #667eea; 
-            background: #f8f9fa;
-            border-radius: 0 10px 10px 0;
-            transition: transform 0.2s;
-        }
-        .article:hover {
-            transform: translateX(5px);
-        }
-        .article-title { 
-            font-weight: 600; 
-            margin-bottom: 10px; 
-            color: #333;
-            font-size: 1.1rem;
-            line-height: 1.4;
-        }
-        .article-summary { 
-            color: #666; 
-            margin-bottom: 12px;
-            font-style: italic;
-        }
-        .article-link { 
-            color: #667eea; 
-            text-decoration: none; 
-            font-weight: 600;
-            padding: 8px 16px;
-            background: rgba(102, 126, 234, 0.1);
-            border-radius: 20px;
-            display: inline-block;
-            transition: all 0.3s;
-        }
-        .article-link:hover { 
-            background: #667eea;
-            color: white;
-            transform: translateY(-1px);
-        }
-        .lang { 
-            display: none; 
-        }
-        .lang.active { 
-            display: block; 
-        }
-        .newsletter-signup {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 40px;
-            margin: 50px 0;
-            border-radius: 20px;
-            text-align: center;
-        }
-        .newsletter-signup h3 {
-            font-size: 2rem;
-            margin-bottom: 15px;
-        }
-        .newsletter-signup p {
-            margin-bottom: 25px;
-            opacity: 0.9;
-            font-size: 1.1rem;
-        }
-        .signup-form {
-            max-width: 400px;
-            margin: 0 auto;
-        }
-        .signup-form input {
-            width: 100%;
-            padding: 15px;
-            margin: 10px 0;
-            border: none;
-            border-radius: 10px;
-            font-size: 1rem;
-            box-sizing: border-box;
-        }
-        .signup-form button {
-            background: #FFD700;
-            color: #333;
-            border: none;
-            padding: 15px 30px;
-            border-radius: 25px;
-            font-weight: 700;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: transform 0.3s;
-            margin-top: 15px;
-            width: 100%;
-        }
-        .signup-form button:hover {
-            transform: translateY(-2px);
-        }
-        .footer {
-            text-align: center;
-            margin-top: 50px;
-            padding-top: 30px;
-            border-top: 1px solid #ddd;
-            color: #666;
-        }
-        .stats {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin: 30px 0;
-            flex-wrap: wrap;
-        }
-        .stat {
-            text-align: center;
-        }
-        .stat-number {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #667eea;
-        }
-        .stat-label {
-            font-size: 0.9rem;
-            color: #666;
-        }
-        .language-checkboxes {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
-            margin: 20px 0;
-            text-align: left;
-        }
-        .language-option {
-            display: flex;
-            align-items: center;
-            background: rgba(255,255,255,0.1);
-            padding: 10px;
-            border-radius: 8px;
-        }
-        .language-option input {
-            width: auto;
-            margin-right: 8px;
-        }
-        .success-message {
-            background: #28a745;
-            color: white;
-            padding: 15px;
-            border-radius: 10px;
-            margin-top: 20px;
-            display: none;
-        }
-        .error-message {
-            background: #dc3545;
-            color: white;
-            padding: 15px;
-            border-radius: 10px;
-            margin-top: 20px;
-            display: none;
-        }
+        body { font-family: Arial, sans-serif; margin: 40px; background: #f5f5f5; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 40px; border-radius: 10px; }
+        .header { text-align: center; margin-bottom: 40px; }
+        .logo { font-size: 2rem; font-weight: bold; color: #667eea; }
+        .lang-buttons { text-align: center; margin: 30px 0; }
+        .lang-buttons button { margin: 5px; padding: 10px 20px; border: none; border-radius: 25px; background: #667eea; color: white; cursor: pointer; }
+        .lang-buttons button.active { background: #764ba2; }
+        .lang { display: none; }
+        .lang.active { display: block; }
+        .lang.he { direction: rtl; text-align: right; }
+        .lang.he h2, .lang.he h3 { text-align: right; }
+        .lang.he p { text-align: right; }
+        .lang.he a { float: left; }
+        .article { margin: 20px 0; padding: 20px; border-left: 4px solid #667eea; background: #f9f9f9; }
+        .article h3 { margin: 0 0 10px 0; color: #333; }
+        .article p { color: #666; margin: 10px 0; }
+        .article a { color: #667eea; text-decoration: none; font-weight: bold; }
+        .footer { text-align: center; margin-top: 40px; color: #666; }
+        .subscription { background: #667eea; color: white; padding: 30px; margin: 40px 0; border-radius: 10px; text-align: center; }
+        .subscription input { padding: 10px; margin: 10px; border: none; border-radius: 5px; }
+        .subscription button { background: #FFD700; color: #333; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-weight: bold; }
+        .subscription .lang.he { direction: rtl; text-align: right; }
+        .subscription .lang.he input { text-align: right; }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
             <div class="logo">🤖 AI News</div>
-            <div class="tagline">Cyprus Daily Digest • Powered by AI</div>
-            <div class="date-info">Sunday, 2025-07-13</div>
-            <div class="update-time">Updated at 7:00 AM Cyprus Time</div>
-        </div>
-        
-        <div class="stats">
-            <div class="stat">
-                <div class="stat-number">16</div>
-                <div class="stat-label">Stories Today</div>
-            </div>
-            <div class="stat">
-                <div class="stat-number">4</div>
-                <div class="stat-label">Languages</div>
-            </div>
-            <div class="stat">
-                <div class="stat-number">6</div>
-                <div class="stat-label">Sources</div>
-            </div>
+            <p>Cyprus Daily Digest • Sunday, 2025-07-13</p>
         </div>
         
         <div class="lang-buttons">
@@ -278,499 +43,565 @@
             <button onclick="setLang('ru')" id="btn-ru">🇷🇺 Русский</button>
             <button onclick="setLang('el')" id="btn-el">🇬🇷 Ελληνικά</button>
         </div>
-
         
         <h2>
-            <span class="lang en active">Business &amp; Economy</span>
-            <span class="lang he">עסקים וכלכלה</span>
-            <span class="lang ru">Бизнес и экономика</span>
-            <span class="lang el">Επιχειρήσεις και Οικονομία</span>
-        </h2><div class="article">
+    <span class="lang en active">General News</span>
+    <span class="lang he">חדשות כלליות</span>
+    <span class="lang ru">Общие новости</span>
+    <span class="lang el">Γενικές Ειδήσεις</span>
+</h2><div class="article">
     <div class="lang en active">
-        <div class="article-title">Freedom Holding case study at Stanford, S&amp;P upgrade</div>
-        <div class="article-summary">Freedom Holding case study Stanford,</div>
-        <a href="https://www.financialmirror.com/2025/07/05/freedom-holding-case-study-at-stanford-sp-upgrade/" class="article-link" target="_blank">Read more</a>
+        <h3>Freedom Holding case study at Stanford, S&P upgrade</h3>
+        <p>Freedom Holding case study at Stanford, S&P upgrade</p>
+        <a href="https://www.financialmirror.com/2025/07/05/freedom-holding-case-study-at-stanford-sp-upgrade/" target="_blank">Read more</a>
     </div>
     <div class="lang he">
-        <div class="article-title">מקרה בוחן של Freedom Holding בסטנפורד, שדרוג של S&amp;P</div>
-        <div class="article-summary">מקרה בוחן של Freedom Holding בסטנפורד</div>
-        <a href="https://translate.google.com/translate?sl=auto&tl=he&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F07%2F05%2Ffreedom-holding-case-study-at-stanford-sp-upgrade%2F" class="article-link" target="_blank">קרא עוד</a>
+        <h3>מקרה בוחן של Freedom Holding בסטנפורד, שדרוג S&P</h3>
+        <p>מקרה בוחן של Freedom Holding בסטנפורד, שדרוג S&P</p>
+        <a href="https://translate.google.com/translate?sl=auto&tl=he&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F07%2F05%2Ffreedom-holding-case-study-at-stanford-sp-upgrade%2F" target="_blank">קרא עוד</a>
     </div>
     <div class="lang ru">
-        <div class="article-title">Исследование дела Freedom Holding в Стэнфорде, повышение рейтинга S&amp;P</div>
-        <div class="article-summary">Исследование дела Freedom Holding в Стэнфорде</div>
-        <a href="https://translate.google.com/translate?sl=auto&tl=ru&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F07%2F05%2Ffreedom-holding-case-study-at-stanford-sp-upgrade%2F" class="article-link" target="_blank">Читать далее</a>
+        <h3>Кейс Freedom Holding в Стэнфорде, повышение рейтинга S&P</h3>
+        <p>Кейс Freedom Holding в Стэнфорде, повышение рейтинга S&P</p>
+        <a href="https://translate.google.com/translate?sl=auto&tl=ru&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F07%2F05%2Ffreedom-holding-case-study-at-stanford-sp-upgrade%2F" target="_blank">Читать далее</a>
     </div>
     <div class="lang el">
-        <div class="article-title">Μελέτη περίπτωσης Freedom Holding στο Stanford, αναβάθμιση S&amp;P</div>
-        <div class="article-summary">Μελέτη περίπτωσης Freedom Holding στο Στάνφορντ</div>
-        <a href="https://translate.google.com/translate?sl=auto&tl=el&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F07%2F05%2Ffreedom-holding-case-study-at-stanford-sp-upgrade%2F" class="article-link" target="_blank">Διαβάστε περισσότερα</a>
+        <h3>Μελέτη περίπτωσης Freedom Holding στο Στάνφορντ, αναβάθμιση S&P</h3>
+        <p>Μελέτη περίπτωσης Freedom Holding στο Στάνφορντ, αναβάθμιση S&P</p>
+        <a href="https://translate.google.com/translate?sl=auto&tl=el&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F07%2F05%2Ffreedom-holding-case-study-at-stanford-sp-upgrade%2F" target="_blank">Διαβάστε περισσότερα</a>
     </div>
 </div><div class="article">
     <div class="lang en active">
-        <div class="article-title">CCLEI sees moderate growth in June</div>
-        <div class="article-summary">CCLEI sees moderate growth June</div>
-        <a href="https://www.financialmirror.com/2025/06/27/cclei-sees-moderate-growth-in-june/" class="article-link" target="_blank">Read more</a>
+        <h3>CCLEI sees moderate growth in June</h3>
+        <p>CCLEI sees moderate growth in June</p>
+        <a href="https://www.financialmirror.com/2025/06/27/cclei-sees-moderate-growth-in-june/" target="_blank">Read more</a>
     </div>
     <div class="lang he">
-        <div class="article-title">CCLEI רושם צמיחה מתונה ביוני</div>
-        <div class="article-summary">CCLEI רושמת צמיחה מתונה ביוני</div>
-        <a href="https://translate.google.com/translate?sl=auto&tl=he&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F06%2F27%2Fcclei-sees-moderate-growth-in-june%2F" class="article-link" target="_blank">קרא עוד</a>
+        <h3>CCLEI רואה צמיחה מתונה ביוני</h3>
+        <p>CCLEI רואה צמיחה מתונה ביוני</p>
+        <a href="https://translate.google.com/translate?sl=auto&tl=he&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F06%2F27%2Fcclei-sees-moderate-growth-in-june%2F" target="_blank">קרא עוד</a>
     </div>
     <div class="lang ru">
-        <div class="article-title">CCLEI наблюдает умеренный рост в июне</div>
-        <div class="article-summary">CCLEI наблюдает умеренный рост в июне</div>
-        <a href="https://translate.google.com/translate?sl=auto&tl=ru&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F06%2F27%2Fcclei-sees-moderate-growth-in-june%2F" class="article-link" target="_blank">Читать далее</a>
+        <h3>CCLEI наблюдает умеренный рост в июне</h3>
+        <p>CCLEI наблюдает умеренный рост в июне</p>
+        <a href="https://translate.google.com/translate?sl=auto&tl=ru&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F06%2F27%2Fcclei-sees-moderate-growth-in-june%2F" target="_blank">Читать далее</a>
     </div>
     <div class="lang el">
-        <div class="article-title">CCLEI: Μέτρια ανάπτυξη τον Ιούνιο</div>
-        <div class="article-summary">CCLEI: Μέτρια ανάπτυξη τον Ιούνιο</div>
-        <a href="https://translate.google.com/translate?sl=auto&tl=el&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F06%2F27%2Fcclei-sees-moderate-growth-in-june%2F" class="article-link" target="_blank">Διαβάστε περισσότερα</a>
+        <h3>CCLEI βλέπει μέτρια ανάπτυξη τον Ιούνιο.</h3>
+        <p>CCLEI βλέπει μέτρια ανάπτυξη τον Ιούνιο.</p>
+        <a href="https://translate.google.com/translate?sl=auto&tl=el&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F06%2F27%2Fcclei-sees-moderate-growth-in-june%2F" target="_blank">Διαβάστε περισσότερα</a>
     </div>
 </div><div class="article">
     <div class="lang en active">
-        <div class="article-title">Cyprus drops one place in IMD rankings</div>
-        <div class="article-summary">Cyprus drops place rankings</div>
-        <a href="https://www.financialmirror.com/2025/06/18/cyprus-drops-one-place-in-imd-rankings/" class="article-link" target="_blank">Read more</a>
+        <h3>Cyprus risk higher amid Mideast tension, UN cuts</h3>
+        <p>Cyprus risk higher amid Mideast tension, UN cuts</p>
+        <a href="https://www.financialmirror.com/2025/06/24/cyprus-risk-higher-amid-mideast-tension-un-cuts/" target="_blank">Read more</a>
     </div>
     <div class="lang he">
-        <div class="article-title">קפריסין ירדה מקום אחד בדירוגי IMD</div>
-        <div class="article-summary">קפריסין מאבדת דירוג במקומות</div>
-        <a href="https://translate.google.com/translate?sl=auto&tl=he&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F06%2F18%2Fcyprus-drops-one-place-in-imd-rankings%2F" class="article-link" target="_blank">קרא עוד</a>
+        <h3>סיכון קפריסין גבוה יותר amid מתיחות במזרח התיכון, קיצוצים של האומות המאוחדות</h3>
+        <p>סיכון קפריסין גבוה יותר amid מתיחות במזרח התיכון, קיצוצים של האומות המאוחדות</p>
+        <a href="https://translate.google.com/translate?sl=auto&tl=he&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F06%2F24%2Fcyprus-risk-higher-amid-mideast-tension-un-cuts%2F" target="_blank">קרא עוד</a>
     </div>
     <div class="lang ru">
-        <div class="article-title">Кипр опустился на одно место в рейтинге IMD</div>
-        <div class="article-summary">Кипр потерял позиции в рейтингах</div>
-        <a href="https://translate.google.com/translate?sl=auto&tl=ru&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F06%2F18%2Fcyprus-drops-one-place-in-imd-rankings%2F" class="article-link" target="_blank">Читать далее</a>
+        <h3>Риск на Кипре возрастает на фоне напряженности на Ближнем Востоке и сокращений в ООН.</h3>
+        <p>Риск на Кипре возрастает на фоне напряженности на Ближнем Востоке и сокращений в ООН.</p>
+        <a href="https://translate.google.com/translate?sl=auto&tl=ru&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F06%2F24%2Fcyprus-risk-higher-amid-mideast-tension-un-cuts%2F" target="_blank">Читать далее</a>
     </div>
     <div class="lang el">
-        <div class="article-title">Η Κύπρος υποχώρησε μία θέση στην κατάταξη του IMD</div>
-        <div class="article-summary">Η Κύπρος υποχωρεί στη βαθμολογία θέσεων</div>
-        <a href="https://translate.google.com/translate?sl=auto&tl=el&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F06%2F18%2Fcyprus-drops-one-place-in-imd-rankings%2F" class="article-link" target="_blank">Διαβάστε περισσότερα</a>
+        <h3>Κίνδυνος για την Κύπρο αυξάνεται λόγω της έντασης στη Μέση Ανατολή, περικοπές από τον ΟΗΕ</h3>
+        <p>Κίνδυνος για την Κύπρο αυξάνεται λόγω της έντασης στη Μέση Ανατολή, περικοπές από τον ΟΗΕ</p>
+        <a href="https://translate.google.com/translate?sl=auto&tl=el&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F06%2F24%2Fcyprus-risk-higher-amid-mideast-tension-un-cuts%2F" target="_blank">Διαβάστε περισσότερα</a>
     </div>
 </div><div class="article">
     <div class="lang en active">
-        <div class="article-title">Freedom Holding case study at Stanford, S&amp;P upgrade</div>
-        <div class="article-summary">Freedom Holding case study Stanford,</div>
-        <a href="https://www.financialmirror.com/2025/07/05/freedom-holding-case-study-at-stanford-sp-upgrade/" class="article-link" target="_blank">Read more</a>
+        <h3>Cyprus drops one place in IMD rankings</h3>
+        <p>Cyprus drops one place in IMD rankings</p>
+        <a href="https://www.financialmirror.com/2025/06/18/cyprus-drops-one-place-in-imd-rankings/" target="_blank">Read more</a>
     </div>
     <div class="lang he">
-        <div class="article-title">מקרה בוחן של Freedom Holding בסטנפורד, שדרוג של S&amp;P</div>
-        <div class="article-summary">מקרה בוחן של Freedom Holding בסטנפורד</div>
-        <a href="https://translate.google.com/translate?sl=auto&tl=he&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F07%2F05%2Ffreedom-holding-case-study-at-stanford-sp-upgrade%2F" class="article-link" target="_blank">קרא עוד</a>
+        <h3>קפריסין ירדה מקום אחד בדירוגי IMD</h3>
+        <p>קפריסין ירדה מקום אחד בדירוגי IMD</p>
+        <a href="https://translate.google.com/translate?sl=auto&tl=he&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F06%2F18%2Fcyprus-drops-one-place-in-imd-rankings%2F" target="_blank">קרא עוד</a>
     </div>
     <div class="lang ru">
-        <div class="article-title">Исследование дела Freedom Holding в Стэнфорде, повышение рейтинга S&amp;P</div>
-        <div class="article-summary">Исследование дела Freedom Holding в Стэнфорде</div>
-        <a href="https://translate.google.com/translate?sl=auto&tl=ru&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F07%2F05%2Ffreedom-holding-case-study-at-stanford-sp-upgrade%2F" class="article-link" target="_blank">Читать далее</a>
+        <h3>Кипр опустился на одно место в рейтинге IMD.</h3>
+        <p>Кипр опустился на одно место в рейтинге IMD.</p>
+        <a href="https://translate.google.com/translate?sl=auto&tl=ru&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F06%2F18%2Fcyprus-drops-one-place-in-imd-rankings%2F" target="_blank">Читать далее</a>
     </div>
     <div class="lang el">
-        <div class="article-title">Μελέτη περίπτωσης Freedom Holding στο Stanford, αναβάθμιση S&amp;P</div>
-        <div class="article-summary">Μελέτη περίπτωσης Freedom Holding στο Στάνφορντ</div>
-        <a href="https://translate.google.com/translate?sl=auto&tl=el&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F07%2F05%2Ffreedom-holding-case-study-at-stanford-sp-upgrade%2F" class="article-link" target="_blank">Διαβάστε περισσότερα</a>
+        <h3>Η Κύπρος υποχώρησε μία θέση στην κατάταξη IMD.</h3>
+        <p>Η Κύπρος υποχώρησε μία θέση στην κατάταξη IMD.</p>
+        <a href="https://translate.google.com/translate?sl=auto&tl=el&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F06%2F18%2Fcyprus-drops-one-place-in-imd-rankings%2F" target="_blank">Διαβάστε περισσότερα</a>
     </div>
 </div><div class="article">
     <div class="lang en active">
-        <div class="article-title">Netflix market cap up $103 bln in Jan-May</div>
-        <div class="article-summary">Economic update: Netflix market $103 Jan-May</div>
-        <a href="https://www.financialmirror.com/2025/05/16/netflix-market-cap-up-103-bln-in-jan-may/" class="article-link" target="_blank">Read more</a>
+        <h3>Morgan Crowley to feature at James Joyce fest</h3>
+        <p>Morgan Crowley to feature at James Joyce fest</p>
+        <a href="https://www.financialmirror.com/2025/06/10/morgan-crowley-to-feature-at-james-joyce-fest/" target="_blank">Read more</a>
     </div>
     <div class="lang he">
-        <div class="article-title">שווי השוק של נטפליקס עלה ב-103 מיליארד דולר בין ינואר למאי</div>
-        <div class="article-summary">עדכון כלכלי: שווי שוק נטפליקס 103 מיליארד דולר ינואר-מאי</div>
-        <a href="https://translate.google.com/translate?sl=auto&tl=he&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F05%2F16%2Fnetflix-market-cap-up-103-bln-in-jan-may%2F" class="article-link" target="_blank">קרא עוד</a>
+        <h3>מורגן קרולי יופיע בפסטיבל ג'יימס ג'ויס</h3>
+        <p>מורגן קרולי יופיע בפסטיבל ג'יימס ג'ויס</p>
+        <a href="https://translate.google.com/translate?sl=auto&tl=he&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F06%2F10%2Fmorgan-crowley-to-feature-at-james-joyce-fest%2F" target="_blank">קרא עוד</a>
     </div>
     <div class="lang ru">
-        <div class="article-title">Рыночная капитализация Netflix увеличилась на $103 млрд с января по май</div>
-        <div class="article-summary">Экономический отчет: рынок Netflix $103 с января по май</div>
-        <a href="https://translate.google.com/translate?sl=auto&tl=ru&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F05%2F16%2Fnetflix-market-cap-up-103-bln-in-jan-may%2F" class="article-link" target="_blank">Читать далее</a>
+        <h3>Морган Кроули примет участие в фестивале Джеймса Джойса</h3>
+        <p>Морган Кроули примет участие в фестивале Джеймса Джойса</p>
+        <a href="https://translate.google.com/translate?sl=auto&tl=ru&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F06%2F10%2Fmorgan-crowley-to-feature-at-james-joyce-fest%2F" target="_blank">Читать далее</a>
     </div>
     <div class="lang el">
-        <div class="article-title">Η κεφαλαιοποίηση της Netflix αυξήθηκε κατά 103 δισ. δολάρια από Ιανουάριο έως Μάιο</div>
-        <div class="article-summary">Οικονομική ενημέρωση: Αγορά Netflix 103 δισ. δολάρια Ιανουάριος-Μάιος</div>
-        <a href="https://translate.google.com/translate?sl=auto&tl=el&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F05%2F16%2Fnetflix-market-cap-up-103-bln-in-jan-may%2F" class="article-link" target="_blank">Διαβάστε περισσότερα</a>
+        <h3>Η Μόργκαν Κρόουλι θα συμμετάσχει στο φεστιβάλ Τζέιμς Τζόις.</h3>
+        <p>Η Μόργκαν Κρόουλι θα συμμετάσχει στο φεστιβάλ Τζέιμς Τζόις.</p>
+        <a href="https://translate.google.com/translate?sl=auto&tl=el&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F06%2F10%2Fmorgan-crowley-to-feature-at-james-joyce-fest%2F" target="_blank">Διαβάστε περισσότερα</a>
     </div>
 </div><div class="article">
     <div class="lang en active">
-        <div class="article-title">Top U.S. stocks lose $740 bln in value amid anti-Trump sentiment</div>
-        <div class="article-summary">U.S. stocks lose $740 value</div>
-        <a href="https://www.financialmirror.com/2025/04/27/top-u-s-stocks-lose-740-bln-in-value-amid-anti-trump-sentiment/" class="article-link" target="_blank">Read more</a>
+        <h3>The EU’s action plan for affordable energy</h3>
+        <p>The EU’s action plan for affordable energy</p>
+        <a href="https://www.financialmirror.com/2025/06/06/the-eus-action-plan-for-affordable-energy/" target="_blank">Read more</a>
     </div>
     <div class="lang he">
-        <div class="article-title">מניות המובילות בארה&quot;ב מאבדות 740 מיליארד דולר בערך בעקבות תחושות אנטי-טראמפ</div>
-        <div class="article-summary">מניות ארה&quot;ב מאבדות ערך של 740 דולר</div>
-        <a href="https://translate.google.com/translate?sl=auto&tl=he&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F04%2F27%2Ftop-u-s-stocks-lose-740-bln-in-value-amid-anti-trump-sentiment%2F" class="article-link" target="_blank">קרא עוד</a>
+        <h3>תוכנית הפעולה של האיחוד האירופי לאנרגיה נוחה</h3>
+        <p>תוכנית הפעולה של האיחוד האירופי לאנרגיה נוחה</p>
+        <a href="https://translate.google.com/translate?sl=auto&tl=he&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F06%2F06%2Fthe-eus-action-plan-for-affordable-energy%2F" target="_blank">קרא עוד</a>
     </div>
     <div class="lang ru">
-        <div class="article-title">Крупнейшие акции США потеряли $740 миллиардов в стоимости на фоне антиполитики Трампа</div>
-        <div class="article-summary">Американские акции потеряли $740 миллиардов в стоимости</div>
-        <a href="https://translate.google.com/translate?sl=auto&tl=ru&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F04%2F27%2Ftop-u-s-stocks-lose-740-bln-in-value-amid-anti-trump-sentiment%2F" class="article-link" target="_blank">Читать далее</a>
+        <h3>План действий ЕС по доступной энергии</h3>
+        <p>План действий ЕС по доступной энергии</p>
+        <a href="https://translate.google.com/translate?sl=auto&tl=ru&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F06%2F06%2Fthe-eus-action-plan-for-affordable-energy%2F" target="_blank">Читать далее</a>
     </div>
     <div class="lang el">
-        <div class="article-title">Οι κορυφαίες μετοχές των Η.Π.Α. χάνουν 740 δισ. δολάρια σε αξία εν μέσω αντι-Τραμπ συναισθημάτων</div>
-        <div class="article-summary">Οι μετοχές των Η.Π.Α. χάνουν αξία 740 δισεκατομμυρίων δολαρίων</div>
-        <a href="https://translate.google.com/translate?sl=auto&tl=el&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F04%2F27%2Ftop-u-s-stocks-lose-740-bln-in-value-amid-anti-trump-sentiment%2F" class="article-link" target="_blank">Διαβάστε περισσότερα</a>
+        <h3>Το σχέδιο δράσης της ΕΕ για προσιτή ενέργεια</h3>
+        <p>Το σχέδιο δράσης της ΕΕ για προσιτή ενέργεια</p>
+        <a href="https://translate.google.com/translate?sl=auto&tl=el&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F06%2F06%2Fthe-eus-action-plan-for-affordable-energy%2F" target="_blank">Διαβάστε περισσότερα</a>
     </div>
 </div><div class="article">
     <div class="lang en active">
-        <div class="article-title">Tesla Europe sales plummet in Q1</div>
-        <div class="article-summary">Tesla Europe sales plummet</div>
-        <a href="https://www.financialmirror.com/2025/04/25/tesla-europe-sales-plummet-in-q1/" class="article-link" target="_blank">Read more</a>
+        <h3>Discipline, governance needed to build a resilient balance sheet</h3>
+        <p>Discipline, governance needed to build a resilient balance sheet</p>
+        <a href="https://www.financialmirror.com/2025/06/04/discipline-governance-needed-to-build-a-resilient-balance-sheet/" target="_blank">Read more</a>
     </div>
     <div class="lang he">
-        <div class="article-title">מכירות טסלה באירופה צונחות ברבעון הראשון</div>
-        <div class="article-summary">מכירות טסלה באירופה צונחות</div>
-        <a href="https://translate.google.com/translate?sl=auto&tl=he&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F04%2F25%2Ftesla-europe-sales-plummet-in-q1%2F" class="article-link" target="_blank">קרא עוד</a>
+        <h3>דיסציפלינה, ממשלה נדרשות לבניית מאזן חזק.</h3>
+        <p>דיסציפלינה, ממשלה נדרשות לבניית מאזן חזק.</p>
+        <a href="https://translate.google.com/translate?sl=auto&tl=he&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F06%2F04%2Fdiscipline-governance-needed-to-build-a-resilient-balance-sheet%2F" target="_blank">קרא עוד</a>
     </div>
     <div class="lang ru">
-        <div class="article-title">Продажи Tesla в Европе резко упали в первом квартале</div>
-        <div class="article-summary">Продажи Tesla в Европе резко упали</div>
-        <a href="https://translate.google.com/translate?sl=auto&tl=ru&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F04%2F25%2Ftesla-europe-sales-plummet-in-q1%2F" class="article-link" target="_blank">Читать далее</a>
+        <h3>Необходимы дисциплина и управление для создания устойчивого баланса.</h3>
+        <p>Необходимы дисциплина и управление для создания устойчивого баланса.</p>
+        <a href="https://translate.google.com/translate?sl=auto&tl=ru&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F06%2F04%2Fdiscipline-governance-needed-to-build-a-resilient-balance-sheet%2F" target="_blank">Читать далее</a>
     </div>
     <div class="lang el">
-        <div class="article-title">Οι πωλήσεις της Tesla στην Ευρώπη καταρρέουν το πρώτο τρίμηνο</div>
-        <div class="article-summary">Οι πωλήσεις της Tesla στην Ευρώπη καταρρέουν</div>
-        <a href="https://translate.google.com/translate?sl=auto&tl=el&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F04%2F25%2Ftesla-europe-sales-plummet-in-q1%2F" class="article-link" target="_blank">Διαβάστε περισσότερα</a>
+        <h3>Πειθαρχία και διακυβέρνηση απαραίτητες για την οικοδόμηση ενός ανθεκτικού ισολογισμού.</h3>
+        <p>Πειθαρχία και διακυβέρνηση απαραίτητες για την οικοδόμηση ενός ανθεκτικού ισολογισμού.</p>
+        <a href="https://translate.google.com/translate?sl=auto&tl=el&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F06%2F04%2Fdiscipline-governance-needed-to-build-a-resilient-balance-sheet%2F" target="_blank">Διαβάστε περισσότερα</a>
+    </div>
+</div><div class="article">
+    <div class="lang en active">
+        <h3>Freedom Holding case study at Stanford, S&P upgrade</h3>
+        <p>Freedom Holding case study at Stanford, S&P upgrade</p>
+        <a href="https://www.financialmirror.com/2025/07/05/freedom-holding-case-study-at-stanford-sp-upgrade/" target="_blank">Read more</a>
+    </div>
+    <div class="lang he">
+        <h3>מקרה בוחן של Freedom Holding בסטנפורד, שדרוג S&P</h3>
+        <p>מקרה בוחן של Freedom Holding בסטנפורד, שדרוג S&P</p>
+        <a href="https://translate.google.com/translate?sl=auto&tl=he&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F07%2F05%2Ffreedom-holding-case-study-at-stanford-sp-upgrade%2F" target="_blank">קרא עוד</a>
+    </div>
+    <div class="lang ru">
+        <h3>Кейс Freedom Holding в Стэнфорде, повышение рейтинга S&P</h3>
+        <p>Кейс Freedom Holding в Стэнфорде, повышение рейтинга S&P</p>
+        <a href="https://translate.google.com/translate?sl=auto&tl=ru&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F07%2F05%2Ffreedom-holding-case-study-at-stanford-sp-upgrade%2F" target="_blank">Читать далее</a>
+    </div>
+    <div class="lang el">
+        <h3>Μελέτη περίπτωσης Freedom Holding στο Stanford, αναβάθμιση S&P</h3>
+        <p>Μελέτη περίπτωσης Freedom Holding στο Stanford, αναβάθμιση S&P</p>
+        <a href="https://translate.google.com/translate?sl=auto&tl=el&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F07%2F05%2Ffreedom-holding-case-study-at-stanford-sp-upgrade%2F" target="_blank">Διαβάστε περισσότερα</a>
+    </div>
+</div><div class="article">
+    <div class="lang en active">
+        <h3>Netflix market cap up $103 bln in Jan-May</h3>
+        <p>Netflix market cap up $103 bln in Jan-May</p>
+        <a href="https://www.financialmirror.com/2025/05/16/netflix-market-cap-up-103-bln-in-jan-may/" target="_blank">Read more</a>
+    </div>
+    <div class="lang he">
+        <h3>שווי השוק של נטפליקס עלה ב-103 מיליארד דולר בינואר-מאי</h3>
+        <p>שווי השוק של נטפליקס עלה ב-103 מיליארד דולר בינואר-מאי</p>
+        <a href="https://translate.google.com/translate?sl=auto&tl=he&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F05%2F16%2Fnetflix-market-cap-up-103-bln-in-jan-may%2F" target="_blank">קרא עוד</a>
+    </div>
+    <div class="lang ru">
+        <h3>Рыночная капитализация Netflix увеличилась на 103 миллиарда долларов с января по май.</h3>
+        <p>Рыночная капитализация Netflix увеличилась на 103 миллиарда долларов с января по май.</p>
+        <a href="https://translate.google.com/translate?sl=auto&tl=ru&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F05%2F16%2Fnetflix-market-cap-up-103-bln-in-jan-may%2F" target="_blank">Читать далее</a>
+    </div>
+    <div class="lang el">
+        <h3>Η κεφαλαιοποίηση της Netflix αυξήθηκε κατά 103 δισ. δολάρια από Ιανουάριο έως Μάιο.</h3>
+        <p>Η κεφαλαιοποίηση της Netflix αυξήθηκε κατά 103 δισ. δολάρια από Ιανουάριο έως Μάιο.</p>
+        <a href="https://translate.google.com/translate?sl=auto&tl=el&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F05%2F16%2Fnetflix-market-cap-up-103-bln-in-jan-may%2F" target="_blank">Διαβάστε περισσότερα</a>
+    </div>
+</div><div class="article">
+    <div class="lang en active">
+        <h3>Top U.S. stocks lose $740 bln in value amid anti-Trump sentiment</h3>
+        <p>Top U.S. stocks lose $740 bln in value amid anti-Trump sentiment</p>
+        <a href="https://www.financialmirror.com/2025/04/27/top-u-s-stocks-lose-740-bln-in-value-amid-anti-trump-sentiment/" target="_blank">Read more</a>
+    </div>
+    <div class="lang he">
+        <h3>מניות המובילות בארה"ב מאבדות 740 מיליארד דולר בערך בעקבות תחושות אנטי-טראמפ</h3>
+        <p>מניות המובילות בארה"ב מאבדות 740 מיליארד דולר בערך בעקבות תחושות אנטי-טראמפ</p>
+        <a href="https://translate.google.com/translate?sl=auto&tl=he&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F04%2F27%2Ftop-u-s-stocks-lose-740-bln-in-value-amid-anti-trump-sentiment%2F" target="_blank">קרא עוד</a>
+    </div>
+    <div class="lang ru">
+        <h3>Ведущие акции США потеряли $740 млрд в стоимости на фоне антик Трамповских настроений.</h3>
+        <p>Ведущие акции США потеряли $740 млрд в стоимости на фоне антик Трамповских настроений.</p>
+        <a href="https://translate.google.com/translate?sl=auto&tl=ru&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F04%2F27%2Ftop-u-s-stocks-lose-740-bln-in-value-amid-anti-trump-sentiment%2F" target="_blank">Читать далее</a>
+    </div>
+    <div class="lang el">
+        <h3>Οι κορυφαίες μετοχές των Η.Π.Α. χάνουν 740 δισ. δολάρια σε αξία λόγω αντι-Τραμπ συναισθημάτων.</h3>
+        <p>Οι κορυφαίες μετοχές των Η.Π.Α. χάνουν 740 δισ. δολάρια σε αξία λόγω αντι-Τραμπ συναισθημάτων.</p>
+        <a href="https://translate.google.com/translate?sl=auto&tl=el&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F04%2F27%2Ftop-u-s-stocks-lose-740-bln-in-value-amid-anti-trump-sentiment%2F" target="_blank">Διαβάστε περισσότερα</a>
+    </div>
+</div><div class="article">
+    <div class="lang en active">
+        <h3>Dogecoin recovers as Musk to step back from D.O.G.E.</h3>
+        <p>Dogecoin recovers as Musk to step back from D.O.G.E.</p>
+        <a href="https://www.financialmirror.com/2025/04/26/dogecoin-recovers-as-musk-to-step-back-from-d-o-g-e/" target="_blank">Read more</a>
+    </div>
+    <div class="lang he">
+        <h3>דוגקוין מתאושש כאשר מאסק מתכוון להתרחק מ-D.O.G.E.</h3>
+        <p>דוגקוין מתאושש כאשר מאסק מתכוון להתרחק מ-D.O.G.E.</p>
+        <a href="https://translate.google.com/translate?sl=auto&tl=he&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F04%2F26%2Fdogecoin-recovers-as-musk-to-step-back-from-d-o-g-e%2F" target="_blank">קרא עוד</a>
+    </div>
+    <div class="lang ru">
+        <h3>Догекоин восстанавливается, так как Маск отходит от D.O.G.E.</h3>
+        <p>Догекоин восстанавливается, так как Маск отходит от D.O.G.E.</p>
+        <a href="https://translate.google.com/translate?sl=auto&tl=ru&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F04%2F26%2Fdogecoin-recovers-as-musk-to-step-back-from-d-o-g-e%2F" target="_blank">Читать далее</a>
+    </div>
+    <div class="lang el">
+        <h3>Το Dogecoin ανακάμπτει καθώς ο Μασκ αποσύρεται από το D.O.G.E.</h3>
+        <p>Το Dogecoin ανακάμπτει καθώς ο Μασκ αποσύρεται από το D.O.G.E.</p>
+        <a href="https://translate.google.com/translate?sl=auto&tl=el&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F04%2F26%2Fdogecoin-recovers-as-musk-to-step-back-from-d-o-g-e%2F" target="_blank">Διαβάστε περισσότερα</a>
+    </div>
+</div><div class="article">
+    <div class="lang en active">
+        <h3>Tesla Europe sales plummet in Q1</h3>
+        <p>Tesla Europe sales plummet in Q1</p>
+        <a href="https://www.financialmirror.com/2025/04/25/tesla-europe-sales-plummet-in-q1/" target="_blank">Read more</a>
+    </div>
+    <div class="lang he">
+        <h3>מכירות טסלה באירופה צונחות ברבעון הראשון</h3>
+        <p>מכירות טסלה באירופה צונחות ברבעון הראשון</p>
+        <a href="https://translate.google.com/translate?sl=auto&tl=he&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F04%2F25%2Ftesla-europe-sales-plummet-in-q1%2F" target="_blank">קרא עוד</a>
+    </div>
+    <div class="lang ru">
+        <h3>Продажи Tesla в Европе резко упали в первом квартале.</h3>
+        <p>Продажи Tesla в Европе резко упали в первом квартале.</p>
+        <a href="https://translate.google.com/translate?sl=auto&tl=ru&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F04%2F25%2Ftesla-europe-sales-plummet-in-q1%2F" target="_blank">Читать далее</a>
+    </div>
+    <div class="lang el">
+        <h3>Οι πωλήσεις της Tesla στην Ευρώπη καταρρέουν το πρώτο τρίμηνο.</h3>
+        <p>Οι πωλήσεις της Tesla στην Ευρώπη καταρρέουν το πρώτο τρίμηνο.</p>
+        <a href="https://translate.google.com/translate?sl=auto&tl=el&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F04%2F25%2Ftesla-europe-sales-plummet-in-q1%2F" target="_blank">Διαβάστε περισσότερα</a>
+    </div>
+</div><div class="article">
+    <div class="lang en active">
+        <h3>Cyprus Rocks classic rock festival returns to Protaras in October 2025</h3>
+        <p>Cyprus Rocks classic rock festival returns to Protaras in October 2025</p>
+        <a href="https://in-cyprus.philenews.com/whats-on/cyprus-rocks-2025-classic-rock-festival-protaras-october/" target="_blank">Read more</a>
+    </div>
+    <div class="lang he">
+        <h3>פסטיבל הרוק הקלאסי של קפריסין חוזר לפרוטארס באוקטובר 2025</h3>
+        <p>פסטיבל הרוק הקלאסי של קפריסין חוזר לפרוטארס באוקטובר 2025</p>
+        <a href="https://translate.google.com/translate?sl=auto&tl=he&u=https%3A%2F%2Fin-cyprus.philenews.com%2Fwhats-on%2Fcyprus-rocks-2025-classic-rock-festival-protaras-october%2F" target="_blank">קרא עוד</a>
+    </div>
+    <div class="lang ru">
+        <h3>Фестиваль классического рока Cyprus Rocks возвращается в Протарас в октябре 2025 года.</h3>
+        <p>Фестиваль классического рока Cyprus Rocks возвращается в Протарас в октябре 2025 года.</p>
+        <a href="https://translate.google.com/translate?sl=auto&tl=ru&u=https%3A%2F%2Fin-cyprus.philenews.com%2Fwhats-on%2Fcyprus-rocks-2025-classic-rock-festival-protaras-october%2F" target="_blank">Читать далее</a>
+    </div>
+    <div class="lang el">
+        <h3>Το φεστιβάλ κλασικού ροκ Cyprus Rocks επιστρέφει στην Πρωταρά τον Οκτώβριο του 2025.</h3>
+        <p>Το φεστιβάλ κλασικού ροκ Cyprus Rocks επιστρέφει στην Πρωταρά τον Οκτώβριο του 2025.</p>
+        <a href="https://translate.google.com/translate?sl=auto&tl=el&u=https%3A%2F%2Fin-cyprus.philenews.com%2Fwhats-on%2Fcyprus-rocks-2025-classic-rock-festival-protaras-october%2F" target="_blank">Διαβάστε περισσότερα</a>
+    </div>
+</div><div class="article">
+    <div class="lang en active">
+        <h3>Rachel Portman in Cyprus: A world-renowned composer takes centre stage at Minthis Music Festival</h3>
+        <p>Rachel Portman in Cyprus: A world-renowned composer takes centre stage at Minthis Music Festival</p>
+        <a href="https://in-cyprus.philenews.com/whats-on/rachel-portman-in-cyprus-a-world-renowned-composer-takes-center-stage-at-the-minthis-music-festival/" target="_blank">Read more</a>
+    </div>
+    <div class="lang he">
+        <h3>רחל פורטמן בקפריסין: מלחינה ידועה עולמית במרכז הבמה בפסטיבל המוזיקה מינתיס</h3>
+        <p>רחל פורטמן בקפריסין: מלחינה ידועה עולמית במרכז הבמה בפסטיבל המוזיקה מינתיס</p>
+        <a href="https://translate.google.com/translate?sl=auto&tl=he&u=https%3A%2F%2Fin-cyprus.philenews.com%2Fwhats-on%2Frachel-portman-in-cyprus-a-world-renowned-composer-takes-center-stage-at-the-minthis-music-festival%2F" target="_blank">קרא עוד</a>
+    </div>
+    <div class="lang ru">
+        <h3>Рэйчел Портман на Кипре: всемирно известная композитор занимает центральное место на Музыкальном фестивале Минтис.</h3>
+        <p>Рэйчел Портман на Кипре: всемирно известная композитор занимает центральное место на Музыкальном фестивале Минтис.</p>
+        <a href="https://translate.google.com/translate?sl=auto&tl=ru&u=https%3A%2F%2Fin-cyprus.philenews.com%2Fwhats-on%2Frachel-portman-in-cyprus-a-world-renowned-composer-takes-center-stage-at-the-minthis-music-festival%2F" target="_blank">Читать далее</a>
+    </div>
+    <div class="lang el">
+        <h3>Ρέιτσελ Πόρτμαν στην Κύπρο: Μια παγκοσμίου φήμης συνθέτης στο επίκεντρο του Φεστιβάλ Μουσικής Μίνθις</h3>
+        <p>Ρέιτσελ Πόρτμαν στην Κύπρο: Μια παγκοσμίου φήμης συνθέτης στο επίκεντρο του Φεστιβάλ Μουσικής Μίνθις</p>
+        <a href="https://translate.google.com/translate?sl=auto&tl=el&u=https%3A%2F%2Fin-cyprus.philenews.com%2Fwhats-on%2Frachel-portman-in-cyprus-a-world-renowned-composer-takes-center-stage-at-the-minthis-music-festival%2F" target="_blank">Διαβάστε περισσότερα</a>
+    </div>
+</div><div class="article">
+    <div class="lang en active">
+        <h3>Masked participants sought for secret theatre experience in Nicosia</h3>
+        <p>Masked participants sought for secret theatre experience in Nicosia</p>
+        <a href="https://in-cyprus.philenews.com/whats-on/yasemin-collective-mystery-pop-up-experience-nicosia-interactive-theatre/" target="_blank">Read more</a>
+    </div>
+    <div class="lang he">
+        <h3>מחפשים משתתפים עם מסכות לחוויית תיאטרון סודית בניקוסיה</h3>
+        <p>מחפשים משתתפים עם מסכות לחוויית תיאטרון סודית בניקוסיה</p>
+        <a href="https://translate.google.com/translate?sl=auto&tl=he&u=https%3A%2F%2Fin-cyprus.philenews.com%2Fwhats-on%2Fyasemin-collective-mystery-pop-up-experience-nicosia-interactive-theatre%2F" target="_blank">קרא עוד</a>
+    </div>
+    <div class="lang ru">
+        <h3>В Никосии ищут участников в масках для секретного театрального опыта.</h3>
+        <p>В Никосии ищут участников в масках для секретного театрального опыта.</p>
+        <a href="https://translate.google.com/translate?sl=auto&tl=ru&u=https%3A%2F%2Fin-cyprus.philenews.com%2Fwhats-on%2Fyasemin-collective-mystery-pop-up-experience-nicosia-interactive-theatre%2F" target="_blank">Читать далее</a>
+    </div>
+    <div class="lang el">
+        <h3>Αναζητούνται συμμετέχοντες με μάσκες για μυστική θεατρική εμπειρία στη Λευκωσία.</h3>
+        <p>Αναζητούνται συμμετέχοντες με μάσκες για μυστική θεατρική εμπειρία στη Λευκωσία.</p>
+        <a href="https://translate.google.com/translate?sl=auto&tl=el&u=https%3A%2F%2Fin-cyprus.philenews.com%2Fwhats-on%2Fyasemin-collective-mystery-pop-up-experience-nicosia-interactive-theatre%2F" target="_blank">Διαβάστε περισσότερα</a>
+    </div>
+</div><div class="article">
+    <div class="lang en active">
+        <h3>YKAN operation results in five arrests, confiscation of more than 41,000 euros</h3>
+        <p>YKAN operation results in five arrests, confiscation of more than 41,000 euros</p>
+        <a href="https://in-cyprus.philenews.com/local/ykan-operation-results-in-five-arrests-confiscation-of-more-than-41000-euros/" target="_blank">Read more</a>
+    </div>
+    <div class="lang he">
+        <h3>מבצע יקא״ן מוביל למעצר חמישה אנשים, החרמת יותר מ-41,000 יורו.</h3>
+        <p>מבצע יקא״ן מוביל למעצר חמישה אנשים, החרמת יותר מ-41,000 יורו.</p>
+        <a href="https://translate.google.com/translate?sl=auto&tl=he&u=https%3A%2F%2Fin-cyprus.philenews.com%2Flocal%2Fykan-operation-results-in-five-arrests-confiscation-of-more-than-41000-euros%2F" target="_blank">קרא עוד</a>
+    </div>
+    <div class="lang ru">
+        <h3>Операция YKAN привела к пяти арестам и конфискации более 41,000 евро.</h3>
+        <p>Операция YKAN привела к пяти арестам и конфискации более 41,000 евро.</p>
+        <a href="https://translate.google.com/translate?sl=auto&tl=ru&u=https%3A%2F%2Fin-cyprus.philenews.com%2Flocal%2Fykan-operation-results-in-five-arrests-confiscation-of-more-than-41000-euros%2F" target="_blank">Читать далее</a>
+    </div>
+    <div class="lang el">
+        <h3>Επιχείρηση YKAN: πέντε συλλήψεις και κατάσχεση άνω των 41.000 ευρώ.</h3>
+        <p>Επιχείρηση YKAN: πέντε συλλήψεις και κατάσχεση άνω των 41.000 ευρώ.</p>
+        <a href="https://translate.google.com/translate?sl=auto&tl=el&u=https%3A%2F%2Fin-cyprus.philenews.com%2Flocal%2Fykan-operation-results-in-five-arrests-confiscation-of-more-than-41000-euros%2F" target="_blank">Διαβάστε περισσότερα</a>
+    </div>
+</div><div class="article">
+    <div class="lang en active">
+        <h3>Death of teenage motorcyclist in Paphos: Police investigate</h3>
+        <p>Death of teenage motorcyclist in Paphos: Police investigate</p>
+        <a href="https://in-cyprus.philenews.com/local/death-of-teenage-motorcyclist-in-paphos-police-investigate/" target="_blank">Read more</a>
+    </div>
+    <div class="lang he">
+        <h3>מותו של רוכב אופנוע מתבגר בפאפוס: המשטרה חוקרת</h3>
+        <p>מותו של רוכב אופנוע מתבגר בפאפוס: המשטרה חוקרת</p>
+        <a href="https://translate.google.com/translate?sl=auto&tl=he&u=https%3A%2F%2Fin-cyprus.philenews.com%2Flocal%2Fdeath-of-teenage-motorcyclist-in-paphos-police-investigate%2F" target="_blank">קרא עוד</a>
+    </div>
+    <div class="lang ru">
+        <h3>Смерть подростка-мотоциклиста в Пафосе: полиция проводит расследование</h3>
+        <p>Смерть подростка-мотоциклиста в Пафосе: полиция проводит расследование</p>
+        <a href="https://translate.google.com/translate?sl=auto&tl=ru&u=https%3A%2F%2Fin-cyprus.philenews.com%2Flocal%2Fdeath-of-teenage-motorcyclist-in-paphos-police-investigate%2F" target="_blank">Читать далее</a>
+    </div>
+    <div class="lang el">
+        <h3>Θάνατος έφηβου μοτοσικλετιστή στην Πάφο: Η αστυνομία ερευνά</h3>
+        <p>Θάνατος έφηβου μοτοσικλετιστή στην Πάφο: Η αστυνομία ερευνά</p>
+        <a href="https://translate.google.com/translate?sl=auto&tl=el&u=https%3A%2F%2Fin-cyprus.philenews.com%2Flocal%2Fdeath-of-teenage-motorcyclist-in-paphos-police-investigate%2F" target="_blank">Διαβάστε περισσότερα</a>
+    </div>
+</div><div class="article">
+    <div class="lang en active">
+        <h3>Cyprus Rocks classic rock festival returns to Protaras in October 2025</h3>
+        <p>Cyprus Rocks classic rock festival returns to Protaras in October 2025</p>
+        <a href="https://in-cyprus.philenews.com/whats-on/cyprus-rocks-2025-classic-rock-festival-protaras-october/" target="_blank">Read more</a>
+    </div>
+    <div class="lang he">
+        <h3>פסטיבל הרוק הקלאסי של קפריסין חוזר לפרוטארס באוקטובר 2025</h3>
+        <p>פסטיבל הרוק הקלאסי של קפריסין חוזר לפרוטארס באוקטובר 2025</p>
+        <a href="https://translate.google.com/translate?sl=auto&tl=he&u=https%3A%2F%2Fin-cyprus.philenews.com%2Fwhats-on%2Fcyprus-rocks-2025-classic-rock-festival-protaras-october%2F" target="_blank">קרא עוד</a>
+    </div>
+    <div class="lang ru">
+        <h3>Фестиваль классического рока Cyprus Rocks возвращается в Протарас в октябре 2025 года.</h3>
+        <p>Фестиваль классического рока Cyprus Rocks возвращается в Протарас в октябре 2025 года.</p>
+        <a href="https://translate.google.com/translate?sl=auto&tl=ru&u=https%3A%2F%2Fin-cyprus.philenews.com%2Fwhats-on%2Fcyprus-rocks-2025-classic-rock-festival-protaras-october%2F" target="_blank">Читать далее</a>
+    </div>
+    <div class="lang el">
+        <h3>Το φεστιβάλ κλασικού ροκ Cyprus Rocks επιστρέφει στην Πρωταρά τον Οκτώβριο του 2025.</h3>
+        <p>Το φεστιβάλ κλασικού ροκ Cyprus Rocks επιστρέφει στην Πρωταρά τον Οκτώβριο του 2025.</p>
+        <a href="https://translate.google.com/translate?sl=auto&tl=el&u=https%3A%2F%2Fin-cyprus.philenews.com%2Fwhats-on%2Fcyprus-rocks-2025-classic-rock-festival-protaras-october%2F" target="_blank">Διαβάστε περισσότερα</a>
+    </div>
+</div><div class="article">
+    <div class="lang en active">
+        <h3>Rachel Portman in Cyprus: A world-renowned composer takes centre stage at Minthis Music Festival</h3>
+        <p>Rachel Portman in Cyprus: A world-renowned composer takes centre stage at Minthis Music Festival</p>
+        <a href="https://in-cyprus.philenews.com/whats-on/rachel-portman-in-cyprus-a-world-renowned-composer-takes-center-stage-at-the-minthis-music-festival/" target="_blank">Read more</a>
+    </div>
+    <div class="lang he">
+        <h3>רחל פורטמן בקפריסין: מלחינה ידועה עולמית במרכז הבמה בפסטיבל המוזיקה מינתיס</h3>
+        <p>רחל פורטמן בקפריסין: מלחינה ידועה עולמית במרכז הבמה בפסטיבל המוזיקה מינתיס</p>
+        <a href="https://translate.google.com/translate?sl=auto&tl=he&u=https%3A%2F%2Fin-cyprus.philenews.com%2Fwhats-on%2Frachel-portman-in-cyprus-a-world-renowned-composer-takes-center-stage-at-the-minthis-music-festival%2F" target="_blank">קרא עוד</a>
+    </div>
+    <div class="lang ru">
+        <h3>Рэйчел Портман на Кипре: всемирно известная композитор занимает центральное место на Музыкальном фестивале Минтис.</h3>
+        <p>Рэйчел Портман на Кипре: всемирно известная композитор занимает центральное место на Музыкальном фестивале Минтис.</p>
+        <a href="https://translate.google.com/translate?sl=auto&tl=ru&u=https%3A%2F%2Fin-cyprus.philenews.com%2Fwhats-on%2Frachel-portman-in-cyprus-a-world-renowned-composer-takes-center-stage-at-the-minthis-music-festival%2F" target="_blank">Читать далее</a>
+    </div>
+    <div class="lang el">
+        <h3>Ρέιτσελ Πόρτμαν στην Κύπρο: Μια παγκοσμίου φήμης συνθέτης στο επίκεντρο του Φεστιβάλ Μουσικής Μίνθις</h3>
+        <p>Ρέιτσελ Πόρτμαν στην Κύπρο: Μια παγκοσμίου φήμης συνθέτης στο επίκεντρο του Φεστιβάλ Μουσικής Μίνθις</p>
+        <a href="https://translate.google.com/translate?sl=auto&tl=el&u=https%3A%2F%2Fin-cyprus.philenews.com%2Fwhats-on%2Frachel-portman-in-cyprus-a-world-renowned-composer-takes-center-stage-at-the-minthis-music-festival%2F" target="_blank">Διαβάστε περισσότερα</a>
+    </div>
+</div><div class="article">
+    <div class="lang en active">
+        <h3>Masked participants sought for secret theatre experience in Nicosia</h3>
+        <p>Masked participants sought for secret theatre experience in Nicosia</p>
+        <a href="https://in-cyprus.philenews.com/whats-on/yasemin-collective-mystery-pop-up-experience-nicosia-interactive-theatre/" target="_blank">Read more</a>
+    </div>
+    <div class="lang he">
+        <h3>מחפשים משתתפים עם מסכות לחוויית תיאטרון סודית בניקוסיה</h3>
+        <p>מחפשים משתתפים עם מסכות לחוויית תיאטרון סודית בניקוסיה</p>
+        <a href="https://translate.google.com/translate?sl=auto&tl=he&u=https%3A%2F%2Fin-cyprus.philenews.com%2Fwhats-on%2Fyasemin-collective-mystery-pop-up-experience-nicosia-interactive-theatre%2F" target="_blank">קרא עוד</a>
+    </div>
+    <div class="lang ru">
+        <h3>В Никосии ищут участников в масках для секретного театрального опыта.</h3>
+        <p>В Никосии ищут участников в масках для секретного театрального опыта.</p>
+        <a href="https://translate.google.com/translate?sl=auto&tl=ru&u=https%3A%2F%2Fin-cyprus.philenews.com%2Fwhats-on%2Fyasemin-collective-mystery-pop-up-experience-nicosia-interactive-theatre%2F" target="_blank">Читать далее</a>
+    </div>
+    <div class="lang el">
+        <h3>Αναζητούνται συμμετέχοντες με μάσκες για μυστική θεατρική εμπειρία στη Λευκωσία.</h3>
+        <p>Αναζητούνται συμμετέχοντες με μάσκες για μυστική θεατρική εμπειρία στη Λευκωσία.</p>
+        <a href="https://translate.google.com/translate?sl=auto&tl=el&u=https%3A%2F%2Fin-cyprus.philenews.com%2Fwhats-on%2Fyasemin-collective-mystery-pop-up-experience-nicosia-interactive-theatre%2F" target="_blank">Διαβάστε περισσότερα</a>
+    </div>
+</div><div class="article">
+    <div class="lang en active">
+        <h3>Is the ECHR part of the conspiracy?</h3>
+        <p>Is the ECHR part of the conspiracy?</p>
+        <a href="https://in-cyprus.philenews.com/opinion/is-the-echr-part-of-the-conspiracy/" target="_blank">Read more</a>
+    </div>
+    <div class="lang he">
+        <h3>האם בית המשפט האירופי לזכויות אדם חלק מהקונספירציה?</h3>
+        <p>האם בית המשפט האירופי לזכויות אדם חלק מהקונספירציה?</p>
+        <a href="https://translate.google.com/translate?sl=auto&tl=he&u=https%3A%2F%2Fin-cyprus.philenews.com%2Fopinion%2Fis-the-echr-part-of-the-conspiracy%2F" target="_blank">קרא עוד</a>
+    </div>
+    <div class="lang ru">
+        <h3>Является ли ЕСПЧ частью заговора?</h3>
+        <p>Является ли ЕСПЧ частью заговора?</p>
+        <a href="https://translate.google.com/translate?sl=auto&tl=ru&u=https%3A%2F%2Fin-cyprus.philenews.com%2Fopinion%2Fis-the-echr-part-of-the-conspiracy%2F" target="_blank">Читать далее</a>
+    </div>
+    <div class="lang el">
+        <h3>Είναι το ΕΔΔΑ μέρος της συνωμοσίας;</h3>
+        <p>Είναι το ΕΔΔΑ μέρος της συνωμοσίας;</p>
+        <a href="https://translate.google.com/translate?sl=auto&tl=el&u=https%3A%2F%2Fin-cyprus.philenews.com%2Fopinion%2Fis-the-echr-part-of-the-conspiracy%2F" target="_blank">Διαβάστε περισσότερα</a>
+    </div>
+</div><div class="article">
+    <div class="lang en active">
+        <h3>Do our prosecutors really think we’re fools?</h3>
+        <p>Do our prosecutors really think we’re fools?</p>
+        <a href="https://in-cyprus.philenews.com/opinion/do-our-prosecutors-really-think-were-fools/" target="_blank">Read more</a>
+    </div>
+    <div class="lang he">
+        <h3>האם התובעים שלנו באמת חושבים שאנחנו טיפשים?</h3>
+        <p>האם התובעים שלנו באמת חושבים שאנחנו טיפשים?</p>
+        <a href="https://translate.google.com/translate?sl=auto&tl=he&u=https%3A%2F%2Fin-cyprus.philenews.com%2Fopinion%2Fdo-our-prosecutors-really-think-were-fools%2F" target="_blank">קרא עוד</a>
+    </div>
+    <div class="lang ru">
+        <h3>Наши прокуроры действительно думают, что мы дураки?</h3>
+        <p>Наши прокуроры действительно думают, что мы дураки?</p>
+        <a href="https://translate.google.com/translate?sl=auto&tl=ru&u=https%3A%2F%2Fin-cyprus.philenews.com%2Fopinion%2Fdo-our-prosecutors-really-think-were-fools%2F" target="_blank">Читать далее</a>
+    </div>
+    <div class="lang el">
+        <h3>Οι εισαγγελείς μας νομίζουν πραγματικά ότι είμαστε ανόητοι;</h3>
+        <p>Οι εισαγγελείς μας νομίζουν πραγματικά ότι είμαστε ανόητοι;</p>
+        <a href="https://translate.google.com/translate?sl=auto&tl=el&u=https%3A%2F%2Fin-cyprus.philenews.com%2Fopinion%2Fdo-our-prosecutors-really-think-were-fools%2F" target="_blank">Διαβάστε περισσότερα</a>
+    </div>
+</div><h2>
+    <span class="lang en active">Technology</span>
+    <span class="lang he">טכנולוגיה</span>
+    <span class="lang ru">Технологии</span>
+    <span class="lang el">Τεχνολογία</span>
+</h2><div class="article">
+    <div class="lang en active">
+        <h3>PwC: AI could boost global GDP by 15% to 2035</h3>
+        <p>PwC: AI could boost global GDP by 15% to 2035</p>
+        <a href="https://www.financialmirror.com/2025/04/30/pwc-ai-could-boost-global-gdp-by-15-to-2035/" target="_blank">Read more</a>
+    </div>
+    <div class="lang he">
+        <h3>PwC: בינה מלאכותית עשויה להעלות את התוצר הגולמי העולמי ב-15% עד 2035</h3>
+        <p>PwC: בינה מלאכותית עשויה להעלות את התוצר הגולמי העולמי ב-15% עד 2035</p>
+        <a href="https://translate.google.com/translate?sl=auto&tl=he&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F04%2F30%2Fpwc-ai-could-boost-global-gdp-by-15-to-2035%2F" target="_blank">קרא עוד</a>
+    </div>
+    <div class="lang ru">
+        <h3>PwC: ИИ может увеличить мировой ВВП на 15% к 2035 году</h3>
+        <p>PwC: ИИ может увеличить мировой ВВП на 15% к 2035 году</p>
+        <a href="https://translate.google.com/translate?sl=auto&tl=ru&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F04%2F30%2Fpwc-ai-could-boost-global-gdp-by-15-to-2035%2F" target="_blank">Читать далее</a>
+    </div>
+    <div class="lang el">
+        <h3>PwC: Η Τεχνητή Νοημοσύνη θα μπορούσε να αυξήσει το παγκόσμιο ΑΕΠ κατά 15% μέχρι το 2035.</h3>
+        <p>PwC: Η Τεχνητή Νοημοσύνη θα μπορούσε να αυξήσει το παγκόσμιο ΑΕΠ κατά 15% μέχρι το 2035.</p>
+        <a href="https://translate.google.com/translate?sl=auto&tl=el&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F04%2F30%2Fpwc-ai-could-boost-global-gdp-by-15-to-2035%2F" target="_blank">Διαβάστε περισσότερα</a>
+    </div>
+</div><div class="article">
+    <div class="lang en active">
+        <h3>AI startups raise near-record $22.3 bln in Q1</h3>
+        <p>AI startups raise near-record $22.3 bln in Q1</p>
+        <a href="https://www.financialmirror.com/2025/04/26/ai-startups-raise-near-record-22-3-bln-in-q1/" target="_blank">Read more</a>
+    </div>
+    <div class="lang he">
+        <h3>סטארטאפים בתחום הבינה המלאכותית גייסו כמעט שיא של 22.3 מיליארד דולר ברבעון הראשון.</h3>
+        <p>סטארטאפים בתחום הבינה המלאכותית גייסו כמעט שיא של 22.3 מיליארד דולר ברבעון הראשון.</p>
+        <a href="https://translate.google.com/translate?sl=auto&tl=he&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F04%2F26%2Fai-startups-raise-near-record-22-3-bln-in-q1%2F" target="_blank">קרא עוד</a>
+    </div>
+    <div class="lang ru">
+        <h3>Стартапы в области ИИ собрали почти рекордные 22,3 млрд долларов в первом квартале.</h3>
+        <p>Стартапы в области ИИ собрали почти рекордные 22,3 млрд долларов в первом квартале.</p>
+        <a href="https://translate.google.com/translate?sl=auto&tl=ru&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F04%2F26%2Fai-startups-raise-near-record-22-3-bln-in-q1%2F" target="_blank">Читать далее</a>
+    </div>
+    <div class="lang el">
+        <h3>Οι νεοφυείς επιχειρήσεις τεχνητής νοημοσύνης συγκέντρωσαν σχεδόν ρεκόρ 22,3 δισ. δολαρίων το πρώτο τρίμηνο.</h3>
+        <p>Οι νεοφυείς επιχειρήσεις τεχνητής νοημοσύνης συγκέντρωσαν σχεδόν ρεκόρ 22,3 δισ. δολαρίων το πρώτο τρίμηνο.</p>
+        <a href="https://translate.google.com/translate?sl=auto&tl=el&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F04%2F26%2Fai-startups-raise-near-record-22-3-bln-in-q1%2F" target="_blank">Διαβάστε περισσότερα</a>
     </div>
 </div>
-        <h2>
-            <span class="lang en active">General News</span>
-            <span class="lang he">חדשות כלליות</span>
-            <span class="lang ru">Общие новости</span>
-            <span class="lang el">Γενικά Νέα</span>
-        </h2><div class="article">
-    <div class="lang en active">
-        <div class="article-title">Cyprus risk higher amid Mideast tension, UN cuts</div>
-        <div class="article-summary">Cyprus risk higher amid Mideast</div>
-        <a href="https://www.financialmirror.com/2025/06/24/cyprus-risk-higher-amid-mideast-tension-un-cuts/" class="article-link" target="_blank">Read more</a>
-    </div>
-    <div class="lang he">
-        <div class="article-title">סיכון קפריסין גובר amid מתיחות במזרח התיכון, קיצוצים של האומות המאוחדות</div>
-        <div class="article-summary">סיכון קפריסין גובר amid המזרח התיכון</div>
-        <a href="https://translate.google.com/translate?sl=auto&tl=he&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F06%2F24%2Fcyprus-risk-higher-amid-mideast-tension-un-cuts%2F" class="article-link" target="_blank">קרא עוד</a>
-    </div>
-    <div class="lang ru">
-        <div class="article-title">Риск для Кипра возрастает на фоне напряженности на Ближнем Востоке и сокращений в ООН</div>
-        <div class="article-summary">Риски Кипра возрастают на фоне событий на Ближнем Востоке</div>
-        <a href="https://translate.google.com/translate?sl=auto&tl=ru&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F06%2F24%2Fcyprus-risk-higher-amid-mideast-tension-un-cuts%2F" class="article-link" target="_blank">Читать далее</a>
-    </div>
-    <div class="lang el">
-        <div class="article-title">Κίνδυνος για την Κύπρο αυξάνεται εν μέσω εντάσεων στη Μέση Ανατολή, περικοπές του ΟΗΕ</div>
-        <div class="article-summary">Κίνδυνος για την Κύπρο αυξάνεται εν μέσω Μέσης Ανατολής</div>
-        <a href="https://translate.google.com/translate?sl=auto&tl=el&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F06%2F24%2Fcyprus-risk-higher-amid-mideast-tension-un-cuts%2F" class="article-link" target="_blank">Διαβάστε περισσότερα</a>
-    </div>
-</div><div class="article">
-    <div class="lang en active">
-        <div class="article-title">Morgan Crowley to feature at James Joyce fest</div>
-        <div class="article-summary">Morgan Crowley feature James Joyce</div>
-        <a href="https://www.financialmirror.com/2025/06/10/morgan-crowley-to-feature-at-james-joyce-fest/" class="article-link" target="_blank">Read more</a>
-    </div>
-    <div class="lang he">
-        <div class="article-title">מורגן קרולי יופיע בפסטיבל ג&#39;יימס ג&#39;ויס</div>
-        <div class="article-summary">מורגן קרולי מציג את ג&#39;יימס ג&#39;ויס</div>
-        <a href="https://translate.google.com/translate?sl=auto&tl=he&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F06%2F10%2Fmorgan-crowley-to-feature-at-james-joyce-fest%2F" class="article-link" target="_blank">קרא עוד</a>
-    </div>
-    <div class="lang ru">
-        <div class="article-title">Морган Кроули примет участие в фестивале Джеймса Джойса</div>
-        <div class="article-summary">Морган Кроули представляет Джеймса Джойса</div>
-        <a href="https://translate.google.com/translate?sl=auto&tl=ru&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F06%2F10%2Fmorgan-crowley-to-feature-at-james-joyce-fest%2F" class="article-link" target="_blank">Читать далее</a>
-    </div>
-    <div class="lang el">
-        <div class="article-title">Η Μόργκαν Κρόουλι θα συμμετάσχει στο φεστιβάλ Τζέιμς Τζόις</div>
-        <div class="article-summary">Μόργκαν Κρόουλι: Χαρακτηριστικό για τον Τζέιμς Τζόις</div>
-        <a href="https://translate.google.com/translate?sl=auto&tl=el&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F06%2F10%2Fmorgan-crowley-to-feature-at-james-joyce-fest%2F" class="article-link" target="_blank">Διαβάστε περισσότερα</a>
-    </div>
-</div><div class="article">
-    <div class="lang en active">
-        <div class="article-title">The EU’s action plan for affordable energy</div>
-        <div class="article-summary">EU’s action plan affordable energy</div>
-        <a href="https://www.financialmirror.com/2025/06/06/the-eus-action-plan-for-affordable-energy/" class="article-link" target="_blank">Read more</a>
-    </div>
-    <div class="lang he">
-        <div class="article-title">תוכנית הפעולה של האיחוד האירופי לאנרגיה נגישה</div>
-        <div class="article-summary">תוכנית הפעולה של האיחוד האירופי לאנרגיה נוחה</div>
-        <a href="https://translate.google.com/translate?sl=auto&tl=he&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F06%2F06%2Fthe-eus-action-plan-for-affordable-energy%2F" class="article-link" target="_blank">קרא עוד</a>
-    </div>
-    <div class="lang ru">
-        <div class="article-title">План действий ЕС по доступной энергии</div>
-        <div class="article-summary">План действий ЕС по доступной энергии</div>
-        <a href="https://translate.google.com/translate?sl=auto&tl=ru&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F06%2F06%2Fthe-eus-action-plan-for-affordable-energy%2F" class="article-link" target="_blank">Читать далее</a>
-    </div>
-    <div class="lang el">
-        <div class="article-title">Το σχέδιο δράσης της ΕΕ για προσιτή ενέργεια</div>
-        <div class="article-summary">Σχέδιο δράσης της ΕΕ για προσιτή ενέργεια</div>
-        <a href="https://translate.google.com/translate?sl=auto&tl=el&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F06%2F06%2Fthe-eus-action-plan-for-affordable-energy%2F" class="article-link" target="_blank">Διαβάστε περισσότερα</a>
-    </div>
-</div><div class="article">
-    <div class="lang en active">
-        <div class="article-title">Discipline, governance needed to build a resilient balance sheet</div>
-        <div class="article-summary">Discipline, governance needed build resilient</div>
-        <a href="https://www.financialmirror.com/2025/06/04/discipline-governance-needed-to-build-a-resilient-balance-sheet/" class="article-link" target="_blank">Read more</a>
-    </div>
-    <div class="lang he">
-        <div class="article-title">נדרשת משמעת וממשלת כדי לבנות מאזן חזק ועמיד</div>
-        <div class="article-summary">נדרשות משמעת וממשלת כדי לבנות עמידות</div>
-        <a href="https://translate.google.com/translate?sl=auto&tl=he&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F06%2F04%2Fdiscipline-governance-needed-to-build-a-resilient-balance-sheet%2F" class="article-link" target="_blank">קרא עוד</a>
-    </div>
-    <div class="lang ru">
-        <div class="article-title">Необходимы дисциплина и управление для формирования устойчивого баланса.</div>
-        <div class="article-summary">Необходимы дисциплина и управление для создания устойчивости</div>
-        <a href="https://translate.google.com/translate?sl=auto&tl=ru&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F06%2F04%2Fdiscipline-governance-needed-to-build-a-resilient-balance-sheet%2F" class="article-link" target="_blank">Читать далее</a>
-    </div>
-    <div class="lang el">
-        <div class="article-title">Απαιτούνται πειθαρχία και διακυβέρνηση για την οικοδόμηση ενός ανθεκτικού ισολογισμού</div>
-        <div class="article-summary">Απαιτείται πειθαρχία και διακυβέρνηση για την οικοδόμηση ανθεκτικότητας</div>
-        <a href="https://translate.google.com/translate?sl=auto&tl=el&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F06%2F04%2Fdiscipline-governance-needed-to-build-a-resilient-balance-sheet%2F" class="article-link" target="_blank">Διαβάστε περισσότερα</a>
-    </div>
-</div><div class="article">
-    <div class="lang en active">
-        <div class="article-title">Dogecoin recovers as Musk to step back from D.O.G.E.</div>
-        <div class="article-summary">Dogecoin recovers Musk step back</div>
-        <a href="https://www.financialmirror.com/2025/04/26/dogecoin-recovers-as-musk-to-step-back-from-d-o-g-e/" class="article-link" target="_blank">Read more</a>
-    </div>
-    <div class="lang he">
-        <div class="article-title">דוגקוין מתאושש כאשר מאסק מתכוון להתרחק מ-D.O.G.E.</div>
-        <div class="article-summary">דוגקוין מתאושש לאחר שצעדו של מאסק לאחור</div>
-        <a href="https://translate.google.com/translate?sl=auto&tl=he&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F04%2F26%2Fdogecoin-recovers-as-musk-to-step-back-from-d-o-g-e%2F" class="article-link" target="_blank">קרא עוד</a>
-    </div>
-    <div class="lang ru">
-        <div class="article-title">Догекоин восстанавливается, так как Маск собирается отойти от D.O.G.E.</div>
-        <div class="article-summary">Догекоин восстанавливается после отступления Маска</div>
-        <a href="https://translate.google.com/translate?sl=auto&tl=ru&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F04%2F26%2Fdogecoin-recovers-as-musk-to-step-back-from-d-o-g-e%2F" class="article-link" target="_blank">Читать далее</a>
-    </div>
-    <div class="lang el">
-        <div class="article-title">Το Dogecoin ανακάμπτει καθώς ο Musk αποσύρεται από το D.O.G.E.</div>
-        <div class="article-summary">Το Dogecoin ανακάμπτει μετά την υποχώρηση του Μασκ</div>
-        <a href="https://translate.google.com/translate?sl=auto&tl=el&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F04%2F26%2Fdogecoin-recovers-as-musk-to-step-back-from-d-o-g-e%2F" class="article-link" target="_blank">Διαβάστε περισσότερα</a>
-    </div>
-</div><div class="article">
-    <div class="lang en active">
-        <div class="article-title">Dealing with alternative routes in the face of US tariffs</div>
-        <div class="article-summary">Dealing with alternative routes face</div>
-        <a href="https://www.financialmirror.com/2025/04/06/dealing-with-alternative-routes-in-the-face-of-us-tariffs/" class="article-link" target="_blank">Read more</a>
-    </div>
-    <div class="lang he">
-        <div class="article-title">התמודדות עם מסלולים חלופיים מול מכסי ארה&quot;ב</div>
-        <div class="article-summary">מתמודדים עם מסלולים חלופיים</div>
-        <a href="https://translate.google.com/translate?sl=auto&tl=he&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F04%2F06%2Fdealing-with-alternative-routes-in-the-face-of-us-tariffs%2F" class="article-link" target="_blank">קרא עוד</a>
-    </div>
-    <div class="lang ru">
-        <div class="article-title">Dealing with alternative routes in the face of US tariffs</div>
-        <div class="article-summary">Справляясь с альтернативными маршрутами</div>
-        <a href="https://translate.google.com/translate?sl=auto&tl=ru&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F04%2F06%2Fdealing-with-alternative-routes-in-the-face-of-us-tariffs%2F" class="article-link" target="_blank">Читать далее</a>
-    </div>
-    <div class="lang el">
-        <div class="article-title">Αντιμετώπιση εναλλακτικών διαδρομών εν μέσω αμερικανικών δασμών</div>
-        <div class="article-summary">Αντιμετώπιση εναλλακτικών διαδρομών</div>
-        <a href="https://translate.google.com/translate?sl=auto&tl=el&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F04%2F06%2Fdealing-with-alternative-routes-in-the-face-of-us-tariffs%2F" class="article-link" target="_blank">Διαβάστε περισσότερα</a>
-    </div>
-</div>
-        <h2>
-            <span class="lang en active">Real Estate</span>
-            <span class="lang he">נדלן</span>
-            <span class="lang ru">Недвижимость</span>
-            <span class="lang el">Ακίνητα</span>
-        </h2><div class="article">
-    <div class="lang en active">
-        <div class="article-title">MP slams Cyprus for tolerating Abramovich fraud</div>
-        <div class="article-summary">Legal development: slams Cyprus tolerating Abramovich</div>
-        <a href="https://www.financialmirror.com/2025/05/19/mp-slams-cyprus-for-tolerating-abramovich-fraud/" class="article-link" target="_blank">Read more</a>
-    </div>
-    <div class="lang he">
-        <div class="article-title">ח&quot;כ תוקף את קפריסין על סובלנותה להונאת אברמוביץ&#39;</div>
-        <div class="article-summary">התפתחות משפטית: תוקפים את קפריסין על כך שהיא סובלת את אברמוביץ&#39;</div>
-        <a href="https://translate.google.com/translate?sl=auto&tl=he&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F05%2F19%2Fmp-slams-cyprus-for-tolerating-abramovich-fraud%2F" class="article-link" target="_blank">קרא עוד</a>
-    </div>
-    <div class="lang ru">
-        <div class="article-title">Депутат раскритиковал Кипр за терпимость к мошенничеству Абрамовича</div>
-        <div class="article-summary">Юридическое развитие: осуждает Кипр за терпимость к Абрамовичу</div>
-        <a href="https://translate.google.com/translate?sl=auto&tl=ru&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F05%2F19%2Fmp-slams-cyprus-for-tolerating-abramovich-fraud%2F" class="article-link" target="_blank">Читать далее</a>
-    </div>
-    <div class="lang el">
-        <div class="article-title">Βουλευτής καταγγέλλει την Κύπρο για την ανοχή της στη απάτη του Αμπράμοβιτς</div>
-        <div class="article-summary">Νομική εξέλιξη: καταδικάζει την Κύπρο για την ανοχή της στον Αμπράμοβιτς</div>
-        <a href="https://translate.google.com/translate?sl=auto&tl=el&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F05%2F19%2Fmp-slams-cyprus-for-tolerating-abramovich-fraud%2F" class="article-link" target="_blank">Διαβάστε περισσότερα</a>
-    </div>
-</div>
-        <h2>
-            <span class="lang en active">Technology</span>
-            <span class="lang he">טכנולוגיה</span>
-            <span class="lang ru">Технологии</span>
-            <span class="lang el">Τεχνολογία</span>
-        </h2><div class="article">
-    <div class="lang en active">
-        <div class="article-title">PwC: AI could boost global GDP by 15% to 2035</div>
-        <div class="article-summary">Technology development: PwC: could boost global</div>
-        <a href="https://www.financialmirror.com/2025/04/30/pwc-ai-could-boost-global-gdp-by-15-to-2035/" class="article-link" target="_blank">Read more</a>
-    </div>
-    <div class="lang he">
-        <div class="article-title">PwC: בינה מלאכותית עשויה להעלות את התוצר הגולמי העולמי ב-15% עד 2035</div>
-        <div class="article-summary">פיתוח טכנולוגי: PwC: עשוי להאיץ את הכלכלה הגלובלית</div>
-        <a href="https://translate.google.com/translate?sl=auto&tl=he&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F04%2F30%2Fpwc-ai-could-boost-global-gdp-by-15-to-2035%2F" class="article-link" target="_blank">קרא עוד</a>
-    </div>
-    <div class="lang ru">
-        <div class="article-title">PwC: ИИ может увеличить мировой ВВП на 15% к 2035 году</div>
-        <div class="article-summary">Развитие технологий: PwC может стимулировать глобальный рост</div>
-        <a href="https://translate.google.com/translate?sl=auto&tl=ru&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F04%2F30%2Fpwc-ai-could-boost-global-gdp-by-15-to-2035%2F" class="article-link" target="_blank">Читать далее</a>
-    </div>
-    <div class="lang el">
-        <div class="article-title">PwC: Η τεχνητή νοημοσύνη θα μπορούσε να αυξήσει το παγκόσμιο ΑΕΠ κατά 15% μέχρι το 2035</div>
-        <div class="article-summary">Ανάπτυξη τεχνολογίας: PwC: θα μπορούσε να ενισχύσει την παγκόσμια οικονομία</div>
-        <a href="https://translate.google.com/translate?sl=auto&tl=el&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F04%2F30%2Fpwc-ai-could-boost-global-gdp-by-15-to-2035%2F" class="article-link" target="_blank">Διαβάστε περισσότερα</a>
-    </div>
-</div><div class="article">
-    <div class="lang en active">
-        <div class="article-title">AI startups raise near-record $22.3 bln in Q1</div>
-        <div class="article-summary">Technology development: startups raise near-record $22.3</div>
-        <a href="https://www.financialmirror.com/2025/04/26/ai-startups-raise-near-record-22-3-bln-in-q1/" class="article-link" target="_blank">Read more</a>
-    </div>
-    <div class="lang he">
-        <div class="article-title">סטארטאפים בתחום הבינה המלאכותית גייסו כמעט שיא של 22.3 מיליארד דולר ברבעון הראשון</div>
-        <div class="article-summary">פיתוח טכנולוגי: סטארטאפים מגייסים כמעט שיא של 22.3 מיליון דולר</div>
-        <a href="https://translate.google.com/translate?sl=auto&tl=he&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F04%2F26%2Fai-startups-raise-near-record-22-3-bln-in-q1%2F" class="article-link" target="_blank">קרא עוד</a>
-    </div>
-    <div class="lang ru">
-        <div class="article-title">Стартапы в области ИИ привлекли почти рекордные $22,3 млрд в первом квартале</div>
-        <div class="article-summary">Развитие технологий: стартапы привлекли почти рекордные $22,3 миллиарда</div>
-        <a href="https://translate.google.com/translate?sl=auto&tl=ru&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F04%2F26%2Fai-startups-raise-near-record-22-3-bln-in-q1%2F" class="article-link" target="_blank">Читать далее</a>
-    </div>
-    <div class="lang el">
-        <div class="article-title">Οι νεοφυείς επιχειρήσεις AI συγκέντρωσαν σχεδόν ρεκόρ 22,3 δισ. δολαρίων το πρώτο τρίμηνο.</div>
-        <div class="article-summary">Ανάπτυξη τεχνολογίας: οι νεοφυείς επιχειρήσεις συγκεντρώνουν σχεδόν ρεκόρ 22,3 δισεκατομμυρίων δολαρίων</div>
-        <a href="https://translate.google.com/translate?sl=auto&tl=el&u=https%3A%2F%2Fwww.financialmirror.com%2F2025%2F04%2F26%2Fai-startups-raise-near-record-22-3-bln-in-q1%2F" class="article-link" target="_blank">Διαβάστε περισσότερα</a>
-    </div>
-</div>
-
-        <div class="newsletter-signup">
+        
+        <div class="subscription">
             <div class="lang en active">
                 <h3>🔔 Get Daily Notifications</h3>
-                <p>Get a simple email notification every morning when fresh news is published on ainews.eu.com</p>
-                <div class="signup-form">
-                    <input type="email" id="email" placeholder="your@email.com" required>
-                    <input type="text" id="name" placeholder="Your name (optional)">
-                    <div class="language-checkboxes">
-                        <div class="language-option">
-                            <input type="checkbox" id="lang-en" value="en" checked> 🇬🇧 English
-                        </div>
-                        <div class="language-option">
-                            <input type="checkbox" id="lang-he" value="he"> 🇮🇱 עברית
-                        </div>
-                        <div class="language-option">
-                            <input type="checkbox" id="lang-ru" value="ru"> 🇷🇺 Русский
-                        </div>
-                        <div class="language-option">
-                            <input type="checkbox" id="lang-el" value="el"> 🇬🇷 Ελληνικά
-                        </div>
-                    </div>
-                    <button onclick="subscribe()">🔔 Notify Me Daily</button>
-                    <div id="success-message" class="success-message"></div>
-                    <div id="error-message" class="error-message"></div>
-                </div>
-                <p style="font-size: 0.9rem; opacity: 0.8; margin-top: 20px;">
-                    ✅ Just notifications, not newsletters<br>
-                    ✅ Unsubscribe anytime<br>
-                    ✅ No spam, no ads
-                </p>
+                <p>Get email notifications when fresh news is published</p>
+                <input type="email" id="email" placeholder="your@email.com">
+                <input type="text" id="name" placeholder="Your name (optional)">
+                <br>
+                <button onclick="subscribe()">🔔 Subscribe</button>
+                <div id="message"></div>
             </div>
-            
             <div class="lang he">
                 <h3>🔔 קבלו התראות יומיות</h3>
-                <p>קבלו התראה פשוטה כל בוקר כאשר חדשות טריות מתפרסמות ב-ainews.eu.com</p>
-                <div class="signup-form">
-                    <input type="email" id="email-he" placeholder="הדוא״ל שלכם" required>
-                    <input type="text" id="name-he" placeholder="השם שלכם (אופציונלי)">
-                    <div class="language-checkboxes">
-                        <div class="language-option">
-                            <input type="checkbox" id="lang-en-he" value="en"> 🇬🇧 English
-                        </div>
-                        <div class="language-option">
-                            <input type="checkbox" id="lang-he-he" value="he" checked> 🇮🇱 עברית
-                        </div>
-                        <div class="language-option">
-                            <input type="checkbox" id="lang-ru-he" value="ru"> 🇷🇺 Русский
-                        </div>
-                        <div class="language-option">
-                            <input type="checkbox" id="lang-el-he" value="el"> 🇬🇷 Ελληνικά
-                        </div>
-                    </div>
-                    <button onclick="subscribe()">🔔 הודיעו לי יומית</button>
-                    <div id="success-message-he" class="success-message"></div>
-                    <div id="error-message-he" class="error-message"></div>
-                </div>
-                <p style="font-size: 0.9rem; opacity: 0.8; margin-top: 20px;">
-                    ✅ רק התראות, לא ניוזלטרים<br>
-                    ✅ ביטול מנוי בכל עת<br>
-                    ✅ ללא ספאם, ללא פרסומות
-                </p>
+                <p>קבלו התראות כאשר חדשות טריות מתפרסמות</p>
+                <input type="email" id="email-he" placeholder="הדוא״ל שלכם">
+                <input type="text" id="name-he" placeholder="השם שלכם (אופציונלי)">
+                <br>
+                <button onclick="subscribe()">🔔 הירשמו</button>
+                <div id="message-he"></div>
             </div>
-            
             <div class="lang ru">
-                <h3>🔔 Получайте ежедневные уведомления</h3>
-                <p>Получайте простое уведомление каждое утро, когда свежие новости публикуются на ainews.eu.com</p>
-                <div class="signup-form">
-                    <input type="email" id="email-ru" placeholder="ваш@email.com" required>
-                    <input type="text" id="name-ru" placeholder="Ваше имя (необязательно)">
-                    <div class="language-checkboxes">
-                        <div class="language-option">
-                            <input type="checkbox" id="lang-en-ru" value="en"> 🇬🇧 English
-                        </div>
-                        <div class="language-option">
-                            <input type="checkbox" id="lang-he-ru" value="he"> 🇮🇱 עברית
-                        </div>
-                        <div class="language-option">
-                            <input type="checkbox" id="lang-ru-ru" value="ru" checked> 🇷🇺 Русский
-                        </div>
-                        <div class="language-option">
-                            <input type="checkbox" id="lang-el-ru" value="el"> 🇬🇷 Ελληνικά
-                        </div>
-                    </div>
-                    <button onclick="subscribe()">🔔 Уведомлять меня ежедневно</button>
-                    <div id="success-message-ru" class="success-message"></div>
-                    <div id="error-message-ru" class="error-message"></div>
-                </div>
-                <p style="font-size: 0.9rem; opacity: 0.8; margin-top: 20px;">
-                    ✅ Только уведомления, не рассылки<br>
-                    ✅ Отписаться в любое время<br>
-                    ✅ Без спама, без рекламы
-                </p>
+                <h3>🔔 Получайте уведомления</h3>
+                <p>Получайте уведомления о свежих новостях</p>
+                <input type="email" id="email-ru" placeholder="ваш@email.com">
+                <input type="text" id="name-ru" placeholder="Ваше имя (необязательно)">
+                <br>
+                <button onclick="subscribe()">🔔 Подписаться</button>
+                <div id="message-ru"></div>
             </div>
-            
             <div class="lang el">
-                <h3>🔔 Λάβετε καθημερινές ειδοποιήσεις</h3>
-                <p>Λάβετε μια απλή ειδοποίηση κάθε πρωί όταν νέα νέα δημοσιεύονται στο ainews.eu.com</p>
-                <div class="signup-form">
-                    <input type="email" id="email-el" placeholder="το@email.σας" required>
-                    <input type="text" id="name-el" placeholder="Το όνομά σας (προαιρετικό)">
-                    <div class="language-checkboxes">
-                        <div class="language-option">
-                            <input type="checkbox" id="lang-en-el" value="en"> 🇬🇧 English
-                        </div>
-                        <div class="language-option">
-                            <input type="checkbox" id="lang-he-el" value="he"> 🇮🇱 עברית
-                        </div>
-                        <div class="language-option">
-                            <input type="checkbox" id="lang-ru-el" value="ru"> 🇷🇺 Русский
-                        </div>
-                        <div class="language-option">
-                            <input type="checkbox" id="lang-el-el" value="el" checked> 🇬🇷 Ελληνικά
-                        </div>
-                    </div>
-                    <button onclick="subscribe()">🔔 Ειδοποιήστε με καθημερινά</button>
-                    <div id="success-message-el" class="success-message"></div>
-                    <div id="error-message-el" class="error-message"></div>
-                </div>
-                <p style="font-size: 0.9rem; opacity: 0.8; margin-top: 20px;">
-                    ✅ Μόνο ειδοποιήσεις, όχι newsletters<br>
-                    ✅ Κατάργηση εγγραφής ανά πάσα στιγμή<br>
-                    ✅ Χωρίς spam, χωρίς διαφημίσεις
-                </p>
+                <h3>🔔 Λάβετε ειδοποιήσεις</h3>
+                <p>Λάβετε ειδοποιήσεις για φρέσκα νέα</p>
+                <input type="email" id="email-el" placeholder="το@email.σας">
+                <input type="text" id="name-el" placeholder="Το όνομά σας (προαιρετικό)">
+                <br>
+                <button onclick="subscribe()">🔔 Εγγραφή</button>
+                <div id="message-el"></div>
             </div>
         </div>
         
         <div class="footer">
-            <p>Generated automatically • Updated 2025-07-13 07:03</p>
-            <p>Sources: Financial Mirror, In-Cyprus, Alpha News, StockWatch • Powered by AI Translation</p>
-            <p><a href="https://ainews.eu.com" style="color: #667eea;">ainews.eu.com</a> - Your daily Cyprus news digest</p>
+            <p>Generated automatically • Sources: Financial Mirror, In-Cyprus, Alpha News, StockWatch</p>
+            <p><a href="https://ainews.eu.com">ainews.eu.com</a></p>
         </div>
     </div>
 
@@ -778,127 +609,53 @@
         let currentLang = 'en';
 
         function setLang(lang) {
-            document.querySelectorAll('.lang').forEach(el => {
-                el.classList.remove('active');
-            });
-            
-            document.querySelectorAll('.lang.' + lang).forEach(el => {
-                el.classList.add('active');
-            });
-            
-            document.querySelectorAll('.lang-buttons button').forEach(btn => {
-                btn.classList.remove('active');
-            });
+            document.querySelectorAll('.lang').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.lang.' + lang).forEach(el => el.classList.add('active'));
+            document.querySelectorAll('.lang-buttons button').forEach(btn => btn.classList.remove('active'));
             document.getElementById('btn-' + lang).classList.add('active');
-            
             currentLang = lang;
         }
 
         function subscribe() {
-            const activeButton = document.querySelector('.lang-buttons button.active');
-            const currentLanguage = activeButton ? activeButton.id.replace('btn-', '') : 'en';
+            const emailSelector = currentLang === 'en' ? '#email' : '#email-' + currentLang;
+            const nameSelector = currentLang === 'en' ? '#name' : '#name-' + currentLang;
+            const messageSelector = currentLang === 'en' ? '#message' : '#message-' + currentLang;
             
-            const emailSelector = currentLanguage === 'en' ? '#email' : '#email-' + currentLanguage;
-            const nameSelector = currentLanguage === 'en' ? '#name' : '#name-' + currentLanguage;
-            const successSelector = currentLanguage === 'en' ? '#success-message' : '#success-message-' + currentLanguage;
-            const errorSelector = currentLanguage === 'en' ? '#error-message' : '#error-message-' + currentLanguage;
-            
-            const emailElement = document.querySelector(emailSelector);
-            const nameElement = document.querySelector(nameSelector);
-            const successElement = document.querySelector(successSelector);
-            const errorElement = document.querySelector(errorSelector);
-            
-            const email = emailElement ? emailElement.value.trim() : document.querySelector('#email').value.trim();
-            const name = nameElement ? nameElement.value.trim() : document.querySelector('#name').value.trim();
-            const successDiv = successElement || document.querySelector('#success-message');
-            const errorDiv = errorElement || document.querySelector('#error-message');
-            
-            document.querySelectorAll('.success-message, .error-message').forEach(div => {
-                div.style.display = 'none';
-            });
-            
-            const errorMessages = {
-                'en': {
-                    'email_required': 'Please enter your email address.',
-                    'email_invalid': 'Please enter a valid email address.',
-                    'language_required': 'Please select at least one language.'
-                },
-                'he': {
-                    'email_required': 'אנא הזינו את כתובת הדוא״ל שלכם.',
-                    'email_invalid': 'אנא הזינו כתובת דוא״ל תקינה.',
-                    'language_required': 'אנא בחרו לפחות שפה אחת.'
-                },
-                'ru': {
-                    'email_required': 'Пожалуйста, введите ваш email адрес.',
-                    'email_invalid': 'Пожалуйста, введите корректный email адрес.',
-                    'language_required': 'Пожалуйста, выберите хотя бы один язык.'
-                },
-                'el': {
-                    'email_required': 'Παρακαλώ εισάγετε τη διεύθυνση email σας.',
-                    'email_invalid': 'Παρακαλώ εισάγετε μια έγκυρη διεύθυνση email.',
-                    'language_required': 'Παρακαλώ επιλέξτε τουλάχιστον μία γλώσσα.'
-                }
-            };
-            
-            const successMessages = {
-                'en': '🎉 Success! You will receive daily notifications at ' + email + ' when ainews.eu.com updates!',
-                'he': '🎉 הצלחה! תקבלו התראות יומיות ב-' + email + ' כאשר ainews.eu.com מתעדכן!',
-                'ru': '🎉 Успех! Вы будете получать ежедневные уведомления на ' + email + ' когда ainews.eu.com обновляется!',
-                'el': '🎉 Επιτυχία! Θα λαμβάνετε καθημερινές ειδοποιήσεις στο ' + email + ' όταν ενημερώνεται το ainews.eu.com!'
-            };
+            const email = document.querySelector(emailSelector).value.trim();
+            const name = document.querySelector(nameSelector).value.trim();
+            const messageDiv = document.querySelector(messageSelector);
             
             if (!email) {
-                errorDiv.textContent = errorMessages[currentLanguage]['email_required'];
-                errorDiv.style.display = 'block';
-                return;
-            }
-            
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                errorDiv.textContent = errorMessages[currentLanguage]['email_invalid'];
-                errorDiv.style.display = 'block';
-                return;
-            }
-            
-            const selectedLanguages = [];
-            const activeForm = document.querySelector('.lang.' + currentLanguage + ' .language-checkboxes');
-            if (activeForm) {
-                activeForm.querySelectorAll('input:checked').forEach(checkbox => {
-                    selectedLanguages.push(checkbox.value);
-                });
-            } else {
-                document.querySelectorAll('.language-option input:checked').forEach(checkbox => {
-                    selectedLanguages.push(checkbox.value);
-                });
-            }
-            
-            if (selectedLanguages.length === 0) {
-                errorDiv.textContent = errorMessages[currentLanguage]['language_required'];
-                errorDiv.style.display = 'block';
+                messageDiv.innerHTML = '<p style="color: red;">Please enter your email</p>';
                 return;
             }
             
             const subscriberData = {
                 email: email,
                 name: name || null,
-                languages: selectedLanguages,
+                languages: [currentLang],
                 subscribed: true,
                 subscribedDate: new Date().toISOString().split('T')[0]
             };
             
-            console.log('Subscriber data:', subscriberData);
-            
-            successDiv.textContent = successMessages[currentLanguage];
-            successDiv.style.display = 'block';
-            
-            if (emailElement) emailElement.value = '';
-            if (nameElement) nameElement.value = '';
-            
-            if (activeForm) {
-                activeForm.querySelectorAll('input').forEach(checkbox => {
-                    checkbox.checked = checkbox.value === currentLanguage;
-                });
-            }
+            fetch('/subscribe', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(subscriberData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    messageDiv.innerHTML = '<p style="color: green;">✅ Subscribed successfully!</p>';
+                    document.querySelector(emailSelector).value = '';
+                    document.querySelector(nameSelector).value = '';
+                } else {
+                    messageDiv.innerHTML = '<p style="color: red;">❌ Subscription failed</p>';
+                }
+            })
+            .catch(error => {
+                messageDiv.innerHTML = '<p style="color: red;">❌ Network error</p>';
+            });
         }
 
         document.addEventListener('DOMContentLoaded', function() {
