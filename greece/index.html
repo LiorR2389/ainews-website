@@ -60,21 +60,19 @@
                     transform: translateY(-2px);
                 }
                 
-                .live-button {
-                    background: linear-gradient(135deg, #ff4444 0%, #cc0000 100%) !important;
-                    animation: pulse-live 2s infinite !important;
-                    font-weight: bold !important;
-                    box-shadow: 0 4px 15px rgba(255, 68, 68, 0.3) !important;
+                .live-news-link {
+                    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%) !important;
+                    animation: pulse 2s infinite;
                 }
                 
-                .live-button:hover {
-                    background: linear-gradient(135deg, #ff6666 0%, #ff0000 100%) !important;
-                    transform: translateY(-3px) scale(1.05) !important;
+                .live-news-link:hover {
+                    background: linear-gradient(135deg, #ee5a24 0%, #d63031 100%) !important;
                 }
                 
-                @keyframes pulse-live {
-                    0%, 100% { opacity: 1; box-shadow: 0 4px 15px rgba(255, 68, 68, 0.3); }
-                    50% { opacity: 0.8; box-shadow: 0 6px 20px rgba(255, 68, 68, 0.5); }
+                @keyframes pulse {
+                    0% { box-shadow: 0 0 0 0 rgba(255, 107, 107, 0.7); }
+                    70% { box-shadow: 0 0 0 10px rgba(255, 107, 107, 0); }
+                    100% { box-shadow: 0 0 0 0 rgba(255, 107, 107, 0); }
                 }
                 
                 .lang-buttons { 
@@ -171,7 +169,6 @@
                     margin: 15px 0; 
                     font-size: 1rem;
                     line-height: 1.6;
-                    /* Ensure full paragraph is visible */
                     display: block;
                     word-wrap: break-word;
                     overflow-wrap: break-word;
@@ -258,7 +255,6 @@
                     margin: 20px 0;
                 }
                 
-                /* Back to Top Button */
                 .back-to-top {
                     position: fixed;
                     bottom: 30px;
@@ -286,7 +282,6 @@
                     display: block;
                 }
                 
-                /* Category Headers */
                 h2 {
                     color: #2d3748;
                     font-size: 1.5rem;
@@ -296,7 +291,6 @@
                     border-bottom: 2px solid #e2e8f0;
                 }
                 
-                /* Mobile Responsive Design */
                 @media (max-width: 768px) {
                     body {
                         padding: 10px;
@@ -358,7 +352,7 @@
                     .subscription input {
                         width: 90%;
                         margin: 8px 0;
-                        font-size: 16px; /* Prevents zoom on iOS */
+                        font-size: 16px;
                     }
                     
                     .subscription button {
@@ -412,7 +406,7 @@
                 <a href="../cyprus/index.html">🇨🇾 Cyprus</a>
                 <a href="../israel/index.html">🇮🇱 Israel</a>
                 <a href="../greece/index.html">🇬🇷 Greece</a>
-                <a href="../live/index.html" class="live-button">🔴 LIVE NEWS</a>
+                <a href="https://ainews.eu.com" class="live-news-link" target="_blank" rel="noopener noreferrer">🔴 Live News</a>
             </div>
 
             <div class="lang-buttons">
@@ -435,7 +429,7 @@
     </div>
     <div class="lang he" dir="rtl">
         <h3 dir="rtl">אתונה מודאגת מדיווחים על תפיסות בגדה המערבית</h3>
-        <p dir="rtl">הרשויות היווניות הביעו דאגה עמוקה לגבי דיווחים על הרחבת השתלטות קרקעות של מתנחלים ישראלים על נכסים השייכים לכנסייה היוונית-אורתודוקסית ביהודה ושומרון, במיוחד סביב המנזר ההיסטורי של סנט גרסימוס מהירדן ליד יריחו.</p>
+        <p dir="rtl">הרשויות היווניות הביעו דאגה עמוקה לגבי דיווחים על הרחבת השתלטויות קרקע של מתנחלים ישראלים על נכסים השייכים לכנסייה היוונית-אורתודוקסית ביהודה ושומרון, במיוחד סביב המנזר ההיסטורי של סנט גרסימוס מהירדן ליד יריחו.</p>
         <a href="https://www.ekathimerini.com/politics/foreign-policy/1277381/athens-upset-by-west-bank-seizure-reports/" target="_blank" rel="noopener noreferrer">קרא עוד</a>
     </div>
     <div class="lang ru">
@@ -450,66 +444,66 @@
     </div>
 </div><div class="article">
     <div class="lang en active">
+        <h3>Experts warn of gale-force winds in coming days</h3>
+        <p>Gale-force winds are expected in Greece in the coming days, with gusts reaching up to 9 on the Beaufort scale, the National Meteorological Service  said in a weather bulletin Thursday.</p>
+        <a href="https://www.ekathimerini.com/news/environment/1277470/experts-warn-of-gale-force-winds-forecast-in-coming-days/" target="_blank" rel="noopener noreferrer">Read more</a>
+    </div>
+    <div class="lang he" dir="rtl">
+        <h3 dir="rtl">מומחים מזהירים על רוחות חזקות בימים הקרובים</h3>
+        <p dir="rtl">רוחות חזקות צפויות ביוון בימים הקרובים, עם רוחות שיגיעו עד ל-9 בסולם בופור, כך נמסר בשירות המטאורולוגי הלאומי בהודעת מזג האוויר ביום חמישי.</p>
+        <a href="https://www.ekathimerini.com/news/environment/1277470/experts-warn-of-gale-force-winds-forecast-in-coming-days/" target="_blank" rel="noopener noreferrer">קרא עוד</a>
+    </div>
+    <div class="lang ru">
+        <h3>Эксперты предупреждают о шквалистом ветре в ближайшие дни.</h3>
+        <p>В Греции в ближайшие дни ожидаются ураганные ветры, порывы которых могут достигать 9 баллов по шкале Бофорта, сообщила Национальная метеорологическая служба в метеорологическом бюллетене в четверг.</p>
+        <a href="https://www.ekathimerini.com/news/environment/1277470/experts-warn-of-gale-force-winds-forecast-in-coming-days/" target="_blank" rel="noopener noreferrer">Читать далее</a>
+    </div>
+    <div class="lang el">
+        <h3>Ειδικοί προειδοποιούν για θυελλώδεις ανέμους τις επόμενες ημέρες.</h3>
+        <p>Αναμένονται θυελλώδεις άνεμοι στην Ελλάδα τις επόμενες ημέρες, με ριπές που θα φτάσουν έως και 9 στη κλίμακα Μποφόρ, ανακοίνωσε την Πέμπτη η Εθνική Μετεωρολογική Υπηρεσία σε δελτίο καιρού.</p>
+        <a href="https://www.ekathimerini.com/news/environment/1277470/experts-warn-of-gale-force-winds-forecast-in-coming-days/" target="_blank" rel="noopener noreferrer">Διαβάστε περισσότερα</a>
+    </div>
+</div><div class="article">
+    <div class="lang en active">
+        <h3>No fees for Greek ATM cash withdrawals as of Monday</h3>
+        <p>Banks will stop applying fees for cash withdrawals from ATMs operated by Greek lenders as of next Monday , the finance ministry said.</p>
+        <a href="https://www.ekathimerini.com/economy/1277466/cash-withdrawals-from-greek-bank-atms-free-of-charge-as-of-monday/" target="_blank" rel="noopener noreferrer">Read more</a>
+    </div>
+    <div class="lang he" dir="rtl">
+        <h3 dir="rtl">אין עמלות על משיכות מזומן מכספומטים ביוון החל מיום שני.</h3>
+        <p dir="rtl">הבנקים יפסיקו לגבות עמלות על משיכות מזומן מכספומטים המופעלים על ידי מלווים יווניים החל מיום שני הקרוב, כך מסר משרד האוצר.</p>
+        <a href="https://www.ekathimerini.com/economy/1277466/cash-withdrawals-from-greek-bank-atms-free-of-charge-as-of-monday/" target="_blank" rel="noopener noreferrer">קרא עוד</a>
+    </div>
+    <div class="lang ru">
+        <h3>С понедельника снятие наличных в греческих банкоматах без комиссии.</h3>
+        <p>Банки прекратят взимание сборов за снятие наличных в банкоматах, управляемых греческими кредитными учреждениями, начиная с понедельника, сообщило министерство финансов.</p>
+        <a href="https://www.ekathimerini.com/economy/1277466/cash-withdrawals-from-greek-bank-atms-free-of-charge-as-of-monday/" target="_blank" rel="noopener noreferrer">Читать далее</a>
+    </div>
+    <div class="lang el">
+        <h3>Χωρίς χρεώσεις για αναλήψεις μετρητών από ΑΤΜ στην Ελλάδα από τη Δευτέρα.</h3>
+        <p>Οι τράπεζες θα σταματήσουν να επιβάλλουν χρεώσεις για αναλήψεις μετρητών από ΑΤΜ που λειτουργούν από ελληνικές τράπεζες από την επόμενη Δευτέρα, δήλωσε το υπουργείο Οικονομικών.</p>
+        <a href="https://www.ekathimerini.com/economy/1277466/cash-withdrawals-from-greek-bank-atms-free-of-charge-as-of-monday/" target="_blank" rel="noopener noreferrer">Διαβάστε περισσότερα</a>
+    </div>
+</div><div class="article">
+    <div class="lang en active">
         <h3>Farm subsidy scandal widens as EPPO opens probe on ex-New Democracy MP</h3>
         <p>The European Public Prosecutor’s Office  has launched a preliminary investigation into former New Democracy official Kalliopi Semertzidou and family members, following a report that they allegedly received 2.5 million euros in EU farm subsidies from the troubled Greek agricultural payments organizat...</p>
         <a href="https://www.ekathimerini.com/politics/1277457/farm-subsidy-scandal-widens-as-eppo-opens-probe-on-ex-new-democracy-mp/" target="_blank" rel="noopener noreferrer">Read more</a>
     </div>
     <div class="lang he" dir="rtl">
-        <h3 dir="rtl">שערוריית סובסידיות החקלאות מתרחבת כאשר ה-EPPO פותח בחקירה נגד חבר פרלמנט לשעבר מהמפלגה החדשה.</h3>
-        <p dir="rtl">המשרד הציבורי התובע האירופי פתח בחקירה ראשונית נגד קאליופי סמרצידו, לשעבר בכירה במפלגת "דמוקרטיה חדשה", ובני משפחתה, בעקבות דיווח כי allegedly קיבלו 2.5 מיליון יורו במענקי חקלאות מהאיחוד האירופי מארגון התשלומים החקלאיים היווני שנמצא במצוקה.</p>
+        <h3 dir="rtl">שערוריית סובסידיות החקלאות מתרחבת כאשר ה-EPPO פותח בחקירה נגד ח"כ לשעבר מהדמוקרטיה החדשה.</h3>
+        <p dir="rtl">המשרד הציבורי התובע האירופי פתח בחקירה ראשונית נגד קאליופי סמרצידו, לשעבר בכירה במפלגת הדמוקרטיה החדשה, ובני משפחתה, בעקבות דיווח כי allegedly קיבלו 2.5 מיליון יורו במענקי חקלאות מהאיחוד האירופי מארגון התשלומים החקלאיים היווני המתקשה.</p>
         <a href="https://www.ekathimerini.com/politics/1277457/farm-subsidy-scandal-widens-as-eppo-opens-probe-on-ex-new-democracy-mp/" target="_blank" rel="noopener noreferrer">קרא עוד</a>
     </div>
     <div class="lang ru">
         <h3>Скандал с субсидиями для фермеров расширяется: EPPO начинает расследование в отношении бывшего депутата Новой Демократии.</h3>
-        <p>Европейская прокуратура начала предварительное расследование в отношении бывшего чиновника партии «Новая демократия» Каллиопи Семерциду и членов её семьи после сообщения о том, что они якобы получили 2,5 миллиона евро в виде субсидий ЕС для сельского хозяйства от проблемной греческой организации по выплатам в агросекторе.</p>
+        <p>Европейская прокуратура начала предварительное расследование в отношении бывшего чиновника партии «Новая демократия» Каллиопи Семерциду и членов её семьи после сообщения о том, что они якобы получили 2,5 миллиона евро в виде субсидий ЕС для сельского хозяйства от проблемной греческой организации по выплатам в аграрном секторе.</p>
         <a href="https://www.ekathimerini.com/politics/1277457/farm-subsidy-scandal-widens-as-eppo-opens-probe-on-ex-new-democracy-mp/" target="_blank" rel="noopener noreferrer">Читать далее</a>
     </div>
     <div class="lang el">
         <h3>Σκάνδαλο επιδοτήσεων γεωργίας διευρύνεται καθώς η ΕΠΠΟ ανοίγει έρευνα για πρώην βουλευτή της Νέας Δημοκρατίας.</h3>
-        <p>Το Ευρωπαϊκό Γραφείο Δημόσιου Κατήγορου έχει ξεκινήσει προκαταρκτική έρευνα κατά της πρώην αξιωματούχου της Νέας Δημοκρατίας, Καλλιόπης Σεμερτζίδου, και μελών της οικογένειάς της, μετά από αναφορά ότι allegedly έλαβαν 2,5 εκατομμύρια ευρώ σε επιδοτήσεις γεωργίας από την προβληματική ελληνική οργανωτική αρχή πληρωμών γεωργίας.</p>
+        <p>Η Ευρωπαϊκή Εισαγγελία έχει ξεκινήσει προκαταρκτική έρευνα κατά της πρώην αξιωματούχου της Νέας Δημοκρατίας, Καλλιόπης Σεμερτζίδου, και μελών της οικογένειάς της, μετά από αναφορά ότι allegedly έλαβαν 2,5 εκατομμύρια ευρώ σε επιδοτήσεις γεωργίας από την προβληματική ελληνική υπηρεσία πληρωμών γεωργίας.</p>
         <a href="https://www.ekathimerini.com/politics/1277457/farm-subsidy-scandal-widens-as-eppo-opens-probe-on-ex-new-democracy-mp/" target="_blank" rel="noopener noreferrer">Διαβάστε περισσότερα</a>
-    </div>
-</div><div class="article">
-    <div class="lang en active">
-        <h3>Egypt’s note verbale on Greek maritime map is ‘an expected reaction,’ says ministry</h3>
-        <p>Egypt’s reaction in the form of a note verbale to Greece’s maritime spatial planning  published last April is an “an expected reaction,” a Foreign Ministry spokesperson said on Wednesday.</p>
-        <a href="https://www.ekathimerini.com/politics/foreign-policy/1277455/egypts-note-verbale-on-greek-maritime-map-is-an-expected-reaction-says-ministry/" target="_blank" rel="noopener noreferrer">Read more</a>
-    </div>
-    <div class="lang he" dir="rtl">
-        <h3 dir="rtl">ההודעה הוורבלית של מצרים על המפה הימית היוונית היא "תגובה צפויה," אומר המשרד.</h3>
-        <p dir="rtl">תגובת מצרים בצורה של הודעת נוטה ורבאלית לתכנון המרחבי הימי של יוון שפורסם באפריל האחרון היא "תגובה צפויה", כך אמר דובר משרד החוץ ביום רביעי.</p>
-        <a href="https://www.ekathimerini.com/politics/foreign-policy/1277455/egypts-note-verbale-on-greek-maritime-map-is-an-expected-reaction-says-ministry/" target="_blank" rel="noopener noreferrer">קרא עוד</a>
-    </div>
-    <div class="lang ru">
-        <h3>Нота вербале Египта по греческой морской карте является «ожидаемой реакцией», заявило министерство.</h3>
-        <p>Реакция Египта в виде вербальной ноты на морское пространственное планирование Греции, опубликованное в прошлом апреле, является «ожидаемой реакцией», заявил представитель Министерства иностранных дел в среду.</p>
-        <a href="https://www.ekathimerini.com/politics/foreign-policy/1277455/egypts-note-verbale-on-greek-maritime-map-is-an-expected-reaction-says-ministry/" target="_blank" rel="noopener noreferrer">Читать далее</a>
-    </div>
-    <div class="lang el">
-        <h3>Η σημείωση της Αιγύπτου σχετικά με τον ελληνικό θαλάσσιο χάρτη είναι «μια αναμενόμενη αντίδραση», δηλώνει το υπουργείο.</h3>
-        <p>Η αντίδραση της Αιγύπτου με τη μορφή σημειώματος προς την Ελλάδα σχετικά με τον θαλάσσιο χωροταξικό σχεδιασμό που δημοσιεύθηκε τον περασμένο Απρίλιο είναι μια "αναμενόμενη αντίδραση," δήλωσε εκπρόσωπος του Υπουργείου Εξωτερικών την Τετάρτη.</p>
-        <a href="https://www.ekathimerini.com/politics/foreign-policy/1277455/egypts-note-verbale-on-greek-maritime-map-is-an-expected-reaction-says-ministry/" target="_blank" rel="noopener noreferrer">Διαβάστε περισσότερα</a>
-    </div>
-</div><div class="article">
-    <div class="lang en active">
-        <h3>Divers find 20-meter crack in Evia ferry that ran aground</h3>
-        <p>Divers sent to evaluate the state of a passenger ferry that ran aground off Nea Styra, in Evia, with 105 passengers and nine crew on board, have found a 20-meter crack below the water line, according to state-run broadcaster ERT.</p>
-        <a href="https://www.ekathimerini.com/news/1277448/divers-find-20-meter-crack-in-evia-ferry-that-ran-aground/" target="_blank" rel="noopener noreferrer">Read more</a>
-    </div>
-    <div class="lang he" dir="rtl">
-        <h3 dir="rtl">מגלים דקירה של 20 מטרים במעבורת אביה שהשתעשע על החוף</h3>
-        <p dir="rtl">צוללנים שנשלחו להעריך את מצב המעבורת שהשתעשע מול ניאה סטירה באביה, עם 105 נוסעים ותשעה אנשי צוות על הסיפון, גילו סדק של 20 מטר מתחת לקו המים, כך מדווחת רשות השידור הממלכתית ERT.</p>
-        <a href="https://www.ekathimerini.com/news/1277448/divers-find-20-meter-crack-in-evia-ferry-that-ran-aground/" target="_blank" rel="noopener noreferrer">קרא עוד</a>
-    </div>
-    <div class="lang ru">
-        <h3>Дайверы обнаружили трещину длиной 20 метров в пароме на Эвии, который сел на мель.</h3>
-        <p>Дайверы, отправленные оценить состояние пассажирского парома, севшего на мель у Неа-Стира на Эвбии с 105 пассажирами и девятью членами экипажа на борту, обнаружили 20-метровую трещину ниже уровня воды, сообщает государственная телерадиокомпания ERT.</p>
-        <a href="https://www.ekathimerini.com/news/1277448/divers-find-20-meter-crack-in-evia-ferry-that-ran-aground/" target="_blank" rel="noopener noreferrer">Читать далее</a>
-    </div>
-    <div class="lang el">
-        <h3>Δύτες εντοπίζουν 20 μέτρων ρωγμή στο φέρι της Εύβοιας που προσάραξε.</h3>
-        <p>Δύτες που στάλθηκαν για να αξιολογήσουν την κατάσταση ενός επιβατικού φέρι που προσάραξε ανοιχτά της Νέας Στύρας στην Εύβοια, με 105 επιβάτες και εννέα μέλη πληρώματος, βρήκαν μια 20 μέτρων ρωγμή κάτω από τη γραμμή του νερού, σύμφωνα με την κρατική τηλεόραση ΕΡΤ.</p>
-        <a href="https://www.ekathimerini.com/news/1277448/divers-find-20-meter-crack-in-evia-ferry-that-ran-aground/" target="_blank" rel="noopener noreferrer">Διαβάστε περισσότερα</a>
     </div>
 </div><div class="article">
     <div class="lang en active">
@@ -518,13 +512,13 @@
         <a href="https://www.ekathimerini.com/news/1277464/athens-national-garden-closes-due-to-strong-winds/" target="_blank" rel="noopener noreferrer">Read more</a>
     </div>
     <div class="lang he" dir="rtl">
-        <h3 dir="rtl">גן לאומי אתונה נסגר בעקבות רוחות חזקות</h3>
+        <h3 dir="rtl">גן לאומי אתונה נסגר בשל רוחות חזקות</h3>
         <p dir="rtl">הגן הלאומי במרכז אתונה נסגר לציבור בשל רוחות חזקות, הודיעה עיריית אתונה ביום חמישי בבוקר.</p>
         <a href="https://www.ekathimerini.com/news/1277464/athens-national-garden-closes-due-to-strong-winds/" target="_blank" rel="noopener noreferrer">קרא עוד</a>
     </div>
     <div class="lang ru">
         <h3>Национальный сад Афин закрыт из-за сильного ветра.</h3>
-        <p>Национальный сад в центре Афин закрыт для посетителей из-за сильного ветра, сообщила Муниципалитет Афин в четверг утром.</p>
+        <p>Национальный сад в центре Афин закрыт для посетителей из-за сильного ветра, сообщила мэрия Афин в четверг утром.</p>
         <a href="https://www.ekathimerini.com/news/1277464/athens-national-garden-closes-due-to-strong-winds/" target="_blank" rel="noopener noreferrer">Читать далее</a>
     </div>
     <div class="lang el">
@@ -540,7 +534,7 @@
     </div>
     <div class="lang he" dir="rtl">
         <h3 dir="rtl">פליט ביוון מעצים נשים אפגניות דרך קידוד</h3>
-        <p dir="rtl">אחת אחרי השנייה, ההזדמנויות נעלמו. כמו רבות אחרות מנשים אפגניות, סודבה יכלה לעשות מעט מלבד לצפות כיצד ממשלת הטליבאן החדשה במדינתה מטילה חנק על חייהן של נשים.</p>
+        <p dir="rtl">אחת אחרי השנייה, ההזדמנויות נעלמו. כמו רבות אחרות מנשים אפגניות, סודבה יכלה לעשות מעט מלבד לצפות כאשר ממשלת הטליבאן החדשה של מדינתה הטילה חנק על חייהן של נשים.</p>
         <a href="https://www.ekathimerini.com/in-depth/society-in-depth/1277338/a-refugee-in-greece-empowers-afghan-women-through-coding/" target="_blank" rel="noopener noreferrer">קרא עוד</a>
     </div>
     <div class="lang ru">
@@ -561,17 +555,17 @@
     </div>
     <div class="lang he" dir="rtl">
         <h3 dir="rtl">שינוי העיר</h3>
-        <p dir="rtl">אם מסתכלים על אתונה מהאקרופוליס ומהגבעות ליקבטוס, רואים שהים הזה של בנייני דירות שממלא את שדה הראייה הוא גם ניצחון של המודל החברתי הקטן-בינוני ששלט לאחר 1950. זהו שטיח של בניינים, שנראים ממרחק אחידים מבלי להיות...</p>
+        <p dir="rtl">אם מסתכלים על אתונה מהאקרופוליס ומהגבעות ליקבטוס, רואים שהים הזה של בנייני דירות שממלא את שדה הראייה הוא גם ניצחון של המודל החברתי הקטן-בינוני ששלט לאחר 1950. זהו שטיח של בניינים שנראים אחידים ממרחק, מבלי להיות...</p>
         <a href="https://www.ekathimerini.com/opinion/1277198/the-citys-transformation/" target="_blank" rel="noopener noreferrer">קרא עוד</a>
     </div>
     <div class="lang ru">
         <h3>Трансформация города</h3>
-        <p>Если посмотреть на Афины с Акрополя и холма Ликабет, можно увидеть, что это море жилых зданий, заполняющее поле зрения, также является триумфом маломасштабной социальной модели, которая преобладала после 1950 года. Это ковер зданий, который на расстоянии кажется однородным, не будучи...</p>
+        <p>Если посмотреть на Афины с Акрополя и холма Ликабет, можно увидеть, что это море жилых зданий, заполняющее поле зрения, также является триумфом маломедленного социального моделирования, которое преобладало после 1950 года. Это ковер зданий, который на расстоянии кажется однородным, не будучи...</p>
         <a href="https://www.ekathimerini.com/opinion/1277198/the-citys-transformation/" target="_blank" rel="noopener noreferrer">Читать далее</a>
     </div>
     <div class="lang el">
         <h3>Η μεταμόρφωση της πόλης</h3>
-        <p>Αν κοιτάξει κανείς την Αθήνα από την Ακρόπολη και τους λόφους του Λυκαβηττού, θα δει ότι αυτή η θάλασσα από πολυκατοικίες που γεμίζει το οπτικό πεδίο είναι επίσης ένας θρίαμβος του μικρομεσαίου κοινωνικού μοντέλου που επικράτησε μετά το 1950. Είναι ένα χαλί κτιρίων που, από μακριά, φαίνονται ομοιόμορφα χωρίς να είναι...</p>
+        <p>Αν κοιτάξει κανείς την Αθήνα από την Ακρόπολη και τους λόφους του Λυκαβηττού, θα δει ότι αυτή η θάλασσα πολυκατοικιών που γεμίζει το οπτικό πεδίο είναι επίσης ένας θρίαμβος του μικρομεσαίου κοινωνικού μοντέλου που επικράτησε μετά το 1950. Είναι ένα χαλί κτιρίων που, από μακριά, φαίνονται ομοιόμορφα χωρίς να είναι...</p>
         <a href="https://www.ekathimerini.com/opinion/1277198/the-citys-transformation/" target="_blank" rel="noopener noreferrer">Διαβάστε περισσότερα</a>
     </div>
 </div><div class="article">
@@ -586,7 +580,7 @@
         <a href="https://www.ekathimerini.com/leisure/gastronomy/1277162/spicy-cheese-spread-tyrokafteri-six-piquant-recipes/" target="_blank" rel="noopener noreferrer">קרא עוד</a>
     </div>
     <div class="lang ru">
-        <h3>Острый сырный намаз (тырокафтери): Шесть пикантных рецептов</h3>
+        <h3>Острая сырная паста (тырокафтери): Шесть пикантных рецептов</h3>
         <p>Скромное мезе, которое разжигает аппетит, является основным блюдом на столе таверны и очень легко готовится дома.</p>
         <a href="https://www.ekathimerini.com/leisure/gastronomy/1277162/spicy-cheese-spread-tyrokafteri-six-piquant-recipes/" target="_blank" rel="noopener noreferrer">Читать далее</a>
     </div>
@@ -623,19 +617,61 @@
         <a href="https://www.ekathimerini.com/leisure/gastronomy/1276878/from-land-to-table-the-culinary-riches-of-hania/" target="_blank" rel="noopener noreferrer">Read more</a>
     </div>
     <div class="lang he" dir="rtl">
-        <h3 dir="rtl">מקרקע לשולחן: העושר הקולינרי של חאניה</h3>
-        <p dir="rtl">בנטוניאס, טברנה כפרית הממוקמת בכפר דרקונה בהרי הלבן, גן הירק מלא בזרעים עתיקים - זנים מקומיים עמידים שעברו מדור לדור. תימין בר, אורגנו ואריסמארי צומחים בחופשיות בין השורות, וכל מה שגדל שם מגודל בשיטות אורגניות.</p>
+        <h3 dir="rtl">מארץ לשולחן: העושר הקולינרי של חאניה</h3>
+        <p dir="rtl">בנטוניאס, טברנה כפרית הממוקמת בכפר דרקונה בהרי הלבן, גן הירק מלא בזרעים עתיקים – זנים מקומיים עמידים שעברו מדור לדור. תימין, אורגנו ואריסמארי צומחים חופשי בין השורות, וכל מה שגדל שם מגודל בשיטות אורגניות.</p>
         <a href="https://www.ekathimerini.com/leisure/gastronomy/1276878/from-land-to-table-the-culinary-riches-of-hania/" target="_blank" rel="noopener noreferrer">קרא עוד</a>
     </div>
     <div class="lang ru">
         <h3>От земли до стола: Кулинарные богатства Хании</h3>
-        <p>В Нтуниас, деревенской таверне, расположенной в деревне Дракона на Белых горах, огород засажен семенами старинных сортов – выносливых, местных видов, передаваемых из поколения в поколение. Дикий тимьян, орегано и арисмари растут свободно между рядами, и всё выращивается с использованием органических методов.</p>
+        <p>В Нтуниас, деревенской таверне, расположенной в деревне Дракона в Белых горах, огород засажен семенами старинных сортов – выносливых, местных видов, передаваемых из поколения в поколение. Дикий тимьян, орегано и арисмари растут свободно между рядами, и всё выращивается с использованием органических методов.</p>
         <a href="https://www.ekathimerini.com/leisure/gastronomy/1276878/from-land-to-table-the-culinary-riches-of-hania/" target="_blank" rel="noopener noreferrer">Читать далее</a>
     </div>
     <div class="lang el">
         <h3>Από τη γη στο τραπέζι: Οι γαστρονομικοί θησαυροί των Χανίων</h3>
-        <p>Στο Ντουνιάς, μια παραδοσιακή ταβέρνα που βρίσκεται στο χωριό Δρακώνα στα Λευκά Όρη, ο κήπος της κουζίνας είναι φυτεμένος με κληρονομικά σπόρους – ανθεκτικές, ντόπιες ποικιλίες που έχουν περάσει από γενιά σε γενιά. Άγριο θυμάρι, ρίγανη και αρισμαρί φυτρώνουν ελεύθερα ανάμεσα στις σειρές, και όλα καλλιεργούνται με οργανικές μεθόδους.</p>
+        <p>Στο Ντουνιάς, μια παραδοσιακή ταβέρνα που βρίσκεται στο χωριό Δρακώνα στα Λευκά Όρη, ο κήπος της κουζίνας είναι φυτεμένος με σπόρους κληρονομιάς – ανθεκτικές, ντόπιες ποικιλίες που έχουν περάσει από γενιά σε γενιά. Άγριο θυμάρι, ρίγανη και αρισμάρι φυτρώνουν ελεύθερα ανάμεσα στις σειρές, και όλα καλλιεργούνται με οργανικές μεθόδους.</p>
         <a href="https://www.ekathimerini.com/leisure/gastronomy/1276878/from-land-to-table-the-culinary-riches-of-hania/" target="_blank" rel="noopener noreferrer">Διαβάστε περισσότερα</a>
+    </div>
+</div><div class="article">
+    <div class="lang en active">
+        <h3>Ecumenical Patriarch: Gaza Events ‘a Disgrace for the Human Race’</h3>
+        <p>Ecumenical Patriarch Bartholomew, the spiritual leader of Eastern Orthodox Christians worldwide, has described the dramatic events at Gaza as “a disgrace for the human race.”</p>
+        <a href="https://greekreporter.com/2025/08/07/ecumenical-patriarch-gaza-disgrace-human-race/" target="_blank" rel="noopener noreferrer">Read more</a>
+    </div>
+    <div class="lang he" dir="rtl">
+        <h3 dir="rtl">פטריארך אקונומי: האירועים בעזה 'בושה לגזע האנושי'</h3>
+        <p dir="rtl">הפטריארך האקונומי ברתולומיאוס, המנהיג הרוחני של הנוצרים האורתודוקסים המזרחיים ברחבי העולם, תיאר את האירועים הדרמטיים בעזה כ"חרפה למין האנושי."</p>
+        <a href="https://greekreporter.com/2025/08/07/ecumenical-patriarch-gaza-disgrace-human-race/" target="_blank" rel="noopener noreferrer">קרא עוד</a>
+    </div>
+    <div class="lang ru">
+        <h3>Вселенский патриарх: События в Газе — «позор для человечества»</h3>
+        <p>Вселенский патриарх Варфоломей, духовный лидер восточных православных христиан по всему миру, охарактеризовал драматические события в Газе как «позор для человечества».</p>
+        <a href="https://greekreporter.com/2025/08/07/ecumenical-patriarch-gaza-disgrace-human-race/" target="_blank" rel="noopener noreferrer">Читать далее</a>
+    </div>
+    <div class="lang el">
+        <h3>Οικουμενικός Πατριάρχης: Τα γεγονότα στη Γάζα «ντροπή για την ανθρωπότητα»</h3>
+        <p>Ο Οικουμενικός Πατριάρχης Βαρθολομαίος, πνευματικός ηγέτης των Ανατολικών Ορθοδόξων Χριστιανών παγκοσμίως, χαρακτήρισε τα δραματικά γεγονότα στη Γάζα ως “ντροπή για την ανθρωπότητα.”</p>
+        <a href="https://greekreporter.com/2025/08/07/ecumenical-patriarch-gaza-disgrace-human-race/" target="_blank" rel="noopener noreferrer">Διαβάστε περισσότερα</a>
+    </div>
+</div><div class="article">
+    <div class="lang en active">
+        <h3>Greek Beach of Elafonissi Crowned Best in the World by Trip Advisor</h3>
+        <p>The Greek beach of Elafonissi on Crete was recently crowned the best in the world for 2025 according to popular travel website Trip Advisor.</p>
+        <a href="https://greekreporter.com/2025/08/07/greek-beach-elafonissi-best-world/" target="_blank" rel="noopener noreferrer">Read more</a>
+    </div>
+    <div class="lang he" dir="rtl">
+        <h3 dir="rtl">חוף אלאפוניסי היווני זכה בתואר החוף הטוב ביותר בעולם על ידי טריפ אדוויזור</h3>
+        <p dir="rtl">חוף אלאפוניסי ביוון, שנמצא בכרתים, הוכתר לאחרונה כחוף הטוב ביותר בעולם לשנת 2025 לפי אתר הנסיעות הפופולרי טריפ אדוויזר.</p>
+        <a href="https://greekreporter.com/2025/08/07/greek-beach-elafonissi-best-world/" target="_blank" rel="noopener noreferrer">קרא עוד</a>
+    </div>
+    <div class="lang ru">
+        <h3>Греческий пляж Элафонисси признан лучшим в мире по версии Trip Advisor.</h3>
+        <p>Греческий пляж Элафонисси на Крите недавно был признан лучшим в мире на 2025 год по версии популярного туристического сайта Trip Advisor.</p>
+        <a href="https://greekreporter.com/2025/08/07/greek-beach-elafonissi-best-world/" target="_blank" rel="noopener noreferrer">Читать далее</a>
+    </div>
+    <div class="lang el">
+        <h3>Η παραλία Ελαφονήσι στην Ελλάδα ανακηρύχθηκε η καλύτερη στον κόσμο από το Trip Advisor.</h3>
+        <p>Η ελληνική παραλία Ελαφονήσι στην Κρήτη ανακηρύχθηκε πρόσφατα η καλύτερη στον κόσμο για το 2025 σύμφωνα με τον δημοφιλή ταξιδιωτικό ιστότοπο Trip Advisor.</p>
+        <a href="https://greekreporter.com/2025/08/07/greek-beach-elafonissi-best-world/" target="_blank" rel="noopener noreferrer">Διαβάστε περισσότερα</a>
     </div>
 </div><div class="article">
     <div class="lang en active">
@@ -655,7 +691,7 @@
     </div>
     <div class="lang el">
         <h3>Έλληνες Φοιτητές Κερδίζουν Παγκόσμιο Διαγωνισμό Αρχιτεκτονικής</h3>
-        <p>Για πρώτη φορά στην ιστορία, Έλληνες φοιτητές κέρδισαν το πρώτο βραβείο σε διαγωνισμό που διοργάνωσε η Buildner, μια κορυφαία διεθνής αρχιτεκτονική πλατφόρμα.</p>
+        <p>Για πρώτη φορά, Έλληνες φοιτητές κέρδισαν το πρώτο βραβείο σε διαγωνισμό που διοργάνωσε η Buildner, μια κορυφαία διεθνής αρχιτεκτονική πλατφόρμα.</p>
         <a href="https://greekreporter.com/2025/08/07/greek-students-win-global-architecture-competition/" target="_blank" rel="noopener noreferrer">Διαβάστε περισσότερα</a>
     </div>
 </div><div class="article">
@@ -666,7 +702,7 @@
     </div>
     <div class="lang he" dir="rtl">
         <h3 dir="rtl">מכסים גבוהים יותר של ארה"ב נכנסים לתוקף על עשרות כלכלות</h3>
-        <p dir="rtl">מכסים גבוהים יותר של ארה"ב נכנסו לתוקף עבור עשרות כלכלות ביום חמישי, והעלו באופן דרסטי את הסיכונים במאמצים הנרחבים של הנשיא דונלד טראמפ לעצב מחדש את הסחר הגלובלי.</p>
+        <p dir="rtl">מכסים גבוהים יותר של ארה"ב נכנסו לתוקף עבור עשרות כלכלות ביום חמישי, מה שהגביר באופן דרמטי את הסיכונים במאמצים הנרחבים של הנשיא דונלד טראמפ לעצב מחדש את הסחר העולמי.</p>
         <a href="https://greekreporter.com/2025/08/07/higher-us-tariffs-take-effect-dozens-economies/" target="_blank" rel="noopener noreferrer">קרא עוד</a>
     </div>
     <div class="lang ru">
@@ -675,51 +711,30 @@
         <a href="https://greekreporter.com/2025/08/07/higher-us-tariffs-take-effect-dozens-economies/" target="_blank" rel="noopener noreferrer">Читать далее</a>
     </div>
     <div class="lang el">
-        <h3>Αυξημένοι δασμοί των ΗΠΑ τίθενται σε εφαρμογή σε δεκάδες οικονομίες</h3>
-        <p>Οι υψηλότεροι δασμοί των ΗΠΑ τέθηκαν σε εφαρμογή για δεκάδες οικονομίες την Πέμπτη, αυξάνοντας δραστικά τα ρίσκα στις ευρείες προσπάθειες του προεδρου Ντόναλντ Τραμπ να αναμορφώσει το παγκόσμιο εμπόριο.</p>
+        <h3>Αυξήσεις δασμών των ΗΠΑ τίθενται σε εφαρμογή σε δεκάδες οικονομίες</h3>
+        <p>Οι υψηλότεροι δασμοί των Η.Π.Α. τέθηκαν σε εφαρμογή για δεκάδες οικονομίες την Πέμπτη, αυξάνοντας δραστικά τα ρίσκα στις ευρείες προσπάθειες του προεδρου Ντόναλντ Τραμπ να αναμορφώσει το παγκόσμιο εμπόριο.</p>
         <a href="https://greekreporter.com/2025/08/07/higher-us-tariffs-take-effect-dozens-economies/" target="_blank" rel="noopener noreferrer">Διαβάστε περισσότερα</a>
     </div>
 </div><div class="article">
     <div class="lang en active">
-        <h3>Greece’s Farm Scandal Deepens: EU Prosecutor Launches New Probe</h3>
-        <p>The farm subsidies scandal in Greece deepens as the European Public Prosecutor’s Office  has launched a preliminary investigation into former New Democracy official Kalliopi Semertzidou and her family, following reports they illegally received €2.5 million in farm subsidies from the Greek agricultur...</p>
-        <a href="https://greekreporter.com/2025/08/07/greeces-farm-subsidies-scandal-eu-launches-new-probe/" target="_blank" rel="noopener noreferrer">Read more</a>
+        <h3>New Study Suggests Humans and Homo Erectus Interbreeding</h3>
+        <p>A new study of 21 ancient teeth found in southern China may provide the strongest evidence yet that early humans and Homo erectus interbred during the Middle Pleistocene.</p>
+        <a href="https://greekreporter.com/2025/08/07/study-humans-homo-erectus-interbreeding/" target="_blank" rel="noopener noreferrer">Read more</a>
     </div>
     <div class="lang he" dir="rtl">
-        <h3 dir="rtl">שערוריית החקלאות ביוון מעמיקה: תובע האיחוד האירופי פותח בחקירה חדשה</h3>
-        <p dir="rtl">שערוריית הסובסידיות לחקלאות ביוון מעמיקה, כאשר משרד התובע הציבורי האירופי פתח בחקירה ראשונית נגד קאליופי סמרצידו, לשעבר בכירה במפלגת ניו דמוקרטיה, ומשפחתה, בעקבות דיווחים שהם קיבלו באופן לא חוקי סובסידיות חקלאיות בסך 2.5 מיליון יורו מהחקלאות היוונית.</p>
-        <a href="https://greekreporter.com/2025/08/07/greeces-farm-subsidies-scandal-eu-launches-new-probe/" target="_blank" rel="noopener noreferrer">קרא עוד</a>
+        <h3 dir="rtl">מחקר חדש מציע שהאדם וההומו ארקטוס התרבו ביניהם</h3>
+        <p dir="rtl">מחקר חדש על 21 שיניים עתיקות שנמצאו בדרום סין עשוי לספק את הראיות החזקות ביותר עד כה לכך שבני אדם מוקדמים והומו ארקטוס התרבו זה עם זה במהלך הפלייסטוקן האמצעי.</p>
+        <a href="https://greekreporter.com/2025/08/07/study-humans-homo-erectus-interbreeding/" target="_blank" rel="noopener noreferrer">קרא עוד</a>
     </div>
     <div class="lang ru">
-        <h3>Скандал с фермерством в Греции углубляется: прокурор ЕС запускает новое расследование.</h3>
-        <p>Скандал с субсидиями для фермеров в Греции углубляется: Европейская прокуратура начала предварительное расследование в отношении бывшего чиновника партии «Новая демократия» Каллиопи Семерциду и её семьи после сообщений о том, что они незаконно получили 2,5 миллиона евро субсидий от греческого сельского хозяйства.</p>
-        <a href="https://greekreporter.com/2025/08/07/greeces-farm-subsidies-scandal-eu-launches-new-probe/" target="_blank" rel="noopener noreferrer">Читать далее</a>
+        <h3>Новое исследование предполагает скрещивание людей и Homo Erectus.</h3>
+        <p>Новое исследование 21 древнего зуба, найденного на юге Китая, может предоставить самые убедительные доказательства того, что ранние люди и Homo erectus скрещивались в среднем плейстоцене.</p>
+        <a href="https://greekreporter.com/2025/08/07/study-humans-homo-erectus-interbreeding/" target="_blank" rel="noopener noreferrer">Читать далее</a>
     </div>
     <div class="lang el">
-        <h3>Βαθαίνει το σκάνδαλο της γεωργίας στην Ελλάδα: Νέα έρευνα από τον εισαγγελέα της ΕΕ</h3>
-        <p>Το σκάνδαλο επιδοτήσεων γεωργίας στην Ελλάδα βαθαίνει καθώς η Ευρωπαϊκή Εισαγγελία έχει ξεκινήσει προκαταρκτική έρευνα κατά της πρώην αξιωματούχου της Νέας Δημοκρατίας, Καλλιόπης Σεμερτζίδου, και της οικογένειάς της, μετά από αναφορές ότι έλαβαν παράνομα 2,5 εκατομμύρια ευρώ σε επιδοτήσεις γεωργίας από την ελληνική γεωργία.</p>
-        <a href="https://greekreporter.com/2025/08/07/greeces-farm-subsidies-scandal-eu-launches-new-probe/" target="_blank" rel="noopener noreferrer">Διαβάστε περισσότερα</a>
-    </div>
-</div><div class="article">
-    <div class="lang en active">
-        <h3>King Alexander and Aspasia Manou: The Love That Shook Greece</h3>
-        <p>The love story of King Alexander of Greece and Aspasia Manou is a tale of forbidden romance that defied a powerful royal dynasty and became a pivotal chapter in 20th-century Greek history.</p>
-        <a href="https://greekreporter.com/2025/08/07/king-alexander-aspasia-manou-love-shook-greece/" target="_blank" rel="noopener noreferrer">Read more</a>
-    </div>
-    <div class="lang he" dir="rtl">
-        <h3 dir="rtl">מלך אלכסנדר ואספאסיה מנוא: האהבה שהזעזעה את יוון</h3>
-        <p dir="rtl">סיפור האהבה של המלך אלכסנדר מיוון ואספאסיה מנואו הוא סיפור של רומנטיקה אסורה שהאתגרה דינמיקה מלכותית חזקה והפכה לפרק מרכזי בהיסטוריה היוונית של המאה ה-20.</p>
-        <a href="https://greekreporter.com/2025/08/07/king-alexander-aspasia-manou-love-shook-greece/" target="_blank" rel="noopener noreferrer">קרא עוד</a>
-    </div>
-    <div class="lang ru">
-        <h3>Король Александр и Аспасия Маноу: Любовь, потрясшая Грецию</h3>
-        <p>История любви короля Александра Греческого и Аспасии Маноу — это рассказ о запретном романе, который бросил вызов могущественной королевской династии и стал ключевой главой в истории Греции XX века.</p>
-        <a href="https://greekreporter.com/2025/08/07/king-alexander-aspasia-manou-love-shook-greece/" target="_blank" rel="noopener noreferrer">Читать далее</a>
-    </div>
-    <div class="lang el">
-        <h3>Βασιλιάς Αλέξανδρος και Ασπασία Μάνου: Ο Έρωτας που Σάρωσε την Ελλάδα</h3>
-        <p>Η ερωτική ιστορία του βασιλιά Αλέξανδρου της Ελλάδας και της Ασπασίας Μάνου είναι μια ιστορία απαγορευμένου ρομαντισμού που αψήφησε μια ισχυρή βασιλική δυναστεία και έγινε ένα καθοριστικό κεφάλαιο στην ελληνική ιστορία του 20ού αιώνα.</p>
-        <a href="https://greekreporter.com/2025/08/07/king-alexander-aspasia-manou-love-shook-greece/" target="_blank" rel="noopener noreferrer">Διαβάστε περισσότερα</a>
+        <h3>Νέα Μελέτη Υποδεικνύει Διασταύρωση Ανθρώπων και Homo Erectus</h3>
+        <p>Μια νέα μελέτη 21 αρχαίων δοντιών που βρέθηκαν στη νότια Κίνα μπορεί να παρέχει την πιο ισχυρή απόδειξη μέχρι σήμερα ότι οι πρώιμοι άνθρωποι και ο Homo erectus διασταυρώθηκαν κατά τη διάρκεια του Μέσου Πλειστοκαίνου.</p>
+        <a href="https://greekreporter.com/2025/08/07/study-humans-homo-erectus-interbreeding/" target="_blank" rel="noopener noreferrer">Διαβάστε περισσότερα</a>
     </div>
 </div><div class="article">
     <div class="lang en active">
@@ -738,8 +753,8 @@
         <a href="https://www.news247.gr/magazine/reportage/oi-touristes-erxontai-alla-plirotita-xenodoxeion-kai-tziros-meionontai/" target="_blank" rel="noopener noreferrer">Читать далее</a>
     </div>
     <div class="lang el">
-        <h3>ΤΟΥΡΙΣΤΕΣ ΕΡΧΟΝΤΑΙ, ΑΛΛΑ Η ΠΛΗΡΟΤΗΤΑ ΤΩΝ ΞΕΝΟΔΟΧΕΙΩΝ ΚΑΙ Ο ΤΖΙΡΟΣ ΜΕΙΩΝΟΝΤΑΙ</h3>
-        <p>Despite the increase in arrivals, hoteliers across Greece report reduced occupancy rates, a drop in revenue, and unprecedented offers even in August. How did we arrive at this during the country's best tourist season?</p>
+        <h3>Οι τουρίστες έρχονται, αλλά η πληρότητα ξενοδοχείων και ο τζίρος μειώνονται.</h3>
+        <p>Despite the increase in arrivals, hoteliers across Greece report reduced occupancy rates, declining revenue, and unprecedented offers even in August. How did we arrive at this during the country's best tourism season?</p>
         <a href="https://www.news247.gr/magazine/reportage/oi-touristes-erxontai-alla-plirotita-xenodoxeion-kai-tziros-meionontai/" target="_blank" rel="noopener noreferrer">Διαβάστε περισσότερα</a>
     </div>
 </div><div class="article">
@@ -826,7 +841,6 @@
             </div>
             </div>
             
-            <!-- Back to Top Button -->
             <button class="back-to-top" id="backToTop" onclick="scrollToTop()" title="Back to top">↑</button>
 
             <script>
@@ -840,7 +854,6 @@
                     currentLang = lang;
                 }
 
-                // Back to top functionality
                 function scrollToTop() {
                     window.scrollTo({
                         top: 0,
@@ -848,7 +861,6 @@
                     });
                 }
 
-                // Show/hide back to top button based on scroll position
                 function toggleBackToTopButton() {
                     const backToTopButton = document.getElementById('backToTop');
                     if (window.pageYOffset > 300) {
@@ -858,14 +870,11 @@
                     }
                 }
 
-                // Add smooth scrolling and better UX
                 document.addEventListener('DOMContentLoaded', function() {
                     setLang('en');
                     
-                    // Show back to top button on scroll
                     window.addEventListener('scroll', toggleBackToTopButton);
                     
-                    // Add loading states to external links
                     document.querySelectorAll('a[target="_blank"]').forEach(link => {
                         link.addEventListener('click', function() {
                             this.style.opacity = '0.7';
@@ -875,9 +884,7 @@
                         });
                     });
                     
-                    // Add keyboard navigation
                     document.addEventListener('keydown', function(e) {
-                        // Press 'T' to scroll to top
                         if (e.key === 't' || e.key === 'T') {
                             if (!e.ctrlKey && !e.altKey && !e.metaKey) {
                                 e.preventDefault();
@@ -885,7 +892,6 @@
                             }
                         }
                         
-                        // Press number keys 1-4 to switch languages
                         if (e.key >= '1' && e.key <= '4' && !e.ctrlKey && !e.altKey && !e.metaKey) {
                             e.preventDefault();
                             const langs = ['en', 'he', 'ru', 'el'];
