@@ -60,21 +60,19 @@
                     transform: translateY(-2px);
                 }
                 
-                .live-button {
-                    background: linear-gradient(135deg, #ff4444 0%, #cc0000 100%) !important;
-                    animation: pulse-live 2s infinite !important;
-                    font-weight: bold !important;
-                    box-shadow: 0 4px 15px rgba(255, 68, 68, 0.3) !important;
+                .live-news-link {
+                    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%) !important;
+                    animation: pulse 2s infinite;
                 }
                 
-                .live-button:hover {
-                    background: linear-gradient(135deg, #ff6666 0%, #ff0000 100%) !important;
-                    transform: translateY(-3px) scale(1.05) !important;
+                .live-news-link:hover {
+                    background: linear-gradient(135deg, #ee5a24 0%, #d63031 100%) !important;
                 }
                 
-                @keyframes pulse-live {
-                    0%, 100% { opacity: 1; box-shadow: 0 4px 15px rgba(255, 68, 68, 0.3); }
-                    50% { opacity: 0.8; box-shadow: 0 6px 20px rgba(255, 68, 68, 0.5); }
+                @keyframes pulse {
+                    0% { box-shadow: 0 0 0 0 rgba(255, 107, 107, 0.7); }
+                    70% { box-shadow: 0 0 0 10px rgba(255, 107, 107, 0); }
+                    100% { box-shadow: 0 0 0 0 rgba(255, 107, 107, 0); }
                 }
                 
                 .lang-buttons { 
@@ -171,7 +169,6 @@
                     margin: 15px 0; 
                     font-size: 1rem;
                     line-height: 1.6;
-                    /* Ensure full paragraph is visible */
                     display: block;
                     word-wrap: break-word;
                     overflow-wrap: break-word;
@@ -258,7 +255,6 @@
                     margin: 20px 0;
                 }
                 
-                /* Back to Top Button */
                 .back-to-top {
                     position: fixed;
                     bottom: 30px;
@@ -286,7 +282,6 @@
                     display: block;
                 }
                 
-                /* Category Headers */
                 h2 {
                     color: #2d3748;
                     font-size: 1.5rem;
@@ -296,7 +291,6 @@
                     border-bottom: 2px solid #e2e8f0;
                 }
                 
-                /* Mobile Responsive Design */
                 @media (max-width: 768px) {
                     body {
                         padding: 10px;
@@ -358,7 +352,7 @@
                     .subscription input {
                         width: 90%;
                         margin: 8px 0;
-                        font-size: 16px; /* Prevents zoom on iOS */
+                        font-size: 16px;
                     }
                     
                     .subscription button {
@@ -412,7 +406,7 @@
                 <a href="../cyprus/index.html">🇨🇾 Cyprus</a>
                 <a href="../israel/index.html">🇮🇱 Israel</a>
                 <a href="../greece/index.html">🇬🇷 Greece</a>
-                <a href="../live/index.html" class="live-button">🔴 LIVE NEWS</a>
+                <a href="https://ainews.eu.com" class="live-news-link" target="_blank" rel="noopener noreferrer">🔴 Live News</a>
             </div>
 
             <div class="lang-buttons">
@@ -445,7 +439,7 @@
     </div>
     <div class="lang el">
         <h3>Φεστιβάλ Τζαζ Παράδεισος: Γιορτάζει την 25η επέτειό του με διεθνείς μουσικούς.</h3>
-        <p>Το Φεστιβάλ Τζαζ Παράδεισος γιορτάζει την 25η έκδοσή του φέτος, που θα πραγματοποιηθεί ξανά στο Val’s Place στο γραφικό χωριό Γιάλια, στην Πάφο, την Παρασκευή 22 και το Σάββατο 23 Αυγούστου.</p>
+        <p>Το Φεστιβάλ Τζαζ Παράδεισος γιορτάζει την 25η έκδοσή του φέτος, που θα διεξαχθεί και πάλι στο Val’s Place στο γραφικό χωριό Γιάλια, στην Πάφο, την Παρασκευή 22 και το Σάββατο 23 Αυγούστου.</p>
         <a href="https://in-cyprus.philenews.com/whats-on/paradise-jazz-festival-marks-25th-anniversary-with-international-musicians/" target="_blank" rel="noopener noreferrer">Διαβάστε περισσότερα</a>
     </div>
 </div><div class="article">
@@ -456,17 +450,17 @@
     </div>
     <div class="lang he" dir="rtl">
         <h3 dir="rtl">פסטיבל גישה לכולם 2025</h3>
-        <p dir="rtl">אנו מזמינים אתכם לפסטיבל ייחודי פתוח לכולם, הכולל כדורסל 3×3, ספורט פאראלימפי, מופעי תיאטרון, סדנאות אמנות ויצירה, פעילויות ספרייה אנושית, דוכנים חינוכיים, אירועים מוזיקליים ואמנותיים ועוד הרבה פעילויות! כל הפעילויות נגישות לחלוטין וללא תשלום...</p>
+        <p dir="rtl">אנו מזמינים אתכם לפסטיבל ייחודי פתוח לכולם, הכולל כדורסל 3×3, ספורט פאראלימפי, מופעי תיאטרון, סדנאות אמנות ויצירה, פעילויות ספריית אדם, דוכנים חינוכיים, אירועים מוזיקליים ואמנותיים ועוד הרבה פעילויות! כל הפעילויות נגישות לחלוטין וללא תשלום...</p>
         <a href="https://in-cyprus.philenews.com/whats-on/access-for-all-festival-2025/" target="_blank" rel="noopener noreferrer">קרא עוד</a>
     </div>
     <div class="lang ru">
         <h3>Фестиваль "Доступ для всех" 2025</h3>
-        <p>Мы приглашаем вас на уникальный фестиваль, открытый для всех, который включает в себя баскетбол 3×3, паралимпийские виды спорта, театральные выступления, мастер-классы по искусству и творчеству, мероприятия Человеческой Библиотеки, образовательные стенды, музыкальные и художественные события и многое другое! Все мероприятия полностью доступны и бесплатны...</p>
+        <p>Мы приглашаем вас на уникальный фестиваль, открытый для всех, который включает в себя баскетбол 3×3, паралимпийские виды спорта, театральные представления, мастер-классы по искусству и творчеству, мероприятия Человеческой Библиотеки, образовательные стенды, музыкальные и художественные события и многое другое! Все мероприятия полностью доступны и бесплатны...</p>
         <a href="https://in-cyprus.philenews.com/whats-on/access-for-all-festival-2025/" target="_blank" rel="noopener noreferrer">Читать далее</a>
     </div>
     <div class="lang el">
         <h3>Φεστιβάλ Πρόσβαση για Όλους 2025</h3>
-        <p>Σας προσκαλούμε σε ένα μοναδικό φεστιβάλ ανοιχτό για όλους, με 3×3 μπάσκετ, παραολυμπιακά αθλήματα, θεατρικές παραστάσεις, εργαστήρια τέχνης και δημιουργικότητας, δραστηριότητες της Ανθρώπινης Βιβλιοθήκης, εκπαιδευτικά περίπτερα, μουσικές και καλλιτεχνικές εκδηλώσεις, και πολλές άλλες δραστηριότητες! Όλες οι δραστηριότητες είναι πλήρως προσβάσιμες και δωρεάν...</p>
+        <p>Σας προσκαλούμε σε ένα μοναδικό φεστιβάλ ανοιχτό για όλους, που περιλαμβάνει μπάσκετ 3×3, παραολυμπιακά αθλήματα, θεατρικές παραστάσεις, εργαστήρια τέχνης και δημιουργικότητας, δραστηριότητες της Ανθρώπινης Βιβλιοθήκης, εκπαιδευτικά περίπτερα, μουσικά και καλλιτεχνικά δρώμενα, και πολλές άλλες δραστηριότητες! Όλες οι δραστηριότητες είναι πλήρως προσβάσιμες και δωρεάν...</p>
         <a href="https://in-cyprus.philenews.com/whats-on/access-for-all-festival-2025/" target="_blank" rel="noopener noreferrer">Διαβάστε περισσότερα</a>
     </div>
 </div><h2>
@@ -482,18 +476,60 @@
     </div>
     <div class="lang he" dir="rtl">
         <h3 dir="rtl">נייט נרד קפריסין מתחילה בלימסול באוגוסט הזה</h3>
-        <p dir="rtl">פורמט חדש של בידור חינוכי יושק בקפריסין כאשר Nerd Nite קפריסין יארח את האירוע הראשון שלו ב-22 באוגוסט 2025 ב-The Dusty Munky בלימסול.</p>
+        <p dir="rtl">פורמט חדש של בידור חינוכי יושק בקפריסין כאשר Nerd Nite קפריסין יארח את האירוע הראשון שלו ב-22 באוגוסט 2025 ב-Dusty Munky בלימסול.</p>
         <a href="https://in-cyprus.philenews.com/whats-on/nerd-nite-cyprus-launches-in-limassol-this-august/" target="_blank" rel="noopener noreferrer">קרא עוד</a>
     </div>
     <div class="lang ru">
         <h3>Nerd Nite Кипр запускается в Лимассоле в этом августе.</h3>
-        <p>Новый образовательный развлекательный формат дебютирует на Кипре: Nerd Nite Cyprus проведет свое первое мероприятие 22 августа 2025 года в The Dusty Munky в Лимассоле.</p>
+        <p>В Кипре дебютирует новый формат образовательных развлечений: 22 августа 2025 года в Лимассоле пройдет первое мероприятие Nerd Nite Cyprus в The Dusty Munky.</p>
         <a href="https://in-cyprus.philenews.com/whats-on/nerd-nite-cyprus-launches-in-limassol-this-august/" target="_blank" rel="noopener noreferrer">Читать далее</a>
     </div>
     <div class="lang el">
-        <h3>Nerd Nite Κύπρος ξεκινά στη Λεμεσό αυτόν τον Αύγουστο.</h3>
-        <p>Ένα νέο εκπαιδευτικό ψυχαγωγικό φορμάτ θα κάνει πρεμιέρα στην Κύπρο, καθώς το Nerd Nite Cyprus διοργανώνει την εναρκτήρια εκδήλωσή του στις 22 Αυγούστου 2025 στο The Dusty Munky στη Λεμεσό.</p>
+        <h3>Nerd Nite Κύπρου ξεκινά στη Λεμεσό αυτόν τον Αύγουστο.</h3>
+        <p>Ένα νέο εκπαιδευτικό ψυχαγωγικό φορμάτ θα κάνει πρεμιέρα στην Κύπρο καθώς η Nerd Nite Cyprus διοργανώνει την εναρκτήρια εκδήλωσή της στις 22 Αυγούστου 2025 στο The Dusty Munky στη Λεμεσό.</p>
         <a href="https://in-cyprus.philenews.com/whats-on/nerd-nite-cyprus-launches-in-limassol-this-august/" target="_blank" rel="noopener noreferrer">Διαβάστε περισσότερα</a>
+    </div>
+</div><div class="article">
+    <div class="lang en active">
+        <h3>Two TCs allegedly involved in Greek-Cypriot refugees case, released in occupied territories</h3>
+        <p>An 83 year old estate agent who was illegally selling Greek-Cypriot properties and an employee of the Kyrenia ‘land registry’, faced several ‘charges’, such as providing information to the refugees being held by the occupation regime since July 19th.</p>
+        <a href="https://in-cyprus.philenews.com/local/two-tcs-allegedly-involved-in-greek-cypriot-refugees-case-released-in-occupied-territories/" target="_blank" rel="noopener noreferrer">Read more</a>
+    </div>
+    <div class="lang he" dir="rtl">
+        <h3 dir="rtl">שני טורקים קפריסאים שלכאורה היו מעורבים במקרה של פליטי קפריסין היווני, שוחררו בשטחים הכבושים.</h3>
+        <p dir="rtl">סוכן נדל"ן בן 83, שמכר באופן לא חוקי נכסים קפריסאיים-יווניים, ועובד במשרד רישום המקרקעין של קירניה, עמד בפני מספר 'האשים', כמו מתן מידע לפליטים שנמצאים במעצר על ידי המשטר הכובש מאז 19 ביולי.</p>
+        <a href="https://in-cyprus.philenews.com/local/two-tcs-allegedly-involved-in-greek-cypriot-refugees-case-released-in-occupied-territories/" target="_blank" rel="noopener noreferrer">קרא עוד</a>
+    </div>
+    <div class="lang ru">
+        <h3>Два ТК allegedly, участвовавшие в деле греко-киприотов, освобождены на оккупированных территориях.</h3>
+        <p>83-летний агент по недвижимости, который незаконно продавал греко-кипрские объекты, и сотрудник «земельного регистра» Кирении столкнулись с несколькими обвинениями, включая предоставление информации беженцам, удерживаемым оккупационным режимом с 19 июля.</p>
+        <a href="https://in-cyprus.philenews.com/local/two-tcs-allegedly-involved-in-greek-cypriot-refugees-case-released-in-occupied-territories/" target="_blank" rel="noopener noreferrer">Читать далее</a>
+    </div>
+    <div class="lang el">
+        <h3>Δύο Τ/Κ φερόμενοι ως εμπλεκόμενοι στην υπόθεση Ελληνοκυπρίων προσφύγων, απελευθερώθηκαν στα κατεχόμενα εδάφη.</h3>
+        <p>Ένας 83χρονος μεσίτης που πωλούσε παράνομα περιουσίες Ελληνοκυπρίων και ένας υπάλληλος του «κτηματολογίου» της Κερύνειας, αντιμετώπισαν πολλές «κατηγορίες», όπως η παροχή πληροφοριών στους πρόσφυγες που κρατούνται από το καθεστώς κατοχής από τις 19 Ιουλίου.</p>
+        <a href="https://in-cyprus.philenews.com/local/two-tcs-allegedly-involved-in-greek-cypriot-refugees-case-released-in-occupied-territories/" target="_blank" rel="noopener noreferrer">Διαβάστε περισσότερα</a>
+    </div>
+</div><div class="article">
+    <div class="lang en active">
+        <h3>American experts at ground zero of deadly Limassol fire, start work in area</h3>
+        <p>A preliminary investigation at the scene of the devastating blaze that killed two people and ravaged through more than 100 kilometres of homes and natural habitat in rural Limassol, was conducted by a group of 10 American specialists who arrived on the island yesterday to assist in the on-going inve...</p>
+        <a href="https://in-cyprus.philenews.com/local/american-experts-at-ground-zero-of-deadly-limassol-fire-start-work-in-area/" target="_blank" rel="noopener noreferrer">Read more</a>
+    </div>
+    <div class="lang he" dir="rtl">
+        <h3 dir="rtl">מומחים אמריקאים בנקודת האפס של השריפה הקטלנית בלימסול, מתחילים לעבוד באזור</h3>
+        <p dir="rtl">חקירה ראשונית במקום השריפה ההרסנית שהביאה למותם של שני אנשים והשמידה יותר מ-100 קילומטרים של בתים ובתי גידול טבעיים בלימסול הכפרית, בוצעה על ידי קבוצת 10 מומחים אמריקאים שהגיעו לאי אתמול כדי לסייע בחקירה המתמשכת.</p>
+        <a href="https://in-cyprus.philenews.com/local/american-experts-at-ground-zero-of-deadly-limassol-fire-start-work-in-area/" target="_blank" rel="noopener noreferrer">קרא עוד</a>
+    </div>
+    <div class="lang ru">
+        <h3>Американские эксперты на месте трагического пожара в Лимассоле начали работу в районе происшествия.</h3>
+        <p>Предварительное расследование на месте разрушительного пожара, который унес жизни двух человек и уничтожил более 100 километров домов и природной среды в сельской местности Лимассола, было проведено группой из 10 американских специалистов, прибывших на остров вчера для помощи в продолжающемся расследовании.</p>
+        <a href="https://in-cyprus.philenews.com/local/american-experts-at-ground-zero-of-deadly-limassol-fire-start-work-in-area/" target="_blank" rel="noopener noreferrer">Читать далее</a>
+    </div>
+    <div class="lang el">
+        <h3>Αμερικανοί ειδικοί στο σημείο μηδέν της θανατηφόρας φωτιάς στη Λεμεσό, ξεκινούν εργασίες στην περιοχή.</h3>
+        <p>Μια προκαταρκτική έρευνα στον τόπο της καταστροφικής πυρκαγιάς που σκότωσε δύο άτομα και κατέστρεψε περισσότερα από 100 χιλιόμετρα σπιτιών και φυσικού περιβάλλοντος στην αγροτική Λεμεσό, διεξήχθη από μια ομάδα 10 Αμερικανών ειδικών που έφτασαν στο νησί χθες για να βοηθήσουν στην συνεχιζόμενη έρευνα.</p>
+        <a href="https://in-cyprus.philenews.com/local/american-experts-at-ground-zero-of-deadly-limassol-fire-start-work-in-area/" target="_blank" rel="noopener noreferrer">Διαβάστε περισσότερα</a>
     </div>
 </div><div class="article">
     <div class="lang en active">
@@ -513,29 +549,8 @@
     </div>
     <div class="lang el">
         <h3>Πυρκαγιά σε σπίτι σε προάστιο της Λεμεσού σβήστηκε πριν επεκταθεί.</h3>
-        <p>Ήταν μια περίπλοκη επιχείρηση για την πυροσβεστική χθες το βράδυ, καθώς η φωτιά ξέσπασε σε μια μικρή δευτερεύουσα κουζίνα, κατασκευασμένη από λαμαρίνα και συνδεδεμένη με την κύρια κατοικία στην περιοχή Κατώ Πολεμίδια.</p>
+        <p>Ήταν μια περίπλοκη επιχείρηση για την πυροσβεστική χθες το βράδυ, καθώς η φωτιά ξέσπασε σε μια μικρή δευτερεύουσα κουζίνα, φτιαγμένη από λαμαρίνα και συνδεδεμένη με την κύρια κατοικία στην περιοχή Κατώ Πολεμίδια.</p>
         <a href="https://in-cyprus.philenews.com/local/home-fire-in-limassol-suburb-put-out-before-spreading/" target="_blank" rel="noopener noreferrer">Διαβάστε περισσότερα</a>
-    </div>
-</div><div class="article">
-    <div class="lang en active">
-        <h3>Yiannaki admits he did not study civil engineering as falsely stated, but ‘Hollywood behind bars’ and humour psychology</h3>
-        <p>Prosecution and defence at the trial of the former Volunteerism Commissioner have agreed on certain facts of the case to speed the process along and following a strong reprimand by the Nicosia District Court judge over unnecessary delays. The trial begun last November.</p>
-        <a href="https://in-cyprus.philenews.com/local/yiannaki-admits-he-did-not-study-civil-engineering-as-falsely-stated-but-hollywood-behind-bars-and-humour-psychology/" target="_blank" rel="noopener noreferrer">Read more</a>
-    </div>
-    <div class="lang he" dir="rtl">
-        <h3 dir="rtl">יאנאקי מודה שלא למד הנדסה אזרחית כפי שנאמר בטעות, אלא "הוליווד מאחורי הסורגים" ופסיכולוגיה של הומור.</h3>
-        <p dir="rtl">התביעה וההגנה במשפטו של הממונה לשעבר על ההתנדבות הסכימו על מספר עובדות במקרה כדי לזרז את ההליך, בעקבות נזיפה חריפה של שופט בית המשפט המחוזי ניקוסיה על עיכובים מיותרים. המשפט החל בנובמבר שעבר.</p>
-        <a href="https://in-cyprus.philenews.com/local/yiannaki-admits-he-did-not-study-civil-engineering-as-falsely-stated-but-hollywood-behind-bars-and-humour-psychology/" target="_blank" rel="noopener noreferrer">קרא עוד</a>
-    </div>
-    <div class="lang ru">
-        <h3>Яаннаки признает, что не изучал гражданское строительство, как было ошибочно заявлено, а занимался «Голливудом за решеткой» и психологией юмора.</h3>
-        <p>Обвинение и защита на процессе бывшего комиссара по волонтерству согласовали определенные факты дела, чтобы ускорить процесс, после строгого выговора судьи Никосийского окружного суда за ненужные задержки. Процесс начался в прошлом ноябре.</p>
-        <a href="https://in-cyprus.philenews.com/local/yiannaki-admits-he-did-not-study-civil-engineering-as-falsely-stated-but-hollywood-behind-bars-and-humour-psychology/" target="_blank" rel="noopener noreferrer">Читать далее</a>
-    </div>
-    <div class="lang el">
-        <h3>Ο Γιάννακης παραδέχεται ότι δεν σπούδασε πολιτικός μηχανικός όπως ψευδώς αναφέρθηκε, αλλά "Χόλιγουντ πίσω από τα κάγκελα" και ψυχολογία του χιούμορ.</h3>
-        <p>Η εισαγγελία και η υπεράσπιση στη δίκη του πρώην Επιτρόπου Εθελοντισμού συμφώνησαν σε ορισμένα γεγονότα της υπόθεσης για να επιταχύνουν τη διαδικασία, μετά από αυστηρή παρατήρηση του δικαστή του Επαρχιακού Δικαστηρίου Λευκωσίας σχετικά με τις περιττές καθυστερήσεις. Η δίκη ξεκίνησε τον περασμένο Νοέμβριο.</p>
-        <a href="https://in-cyprus.philenews.com/local/yiannaki-admits-he-did-not-study-civil-engineering-as-falsely-stated-but-hollywood-behind-bars-and-humour-psychology/" target="_blank" rel="noopener noreferrer">Διαβάστε περισσότερα</a>
     </div>
 </div><div class="article">
     <div class="lang en active">
@@ -545,7 +560,7 @@
     </div>
     <div class="lang he" dir="rtl">
         <h3 dir="rtl">הם מגנים על תופסים בשיטות דומות למאפיה.</h3>
-        <p dir="rtl">אנשים עם נכסים באזורים הכבושים מגישים תלונות נגד מי שמנצל באופן לא חוקי את נכסיהם. למה אחרי חמישים ואחת שנים? למרות שהתלונות הללו היו צריכות להיות מוגשות קודם, בשנים הראשונות לאחר הכיבוש, הן עכשיו קשורות להתעקשות של טורקיה הכובשת על...</p>
+        <p dir="rtl">אנשים עם נכסים באזורים הכבושים מגישים תלונות נגד מי שמנצל באופן לא חוקי את נכסיהם. למה אחרי חמישים ואחת שנה? למרות שהתלונות הללו היו צריכות להיות מוגשות קודם, בשנים הראשונות לאחר הכיבוש, הן עכשיו קשורות להתעקשות של טורקיה הכובשת על...</p>
         <a href="https://in-cyprus.philenews.com/opinion/they-protect-usurpers-with-mafia-like-methods/" target="_blank" rel="noopener noreferrer">קרא עוד</a>
     </div>
     <div class="lang ru">
@@ -576,7 +591,7 @@
     </div>
     <div class="lang el">
         <h3>Αμερικανοί ειδικοί και η ευθύνη</h3>
-        <p>Αναφορές που ετοιμάστηκαν από τέσσερις εμπλεκόμενες υπηρεσίες που συμμετείχαν στις προσπάθειες κατάσβεσης της καταστροφικής φωτιάς που έπληξε το ορεινό Λεμεσό στις 23 Ιουλίου θεωρούνται μη ικανοποιητικές.</p>
+        <p>Οι αναφορές που ετοίμασαν τέσσερις εμπλεκόμενες υπηρεσίες που συμμετείχαν στις προσπάθειες κατάσβεσης της καταστροφικής φωτιάς που έπληξε το ορεινό Λεμεσό στις 23 Ιουλίου θεωρούνται μη ικανοποιητικές.</p>
         <a href="https://in-cyprus.philenews.com/opinion/american-experts-and-the-responsibility/" target="_blank" rel="noopener noreferrer">Διαβάστε περισσότερα</a>
     </div>
 </div><div class="article">
@@ -613,7 +628,7 @@
     </div>
     <div class="lang ru">
         <h3>В тени человеческой ценности</h3>
-        <p>В Европе разгораются горячие дебаты о пенсионном возрасте в рамках более широкой континентальной проблемы.</p>
+        <p>В Европе разгораются heated debates по поводу пределов пенсионного возраста в рамках более широкой континентальной проблемы.</p>
         <a href="https://in-cyprus.philenews.com/opinion/in-the-shadow-of-human-worth/" target="_blank" rel="noopener noreferrer">Читать далее</a>
     </div>
     <div class="lang el">
@@ -629,12 +644,12 @@
     </div>
     <div class="lang he" dir="rtl">
         <h3 dir="rtl">בעיות אקלים ושינויים במזג האוויר מעכבים מדיניות אנרגיה מתחדשת</h3>
-        <p dir="rtl">העולם רחוק מאוד מהמטרה המהותית להכפיל את האנרגיות המתחדשות. הסכום הגלובלי של היעדים הלאומיים לאנרגיות מתחדשות גבוה רק ב-2% ממה שהיה ב-COP28.</p>
+        <p dir="rtl">העולם רחוק מאוד מהמטרה המפורסמת להכפיל את האנרגיות המתחדשות. הסכום הגלובלי של היעדים הלאומיים לאנרגיות מתחדשות גבוה רק ב-2% ממה שהיה ב-COP28.</p>
         <a href="https://www.financialmirror.com/2025/08/05/climate-issues-weather-changes-impact-renewables-policies/" target="_blank" rel="noopener noreferrer">קרא עוד</a>
     </div>
     <div class="lang ru">
         <h3>Проблемы климата и изменения погоды мешают политике в области возобновляемых источников энергии.</h3>
-        <p>Мир далек от достижения знаковой цели по утроению доли возобновляемых источников энергии. Глобальная сумма национальных целей по возобновляемым источникам энергии всего на 2% выше, чем на COP28.</p>
+        <p>Мир далек от достижения знаковой цели по утроению доли возобновляемых источников энергии. Глобальная сумма национальных целей по возобновляемым источникам всего на 2% выше, чем на COP28.</p>
         <a href="https://www.financialmirror.com/2025/08/05/climate-issues-weather-changes-impact-renewables-policies/" target="_blank" rel="noopener noreferrer">Читать далее</a>
     </div>
     <div class="lang el">
@@ -650,7 +665,7 @@
     </div>
     <div class="lang he" dir="rtl">
         <h3 dir="rtl">תחזית הצמיחה של קפריסין עודכנה כלפי מעלה, אך עדיין מתחת ל-2024.</h3>
-        <p dir="rtl">צמיחת התוצר המקומי הגולמי בקפריסין צפויה להיות 3.2% בשנת 2025 ו-3.3% בשנת 2026, מעט מתחת לשיעור הצמיחה של השנה שעברה, שהיה כ-3.5%, כך לפי תחזית הכלכלה של יולי שפורסמה על ידי מרכז המחקר הכלכלי של אוניברסיטת קפריסין.</p>
+        <p dir="rtl">צמיחת התוצר המקומי הגולמי בקפריסין צפויה להיות 3.2% בשנת 2025 ו-3.3% בשנת 2026, מעט מתחת לשיעור הצמיחה של השנה שעברה שעמד על כ-3.5%, כך לפי תחזית הכלכלה של יולי שפורסמה על ידי מרכז המחקר הכלכלי של אוניברסיטת קפריסין.</p>
         <a href="https://www.financialmirror.com/2025/07/30/cyprus-growth-forecast-revised-up-still-below-2024/" target="_blank" rel="noopener noreferrer">קרא עוד</a>
     </div>
     <div class="lang ru">
@@ -660,7 +675,7 @@
     </div>
     <div class="lang el">
         <h3>Αναθεώρηση πρόβλεψης ανάπτυξης για την Κύπρο, παραμένει κάτω από το 2024.</h3>
-        <p>Η πραγματική ανάπτυξη του ΑΕΠ στην Κύπρο προβλέπεται στο 3,2% το 2025 και στο 3,3% το 2026, λίγο κάτω από το ποσοστό ανάπτυξης της περασμένης χρονιάς που ήταν περίπου 3,5%, σύμφωνα με την Οικονομική Προοπτική του Ιουλίου που δημοσιεύθηκε από το Κέντρο Οικονομικών Ερευνών του Πανεπιστημίου Κύπρου.</p>
+        <p>Η πραγματική ανάπτυξη του ΑΕΠ στην Κύπρο προβλέπεται στο 3,2% το 2025 και στο 3,3% το 2026, ελαφρώς κάτω από τον ρυθμό ανάπτυξης της περασμένης χρονιάς, που ήταν περίπου 3,5%, σύμφωνα με την Οικονομική Προοπτική Ιουλίου που δημοσιεύθηκε από το Κέντρο Οικονομικών Ερευνών του Πανεπιστημίου Κύπρου.</p>
         <a href="https://www.financialmirror.com/2025/07/30/cyprus-growth-forecast-revised-up-still-below-2024/" target="_blank" rel="noopener noreferrer">Διαβάστε περισσότερα</a>
     </div>
 </div><div class="article">
@@ -670,13 +685,13 @@
         <a href="https://www.financialmirror.com/2025/07/25/satellite-survey-finds-cyprus-wildfires-destroyed-125-sq-km/" target="_blank" rel="noopener noreferrer">Read more</a>
     </div>
     <div class="lang he" dir="rtl">
-        <h3 dir="rtl">סקר לווייני מגלה כי השריפות בקפריסין השמידו 125 קילומטרים רבועים.</h3>
+        <h3 dir="rtl">סקר לווייני מצא שהשריפות בקפריסין השמידו 125 קילומטרים רבועים.</h3>
         <p dir="rtl">השריפה ההרסנית שפרצה ביום רביעי באזור לימסול ונכבתה מאוחר ביום חמישי, מעריכים כי כילתה כ-125 קילומטרים רבועים, לפי ניתוח מבוסס לוויינים של מרכז מחקר ממומן על ידי אוניברסיטה מקומית.</p>
         <a href="https://www.financialmirror.com/2025/07/25/satellite-survey-finds-cyprus-wildfires-destroyed-125-sq-km/" target="_blank" rel="noopener noreferrer">קרא עוד</a>
     </div>
     <div class="lang ru">
         <h3>Спутниковое обследование показало, что лесные пожары на Кипре уничтожили 125 кв. км.</h3>
-        <p>Опустошительный лесной пожар, вспыхнувший в районе Лимассола в среду и потушенный поздно в четверг, по оценкам, сжег около 125 кв.км, согласно спутниковому анализу местного исследовательского центра, финансируемого университетом.</p>
+        <p>Опустошительный лесной пожар, вспыхнувший в районе Лимассола в среду и потушенный поздно в четверг, по оценкам, сжег примерно 125 кв.км., согласно спутниковому анализу местного исследовательского центра, финансируемого университетом.</p>
         <a href="https://www.financialmirror.com/2025/07/25/satellite-survey-finds-cyprus-wildfires-destroyed-125-sq-km/" target="_blank" rel="noopener noreferrer">Читать далее</a>
     </div>
     <div class="lang el">
@@ -692,7 +707,7 @@
     </div>
     <div class="lang he" dir="rtl">
         <h3 dir="rtl">שריפות יער בקפריסין תחת שליטה ביום השני</h3>
-        <p dir="rtl">כבאים הצליחו לשלוט באש המשתוללת בקפריסין late Thursday, לאחר שכמה שריפות יער שרפו יותר מ-120 קילומטרים רבועים של יערות ושטחי חקלאות, מאיימות על מספר כפרים.</p>
+        <p dir="rtl">כבאים הצליחו להכניע את הלהבות המשתוללות בקפריסין מאוחר ביום חמישי, לאחר שכמה שריפות יער שרפו יותר מ-120 קילומטרים רבועים של יערות ושטחי חקלאות, מאיימות על מספר כפרים.</p>
         <a href="https://www.financialmirror.com/2025/07/24/cyprus-wildfires-under-control-on-second-day/" target="_blank" rel="noopener noreferrer">קרא עוד</a>
     </div>
     <div class="lang ru">
@@ -713,11 +728,11 @@
     </div>
     <div class="lang he" dir="rtl">
         <h3 dir="rtl">נהלים נכונים יכולים להבטיח התקדמות חלקה של הליכי הוצאה לפועל.</h3>
-        <p dir="rtl">סמינר שאורגן על ידי משרד עורכי הדין המוביל בקפריסין, האריס קיריאקידס, חקר התפתחויות משפטיות מרכזיות, כולל כללי ההליך האזרחי החדשים שהוצגו לפני שנתיים, בקשות הקשורות להליכי מימוש נכסים משועבדים, ונהלי השבת נכסים.</p>
+        <p dir="rtl">סמינר שאורגן על ידי משרד עורכי הדין המוביל בקפריסין, האריס קיריאקידס, חקר התפתחויות משפטיות מרכזיות, כולל כללי ההליך האזרחי החדשים שהוצגו לפני שנתיים, בקשות הקשורות להליכי מימוש נכסים משועבדים, והליכים לשיקום נכסים.</p>
         <a href="https://www.financialmirror.com/2025/07/06/proper-procedures-can-ensure-smooth-progress-of-foreclosures/" target="_blank" rel="noopener noreferrer">קרא עוד</a>
     </div>
     <div class="lang ru">
-        <h3>Правильные процедуры могут обеспечить плавный процесс взыскания залога.</h3>
+        <h3>Правильные процедуры могут обеспечить бесперебойный процесс взыскания залога.</h3>
         <p>Семинар, организованный ведущей кипрской юридической фирмой Harris Kyriakides, рассмотрел ключевые юридические изменения, включая новые правила гражданского судопроизводства, введенные два года назад, заявки, связанные с обращением взыскания на заложенное имущество, и процедуры по возврату активов.</p>
         <a href="https://www.financialmirror.com/2025/07/06/proper-procedures-can-ensure-smooth-progress-of-foreclosures/" target="_blank" rel="noopener noreferrer">Читать далее</a>
     </div>
@@ -743,8 +758,8 @@
         <a href="https://www.financialmirror.com/2025/07/27/nintendo-switch-2-sold-record-600-units-a-minute-at-launch/" target="_blank" rel="noopener noreferrer">Читать далее</a>
     </div>
     <div class="lang el">
-        <h3>Nintendo Switch 2 πούλησε 600 μονάδες το λεπτό κατά την κυκλοφορία του.</h3>
-        <p>Η Nintendo πούλησε πάνω από 3,5 εκατομμύρια κονσόλες Switch 2 τις πρώτες τέσσερις ημέρες από την κυκλοφορία της στις 5 Ιουνίου, καθιστώντας την την ταχύτερα πωλούμενη συσκευή στην ιστορία της εταιρείας.</p>
+        <h3>Nintendo Switch 2 πούλησε 600 μονάδες το λεπτό κατά την κυκλοφορία.</h3>
+        <p>Η Nintendo πούλησε πάνω από 3,5 εκατομμύρια κονσόλες Switch 2 τις πρώτες τέσσερις ημέρες από την κυκλοφορία της στις 5 Ιουνίου, κάνοντάς την την ταχύτερα πωλούμενη συσκευή στην ιστορία της εταιρείας.</p>
         <a href="https://www.financialmirror.com/2025/07/27/nintendo-switch-2-sold-record-600-units-a-minute-at-launch/" target="_blank" rel="noopener noreferrer">Διαβάστε περισσότερα</a>
     </div>
 </div><div class="article">
@@ -755,44 +770,18 @@
     </div>
     <div class="lang he" dir="rtl">
         <h3 dir="rtl">מקרה בוחן של Freedom Holding בסטנפורד, שדרוג S&P</h3>
-        <p dir="rtl">חברת Freedom Holding Corp., בעלת הברוקראז' Freedom Finance Europe המוסמך על ידי CySE, שודרגה על ידי S&P Global Ratings והפכה למקרה לימוד באוניברסיטת סטנפורד בעקבות השינוי שלה מחברת ברוקראז' קטנה בקזחסטן לאקוסיסטם דיגיטלי.</p>
+        <p dir="rtl">חברת Freedom Holding Corp., ההורה של הברוקראז' Freedom Finance Europe המוסמך על ידי CySE, שודרגה על ידי S&P Global Ratings והפכה למקרה לימוד באוניברסיטת סטנפורד בעקבות השינוי שלה מחברת ברוקראז' קטנה בקזחסטן לאקוסיסטם דיגיטלי.</p>
         <a href="https://www.financialmirror.com/2025/07/05/freedom-holding-case-study-at-stanford-sp-upgrade/" target="_blank" rel="noopener noreferrer">קרא עוד</a>
     </div>
     <div class="lang ru">
         <h3>Кейс Freedom Holding в Стэнфорде, повышение рейтинга S&P</h3>
-        <p>Компания Freedom Holding Corp., материнская компания лицензированного на Кипре брокера Freedom Finance Europe, была повышена в рейтинге S&P Global Ratings и стала предметом исследования в Стэнфордском университете за свою трансформацию из небольшой брокерской фирмы в Казахстане в цифровую экосистему.</p>
+        <p>Freedom Holding Corp., материнская компания лицензированной на Кипре брокерской компании Freedom Finance Europe, была повышена в рейтинге S&P Global Ratings и стала объектом изучения в Стэнфордском университете за свою трансформацию из небольшой брокерской фирмы в Казахстане в цифровую экосистему.</p>
         <a href="https://www.financialmirror.com/2025/07/05/freedom-holding-case-study-at-stanford-sp-upgrade/" target="_blank" rel="noopener noreferrer">Читать далее</a>
     </div>
     <div class="lang el">
-        <h3>Μελέτη περίπτωσης της Freedom Holding στο Stanford, αναβάθμιση από S&P.</h3>
-        <p>Η Freedom Holding Corp., μητρική της χρηματιστηριακής Freedom Finance Europe που είναι αδειοδοτημένη από την Κυπριακή Χρηματιστήριο, αναβαθμίστηκε από την S&P Global Ratings και έχει γίνει μελέτη περίπτωσης στο Πανεπιστήμιο Στάνφορντ για τη μεταμόρφωσή της από μια μικρή χρηματιστηριακή εταιρεία στο Καζακστάν σε ένα ψηφιακό οικοσύστημα.</p>
+        <h3>Μελέτη περίπτωσης Freedom Holding στο Στάνφορντ, αναβάθμιση S&P</h3>
+        <p>Η Freedom Holding Corp., μητρική της χρηματιστηριακής Freedom Finance Europe που είναι αδειοδοτημένη από την CySE, αναβαθμίστηκε από την S&P Global Ratings και έχει γίνει αντικείμενο μελέτης στο Πανεπιστήμιο Στάνφορντ για τη μεταμόρφωσή της από μια μικρή χρηματιστηριακή εταιρεία στο Καζακστάν σε ένα ψηφιακό οικοσύστημα.</p>
         <a href="https://www.financialmirror.com/2025/07/05/freedom-holding-case-study-at-stanford-sp-upgrade/" target="_blank" rel="noopener noreferrer">Διαβάστε περισσότερα</a>
-    </div>
-</div><h2>
-    <span class="lang en active">Technology</span>
-    <span class="lang he" dir="rtl">טכנולוגיה</span>
-    <span class="lang ru">Технологии</span>
-    <span class="lang el">Τεχνολογία</span>
-</h2><div class="article">
-    <div class="lang en active">
-        <h3>Ιllegal fundraisers for Limassol fire victims reported to Interior Ministry, as con artists appear</h3>
-        <p>The Volunteerism Coordination Council, the organised body of volunteers on the island, has now moved with an official complaint to the Fundraisers Authority, hoping to block unauthorised money collections reported over the past two weeks, supposedly to help fire victims, but offers ending up in priv...</p>
-        <a href="https://in-cyprus.philenews.com/local/%ce%b9llegal-fundraisers-for-limassol-fire-victims-reported-to-interior-ministry-as-con-artists-appear/" target="_blank" rel="noopener noreferrer">Read more</a>
-    </div>
-    <div class="lang he" dir="rtl">
-        <h3 dir="rtl">גיוס כספים לא חוקי עבור קורבנות השריפה בלימסול דווח למשרד הפנים, כאשר מופיעים נוכלים.</h3>
-        <p dir="rtl">מועצת תיאום ההתנדבות, הגוף המאורגן של המתנדבים באי, הגישה כעת תלונה רשמית לרשות לגיוס כספים, במטרה לחסום גיוסי כספים לא מורשים שדווחו בשבועיים האחרונים, supposedly כדי לעזור לקורבנות השריפות, אך ההצעות מסתיימות בפרטיות...</p>
-        <a href="https://in-cyprus.philenews.com/local/%ce%b9llegal-fundraisers-for-limassol-fire-victims-reported-to-interior-ministry-as-con-artists-appear/" target="_blank" rel="noopener noreferrer">קרא עוד</a>
-    </div>
-    <div class="lang ru">
-        <h3>Незаконные сборы средств для жертв пожара в Лимассоле сообщены в Министерство внутренних дел, так как появляются мошенники.</h3>
-        <p>Совет по координации волонтеров, организованный орган волонтеров на острове, подал официальную жалобу в Управление по сбору средств, надеясь заблокировать несанкционированные сборы денег, о которых сообщалось за последние две недели, якобы для помощи жертвам пожаров, но средства в итоге оказываются в частных руках.</p>
-        <a href="https://in-cyprus.philenews.com/local/%ce%b9llegal-fundraisers-for-limassol-fire-victims-reported-to-interior-ministry-as-con-artists-appear/" target="_blank" rel="noopener noreferrer">Читать далее</a>
-    </div>
-    <div class="lang el">
-        <h3>Παράνομοι συλλέκτες χρημάτων για τα θύματα της φωτιάς στη Λεμεσό αναφέρθηκαν στο Υπουργείο Εσωτερικών, καθώς εμφανίζονται απατεώνες.</h3>
-        <p>Το Συμβούλιο Συντονισμού Εθελοντισμού, ο οργανωμένος φορέας εθελοντών στο νησί, έχει υποβάλει επίσημη καταγγελία στην Αρχή Συλλογής Χρημάτων, ελπίζοντας να μπλοκάρει τις μη εξουσιοδοτημένες συλλογές χρημάτων που αναφέρθηκαν τις τελευταίες δύο εβδομάδες, υποτίθεται για να βοηθήσουν τα θύματα των πυρκαγιών, αλλά οι προσφορές καταλήγουν σε ιδιωτικά...</p>
-        <a href="https://in-cyprus.philenews.com/local/%ce%b9llegal-fundraisers-for-limassol-fire-victims-reported-to-interior-ministry-as-con-artists-appear/" target="_blank" rel="noopener noreferrer">Διαβάστε περισσότερα</a>
     </div>
 </div><h2>
     <span class="lang en active">Crime & Justice</span>
@@ -801,24 +790,24 @@
     <span class="lang el">Έγκλημα & Δικαιοσύνη</span>
 </h2><div class="article">
     <div class="lang en active">
-        <h3>21 year old arrested after discovery of six kgs of cannabis last month</h3>
-        <p>Following a witness account, authorities arrested and remanded the young man for eight days last night, in connection with the case of a controlled substance possession.</p>
-        <a href="https://in-cyprus.philenews.com/local/21-year-old-arrested-after-discovery-of-six-kgs-of-cannabis-last-month/" target="_blank" rel="noopener noreferrer">Read more</a>
+        <h3>More than 1 kg of cannabis discovered in cereal boxes, authorities make arrest</h3>
+        <p>The quantity was discovered by the anti-drug squad in cooperation with Customs, during random checks at Republic entry points.</p>
+        <a href="https://in-cyprus.philenews.com/local/more-than-1-kg-of-cannabis-discovered-in-cereal-boxes-authorities-make-arrest/" target="_blank" rel="noopener noreferrer">Read more</a>
     </div>
     <div class="lang he" dir="rtl">
-        <h3 dir="rtl">גבר בן 21 נעצר לאחר גילוי שישה קילוגרם קנאביס בחודש שעבר.</h3>
-        <p dir="rtl">בעקבות עדות של עד, הרשויות עצרו והחזיקו את הצעיר למשך שמונה ימים אמש, בקשר למקרה של החזקת סם תחת שליטה.</p>
-        <a href="https://in-cyprus.philenews.com/local/21-year-old-arrested-after-discovery-of-six-kgs-of-cannabis-last-month/" target="_blank" rel="noopener noreferrer">קרא עוד</a>
+        <h3 dir="rtl">יותר מ-1 ק"ג של קנאביס נמצא בקופסאות דגני בוקר, הרשויות מבצעות מעצר</h3>
+        <p dir="rtl">הכמות התגלתה על ידי יחידת הסמים בשיתוף פעולה עם המכס, במהלך בדיקות אקראיות בנקודות הכניסה לרפובליקה.</p>
+        <a href="https://in-cyprus.philenews.com/local/more-than-1-kg-of-cannabis-discovered-in-cereal-boxes-authorities-make-arrest/" target="_blank" rel="noopener noreferrer">קרא עוד</a>
     </div>
     <div class="lang ru">
-        <h3>21-летний арестован после обнаружения шести килограммов каннабиса в прошлом месяце.</h3>
-        <p>Согласно показаниям свидетеля, власти арестовали и поместили молодого человека под стражу на восемь дней прошлой ночью в связи с делом о хранении контролируемого вещества.</p>
-        <a href="https://in-cyprus.philenews.com/local/21-year-old-arrested-after-discovery-of-six-kgs-of-cannabis-last-month/" target="_blank" rel="noopener noreferrer">Читать далее</a>
+        <h3>В коробках с хлопьями обнаружено более 1 кг каннабиса, власти произвели арест.</h3>
+        <p>Количество было обнаружено наркоконтрольным отрядом в сотрудничестве с таможней во время случайных проверок на пунктах въезда в Республику.</p>
+        <a href="https://in-cyprus.philenews.com/local/more-than-1-kg-of-cannabis-discovered-in-cereal-boxes-authorities-make-arrest/" target="_blank" rel="noopener noreferrer">Читать далее</a>
     </div>
     <div class="lang el">
-        <h3>21χρονος συνελήφθη μετά την ανακάλυψη έξι κιλών κάνναβης τον περασμένο μήνα.</h3>
-        <p>Μετά από κατάθεση μάρτυρα, οι αρχές συνέλαβαν και κράτησαν τον νεαρό για οκτώ ημέρες χθες το βράδυ, σε σχέση με την υπόθεση κατοχής ελεγχόμενης ουσίας.</p>
-        <a href="https://in-cyprus.philenews.com/local/21-year-old-arrested-after-discovery-of-six-kgs-of-cannabis-last-month/" target="_blank" rel="noopener noreferrer">Διαβάστε περισσότερα</a>
+        <h3>Περισσότερο από 1 κιλό κάνναβης ανακαλύφθηκε σε κουτιά δημητριακών, οι αρχές προχώρησαν σε σύλληψη.</h3>
+        <p>Η ποσότητα ανακαλύφθηκε από την αντιναρκωτική υπηρεσία σε συνεργασία με τα Τελωνεία, κατά τη διάρκεια τυχαίων ελέγχων στα σημεία εισόδου της Δημοκρατίας.</p>
+        <a href="https://in-cyprus.philenews.com/local/more-than-1-kg-of-cannabis-discovered-in-cereal-boxes-authorities-make-arrest/" target="_blank" rel="noopener noreferrer">Διαβάστε περισσότερα</a>
     </div>
 </div><h2>
     <span class="lang en active">Business & Economy</span>
@@ -838,12 +827,12 @@
     </div>
     <div class="lang ru">
         <h3>Тарифы и растущий спрос сохраняют волатильность на нефтяных рынках.</h3>
-        <p>Июль стал еще одним месяцем для нефтяного сектора, вновь находящегося под влиянием тарифной войны Дональда Трампа.</p>
+        <p>Июль снова стал месяцем, в котором нефтяной сектор вновь оказался под влиянием тарифной войны Дональда Трампа.</p>
         <a href="https://www.financialmirror.com/2025/08/04/tariffs-rising-demand-keep-oil-markets-volatile/" target="_blank" rel="noopener noreferrer">Читать далее</a>
     </div>
     <div class="lang el">
         <h3>Δασμοί και αυξανόμενη ζήτηση διατηρούν την αγορά πετρελαίου ασταθή.</h3>
-        <p>Ο Ιούλιος ήταν ένας ακόμη μήνας που κυριάρχησε ο τομέας του πετρελαίου, για άλλη μια φορά, από τον εμπορικό πόλεμο του Ντόναλντ Τραμπ.</p>
+        <p>Ο Ιούλιος ήταν ένας ακόμη μήνας για τον τομέα του πετρελαίου, που κυριαρχήθηκε, για άλλη μια φορά, από τον εμπορικό πόλεμο του Ντόναλντ Τραμπ.</p>
         <a href="https://www.financialmirror.com/2025/08/04/tariffs-rising-demand-keep-oil-markets-volatile/" target="_blank" rel="noopener noreferrer">Διαβάστε περισσότερα</a>
     </div>
 </div><div class="article">
@@ -854,12 +843,12 @@
     </div>
     <div class="lang he" dir="rtl">
         <h3 dir="rtl">שווי השוק של נטפליקס עלה ב-103 מיליארד דולר בין ינואר למאי</h3>
-        <p dir="rtl">ענקית הסטרימינג נטפליקס עשתה קאמבק שובר שיאים, והוסיפה יותר מ-100 מיליארד דולר לערך המניות שלה מתחילת השנה, מה שמסמן את העלייה החזקה ביותר שלה בחמישה חודשים בעשור האחרון, לפי נתונים מ-Stocklytics.com.</p>
+        <p dir="rtl">ענקית הסטרימינג נטפליקס עשתה קאמבק שובר שיאים, והוסיפה יותר מ-100 מיליארד דולר לערך המניה שלה מתחילת השנה, מה שמסמן את העלייה החזקה ביותר שלה בחמישה חודשים במונחים מוחלטים בעשור האחרון, לפי נתונים מ-Stocklytics.com.</p>
         <a href="https://www.financialmirror.com/2025/05/16/netflix-market-cap-up-103-bln-in-jan-may/" target="_blank" rel="noopener noreferrer">קרא עוד</a>
     </div>
     <div class="lang ru">
         <h3>Рыночная капитализация Netflix увеличилась на 103 миллиарда долларов с января по май.</h3>
-        <p>Стриминговый гигант Netflix совершил рекордное возвращение, добавив более 100 миллиардов долларов к своей рыночной стоимости с начала года, что стало самым сильным пятимесячным ростом в абсолютных цифрах за последнее десятилетие, согласно данным Stocklytics.com.</p>
+        <p>Стриминговый гигант Netflix совершил рекордное возвращение, добавив более 100 миллиардов долларов к своей рыночной стоимости с начала года, что стало самым сильным пятимесячным ростом в абсолютных долларах за последнее десятилетие, согласно данным Stocklytics.com.</p>
         <a href="https://www.financialmirror.com/2025/05/16/netflix-market-cap-up-103-bln-in-jan-may/" target="_blank" rel="noopener noreferrer">Читать далее</a>
     </div>
     <div class="lang el">
@@ -930,7 +919,6 @@
             </div>
             </div>
             
-            <!-- Back to Top Button -->
             <button class="back-to-top" id="backToTop" onclick="scrollToTop()" title="Back to top">↑</button>
 
             <script>
@@ -944,7 +932,6 @@
                     currentLang = lang;
                 }
 
-                // Back to top functionality
                 function scrollToTop() {
                     window.scrollTo({
                         top: 0,
@@ -952,7 +939,6 @@
                     });
                 }
 
-                // Show/hide back to top button based on scroll position
                 function toggleBackToTopButton() {
                     const backToTopButton = document.getElementById('backToTop');
                     if (window.pageYOffset > 300) {
@@ -962,14 +948,11 @@
                     }
                 }
 
-                // Add smooth scrolling and better UX
                 document.addEventListener('DOMContentLoaded', function() {
                     setLang('en');
                     
-                    // Show back to top button on scroll
                     window.addEventListener('scroll', toggleBackToTopButton);
                     
-                    // Add loading states to external links
                     document.querySelectorAll('a[target="_blank"]').forEach(link => {
                         link.addEventListener('click', function() {
                             this.style.opacity = '0.7';
@@ -979,9 +962,7 @@
                         });
                     });
                     
-                    // Add keyboard navigation
                     document.addEventListener('keydown', function(e) {
-                        // Press 'T' to scroll to top
                         if (e.key === 't' || e.key === 'T') {
                             if (!e.ctrlKey && !e.altKey && !e.metaKey) {
                                 e.preventDefault();
@@ -989,7 +970,6 @@
                             }
                         }
                         
-                        // Press number keys 1-4 to switch languages
                         if (e.key >= '1' && e.key <= '4' && !e.ctrlKey && !e.altKey && !e.metaKey) {
                             e.preventDefault();
                             const langs = ['en', 'he', 'ru', 'el'];
