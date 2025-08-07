@@ -10,6 +10,25 @@
                 .header { text-align: center; margin-bottom: 40px; }
                 .logo { font-size: 3rem; font-weight: bold; color: #667eea; margin-bottom: 10px; }
                 .tagline { font-size: 1.2rem; color: #666; margin-bottom: 20px; }
+                
+                .live-site-button {
+                    display: inline-block;
+                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                    color: white;
+                    padding: 12px 24px;
+                    text-decoration: none;
+                    border-radius: 25px;
+                    font-weight: 600;
+                    font-size: 1rem;
+                    transition: all 0.3s ease;
+                    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+                }
+                
+                .live-site-button:hover {
+                    transform: translateY(-2px);
+                    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+                }
+                
                 .country-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin: 40px 0; }
                 .country-card { background: #f9f9f9; padding: 30px; border-radius: 15px; text-align: center; border: 2px solid transparent; transition: all 0.3s; }
                 .country-card:hover { border-color: #667eea; transform: translateY(-5px); }
@@ -31,13 +50,16 @@
             <div class="logo">🤖 AI News</div>
             <div class="tagline">Your Multi-Country Daily News Digest</div>
             <p>Automated news aggregation from Cyprus, Israel, and Greece • Thursday, 2025-08-07</p>
+            <div style="margin-top: 20px;">
+                <a href="https://ainews.eu.com" class="live-site-button" target="_blank" rel="noopener noreferrer">🌐 View Live News Site</a>
+            </div>
             </div>
 
             <div class="stats">
             <h3>Today's News Summary</h3>
             <div class="stat-grid">
                 <div class="stat-item">
-                    <div class="stat-number">43</div>
+                    <div class="stat-number">44</div>
                     <div>Total Articles</div>
                 </div>
                 <div class="stat-item">
@@ -45,7 +67,7 @@
                     <div>Countries</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-number">5</div>
+                    <div class="stat-number">4</div>
                     <div>Categories</div>
                 </div>
                 <div class="stat-item">
@@ -59,17 +81,17 @@
             <div class="country-card">
     <h3>🇨🇾 Cyprus</h3>
     <p>20 new articles today</p>
-    <p>Latest categories: Holidays & Travel, General News, Technology</p>
+    <p>Latest categories: Holidays & Travel, General News, Crime & Justice</p>
     <a href="./cyprus/index.html" class="country-link">Read Cyprus News →</a>
 </div><div class="country-card">
     <h3>🇬🇷 Greece</h3>
-    <p>16 new articles today</p>
+    <p>17 new articles today</p>
     <p>Latest categories: General News</p>
     <a href="./greece/index.html" class="country-link">Read Greece News →</a>
 </div><div class="country-card">
     <h3>🇮🇱 Israel</h3>
     <p>7 new articles today</p>
-    <p>Latest categories: General News, Technology</p>
+    <p>Latest categories: General News</p>
     <a href="./israel/index.html" class="country-link">Read Israel News →</a>
 </div>
             </div>
@@ -80,8 +102,7 @@
             <p style="margin-top: 20px; font-size: 0.9rem;">
                 <a href="./cyprus/index.html" style="margin: 0 10px; color: #667eea;">🇨🇾 Cyprus</a> |
                 <a href="./israel/index.html" style="margin: 0 10px; color: #667eea;">🇮🇱 Israel</a> |
-                <a href="./greece/index.html" style="margin: 0 10px; color: #667eea;">🇬🇷 Greece</a> |
-                <a href="./live/index.html" style="margin: 0 10px; color: #ff4444; font-weight: bold;">🔴 LIVE</a>
+                <a href="./greece/index.html" style="margin: 0 10px; color: #667eea;">🇬🇷 Greece</a>
             </p>
             </div>
             </div>
