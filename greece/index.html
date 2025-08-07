@@ -5,35 +5,382 @@
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <style>
-                body { font-family: Arial, sans-serif; margin: 40px; background: #f5f5f5; }
-                .container { max-width: 800px; margin: 0 auto; background: white; padding: 40px; border-radius: 10px; }
-                .header { text-align: center; margin-bottom: 40px; }
-                .logo { font-size: 2rem; font-weight: bold; color: #667eea; }
-                .country-nav { text-align: center; margin: 20px 0; }
-                .country-nav a { margin: 0 10px; padding: 8px 16px; background: #667eea; color: white; text-decoration: none; border-radius: 20px; font-size: 0.9rem; }
-                .country-nav a:hover { background: #764ba2; }
-                .lang-buttons { text-align: center; margin: 30px 0; }
-                .lang-buttons button { margin: 5px; padding: 10px 20px; border: none; border-radius: 25px; background: #667eea; color: white; cursor: pointer; }
-                .lang-buttons button.active { background: #764ba2; }
+                body { 
+                    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; 
+                    margin: 0;
+                    padding: 20px; 
+                    background: #f5f5f5; 
+                    line-height: 1.6;
+                }
+                
+                .container { 
+                    max-width: 800px; 
+                    margin: 0 auto; 
+                    background: white; 
+                    padding: 20px;
+                    border-radius: 12px; 
+                    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+                }
+                
+                .header { 
+                    text-align: center; 
+                    margin-bottom: 30px; 
+                }
+                
+                .logo { 
+                    font-size: 2.5rem; 
+                    font-weight: bold; 
+                    color: #667eea; 
+                    margin-bottom: 10px;
+                }
+                
+                .country-nav { 
+                    text-align: center; 
+                    margin: 20px 0; 
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    gap: 10px;
+                }
+                
+                .country-nav a { 
+                    padding: 12px 16px; 
+                    background: #667eea; 
+                    color: white; 
+                    text-decoration: none; 
+                    border-radius: 25px; 
+                    font-size: 0.9rem;
+                    min-width: 100px;
+                    text-align: center;
+                    transition: all 0.3s ease;
+                }
+                
+                .country-nav a:hover { 
+                    background: #764ba2; 
+                    transform: translateY(-2px);
+                }
+                
+                .lang-buttons { 
+                    text-align: center; 
+                    margin: 30px 0; 
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    gap: 8px;
+                }
+                
+                .lang-buttons button { 
+                    padding: 10px 16px; 
+                    border: none; 
+                    border-radius: 20px; 
+                    background: #667eea; 
+                    color: white; 
+                    cursor: pointer; 
+                    font-size: 0.9rem;
+                    min-width: 80px;
+                    transition: all 0.3s ease;
+                }
+                
+                .lang-buttons button.active { 
+                    background: #764ba2; 
+                    transform: scale(1.05);
+                }
+                
+                .lang-buttons button:hover { 
+                    background: #764ba2; 
+                }
+                
                 .lang { display: none; }
                 .lang.active { display: block; }
-                .lang.he { direction: rtl; text-align: right; font-family: 'Arial', 'Tahoma', sans-serif; }
-                .lang.he h2, .lang.he h3 { text-align: right; direction: rtl; }
-                .lang.he p { text-align: right; direction: rtl; }
-                .lang.he a { float: left; margin-right: 0; margin-left: 10px; }
-                .lang.he .article { border-right: 4px solid #667eea; border-left: none; padding-right: 20px; padding-left: 20px; }
-                .article { margin: 20px 0; padding: 20px; border-left: 4px solid #667eea; background: #f9f9f9; }
-                .article.he { border-right: 4px solid #667eea; border-left: none; }
-                .article h3 { margin: 0 0 10px 0; color: #333; }
-                .article p { color: #666; margin: 10px 0; }
-                .article a { color: #667eea; text-decoration: none; font-weight: bold; }
-                .footer { text-align: center; margin-top: 40px; color: #666; }
-                .subscription { background: #667eea; color: white; padding: 30px; margin: 40px 0; border-radius: 10px; text-align: center; }
-                .subscription input { padding: 10px; margin: 10px; border: none; border-radius: 5px; }
-                .subscription button { background: #FFD700; color: #333; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-weight: bold; }
-                .subscription .lang.he { direction: rtl; text-align: right; }
-                .subscription .lang.he input { text-align: right; direction: rtl; }
-                .no-articles { text-align: center; padding: 40px; color: #666; }
+                
+                .lang.he { 
+                    direction: rtl; 
+                    text-align: right; 
+                    font-family: 'Arial', 'Tahoma', 'Noto Sans Hebrew', sans-serif; 
+                }
+                
+                .lang.he h2, .lang.he h3 { 
+                    text-align: right; 
+                    direction: rtl; 
+                }
+                
+                .lang.he p { 
+                    text-align: right; 
+                    direction: rtl; 
+                }
+                
+                .lang.he a { 
+                    float: left; 
+                    margin-right: 0; 
+                    margin-left: 10px; 
+                }
+                
+                .lang.he .article { 
+                    border-right: 4px solid #667eea; 
+                    border-left: none; 
+                    padding-right: 20px; 
+                    padding-left: 20px; 
+                }
+                
+                .article { 
+                    margin: 20px 0; 
+                    padding: 24px; 
+                    border-left: 4px solid #667eea; 
+                    background: #f9f9f9; 
+                    border-radius: 8px;
+                    transition: all 0.3s ease;
+                }
+                
+                .article:hover {
+                    transform: translateY(-2px);
+                    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+                }
+                
+                .article.he { 
+                    border-right: 4px solid #667eea; 
+                    border-left: none; 
+                }
+                
+                .article h3 { 
+                    margin: 0 0 15px 0; 
+                    color: #2d3748; 
+                    font-size: 1.3rem;
+                    font-weight: 600;
+                    line-height: 1.4;
+                }
+                
+                .article p { 
+                    color: #4a5568; 
+                    margin: 15px 0; 
+                    font-size: 1rem;
+                    line-height: 1.6;
+                    /* Ensure full paragraph is visible */
+                    display: block;
+                    word-wrap: break-word;
+                    overflow-wrap: break-word;
+                }
+                
+                .article a { 
+                    color: #667eea; 
+                    text-decoration: none; 
+                    font-weight: 600; 
+                    display: inline-block;
+                    margin-top: 10px;
+                    padding: 8px 16px;
+                    background: rgba(102, 126, 234, 0.1);
+                    border-radius: 20px;
+                    transition: all 0.3s ease;
+                }
+                
+                .article a:hover {
+                    background: #667eea;
+                    color: white;
+                    transform: translateY(-1px);
+                }
+                
+                .footer { 
+                    text-align: center; 
+                    margin-top: 40px; 
+                    color: #718096;
+                    padding: 20px 0;
+                    border-top: 1px solid #e2e8f0;
+                }
+                
+                .subscription { 
+                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+                    color: white; 
+                    padding: 30px; 
+                    margin: 40px 0; 
+                    border-radius: 12px; 
+                    text-align: center; 
+                }
+                
+                .subscription input { 
+                    padding: 12px 16px; 
+                    margin: 10px; 
+                    border: none; 
+                    border-radius: 8px; 
+                    width: 100%;
+                    max-width: 300px;
+                    font-size: 1rem;
+                }
+                
+                .subscription button { 
+                    background: #FFD700; 
+                    color: #333; 
+                    border: none; 
+                    padding: 12px 24px; 
+                    border-radius: 8px; 
+                    cursor: pointer; 
+                    font-weight: bold; 
+                    font-size: 1rem;
+                    transition: all 0.3s ease;
+                }
+                
+                .subscription button:hover {
+                    background: #FFC700;
+                    transform: translateY(-2px);
+                }
+                
+                .subscription .lang.he { 
+                    direction: rtl; 
+                    text-align: right; 
+                }
+                
+                .subscription .lang.he input { 
+                    text-align: right; 
+                    direction: rtl; 
+                }
+                
+                .no-articles { 
+                    text-align: center; 
+                    padding: 60px 20px; 
+                    color: #718096; 
+                    background: #f7fafc;
+                    border-radius: 12px;
+                    margin: 20px 0;
+                }
+                
+                /* Back to Top Button */
+                .back-to-top {
+                    position: fixed;
+                    bottom: 30px;
+                    right: 30px;
+                    background: #667eea;
+                    color: white;
+                    border: none;
+                    border-radius: 50%;
+                    width: 50px;
+                    height: 50px;
+                    font-size: 20px;
+                    cursor: pointer;
+                    display: none;
+                    z-index: 1000;
+                    transition: all 0.3s ease;
+                    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+                }
+                
+                .back-to-top:hover {
+                    background: #764ba2;
+                    transform: translateY(-3px);
+                }
+                
+                .back-to-top.visible {
+                    display: block;
+                }
+                
+                /* Category Headers */
+                h2 {
+                    color: #2d3748;
+                    font-size: 1.5rem;
+                    font-weight: 700;
+                    margin: 30px 0 20px 0;
+                    padding-bottom: 10px;
+                    border-bottom: 2px solid #e2e8f0;
+                }
+                
+                /* Mobile Responsive Design */
+                @media (max-width: 768px) {
+                    body {
+                        padding: 10px;
+                    }
+                    
+                    .container {
+                        padding: 15px;
+                        border-radius: 8px;
+                    }
+                    
+                    .logo {
+                        font-size: 2rem;
+                    }
+                    
+                    .country-nav {
+                        flex-direction: column;
+                        align-items: center;
+                    }
+                    
+                    .country-nav a {
+                        width: 90%;
+                        max-width: 300px;
+                        margin: 5px 0;
+                        padding: 15px;
+                        font-size: 1rem;
+                    }
+                    
+                    .lang-buttons {
+                        flex-direction: column;
+                        align-items: center;
+                    }
+                    
+                    .lang-buttons button {
+                        width: 90%;
+                        max-width: 200px;
+                        margin: 5px 0;
+                        padding: 12px;
+                        font-size: 1rem;
+                    }
+                    
+                    .article {
+                        margin: 15px 0;
+                        padding: 20px;
+                    }
+                    
+                    .article h3 {
+                        font-size: 1.2rem;
+                    }
+                    
+                    .article p {
+                        font-size: 0.95rem;
+                    }
+                    
+                    .subscription {
+                        padding: 25px 15px;
+                        margin: 30px 0;
+                    }
+                    
+                    .subscription input {
+                        width: 90%;
+                        margin: 8px 0;
+                        font-size: 16px; /* Prevents zoom on iOS */
+                    }
+                    
+                    .subscription button {
+                        width: 90%;
+                        padding: 15px;
+                        margin: 10px 0;
+                        font-size: 1rem;
+                    }
+                    
+                    .back-to-top {
+                        bottom: 20px;
+                        right: 20px;
+                        width: 45px;
+                        height: 45px;
+                    }
+                    
+                    h2 {
+                        font-size: 1.3rem;
+                        margin: 25px 0 15px 0;
+                    }
+                }
+                
+                @media (max-width: 480px) {
+                    .container {
+                        padding: 10px;
+                    }
+                    
+                    .logo {
+                        font-size: 1.8rem;
+                    }
+                    
+                    .article {
+                        padding: 15px;
+                    }
+                    
+                    .subscription {
+                        padding: 20px 10px;
+                    }
+                }
             </style>
             </head>
             <body>
@@ -58,350 +405,345 @@
             </div>
 
             <h2>
-    <span class="lang en active">Technology</span>
-    <span class="lang he" dir="rtl">טכנולוגיה</span>
-    <span class="lang ru">Технологии</span>
-    <span class="lang el">Τεχνολογία</span>
-</h2><div class="article">
-    <div class="lang en active">
-        <h3>Greece rejects Libya claims in UN letter</h3>
-        <p>Greece has formally rejected Libya’s maritime claims in a letter to the United Nations secretary-general and in a diplomatic note to the Tripoli-based Government of National Unity, escalating a long-standing dispute over offshore energy rights in the Eastern Mediterranean.</p>
-        <a href="https://www.ekathimerini.com/politics/foreign-policy/1277395/greece-rejects-libya-claims-in-un-letter/" target="_blank">Read more</a>
-    </div>
-    <div class="lang he" dir="rtl">
-        <h3 dir="rtl">יוון דוחה את טענות לוב במכתב לאומות המאוחדות</h3>
-        <p dir="rtl">יוון דחתה באופן רשמי את תביעות הימיות של לוב במכתב למזכיר הכללי של האומות המאוחדות ובהערה דיפלומטית לממשלת האחדות הלאומית שבטריפולי, מה שמחמיר סכסוך ארוך שנים על זכויות אנרגיה ימית במזרח הים התיכון.</p>
-        <a href="https://www.ekathimerini.com/politics/foreign-policy/1277395/greece-rejects-libya-claims-in-un-letter/" target="_blank">קרא עוד</a>
-    </div>
-    <div class="lang ru">
-        <h3>Греция отвергла претензии Ливии в письме в ООН.</h3>
-        <p>Греция официально отклонила морские претензии Ливии в письме генеральному секретарю ООН и в дипломатической ноте правительству национального единства в Триполи, что усугубляет давний спор о правах на шельфовые энергетические ресурсы в Восточном Средиземноморье.</p>
-        <a href="https://www.ekathimerini.com/politics/foreign-policy/1277395/greece-rejects-libya-claims-in-un-letter/" target="_blank">Читать далее</a>
-    </div>
-    <div class="lang el">
-        <h3>Η Ελλάδα απορρίπτει τις αξιώσεις της Λιβύης σε επιστολή προς τον ΟΗΕ.</h3>
-        <p>Η Ελλάδα έχει επίσημα απορρίψει τις θαλάσσιες αξιώσεις της Λιβύης με επιστολή προς τον γενικό γραμματέα των Ηνωμένων Εθνών και με διπλωματική σημείωση προς την Κυβέρνηση Εθνικής Ενότητας που εδρεύει στην Τρίπολη, κλιμακώνοντας μια μακροχρόνια διαμάχη σχετικά με τα δικαιώματα θαλάσσιας ενέργειας στην Ανατολική Μεσόγειο.</p>
-        <a href="https://www.ekathimerini.com/politics/foreign-policy/1277395/greece-rejects-libya-claims-in-un-letter/" target="_blank">Διαβάστε περισσότερα</a>
-    </div>
-</div><div class="article">
-    <div class="lang en active">
-        <h3>Egypt Reassures Greece on the Status of Sinai’s St Catherine’s Monastery</h3>
-        <p>Greece received assurances from Egypt on the preservation of the current status of St Catherine’s Monastery in Sinai during the visit of Egypt’s Foreign Minister to Athens on Wednesday.</p>
-        <a href="https://greekreporter.com/2025/08/07/egypt-reassures-greece-sinai-st-catherine-monastery/" target="_blank">Read more</a>
-    </div>
-    <div class="lang he" dir="rtl">
-        <h3 dir="rtl">מצרים מרגיעה את יוון לגבי מצב מנזר סנט קתרין בסיני</h3>
-        <p dir="rtl">יוון קיבלה הבטחות ממצרים על שמירת הסטטוס הנוכחי של מנזר סנט קתרין בסיני במהלך ביקורו של שר החוץ המצרי באתונה ביום רביעי.</p>
-        <a href="https://greekreporter.com/2025/08/07/egypt-reassures-greece-sinai-st-catherine-monastery/" target="_blank">קרא עוד</a>
-    </div>
-    <div class="lang ru">
-        <h3>Египет успокаивает Грецию по поводу статуса монастыря Святой Екатерины в Синае.</h3>
-        <p>Греция получила гарантии от Египта о сохранении текущего статуса монастыря Святой Екатерины на Синае во время визита министра иностранных дел Египта в Афины в среду.</p>
-        <a href="https://greekreporter.com/2025/08/07/egypt-reassures-greece-sinai-st-catherine-monastery/" target="_blank">Читать далее</a>
-    </div>
-    <div class="lang el">
-        <h3>Η Αίγυπτος διαβεβαιώνει την Ελλάδα για την κατάσταση της Μονής Αγίας Κατερίνης στο Σινά.</h3>
-        <p>Η Ελλάδα έλαβε διαβεβαιώσεις από την Αίγυπτο για τη διατήρηση της τρέχουσας κατάστασης της Μονής Αγίας Αικατερίνης στο Σινά κατά την επίσκεψη του Υπουργού Εξωτερικών της Αιγύπτου στην Αθήνα την Τετάρτη.</p>
-        <a href="https://greekreporter.com/2025/08/07/egypt-reassures-greece-sinai-st-catherine-monastery/" target="_blank">Διαβάστε περισσότερα</a>
-    </div>
-</div><h2>
     <span class="lang en active">General News</span>
     <span class="lang he" dir="rtl">חדשות כלליות</span>
     <span class="lang ru">Общие новости</span>
     <span class="lang el">Γενικές Ειδήσεις</span>
 </h2><div class="article">
     <div class="lang en active">
-        <h3>Employees prefer 4-day week during the summer</h3>
-        <p>A survey of Greek employees through the LinkedIn platform showed that most would prefer a more flexible working schedule, more rest opportunities and other incentives in the form of relaxation spaces within the workplace, bonuses and opportunities for training seminars.</p>
-        <a href="https://www.ekathimerini.com/economy/1277407/employees-prefer-4-day-week-during-the-summer/" target="_blank">Read more</a>
+        <h3>Athens upset by West Bank seizure reports</h3>
+        <p>Greek authorities have expressed deep concern over reports of expanded land encroachments by Israeli settlers on property belonging to the Greek Orthodox Church in the West Bank, particularly around the historic Monastery of Saint Gerasimos of the Jordan near Jericho.</p>
+        <a href="https://www.ekathimerini.com/politics/foreign-policy/1277381/athens-upset-by-west-bank-seizure-reports/" target="_blank" rel="noopener noreferrer">Read more</a>
     </div>
     <div class="lang he" dir="rtl">
-        <h3 dir="rtl">עובדים מעדיפים שבוע עבודה של 4 ימים במהלך הקיץ</h3>
-        <p dir="rtl">סקר שנערך בקרב עובדים יוונים דרך פלטפורמת לינקדאין הראה שרובם מעדיפים לוח זמנים גמיש יותר, יותר הזדמנויות למנוחה ותמריצים נוספים כמו חללי רגיעה במקום העבודה, בונוסים והזדמנויות לסמינרי הכשרה.</p>
-        <a href="https://www.ekathimerini.com/economy/1277407/employees-prefer-4-day-week-during-the-summer/" target="_blank">קרא עוד</a>
+        <h3 dir="rtl">אתונה מודאגת מדיווחים על תפיסות בגדה המערבית</h3>
+        <p dir="rtl">הרשויות היווניות הביעו דאגה עמוקה לגבי דיווחים על הרחבת השתלטויות קרקע של מתנחלים ישראלים על נכסים השייכים לכנסייה היוונית-אורתודוקסית ביהודה ושומרון, במיוחד סביב המנזר ההיסטורי של סנט גרסימוס מהירדן ליד יריחו.</p>
+        <a href="https://www.ekathimerini.com/politics/foreign-policy/1277381/athens-upset-by-west-bank-seizure-reports/" target="_blank" rel="noopener noreferrer">קרא עוד</a>
     </div>
     <div class="lang ru">
-        <h3>Сотрудники предпочитают четырехдневную рабочую неделю летом.</h3>
-        <p>Опрос среди греческих сотрудников на платформе LinkedIn показал, что большинство предпочло бы более гибкий график работы, больше возможностей для отдыха и другие стимулы, такие как зоны для отдыха на рабочем месте, бонусы и возможности для участия в учебных семинарах.</p>
-        <a href="https://www.ekathimerini.com/economy/1277407/employees-prefer-4-day-week-during-the-summer/" target="_blank">Читать далее</a>
+        <h3>Афины встревожены сообщениями о захвате на Западном берегу.</h3>
+        <p>Греческие власти выразили глубокую озабоченность по поводу сообщений о расширении захватов земель израильскими поселенцами на имущество Греческой православной церкви на Западном берегу, особенно вокруг исторического монастыря Святого Герасима Иорданского недалеко от Иерихона.</p>
+        <a href="https://www.ekathimerini.com/politics/foreign-policy/1277381/athens-upset-by-west-bank-seizure-reports/" target="_blank" rel="noopener noreferrer">Читать далее</a>
     </div>
     <div class="lang el">
-        <h3>Οι υπάλληλοι προτιμούν την 4ήμερη εργασία κατά τη διάρκεια του καλοκαιριού.</h3>
-        <p>Μια έρευνα μεταξύ Ελλήνων εργαζομένων μέσω της πλατφόρμας LinkedIn έδειξε ότι οι περισσότεροι θα προτιμούσαν ένα πιο ευέλικτο πρόγραμμα εργασίας, περισσότερες ευκαιρίες ξεκούρασης και άλλα κίνητρα με τη μορφή χώρων χαλάρωσης στον χώρο εργασίας, μπόνους και ευκαιρίες για εκπαιδευτικά σεμινάρια.</p>
-        <a href="https://www.ekathimerini.com/economy/1277407/employees-prefer-4-day-week-during-the-summer/" target="_blank">Διαβάστε περισσότερα</a>
-    </div>
-</div><div class="article">
-    <div class="lang en active">
-        <h3>Divers find 20-meter crack in Evia ferry that ran aground</h3>
-        <p>Divers sent to evaluate the state of a passenger ferry that ran aground off Nea Styra, in Evia, with 105 passengers and nine crew on board, have found a 20-meter crack below the water line, according to state-run broadcaster ERT.</p>
-        <a href="https://www.ekathimerini.com/news/1277448/divers-find-20-meter-crack-in-evia-ferry-that-ran-aground/" target="_blank">Read more</a>
-    </div>
-    <div class="lang he" dir="rtl">
-        <h3 dir="rtl">צוללים מצאו סדק של 20 מטר במעבורת באביה שהשתעשע.</h3>
-        <p dir="rtl">צוללנים שנשלחו להעריך את מצב המעבורת שהשתעשע מול נאה סטירה באביה, עם 105 נוסעים ותשעה אנשי צוות על הסיפון, גילו סדק של 20 מטר מתחת לקו המים, כך מדווחת רשות השידור הממשלתית ERT.</p>
-        <a href="https://www.ekathimerini.com/news/1277448/divers-find-20-meter-crack-in-evia-ferry-that-ran-aground/" target="_blank">קרא עוד</a>
-    </div>
-    <div class="lang ru">
-        <h3>Дайверы обнаружили трещину длиной 20 метров в пароме на Эвии, который сел на мель.</h3>
-        <p>Дайверы, отправленные для оценки состояния пассажирского парома, севшего на мель у Неа-Стира на Эвбии с 105 пассажирами и девятью членами экипажа на борту, обнаружили трещину длиной 20 метров ниже ватерлинии, сообщает государственное телевидение ERT.</p>
-        <a href="https://www.ekathimerini.com/news/1277448/divers-find-20-meter-crack-in-evia-ferry-that-ran-aground/" target="_blank">Читать далее</a>
-    </div>
-    <div class="lang el">
-        <h3>Δύτες εντοπίζουν 20 μέτρων ρωγμή σε φέρι που προσάραξε στην Εύβοια.</h3>
-        <p>Δύτες που στάλθηκαν για να αξιολογήσουν την κατάσταση ενός επιβατικού φέρι που προσάραξε ανοιχτά της Νέας Στύρας στην Εύβοια, με 105 επιβάτες και εννέα μέλη πληρώματος, βρήκαν μια 20 μέτρων ρωγμή κάτω από τη γραμμή του νερού, σύμφωνα με την κρατική τηλεόραση ΕΡΤ.</p>
-        <a href="https://www.ekathimerini.com/news/1277448/divers-find-20-meter-crack-in-evia-ferry-that-ran-aground/" target="_blank">Διαβάστε περισσότερα</a>
+        <h3>Αθήνα αναστατωμένη από αναφορές για κατασχέσεις στη Δυτική Όχθη</h3>
+        <p>Οι ελληνικές αρχές έχουν εκφράσει βαθιά ανησυχία για αναφορές σχετικά με την επέκταση καταπατήσεων γης από Ισραηλινούς εποίκους σε περιουσία της Ελληνικής Ορθόδοξης Εκκλησίας στη Δυτική Όχθη, ιδιαίτερα γύρω από το ιστορικό Μοναστήρι του Αγίου Γερασίμου του Ιορδάνη κοντά στην Ιεριχώ.</p>
+        <a href="https://www.ekathimerini.com/politics/foreign-policy/1277381/athens-upset-by-west-bank-seizure-reports/" target="_blank" rel="noopener noreferrer">Διαβάστε περισσότερα</a>
     </div>
 </div><div class="article">
     <div class="lang en active">
         <h3>A 4.6% rise in visitors is expected from August to October</h3>
         <p>Airline booking data show the number of visitors to Greece for August-October is set to rise 4.6% against the same period in 2024.</p>
-        <a href="https://www.ekathimerini.com/economy/1277446/a-4-6-rise-in-visitors-is-expected-from-august-to-october/" target="_blank">Read more</a>
+        <a href="https://www.ekathimerini.com/economy/1277446/a-4-6-rise-in-visitors-is-expected-from-august-to-october/" target="_blank" rel="noopener noreferrer">Read more</a>
     </div>
     <div class="lang he" dir="rtl">
-        <h3 dir="rtl">צפויה עלייה של 4.6% במספר המבקרים בין אוגוסט לאוקטובר.</h3>
+        <h3 dir="rtl">צפוי עלייה של 4.6% במספר המבקרים בין אוגוסט לאוקטובר.</h3>
         <p dir="rtl">נתוני הזמנות טיסות מראים כי מספר המבקרים ביוון בין אוגוסט לאוקטובר צפוי לעלות ב-4.6% לעומת אותה תקופה ב-2024.</p>
-        <a href="https://www.ekathimerini.com/economy/1277446/a-4-6-rise-in-visitors-is-expected-from-august-to-october/" target="_blank">קרא עוד</a>
+        <a href="https://www.ekathimerini.com/economy/1277446/a-4-6-rise-in-visitors-is-expected-from-august-to-october/" target="_blank" rel="noopener noreferrer">קרא עוד</a>
     </div>
     <div class="lang ru">
         <h3>Ожидается рост числа посетителей на 4,6% с августа по октябрь.</h3>
         <p>Данные бронирования авиабилетов показывают, что количество посетителей Греции в период с августа по октябрь 2024 года вырастет на 4,6% по сравнению с тем же периодом 2023 года.</p>
-        <a href="https://www.ekathimerini.com/economy/1277446/a-4-6-rise-in-visitors-is-expected-from-august-to-october/" target="_blank">Читать далее</a>
+        <a href="https://www.ekathimerini.com/economy/1277446/a-4-6-rise-in-visitors-is-expected-from-august-to-october/" target="_blank" rel="noopener noreferrer">Читать далее</a>
     </div>
     <div class="lang el">
         <h3>Αναμένεται αύξηση 4,6% στους επισκέπτες από τον Αύγουστο έως τον Οκτώβριο.</h3>
         <p>Δεδομένα κρατήσεων αεροπορικών εταιρειών δείχνουν ότι ο αριθμός των επισκεπτών στην Ελλάδα για την περίοδο Αυγούστου-Οκτωβρίου αναμένεται να αυξηθεί κατά 4,6% σε σύγκριση με την ίδια περίοδο το 2024.</p>
-        <a href="https://www.ekathimerini.com/economy/1277446/a-4-6-rise-in-visitors-is-expected-from-august-to-october/" target="_blank">Διαβάστε περισσότερα</a>
+        <a href="https://www.ekathimerini.com/economy/1277446/a-4-6-rise-in-visitors-is-expected-from-august-to-october/" target="_blank" rel="noopener noreferrer">Διαβάστε περισσότερα</a>
     </div>
 </div><div class="article">
     <div class="lang en active">
-        <h3>Fire alert issued for Thursday</h3>
-        <p>A warning has been issued for Thursday as Greece’s General Secretariat for Civil Protection forecasts a very high risk of wildfires in six regions. According to the Fire Risk Forecast Map, areas in Attica, the Peloponnese, Central Greece, Crete, and the North and South Aegean are at a heightened ris...</p>
-        <a href="https://www.ekathimerini.com/news/1277388/fire-alert-issued-for-thursday/" target="_blank">Read more</a>
+        <h3>Egypt’s note verbale on Greek maritime map is ‘an expected reaction,’ says ministry</h3>
+        <p>Egypt’s reaction in the form of a note verbale to Greece’s maritime spatial planning  published last April is an “an expected reaction,” a foreign ministry spokesperson said on Wednesday.</p>
+        <a href="https://www.ekathimerini.com/politics/foreign-policy/1277455/egypts-note-verbale-on-greek-maritime-map-is-an-expected-reaction-says-ministry/" target="_blank" rel="noopener noreferrer">Read more</a>
     </div>
     <div class="lang he" dir="rtl">
-        <h3 dir="rtl">התרעת שריפה הונפקה ליום חמישי</h3>
-        <p dir="rtl">הוצא אזהרה ליום חמישי כאשר המזכיר הכללי להגנת האזרחים של יוון צופה סיכון גבוה מאוד לשריפות יער בשישה אזורים. לפי מפה לחיזוי סיכון השריפות, אזורים באטיקה, בפלופונס, במרכז יוון, בכרתים ובצפון ובדרום האגאי נמצאים בסיכון מוגבר.</p>
-        <a href="https://www.ekathimerini.com/news/1277388/fire-alert-issued-for-thursday/" target="_blank">קרא עוד</a>
+        <h3 dir="rtl">ההודעה הוורבלית של מצרים על המפה הימית היוונית היא 'תגובה צפויה', אומר המשרד.</h3>
+        <p dir="rtl">תגובת מצרים, בצורת הודעת נוטה ורבאלי לתכנון המרחבי הימי של יוון שפורסם באפריל האחרון, היא "תגובה צפויה", כך אמר דובר משרד החוץ ביום רביעי.</p>
+        <a href="https://www.ekathimerini.com/politics/foreign-policy/1277455/egypts-note-verbale-on-greek-maritime-map-is-an-expected-reaction-says-ministry/" target="_blank" rel="noopener noreferrer">קרא עוד</a>
     </div>
     <div class="lang ru">
-        <h3>В четверг объявлено предупреждение о пожаре.</h3>
-        <p>В четверг объявлено предупреждение, так как Генеральная секретариат по гражданской защите Греции прогнозирует очень высокий риск лесных пожаров в шести регионах. Согласно карте прогноза риска пожаров, районы Аттики, Пелопоннеса, Центральной Греции, Крита, а также Северного и Южного Эгейского моря находятся в зоне повышенного риска.</p>
-        <a href="https://www.ekathimerini.com/news/1277388/fire-alert-issued-for-thursday/" target="_blank">Читать далее</a>
+        <h3>Нота вербале Египта по греческой морской карте является «ожидаемой реакцией», заявило министерство.</h3>
+        <p>Реакция Египта в виде вербальной ноты на морское пространственное планирование Греции, опубликованное в прошлом апреле, является «ожидаемой реакцией», заявил представитель министерства иностранных дел в среду.</p>
+        <a href="https://www.ekathimerini.com/politics/foreign-policy/1277455/egypts-note-verbale-on-greek-maritime-map-is-an-expected-reaction-says-ministry/" target="_blank" rel="noopener noreferrer">Читать далее</a>
     </div>
     <div class="lang el">
-        <h3>Εκδόθηκε προειδοποίηση πυρκαγιάς για την Πέμπτη.</h3>
-        <p>Έχει εκδοθεί προειδοποίηση για την Πέμπτη, καθώς η Γενική Γραμματεία Πολιτικής Προστασίας της Ελλάδας προβλέπει πολύ υψηλό κίνδυνο πυρκαγιών σε έξι περιοχές. Σύμφωνα με τον Χάρτη Πρόβλεψης Κινδύνου Πυρκαγιάς, περιοχές στην Αττική, την Πελοπόννησο, τη Στερεά Ελλάδα, την Κρήτη και το Βόρειο και Νότιο Αιγαίο βρίσκονται σε αυξημένο κίνδυνο.</p>
-        <a href="https://www.ekathimerini.com/news/1277388/fire-alert-issued-for-thursday/" target="_blank">Διαβάστε περισσότερα</a>
+        <h3>Η σημείωση της Αιγύπτου σχετικά με τον ελληνικό θαλάσσιο χάρτη είναι «μια αναμενόμενη αντίδραση», δηλώνει το υπουργείο.</h3>
+        <p>Η αντίδραση της Αιγύπτου με τη μορφή σημειώματος προς την Ελλάδα σχετικά με τον θαλάσσιο χωροταξικό σχεδιασμό που δημοσιεύθηκε τον περασμένο Απρίλιο είναι μια "αναμενόμενη αντίδραση", δήλωσε εκπρόσωπος του υπουργείου Εξωτερικών την Τετάρτη.</p>
+        <a href="https://www.ekathimerini.com/politics/foreign-policy/1277455/egypts-note-verbale-on-greek-maritime-map-is-an-expected-reaction-says-ministry/" target="_blank" rel="noopener noreferrer">Διαβάστε περισσότερα</a>
+    </div>
+</div><div class="article">
+    <div class="lang en active">
+        <h3>Divers find 20-meter crack in Evia ferry that ran aground</h3>
+        <p>Divers sent to evaluate the state of a passenger ferry that ran aground off Nea Styra, in Evia, with 105 passengers and nine crew on board, have found a 20-meter crack below the water line, according to state-run broadcaster ERT.</p>
+        <a href="https://www.ekathimerini.com/news/1277448/divers-find-20-meter-crack-in-evia-ferry-that-ran-aground/" target="_blank" rel="noopener noreferrer">Read more</a>
+    </div>
+    <div class="lang he" dir="rtl">
+        <h3 dir="rtl">צוללים מצאו סדק של 20 מטרים במעבורת באביה שהשתעשע.</h3>
+        <p dir="rtl">צוללנים שנשלחו להעריך את מצב המעבורת שהשתעשע מול נאה סטירה באביה, עם 105 נוסעים ותשעה אנשי צוות על הסיפון, גילו סדק של 20 מטר מתחת לקו המים, כך מדווחת רשות השידור הממשלתית ERT.</p>
+        <a href="https://www.ekathimerini.com/news/1277448/divers-find-20-meter-crack-in-evia-ferry-that-ran-aground/" target="_blank" rel="noopener noreferrer">קרא עוד</a>
+    </div>
+    <div class="lang ru">
+        <h3>Дайверы обнаружили 20-метровую трещину в пароме на Эвии, который сел на мель.</h3>
+        <p>Дайверы, отправленные оценить состояние пассажирского парома, севшего на мель у Неа-Стира на Эвбии с 105 пассажирами и девятью членами экипажа на борту, обнаружили 20-метровую трещину ниже уровня воды, сообщает государственная телерадиокомпания ERT.</p>
+        <a href="https://www.ekathimerini.com/news/1277448/divers-find-20-meter-crack-in-evia-ferry-that-ran-aground/" target="_blank" rel="noopener noreferrer">Читать далее</a>
+    </div>
+    <div class="lang el">
+        <h3>Δύτες εντοπίζουν 20 μέτρων ρωγμή σε φέρι που προσάραξε στην Εύβοια.</h3>
+        <p>Δύτες που στάλθηκαν για να αξιολογήσουν την κατάσταση ενός επιβατικού φέρι που προσάραξε ανοιχτά της Νέας Στύρας στην Εύβοια, με 105 επιβάτες και εννέα μέλη πληρώματος, βρήκαν μια 20 μέτρων ρωγμή κάτω από τη γραμμή του νερού, σύμφωνα με την κρατική τηλεόραση ΕΡΤ.</p>
+        <a href="https://www.ekathimerini.com/news/1277448/divers-find-20-meter-crack-in-evia-ferry-that-ran-aground/" target="_blank" rel="noopener noreferrer">Διαβάστε περισσότερα</a>
+    </div>
+</div><div class="article">
+    <div class="lang en active">
+        <h3>Employees prefer 4-day week during the summer</h3>
+        <p>A survey of Greek employees through the LinkedIn platform showed that most would prefer a more flexible working schedule, more rest opportunities and other incentives in the form of relaxation spaces within the workplace, bonuses and opportunities for training seminars.</p>
+        <a href="https://www.ekathimerini.com/economy/1277407/employees-prefer-4-day-week-during-the-summer/" target="_blank" rel="noopener noreferrer">Read more</a>
+    </div>
+    <div class="lang he" dir="rtl">
+        <h3 dir="rtl">עובדים מעדיפים שבוע עבודה של 4 ימים במהלך הקיץ</h3>
+        <p dir="rtl">סקר שנערך בקרב עובדים יוונים דרך פלטפורמת לינקדאין הראה שרובם מעדיפים לוח זמנים גמיש יותר, יותר הזדמנויות למנוחה ותמריצים נוספים כמו אזורי רגיעה במקום העבודה, בונוסים והזדמנויות לסמינרי הכשרה.</p>
+        <a href="https://www.ekathimerini.com/economy/1277407/employees-prefer-4-day-week-during-the-summer/" target="_blank" rel="noopener noreferrer">קרא עוד</a>
+    </div>
+    <div class="lang ru">
+        <h3>Сотрудники предпочитают четырехдневную рабочую неделю летом.</h3>
+        <p>Опрос греческих сотрудников на платформе LinkedIn показал, что большинство предпочло бы более гибкий график работы, больше возможностей для отдыха и другие стимулы, такие как зоны для отдыха на рабочем месте, бонусы и возможности для участия в учебных семинарах.</p>
+        <a href="https://www.ekathimerini.com/economy/1277407/employees-prefer-4-day-week-during-the-summer/" target="_blank" rel="noopener noreferrer">Читать далее</a>
+    </div>
+    <div class="lang el">
+        <h3>Οι υπάλληλοι προτιμούν την 4ήμερη εργασία κατά τη διάρκεια του καλοκαιριού.</h3>
+        <p>Μια έρευνα μεταξύ Ελλήνων εργαζομένων μέσω της πλατφόρμας LinkedIn έδειξε ότι οι περισσότεροι θα προτιμούσαν ένα πιο ευέλικτο πρόγραμμα εργασίας, περισσότερες ευκαιρίες ξεκούρασης και άλλα κίνητρα με τη μορφή χώρων χαλάρωσης στον χώρο εργασίας, μπόνους και ευκαιρίες για εκπαιδευτικά σεμινάρια.</p>
+        <a href="https://www.ekathimerini.com/economy/1277407/employees-prefer-4-day-week-during-the-summer/" target="_blank" rel="noopener noreferrer">Διαβάστε περισσότερα</a>
     </div>
 </div><div class="article">
     <div class="lang en active">
         <h3>A refugee in Greece empowers Afghan women through coding</h3>
         <p>One after the other, the opportunities vanished. Like so many other Afghan women, Sodaba could do little but watch as her country’s new Taliban government imposed a stranglehold on women’s lives.</p>
-        <a href="https://www.ekathimerini.com/in-depth/society-in-depth/1277338/a-refugee-in-greece-empowers-afghan-women-through-coding/" target="_blank">Read more</a>
+        <a href="https://www.ekathimerini.com/in-depth/society-in-depth/1277338/a-refugee-in-greece-empowers-afghan-women-through-coding/" target="_blank" rel="noopener noreferrer">Read more</a>
     </div>
     <div class="lang he" dir="rtl">
         <h3 dir="rtl">פליט ביוון מעצים נשים אפגניות באמצעות קידוד</h3>
         <p dir="rtl">אחת אחרי השנייה, ההזדמנויות נעלמו. כמו רבות אחרות מנשים אפגניות, סודבה יכלה לעשות מעט מלבד לצפות כאשר ממשלת הטליבאן החדשה של מדינתה הטילה חנק על חייהן של נשים.</p>
-        <a href="https://www.ekathimerini.com/in-depth/society-in-depth/1277338/a-refugee-in-greece-empowers-afghan-women-through-coding/" target="_blank">קרא עוד</a>
+        <a href="https://www.ekathimerini.com/in-depth/society-in-depth/1277338/a-refugee-in-greece-empowers-afghan-women-through-coding/" target="_blank" rel="noopener noreferrer">קרא עוד</a>
     </div>
     <div class="lang ru">
-        <h3>Беженка в Греции помогает афганским женщинам освоить программирование.</h3>
+        <h3>Беженец в Греции помогает афганским женщинам освоить программирование.</h3>
         <p>Одна за другой возможности исчезали. Как и многие другие афганские женщины, Содава могла лишь наблюдать, как новое правительство Талибана накладывает удушающий контроль на жизнь женщин в стране.</p>
-        <a href="https://www.ekathimerini.com/in-depth/society-in-depth/1277338/a-refugee-in-greece-empowers-afghan-women-through-coding/" target="_blank">Читать далее</a>
+        <a href="https://www.ekathimerini.com/in-depth/society-in-depth/1277338/a-refugee-in-greece-empowers-afghan-women-through-coding/" target="_blank" rel="noopener noreferrer">Читать далее</a>
     </div>
     <div class="lang el">
         <h3>Μια πρόσφυγας στην Ελλάδα ενδυναμώνει τις Αφγανές γυναίκες μέσω του προγραμματισμού.</h3>
         <p>Η μία ευκαιρία μετά την άλλη εξαφανίστηκε. Όπως πολλές άλλες Αφγανές γυναίκες, η Σοντάμπα μπορούσε να κάνει λίγα παρά να παρακολουθεί καθώς η νέα κυβέρνηση των Ταλιμπάν επιβάλλει έναν ασφυκτικό έλεγχο στη ζωή των γυναικών.</p>
-        <a href="https://www.ekathimerini.com/in-depth/society-in-depth/1277338/a-refugee-in-greece-empowers-afghan-women-through-coding/" target="_blank">Διαβάστε περισσότερα</a>
+        <a href="https://www.ekathimerini.com/in-depth/society-in-depth/1277338/a-refugee-in-greece-empowers-afghan-women-through-coding/" target="_blank" rel="noopener noreferrer">Διαβάστε περισσότερα</a>
     </div>
 </div><div class="article">
     <div class="lang en active">
         <h3>The city’s transformation</h3>
         <p>If one looks at Athens from the Acropolis and Lycabettus hills, one will see that this sea of apartment buildings that fills the field of vision is also a triumph of the small-medium social model that prevailed after 1950. It is a carpet of buildings that, from a distance, seem uniform without being...</p>
-        <a href="https://www.ekathimerini.com/opinion/1277198/the-citys-transformation/" target="_blank">Read more</a>
+        <a href="https://www.ekathimerini.com/opinion/1277198/the-citys-transformation/" target="_blank" rel="noopener noreferrer">Read more</a>
     </div>
     <div class="lang he" dir="rtl">
         <h3 dir="rtl">שינוי העיר</h3>
         <p dir="rtl">אם מסתכלים על אתונה מהאקרופוליס ומהגבעות ליקאביטוס, רואים שהים הזה של בנייני דירות שממלא את שדה הראייה הוא גם ניצחון של המודל החברתי הקטן-בינוני ששלט לאחר 1950. זהו שטיח של בניינים שנראים אחידים מרחוק מבלי להיות...</p>
-        <a href="https://www.ekathimerini.com/opinion/1277198/the-citys-transformation/" target="_blank">קרא עוד</a>
+        <a href="https://www.ekathimerini.com/opinion/1277198/the-citys-transformation/" target="_blank" rel="noopener noreferrer">קרא עוד</a>
     </div>
     <div class="lang ru">
-        <h3>Преобразование города</h3>
-        <p>Если посмотреть на Афины с Акрополя и холма Ликабет, можно увидеть, что это море жилых зданий, заполняющее поле зрения, также является триумфом маломедленного социального модели, которая преобладала после 1950 года. Это ковер зданий, который с расстояния кажется однородным, не будучи...</p>
-        <a href="https://www.ekathimerini.com/opinion/1277198/the-citys-transformation/" target="_blank">Читать далее</a>
+        <h3>Трансформация города</h3>
+        <p>Если посмотреть на Афины с Акрополя и холма Ликабет, можно увидеть, что это море жилых зданий, заполняющее поле зрения, также является триумфом маломасштабной социальной модели, которая преобладала после 1950 года. Это ковер зданий, который на расстоянии кажется однородным, не будучи...</p>
+        <a href="https://www.ekathimerini.com/opinion/1277198/the-citys-transformation/" target="_blank" rel="noopener noreferrer">Читать далее</a>
     </div>
     <div class="lang el">
         <h3>Η μεταμόρφωση της πόλης</h3>
         <p>Αν κοιτάξει κανείς την Αθήνα από την Ακρόπολη και τους λόφους του Λυκαβηττού, θα δει ότι αυτή η θάλασσα από πολυκατοικίες που γεμίζει το οπτικό πεδίο είναι επίσης ένας θρίαμβος του μικρομεσαίου κοινωνικού μοντέλου που επικράτησε μετά το 1950. Είναι ένα χαλί κτιρίων που, από μακριά, φαίνονται ομοιόμορφα χωρίς να είναι...</p>
-        <a href="https://www.ekathimerini.com/opinion/1277198/the-citys-transformation/" target="_blank">Διαβάστε περισσότερα</a>
+        <a href="https://www.ekathimerini.com/opinion/1277198/the-citys-transformation/" target="_blank" rel="noopener noreferrer">Διαβάστε περισσότερα</a>
     </div>
 </div><div class="article">
     <div class="lang en active">
         <h3>Spicy cheese spread (tyrokafteri): Six piquant recipes</h3>
         <p>The humble meze that whets the appetite is a staple on the taverna table and super easy to make at home.</p>
-        <a href="https://www.ekathimerini.com/leisure/gastronomy/1277162/spicy-cheese-spread-tyrokafteri-six-piquant-recipes/" target="_blank">Read more</a>
+        <a href="https://www.ekathimerini.com/leisure/gastronomy/1277162/spicy-cheese-spread-tyrokafteri-six-piquant-recipes/" target="_blank" rel="noopener noreferrer">Read more</a>
     </div>
     <div class="lang he" dir="rtl">
         <h3 dir="rtl">ממרח גבינה חריף (טירוקפטירי): שישה מתכונים פיקנטיים</h3>
         <p dir="rtl">המזה הצנוע שמעורר את התיאבון הוא מאכל בסיסי על שולחן הטברנה וקל מאוד להכנה בבית.</p>
-        <a href="https://www.ekathimerini.com/leisure/gastronomy/1277162/spicy-cheese-spread-tyrokafteri-six-piquant-recipes/" target="_blank">קרא עוד</a>
+        <a href="https://www.ekathimerini.com/leisure/gastronomy/1277162/spicy-cheese-spread-tyrokafteri-six-piquant-recipes/" target="_blank" rel="noopener noreferrer">קרא עוד</a>
     </div>
     <div class="lang ru">
         <h3>Острая сырная паста (тырокафтери): Шесть пикантных рецептов</h3>
         <p>Скромное мезе, которое разжигает аппетит, является основным блюдом на столе таверны и очень легко готовится дома.</p>
-        <a href="https://www.ekathimerini.com/leisure/gastronomy/1277162/spicy-cheese-spread-tyrokafteri-six-piquant-recipes/" target="_blank">Читать далее</a>
+        <a href="https://www.ekathimerini.com/leisure/gastronomy/1277162/spicy-cheese-spread-tyrokafteri-six-piquant-recipes/" target="_blank" rel="noopener noreferrer">Читать далее</a>
     </div>
     <div class="lang el">
         <h3>Πικάντικη τυροκαυτερή: Έξι πικάντικες συνταγές</h3>
         <p>Το ταπεινό μεζεδάκι που ανοίγει την όρεξη είναι βασικό στοιχείο στο τραπέζι της ταβέρνας και πολύ εύκολο να φτιαχτεί στο σπίτι.</p>
-        <a href="https://www.ekathimerini.com/leisure/gastronomy/1277162/spicy-cheese-spread-tyrokafteri-six-piquant-recipes/" target="_blank">Διαβάστε περισσότερα</a>
+        <a href="https://www.ekathimerini.com/leisure/gastronomy/1277162/spicy-cheese-spread-tyrokafteri-six-piquant-recipes/" target="_blank" rel="noopener noreferrer">Διαβάστε περισσότερα</a>
     </div>
 </div><div class="article">
     <div class="lang en active">
         <h3>Easy cheespie in a pan with four cheeses</h3>
         <p>Τhis cheese pie with store-bought phyllo pastry is ready to serve in just 15 minutes!</p>
-        <a href="https://www.ekathimerini.com/leisure/gastronomy/1277154/easy-cheespie-in-a-pan-with-four-cheeses/" target="_blank">Read more</a>
+        <a href="https://www.ekathimerini.com/leisure/gastronomy/1277154/easy-cheespie-in-a-pan-with-four-cheeses/" target="_blank" rel="noopener noreferrer">Read more</a>
     </div>
     <div class="lang he" dir="rtl">
         <h3 dir="rtl">פשטידת גבינה קלה במחבת עם ארבע גבינות</h3>
-        <p dir="rtl">המאפה גבינה הזה עם בצק פילו קנוי מוכן להגשה תוך 15 דקות בלבד!</p>
-        <a href="https://www.ekathimerini.com/leisure/gastronomy/1277154/easy-cheespie-in-a-pan-with-four-cheeses/" target="_blank">קרא עוד</a>
+        <p dir="rtl">הפשטידה גבינה הזו עם בצק פילו קנוי מוכנה להגשה תוך 15 דקות בלבד!</p>
+        <a href="https://www.ekathimerini.com/leisure/gastronomy/1277154/easy-cheespie-in-a-pan-with-four-cheeses/" target="_blank" rel="noopener noreferrer">קרא עוד</a>
     </div>
     <div class="lang ru">
         <h3>Легкий чизкейк на сковороде с четырьмя сырами</h3>
         <p>Этот сырный пирог с покупным слоеным тестом готов к подаче всего за 15 минут!</p>
-        <a href="https://www.ekathimerini.com/leisure/gastronomy/1277154/easy-cheespie-in-a-pan-with-four-cheeses/" target="_blank">Читать далее</a>
+        <a href="https://www.ekathimerini.com/leisure/gastronomy/1277154/easy-cheespie-in-a-pan-with-four-cheeses/" target="_blank" rel="noopener noreferrer">Читать далее</a>
     </div>
     <div class="lang el">
         <h3>Εύκολη τυρόπιτα σε τηγάνι με τέσσερα τυριά</h3>
         <p>Αυτή η τυρόπιτα με έτοιμο φύλλο είναι έτοιμη να σερβιριστεί σε μόλις 15 λεπτά!</p>
-        <a href="https://www.ekathimerini.com/leisure/gastronomy/1277154/easy-cheespie-in-a-pan-with-four-cheeses/" target="_blank">Διαβάστε περισσότερα</a>
+        <a href="https://www.ekathimerini.com/leisure/gastronomy/1277154/easy-cheespie-in-a-pan-with-four-cheeses/" target="_blank" rel="noopener noreferrer">Διαβάστε περισσότερα</a>
     </div>
 </div><div class="article">
     <div class="lang en active">
         <h3>From land to table: The culinary riches of Hania</h3>
         <p>At Ntounias, a rustic taverna nestled in the village of Drakona in the White Mountains, the kitchen garden is planted with heirloom seeds – hardy, native varieties passed down through generations. Wild thyme, oregano, and arismari  grow freely among the rows, and everything is cultivated using organ...</p>
-        <a href="https://www.ekathimerini.com/leisure/gastronomy/1276878/from-land-to-table-the-culinary-riches-of-hania/" target="_blank">Read more</a>
+        <a href="https://www.ekathimerini.com/leisure/gastronomy/1276878/from-land-to-table-the-culinary-riches-of-hania/" target="_blank" rel="noopener noreferrer">Read more</a>
     </div>
     <div class="lang he" dir="rtl">
-        <h3 dir="rtl">מהאדמה לשולחן: העושר הקולינרי של חאניה</h3>
-        <p dir="rtl">בנטוניאס, טברנה כפרית הממוקמת בכפר דרקונה בהרי הלבן, גן הירק מלא בזרעים עתיקים – זנים מקומיים עמידים שעברו מדור לדור. תימין בר, אורגנו ואריסמרי צומחים חופשי בין השורות, וכל מה שגדל שם מטופל בשיטות אורגניות.</p>
-        <a href="https://www.ekathimerini.com/leisure/gastronomy/1276878/from-land-to-table-the-culinary-riches-of-hania/" target="_blank">קרא עוד</a>
+        <h3 dir="rtl">מקרקע לשולחן: העושר הקולינרי של חאניה</h3>
+        <p dir="rtl">בנטוניאס, טברנה כפרית הממוקמת בכפר דרקונה בהרי הלבן, גן הירקות מלא בזרעים עתיקים - זנים מקומיים עמידים שעברו מדור לדור. תימין בר, אורגנו ואריסמארי צומחים בחופשיות בין השורות, וכל מה שגדל שם מגודל בשיטות אורגניות.</p>
+        <a href="https://www.ekathimerini.com/leisure/gastronomy/1276878/from-land-to-table-the-culinary-riches-of-hania/" target="_blank" rel="noopener noreferrer">קרא עוד</a>
     </div>
     <div class="lang ru">
         <h3>От земли до стола: Кулинарные богатства Хании</h3>
-        <p>В Нтуньясе, уютной таверне, расположенной в деревне Дракона на Белых горах, огород засажен семенами старинных сортов – выносливых, местных видов, передаваемых из поколения в поколение. Дикий тимьян, орегано и арисмари растут свободно между рядами, и всё выращивается с использованием органических методов.</p>
-        <a href="https://www.ekathimerini.com/leisure/gastronomy/1276878/from-land-to-table-the-culinary-riches-of-hania/" target="_blank">Читать далее</a>
+        <p>В Нтуниасе, деревенской таверне, расположенной в селе Дракона на Белых горах, огород засажен семенами старинных сортов – выносливых, местных разновидностей, передаваемых из поколения в поколение. Дикий тимьян, орегано и арисмари растут свободно среди рядов, и всё выращивается с использованием органических методов.</p>
+        <a href="https://www.ekathimerini.com/leisure/gastronomy/1276878/from-land-to-table-the-culinary-riches-of-hania/" target="_blank" rel="noopener noreferrer">Читать далее</a>
     </div>
     <div class="lang el">
         <h3>Από τη γη στο τραπέζι: Οι γαστρονομικοί θησαυροί των Χανίων</h3>
-        <p>Στο Ντουνιάς, μια παραδοσιακή ταβέρνα που βρίσκεται στο χωριό Δρακώνα στα Λευκά Όρη, ο κήπος της κουζίνας είναι φυτεμένος με σπόρους κληρονομιάς – ανθεκτικές, ντόπιες ποικιλίες που έχουν περάσει από γενιά σε γενιά. Άγριο θυμάρι, ρίγανη και αρισμαρί φυτρώνουν ελεύθερα ανάμεσα στις σειρές, και όλα καλλιεργούνται με οργανικές μεθόδους.</p>
-        <a href="https://www.ekathimerini.com/leisure/gastronomy/1276878/from-land-to-table-the-culinary-riches-of-hania/" target="_blank">Διαβάστε περισσότερα</a>
+        <p>Στο Ντουνιάς, μια παραδοσιακή ταβέρνα που βρίσκεται στο χωριό Δρακώνα στα Λευκά Όρη, ο κήπος της κουζίνας είναι φυτεμένος με κληρονομικά σπόρους – ανθεκτικές, ντόπιες ποικιλίες που έχουν περάσει από γενιά σε γενιά. Άγριο θυμάρι, ρίγανη και αρισμαρί φυτρώνουν ελεύθερα ανάμεσα στις σειρές, και όλα καλλιεργούνται με οργανικές μεθόδους...</p>
+        <a href="https://www.ekathimerini.com/leisure/gastronomy/1276878/from-land-to-table-the-culinary-riches-of-hania/" target="_blank" rel="noopener noreferrer">Διαβάστε περισσότερα</a>
+    </div>
+</div><div class="article">
+    <div class="lang en active">
+        <h3>Greece’s Farm Scandal Deepens: EU Prosecutor Launches New Probe</h3>
+        <p>The farm subsidies scandal in Greece deepens as the European Public Prosecutor’s Office  has launched a preliminary investigation into former New Democracy official Kalliopi Semertzidou and her family, following reports they illegally received €2.5 million in farm subsidies from the Greek agricultur...</p>
+        <a href="https://greekreporter.com/2025/08/07/greeces-farm-subsidies-scandal-eu-launches-new-probe/" target="_blank" rel="noopener noreferrer">Read more</a>
+    </div>
+    <div class="lang he" dir="rtl">
+        <h3 dir="rtl">שערוריית החקלאות ביוון מעמיקה: תובע האיחוד האירופי פותח בחקירה חדשה</h3>
+        <p dir="rtl">שערוריית הסובסידיות לחקלאות ביוון מעמיקה, כאשר משרד התובע הציבורי האירופי פתח בחקירה ראשונית נגד קאליופי סמרצידו, לשעבר בכירה במפלגת ניו דמוקרטיה, ומשפחתה, בעקבות דיווחים שהם קיבלו באופן לא חוקי סובסידיות חקלאיות בסך 2.5 מיליון יורו מהחקלאות היוונית.</p>
+        <a href="https://greekreporter.com/2025/08/07/greeces-farm-subsidies-scandal-eu-launches-new-probe/" target="_blank" rel="noopener noreferrer">קרא עוד</a>
+    </div>
+    <div class="lang ru">
+        <h3>Скандал с фермами в Греции углубляется: прокурор ЕС запускает новое расследование.</h3>
+        <p>Скандал с субсидиями для фермеров в Греции углубляется: Европейская прокуратура начала предварительное расследование в отношении бывшего чиновника партии «Новая демократия» Каллиопи Семерциду и её семьи после сообщений о том, что они незаконно получили 2,5 миллиона евро в виде субсидий от греческого сельского хозяйства.</p>
+        <a href="https://greekreporter.com/2025/08/07/greeces-farm-subsidies-scandal-eu-launches-new-probe/" target="_blank" rel="noopener noreferrer">Читать далее</a>
+    </div>
+    <div class="lang el">
+        <h3>Βαθαίνει το σκάνδαλο της γεωργίας στην Ελλάδα: Ευρωπαίος εισαγγελέας ξεκινά νέα έρευνα.</h3>
+        <p>Το σκάνδαλο των επιδοτήσεων γεωργίας στην Ελλάδα βαθαίνει, καθώς η Ευρωπαϊκή Εισαγγελία έχει ξεκινήσει προκαταρκτική έρευνα κατά της πρώην αξιωματούχου της Νέας Δημοκρατίας, Καλλιόπης Σεμερτζίδου, και της οικογένειάς της, μετά από αναφορές ότι έλαβαν παράνομα 2,5 εκατομμύρια ευρώ σε επιδοτήσεις γεωργίας από την ελληνική γεωργία.</p>
+        <a href="https://greekreporter.com/2025/08/07/greeces-farm-subsidies-scandal-eu-launches-new-probe/" target="_blank" rel="noopener noreferrer">Διαβάστε περισσότερα</a>
+    </div>
+</div><div class="article">
+    <div class="lang en active">
+        <h3>King Alexander and Aspasia Manou: The Love That Shook Greece</h3>
+        <p>The love story of King Alexander of Greece and Aspasia Manou is a tale of forbidden romance that defied a powerful royal dynasty and became a pivotal chapter in 20th-century Greek history.</p>
+        <a href="https://greekreporter.com/2025/08/07/king-alexander-aspasia-manou-love-shook-greece/" target="_blank" rel="noopener noreferrer">Read more</a>
+    </div>
+    <div class="lang he" dir="rtl">
+        <h3 dir="rtl">מלך אלכסנדר ואספאסיה מנוא: האהבה שהזיזה את יוון</h3>
+        <p dir="rtl">סיפור האהבה של המלך אלכסנדר מיוון ואספאסיה מנואו הוא סיפור של רומנטיקה אסורה שהאתגרה דינמיקה מלכותית חזקה והפכה לפרק מרכזי בהיסטוריה היוונית של המאה ה-20.</p>
+        <a href="https://greekreporter.com/2025/08/07/king-alexander-aspasia-manou-love-shook-greece/" target="_blank" rel="noopener noreferrer">קרא עוד</a>
+    </div>
+    <div class="lang ru">
+        <h3>Король Александр и Аспасия Маноу: Любовь, потрясшая Грецию</h3>
+        <p>История любви короля Александра Греческого и Аспасии Маноу — это рассказ о запретном романе, который бросил вызов могущественной королевской династии и стал ключевой главой в истории Греции XX века.</p>
+        <a href="https://greekreporter.com/2025/08/07/king-alexander-aspasia-manou-love-shook-greece/" target="_blank" rel="noopener noreferrer">Читать далее</a>
+    </div>
+    <div class="lang el">
+        <h3>Βασιλιάς Αλέξανδρος και Ασπασία Μάνου: Ο Έρωτας που Σάρωσε την Ελλάδα</h3>
+        <p>Η ερωτική ιστορία του βασιλιά Αλέξανδρου της Ελλάδας και της Ασπασίας Μάνου είναι μια ιστορία απαγορευμένου ρομαντισμού που αψήφησε μια ισχυρή βασιλική δυναστεία και έγινε ένα καθοριστικό κεφάλαιο στην ελληνική ιστορία του 20ού αιώνα.</p>
+        <a href="https://greekreporter.com/2025/08/07/king-alexander-aspasia-manou-love-shook-greece/" target="_blank" rel="noopener noreferrer">Διαβάστε περισσότερα</a>
     </div>
 </div><div class="article">
     <div class="lang en active">
         <h3>Dimitris Giannetos: From Humble Greek Roots to Hollywood Glamour</h3>
         <p>Born and raised in a small village near Thessaloniki, Greece, Dimitris Giannetos’s journey to becoming a top Hollywood hairstylist is a story of determination and a refusal to be defined by his circumstances. He has not only styled the hair of A-list celebrities but also overcome personal and profes...</p>
-        <a href="https://greekreporter.com/2025/08/07/dimitris-giannetos-humble-greek-roots-hollywood-glamour/" target="_blank">Read more</a>
+        <a href="https://greekreporter.com/2025/08/07/dimitris-giannetos-humble-greek-roots-hollywood-glamour/" target="_blank" rel="noopener noreferrer">Read more</a>
     </div>
     <div class="lang he" dir="rtl">
         <h3 dir="rtl">דימיטריס גיאנטוס: משורשים יווניים צנועים לגלמור הוליוודי</h3>
         <p dir="rtl">נולד וגדל בכפר קטן ליד סלוניקי, יוון, המסע של דימיטריס גיאנטוס להפוך למעצב שיער מוביל בהוליווד הוא סיפור של נחישות וסירוב להיכנע לנסיבותיו. הוא לא רק עיצב את שיערם של סלבריטאים מהשורה הראשונה, אלא גם התגבר על אתגרים אישיים ומקצועיים.</p>
-        <a href="https://greekreporter.com/2025/08/07/dimitris-giannetos-humble-greek-roots-hollywood-glamour/" target="_blank">קרא עוד</a>
+        <a href="https://greekreporter.com/2025/08/07/dimitris-giannetos-humble-greek-roots-hollywood-glamour/" target="_blank" rel="noopener noreferrer">קרא עוד</a>
     </div>
     <div class="lang ru">
         <h3>Димитрис Гианнетос: От скромных греческих корней до голливудского гламура</h3>
-        <p>Родившись и выросши в маленькой деревне недалеко от Салоников, Греция, путь Димитриса Яннетоса к статусу ведущего парикмахера Голливуда — это история решимости и отказа быть определяемым своими обстоятельствами. Он не только укладывал волосы знаменитостей, но и преодолел личные и профессиональные трудности.</p>
-        <a href="https://greekreporter.com/2025/08/07/dimitris-giannetos-humble-greek-roots-hollywood-glamour/" target="_blank">Читать далее</a>
+        <p>Родившись и выросши в маленькой деревне недалеко от Салоников, Греция, путь Димитриса Яннетоса к статусу ведущего парикмахера Голливуда — это история решимости и отказа быть определяемым своими обстоятельствами. Он не только укладывал волосы знаменитостей первого эшелона, но и преодолел личные и профессиональные трудности.</p>
+        <a href="https://greekreporter.com/2025/08/07/dimitris-giannetos-humble-greek-roots-hollywood-glamour/" target="_blank" rel="noopener noreferrer">Читать далее</a>
     </div>
     <div class="lang el">
-        <h3>Δημήτρης Γιαννέτος: Από τα Ταπεινά Ελληνικά Ρίζα στη Χλιδή του Χόλιγουντ</h3>
+        <h3>Δημήτρης Γιαννέτος: Από τα Ταπεινά Ελληνικά Ρίζα στη Λάμψη του Χόλιγουντ</h3>
         <p>Γεννημένος και μεγαλωμένος σε ένα μικρό χωριό κοντά στη Θεσσαλονίκη, ο Δημήτρης Γιαννέτος έχει μια ιστορία γεμάτη αποφασιστικότητα και άρνηση να καθοριστεί από τις συνθήκες του. Έχει όχι μόνο χτενίσει τα μαλλιά διάσημων σταρ, αλλά έχει επίσης ξεπεράσει προσωπικές και επαγγελματικές προκλήσεις.</p>
-        <a href="https://greekreporter.com/2025/08/07/dimitris-giannetos-humble-greek-roots-hollywood-glamour/" target="_blank">Διαβάστε περισσότερα</a>
+        <a href="https://greekreporter.com/2025/08/07/dimitris-giannetos-humble-greek-roots-hollywood-glamour/" target="_blank" rel="noopener noreferrer">Διαβάστε περισσότερα</a>
     </div>
 </div><div class="article">
     <div class="lang en active">
         <h3>July 2025 Ranks as Third Hottest on Record Globally</h3>
         <p>While July 2025 in Greece did not experience the same extreme heat as in previous years—with meteorologists debating whether the single, prolonged event qualified as a heat wave or a more intense one—the month was globally one of the hottest ever recorded.</p>
-        <a href="https://greekreporter.com/2025/08/07/july-2025-third-hottest-record-globally/" target="_blank">Read more</a>
+        <a href="https://greekreporter.com/2025/08/07/july-2025-third-hottest-record-globally/" target="_blank" rel="noopener noreferrer">Read more</a>
     </div>
     <div class="lang he" dir="rtl">
         <h3 dir="rtl">יולי 2025 מדורג כחודש השלישי החם ביותר שנרשם בעולם</h3>
-        <p dir="rtl">בעוד יולי 2025 ביוון לא חווה את אותה חום קיצוני כמו בשנים קודמות—עם דיונים בין מטאורולוגים אם האירוע הארוך והבודד נחשב לגל חום או לגל חום אינטנסיבי יותר—החודש היה אחד החודשים החמים ביותר שנרשמו בעולם.</p>
-        <a href="https://greekreporter.com/2025/08/07/july-2025-third-hottest-record-globally/" target="_blank">קרא עוד</a>
+        <p dir="rtl">בעוד יולי 2025 ביוון לא חווה את אותה חום קיצוני כמו בשנים קודמות—עם מטאורולוגים שמתדיינים אם האירוע הארוך והבודד נחשב לגל חום או לגל חום אינטנסיבי יותר—החודש היה אחד מהחודשים החמים ביותר שנרשמו בעולם.</p>
+        <a href="https://greekreporter.com/2025/08/07/july-2025-third-hottest-record-globally/" target="_blank" rel="noopener noreferrer">קרא עוד</a>
     </div>
     <div class="lang ru">
         <h3>Июль 2025 года стал третьим самым жарким месяцем в истории на глобальном уровне.</h3>
-        <p>В то время как июль 2025 года в Греции не испытал такой же экстремальной жары, как в предыдущие годы — метеорологи обсуждали, можно ли считать это единичное, продолжительное событие тепловой волной или более интенсивным — месяц стал одним из самых жарких в мировой истории.</p>
-        <a href="https://greekreporter.com/2025/08/07/july-2025-third-hottest-record-globally/" target="_blank">Читать далее</a>
+        <p>В то время как июль 2025 года в Греции не испытал такой же экстремальной жары, как в предыдущие годы — метеорологи обсуждали, можно ли считать это единичное, продолжительное событие тепловой волной или более интенсивным — месяц стал одним из самых жарких, когда-либо зафиксированных в мире.</p>
+        <a href="https://greekreporter.com/2025/08/07/july-2025-third-hottest-record-globally/" target="_blank" rel="noopener noreferrer">Читать далее</a>
     </div>
     <div class="lang el">
         <h3>Ιούλιος 2025: Ο τρίτος πιο ζεστός μήνας παγκοσμίως στην ιστορία.</h3>
-        <p>Ενώ ο Ιούλιος 2025 στην Ελλάδα δεν βίωσε την ίδια ακραία ζέστη όπως τα προηγούμενα χρόνια—με τους μετεωρολόγους να συζητούν αν το ενιαίο, παρατεταμένο φαινόμενο θεωρείται καύσωνας ή πιο έντονος—ο μήνας ήταν παγκοσμίως ένας από τους πιο ζεστούς που έχουν καταγραφεί ποτέ.</p>
-        <a href="https://greekreporter.com/2025/08/07/july-2025-third-hottest-record-globally/" target="_blank">Διαβάστε περισσότερα</a>
-    </div>
-</div><div class="article">
-    <div class="lang en active">
-        <h3>Hellenistic Era Warrior Tomb and Sanctuary Unearthed in Bulgaria</h3>
-        <p>Archaeologists in southern Bulgaria have uncovered a richly decorated Hellenistic-Era tomb and sanctuary, dating to the 2nd century BC, believed to belong to a Thracian warrior of elite status. The discovery, made near the village of Kapitan Petko Voivoda, sheds light on the burial practices and soc...</p>
-        <a href="https://greekreporter.com/2025/08/07/hellenistic-era-warrior-tomb-sanctuary-bulgaria/" target="_blank">Read more</a>
-    </div>
-    <div class="lang he" dir="rtl">
-        <h3 dir="rtl">קבר ומקדש לוחם מהתקופה ההלניסטית נחשפו בבולגריה</h3>
-        <p dir="rtl">ארכיאולוגים בדרום בולגריה גילו קבר ומקדש מעוטרים בעושר מתקופת ההלניזם, המתוארכים למאה ה-2 לפני הספירה, believed to belong to a Thracian warrior of elite status. הגילוי, שנעשה ליד הכפר קפיטן פטקו וויבודה, מאיר אור על מנהגי הקבורה והחברה...</p>
-        <a href="https://greekreporter.com/2025/08/07/hellenistic-era-warrior-tomb-sanctuary-bulgaria/" target="_blank">קרא עוד</a>
-    </div>
-    <div class="lang ru">
-        <h3>В Болгарии обнаружены могила и святилище воина эллинистической эпохи.</h3>
-        <p>Археологи на юге Болгарии обнаружили богато украшенную гробницу и святилище эллинистической эпохи, датируемые II веком до нашей эры, которые, как предполагается, принадлежали тракийскому воину элитного статуса. Это открытие, сделанное недалеко от деревни Капитан Петко Войвода, проливает свет на погребальные обычаи и социальные...</p>
-        <a href="https://greekreporter.com/2025/08/07/hellenistic-era-warrior-tomb-sanctuary-bulgaria/" target="_blank">Читать далее</a>
-    </div>
-    <div class="lang el">
-        <h3>Ανακαλύφθηκε τάφος και ιερό πολεμιστή της Ελληνιστικής εποχής στη Βουλγαρία</h3>
-        <p>Αρχαιολόγοι στη νότια Βουλγαρία ανακάλυψαν έναν πλούσια διακοσμημένο τάφο και ιερό της Ελληνιστικής εποχής, που χρονολογείται στον 2ο αιώνα π.Χ. και πιστεύεται ότι ανήκει σε έναν Θρακικό πολεμιστή υψηλής κοινωνικής θέσης. Η ανακάλυψη, που έγινε κοντά στο χωριό Καπιτάν Πέτκο Βοϊβόδα, ρίχνει φως στις ταφικές πρακτικές και την κοινωνία...</p>
-        <a href="https://greekreporter.com/2025/08/07/hellenistic-era-warrior-tomb-sanctuary-bulgaria/" target="_blank">Διαβάστε περισσότερα</a>
+        <p>Ενώ ο Ιούλιος 2025 στην Ελλάδα δεν βίωσε την ίδια ακραία ζέστη όπως τα προηγούμενα χρόνια—με τους μετεωρολόγους να συζητούν αν το ενιαίο, παρατεταμένο φαινόμενο θεωρείται καύσωνας ή πιο έντονος—ο μήνας ήταν παγκοσμίως ένας από τους πιο καυτούς που έχουν καταγραφεί ποτέ.</p>
+        <a href="https://greekreporter.com/2025/08/07/july-2025-third-hottest-record-globally/" target="_blank" rel="noopener noreferrer">Διαβάστε περισσότερα</a>
     </div>
 </div><div class="article">
     <div class="lang en active">
         <h3>ΟΙ ΤΟΥΡΙΣΤΕΣ ΕΡΧΟΝΤΑΙ, ΑΛΛΑ ΠΛΗΡΟΤΗΤΑ ΞΕΝΟΔΟΧΕΙΩΝ ΚΑΙ ΤΖΙΡΟΣ ΜΕΙΩΝΟΝΤΑΙ</h3>
         <p>Παρά την αύξηση των αφίξεων οι ξενοδόχοι σε όλη την Ελλάδα κάνουν λόγο για μειωμένες πληρότητες, πτώση τζίρου και πρωτοφανείς προσφορές ακόμη και μέσα στον Αύγουστο. Πώς οδηγηθήκαμε σε αυτό εν μέσω της καλύτερης τουριστικής σεζόν της χώρας;</p>
-        <a href="https://www.news247.gr/magazine/reportage/oi-touristes-erxontai-alla-plirotita-xenodoxeion-kai-tziros-meionontai/" target="_blank">Read more</a>
+        <a href="https://www.news247.gr/magazine/reportage/oi-touristes-erxontai-alla-plirotita-xenodoxeion-kai-tziros-meionontai/" target="_blank" rel="noopener noreferrer">Read more</a>
     </div>
     <div class="lang he" dir="rtl">
         <h3 dir="rtl">התיירים מגיעים, אך תפוסת המלונות וההכנסות פוחתות</h3>
         <p dir="rtl">למרות העלייה בהגעות, המלונאים בכל רחבי יוון מדווחים על תפוסות נמוכות, ירידת הכנסות והצעות חסרות תקדים אפילו במהלך חודש אוגוסט. כיצד הגענו לכך בעיצומה של עונת התיירות הטובה ביותר במדינה?</p>
-        <a href="https://www.news247.gr/magazine/reportage/oi-touristes-erxontai-alla-plirotita-xenodoxeion-kai-tziros-meionontai/" target="_blank">קרא עוד</a>
+        <a href="https://www.news247.gr/magazine/reportage/oi-touristes-erxontai-alla-plirotita-xenodoxeion-kai-tziros-meionontai/" target="_blank" rel="noopener noreferrer">קרא עוד</a>
     </div>
     <div class="lang ru">
         <h3>ТУРИСТЫ ПРИЕЗЖАЮТ, НО ЗАНЯТОСТЬ ГОСТИНИЦ И ДОХОДЫ УМЕНЬШАЮТСЯ</h3>
         <p>Несмотря на увеличение числа приезжих, отельеры по всей Греции сообщают о снижении заполняемости, падении выручки и беспрецедентных предложениях даже в августе. Как мы пришли к этому в разгар лучшего туристического сезона страны?</p>
-        <a href="https://www.news247.gr/magazine/reportage/oi-touristes-erxontai-alla-plirotita-xenodoxeion-kai-tziros-meionontai/" target="_blank">Читать далее</a>
+        <a href="https://www.news247.gr/magazine/reportage/oi-touristes-erxontai-alla-plirotita-xenodoxeion-kai-tziros-meionontai/" target="_blank" rel="noopener noreferrer">Читать далее</a>
     </div>
     <div class="lang el">
-        <h3>Οι τουρίστες έρχονται, αλλά η πληρότητα ξενοδοχείων και ο τζίρος μειώνονται.</h3>
-        <p>Despite the increase in arrivals, hoteliers across Greece report reduced occupancy rates, falling revenue, and unprecedented offers even in August. How did we arrive at this during the country's best tourist season?</p>
-        <a href="https://www.news247.gr/magazine/reportage/oi-touristes-erxontai-alla-plirotita-xenodoxeion-kai-tziros-meionontai/" target="_blank">Διαβάστε περισσότερα</a>
+        <h3>ΤΟΥΡΙΣΤΕΣ ΕΡΧΟΝΤΑΙ, ΑΛΛΑ Η ΠΛΗΡΟΤΗΤΑ ΤΩΝ ΞΕΝΟΔΟΧΕΙΩΝ ΚΑΙ Ο ΤΖΙΡΟΣ ΜΕΙΩΝΟΝΤΑΙ</h3>
+        <p>Despite the increase in arrivals, hoteliers across Greece report reduced occupancy rates, declining revenue, and unprecedented offers even in August. How did we arrive at this during the country's best tourist season?</p>
+        <a href="https://www.news247.gr/magazine/reportage/oi-touristes-erxontai-alla-plirotita-xenodoxeion-kai-tziros-meionontai/" target="_blank" rel="noopener noreferrer">Διαβάστε περισσότερα</a>
     </div>
 </div><div class="article">
     <div class="lang en active">
         <h3>ΟΠΕΝΧΑΙΜΕΡ: ΠΩΣ ΠΕΘΑΝΕ ΚΑΙ ΓΙΑΤΙ ΔΕΝ ΥΠΑΡΧΕΙ ΤΑΦΟΣ</h3>
         <p>Η “κατάρα” της ατομικής βόμβας συνόδευσε τον Οπενχάιμερ μέχρι το τέλος της ζωής του. Όσα δεν είδαμε στην ταινία του Christopher Nolan για τη ζωή μακριά από τα “φώτα” της δημοσιότητας.</p>
-        <a href="https://www.news247.gr/magazine/past/openxaimer-pos-pethane-kai-giati-den-iparxei-tafos-tou/" target="_blank">Read more</a>
+        <a href="https://www.news247.gr/magazine/past/openxaimer-pos-pethane-kai-giati-den-iparxei-tafos-tou/" target="_blank" rel="noopener noreferrer">Read more</a>
     </div>
     <div class="lang he" dir="rtl">
-        <h3 dir="rtl">אופןיימר: איך מת וולא למה אין קבר</h3>
+        <h3 dir="rtl">אופןיימר: איך מת וולא מדוע אין קבר?</h3>
         <p dir="rtl">"הקללה" של הפצצה האטומית ליוותה את אופנהיימר עד סוף חייו. מה שלא ראינו בסרט של כריסטופר נולן על חייו הרחק מה"אורות" של התקשורת.</p>
-        <a href="https://www.news247.gr/magazine/past/openxaimer-pos-pethane-kai-giati-den-iparxei-tafos-tou/" target="_blank">קרא עוד</a>
+        <a href="https://www.news247.gr/magazine/past/openxaimer-pos-pethane-kai-giati-den-iparxei-tafos-tou/" target="_blank" rel="noopener noreferrer">קרא עוד</a>
     </div>
     <div class="lang ru">
         <h3>ОПЕНХАЙМЕР: КАК ОН УМЕР И ПОЧЕМУ НЕТ МОГИЛЫ</h3>
         <p>«Проклятие» атомной бомбы преследовало Опенгеймера до конца его жизни. То, что мы не увидели в фильме Кристофера Нолана о жизни вдали от «огней» общественности.</p>
-        <a href="https://www.news247.gr/magazine/past/openxaimer-pos-pethane-kai-giati-den-iparxei-tafos-tou/" target="_blank">Читать далее</a>
+        <a href="https://www.news247.gr/magazine/past/openxaimer-pos-pethane-kai-giati-den-iparxei-tafos-tou/" target="_blank" rel="noopener noreferrer">Читать далее</a>
     </div>
     <div class="lang el">
         <h3>ΟΠΕΝΧΑΙΜΕΡ: ΠΩΣ ΠΕΘΑΝΕ ΚΑΙ ΓΙΑΤΙ ΔΕΝ ΥΠΑΡΧΕΙ ΤΑΦΟΣ</h3>
         <p>Η “κατάρα” της ατομικής βόμβας συνόδευσε τον Οπενχάιμερ μέχρι το τέλος της ζωής του. Όσα δεν είδαμε στην ταινία του Κρίστοφερ Νόλαν για τη ζωή μακριά από τα “φώτα” της δημοσιότητας.</p>
-        <a href="https://www.news247.gr/magazine/past/openxaimer-pos-pethane-kai-giati-den-iparxei-tafos-tou/" target="_blank">Διαβάστε περισσότερα</a>
+        <a href="https://www.news247.gr/magazine/past/openxaimer-pos-pethane-kai-giati-den-iparxei-tafos-tou/" target="_blank" rel="noopener noreferrer">Διαβάστε περισσότερα</a>
     </div>
 </div>
 
@@ -465,6 +807,9 @@
             <p><a href="https://ainews.eu.com">ainews.eu.com</a></p>
             </div>
             </div>
+            
+            <!-- Back to Top Button -->
+            <button class="back-to-top" id="backToTop" onclick="scrollToTop()" title="Back to top">↑</button>
 
             <script>
                 let currentLang = 'en';
@@ -477,8 +822,61 @@
                     currentLang = lang;
                 }
 
+                // Back to top functionality
+                function scrollToTop() {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                }
+
+                // Show/hide back to top button based on scroll position
+                function toggleBackToTopButton() {
+                    const backToTopButton = document.getElementById('backToTop');
+                    if (window.pageYOffset > 300) {
+                        backToTopButton.classList.add('visible');
+                    } else {
+                        backToTopButton.classList.remove('visible');
+                    }
+                }
+
+                // Add smooth scrolling and better UX
                 document.addEventListener('DOMContentLoaded', function() {
                     setLang('en');
+                    
+                    // Show back to top button on scroll
+                    window.addEventListener('scroll', toggleBackToTopButton);
+                    
+                    // Add loading states to external links
+                    document.querySelectorAll('a[target="_blank"]').forEach(link => {
+                        link.addEventListener('click', function() {
+                            this.style.opacity = '0.7';
+                            setTimeout(() => {
+                                this.style.opacity = '1';
+                            }, 1000);
+                        });
+                    });
+                    
+                    // Add keyboard navigation
+                    document.addEventListener('keydown', function(e) {
+                        // Press 'T' to scroll to top
+                        if (e.key === 't' || e.key === 'T') {
+                            if (!e.ctrlKey && !e.altKey && !e.metaKey) {
+                                e.preventDefault();
+                                scrollToTop();
+                            }
+                        }
+                        
+                        // Press number keys 1-4 to switch languages
+                        if (e.key >= '1' && e.key <= '4' && !e.ctrlKey && !e.altKey && !e.metaKey) {
+                            e.preventDefault();
+                            const langs = ['en', 'he', 'ru', 'el'];
+                            const langIndex = parseInt(e.key) - 1;
+                            if (langs[langIndex]) {
+                                setLang(langs[langIndex]);
+                            }
+                        }
+                    });
                 });
             </script>
             </body>
