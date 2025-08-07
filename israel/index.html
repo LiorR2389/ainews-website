@@ -5,35 +5,382 @@
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <style>
-                body { font-family: Arial, sans-serif; margin: 40px; background: #f5f5f5; }
-                .container { max-width: 800px; margin: 0 auto; background: white; padding: 40px; border-radius: 10px; }
-                .header { text-align: center; margin-bottom: 40px; }
-                .logo { font-size: 2rem; font-weight: bold; color: #667eea; }
-                .country-nav { text-align: center; margin: 20px 0; }
-                .country-nav a { margin: 0 10px; padding: 8px 16px; background: #667eea; color: white; text-decoration: none; border-radius: 20px; font-size: 0.9rem; }
-                .country-nav a:hover { background: #764ba2; }
-                .lang-buttons { text-align: center; margin: 30px 0; }
-                .lang-buttons button { margin: 5px; padding: 10px 20px; border: none; border-radius: 25px; background: #667eea; color: white; cursor: pointer; }
-                .lang-buttons button.active { background: #764ba2; }
+                body { 
+                    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; 
+                    margin: 0;
+                    padding: 20px; 
+                    background: #f5f5f5; 
+                    line-height: 1.6;
+                }
+                
+                .container { 
+                    max-width: 800px; 
+                    margin: 0 auto; 
+                    background: white; 
+                    padding: 20px;
+                    border-radius: 12px; 
+                    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+                }
+                
+                .header { 
+                    text-align: center; 
+                    margin-bottom: 30px; 
+                }
+                
+                .logo { 
+                    font-size: 2.5rem; 
+                    font-weight: bold; 
+                    color: #667eea; 
+                    margin-bottom: 10px;
+                }
+                
+                .country-nav { 
+                    text-align: center; 
+                    margin: 20px 0; 
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    gap: 10px;
+                }
+                
+                .country-nav a { 
+                    padding: 12px 16px; 
+                    background: #667eea; 
+                    color: white; 
+                    text-decoration: none; 
+                    border-radius: 25px; 
+                    font-size: 0.9rem;
+                    min-width: 100px;
+                    text-align: center;
+                    transition: all 0.3s ease;
+                }
+                
+                .country-nav a:hover { 
+                    background: #764ba2; 
+                    transform: translateY(-2px);
+                }
+                
+                .lang-buttons { 
+                    text-align: center; 
+                    margin: 30px 0; 
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    gap: 8px;
+                }
+                
+                .lang-buttons button { 
+                    padding: 10px 16px; 
+                    border: none; 
+                    border-radius: 20px; 
+                    background: #667eea; 
+                    color: white; 
+                    cursor: pointer; 
+                    font-size: 0.9rem;
+                    min-width: 80px;
+                    transition: all 0.3s ease;
+                }
+                
+                .lang-buttons button.active { 
+                    background: #764ba2; 
+                    transform: scale(1.05);
+                }
+                
+                .lang-buttons button:hover { 
+                    background: #764ba2; 
+                }
+                
                 .lang { display: none; }
                 .lang.active { display: block; }
-                .lang.he { direction: rtl; text-align: right; font-family: 'Arial', 'Tahoma', sans-serif; }
-                .lang.he h2, .lang.he h3 { text-align: right; direction: rtl; }
-                .lang.he p { text-align: right; direction: rtl; }
-                .lang.he a { float: left; margin-right: 0; margin-left: 10px; }
-                .lang.he .article { border-right: 4px solid #667eea; border-left: none; padding-right: 20px; padding-left: 20px; }
-                .article { margin: 20px 0; padding: 20px; border-left: 4px solid #667eea; background: #f9f9f9; }
-                .article.he { border-right: 4px solid #667eea; border-left: none; }
-                .article h3 { margin: 0 0 10px 0; color: #333; }
-                .article p { color: #666; margin: 10px 0; }
-                .article a { color: #667eea; text-decoration: none; font-weight: bold; }
-                .footer { text-align: center; margin-top: 40px; color: #666; }
-                .subscription { background: #667eea; color: white; padding: 30px; margin: 40px 0; border-radius: 10px; text-align: center; }
-                .subscription input { padding: 10px; margin: 10px; border: none; border-radius: 5px; }
-                .subscription button { background: #FFD700; color: #333; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-weight: bold; }
-                .subscription .lang.he { direction: rtl; text-align: right; }
-                .subscription .lang.he input { text-align: right; direction: rtl; }
-                .no-articles { text-align: center; padding: 40px; color: #666; }
+                
+                .lang.he { 
+                    direction: rtl; 
+                    text-align: right; 
+                    font-family: 'Arial', 'Tahoma', 'Noto Sans Hebrew', sans-serif; 
+                }
+                
+                .lang.he h2, .lang.he h3 { 
+                    text-align: right; 
+                    direction: rtl; 
+                }
+                
+                .lang.he p { 
+                    text-align: right; 
+                    direction: rtl; 
+                }
+                
+                .lang.he a { 
+                    float: left; 
+                    margin-right: 0; 
+                    margin-left: 10px; 
+                }
+                
+                .lang.he .article { 
+                    border-right: 4px solid #667eea; 
+                    border-left: none; 
+                    padding-right: 20px; 
+                    padding-left: 20px; 
+                }
+                
+                .article { 
+                    margin: 20px 0; 
+                    padding: 24px; 
+                    border-left: 4px solid #667eea; 
+                    background: #f9f9f9; 
+                    border-radius: 8px;
+                    transition: all 0.3s ease;
+                }
+                
+                .article:hover {
+                    transform: translateY(-2px);
+                    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+                }
+                
+                .article.he { 
+                    border-right: 4px solid #667eea; 
+                    border-left: none; 
+                }
+                
+                .article h3 { 
+                    margin: 0 0 15px 0; 
+                    color: #2d3748; 
+                    font-size: 1.3rem;
+                    font-weight: 600;
+                    line-height: 1.4;
+                }
+                
+                .article p { 
+                    color: #4a5568; 
+                    margin: 15px 0; 
+                    font-size: 1rem;
+                    line-height: 1.6;
+                    /* Ensure full paragraph is visible */
+                    display: block;
+                    word-wrap: break-word;
+                    overflow-wrap: break-word;
+                }
+                
+                .article a { 
+                    color: #667eea; 
+                    text-decoration: none; 
+                    font-weight: 600; 
+                    display: inline-block;
+                    margin-top: 10px;
+                    padding: 8px 16px;
+                    background: rgba(102, 126, 234, 0.1);
+                    border-radius: 20px;
+                    transition: all 0.3s ease;
+                }
+                
+                .article a:hover {
+                    background: #667eea;
+                    color: white;
+                    transform: translateY(-1px);
+                }
+                
+                .footer { 
+                    text-align: center; 
+                    margin-top: 40px; 
+                    color: #718096;
+                    padding: 20px 0;
+                    border-top: 1px solid #e2e8f0;
+                }
+                
+                .subscription { 
+                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+                    color: white; 
+                    padding: 30px; 
+                    margin: 40px 0; 
+                    border-radius: 12px; 
+                    text-align: center; 
+                }
+                
+                .subscription input { 
+                    padding: 12px 16px; 
+                    margin: 10px; 
+                    border: none; 
+                    border-radius: 8px; 
+                    width: 100%;
+                    max-width: 300px;
+                    font-size: 1rem;
+                }
+                
+                .subscription button { 
+                    background: #FFD700; 
+                    color: #333; 
+                    border: none; 
+                    padding: 12px 24px; 
+                    border-radius: 8px; 
+                    cursor: pointer; 
+                    font-weight: bold; 
+                    font-size: 1rem;
+                    transition: all 0.3s ease;
+                }
+                
+                .subscription button:hover {
+                    background: #FFC700;
+                    transform: translateY(-2px);
+                }
+                
+                .subscription .lang.he { 
+                    direction: rtl; 
+                    text-align: right; 
+                }
+                
+                .subscription .lang.he input { 
+                    text-align: right; 
+                    direction: rtl; 
+                }
+                
+                .no-articles { 
+                    text-align: center; 
+                    padding: 60px 20px; 
+                    color: #718096; 
+                    background: #f7fafc;
+                    border-radius: 12px;
+                    margin: 20px 0;
+                }
+                
+                /* Back to Top Button */
+                .back-to-top {
+                    position: fixed;
+                    bottom: 30px;
+                    right: 30px;
+                    background: #667eea;
+                    color: white;
+                    border: none;
+                    border-radius: 50%;
+                    width: 50px;
+                    height: 50px;
+                    font-size: 20px;
+                    cursor: pointer;
+                    display: none;
+                    z-index: 1000;
+                    transition: all 0.3s ease;
+                    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+                }
+                
+                .back-to-top:hover {
+                    background: #764ba2;
+                    transform: translateY(-3px);
+                }
+                
+                .back-to-top.visible {
+                    display: block;
+                }
+                
+                /* Category Headers */
+                h2 {
+                    color: #2d3748;
+                    font-size: 1.5rem;
+                    font-weight: 700;
+                    margin: 30px 0 20px 0;
+                    padding-bottom: 10px;
+                    border-bottom: 2px solid #e2e8f0;
+                }
+                
+                /* Mobile Responsive Design */
+                @media (max-width: 768px) {
+                    body {
+                        padding: 10px;
+                    }
+                    
+                    .container {
+                        padding: 15px;
+                        border-radius: 8px;
+                    }
+                    
+                    .logo {
+                        font-size: 2rem;
+                    }
+                    
+                    .country-nav {
+                        flex-direction: column;
+                        align-items: center;
+                    }
+                    
+                    .country-nav a {
+                        width: 90%;
+                        max-width: 300px;
+                        margin: 5px 0;
+                        padding: 15px;
+                        font-size: 1rem;
+                    }
+                    
+                    .lang-buttons {
+                        flex-direction: column;
+                        align-items: center;
+                    }
+                    
+                    .lang-buttons button {
+                        width: 90%;
+                        max-width: 200px;
+                        margin: 5px 0;
+                        padding: 12px;
+                        font-size: 1rem;
+                    }
+                    
+                    .article {
+                        margin: 15px 0;
+                        padding: 20px;
+                    }
+                    
+                    .article h3 {
+                        font-size: 1.2rem;
+                    }
+                    
+                    .article p {
+                        font-size: 0.95rem;
+                    }
+                    
+                    .subscription {
+                        padding: 25px 15px;
+                        margin: 30px 0;
+                    }
+                    
+                    .subscription input {
+                        width: 90%;
+                        margin: 8px 0;
+                        font-size: 16px; /* Prevents zoom on iOS */
+                    }
+                    
+                    .subscription button {
+                        width: 90%;
+                        padding: 15px;
+                        margin: 10px 0;
+                        font-size: 1rem;
+                    }
+                    
+                    .back-to-top {
+                        bottom: 20px;
+                        right: 20px;
+                        width: 45px;
+                        height: 45px;
+                    }
+                    
+                    h2 {
+                        font-size: 1.3rem;
+                        margin: 25px 0 15px 0;
+                    }
+                }
+                
+                @media (max-width: 480px) {
+                    .container {
+                        padding: 10px;
+                    }
+                    
+                    .logo {
+                        font-size: 1.8rem;
+                    }
+                    
+                    .article {
+                        padding: 15px;
+                    }
+                    
+                    .subscription {
+                        padding: 20px 10px;
+                    }
+                }
             </style>
             </head>
             <body>
@@ -66,148 +413,148 @@
     <div class="lang en active">
         <h3>'Children Aren't Supposed to Die': Israeli Influencers Dare to Talk About Gaza'Children Aren't Supposed to Die in Wars': Israeli Influencers Dare to Talk About Gaza</h3>
         <p>On Instagram and TikTok, only a handful of Israeli influencers dare voice opinions now seen as leftist – from calls to end the war and famine in Gaza to demands to bring the hostages home. In today's climate, even that invites hate. They're scared – but they keep going</p>
-        <a href="https://www.haaretz.com/israel-news/2025-08-04/ty-article-magazine/.premium/children-arent-supposed-to-die-in-wars-israeli-influencers-dare-to-talk-about-gaza/00000198-7551-d802-add9-f7ff4d250000" target="_blank">Read more</a>
+        <a href="https://www.haaretz.com/israel-news/2025-08-04/ty-article-magazine/.premium/children-arent-supposed-to-die-in-wars-israeli-influencers-dare-to-talk-about-gaza/00000198-7551-d802-add9-f7ff4d250000" target="_blank" rel="noopener noreferrer">Read more</a>
     </div>
     <div class="lang he" dir="rtl">
         <h3 dir="rtl">"ילדים לא אמורים למות": משפיענים ישראלים מעזים לדבר על עזה</h3>
-        <p dir="rtl">באינסטגרם ובטיקטוק, רק handful של משפיענים ישראלים מעזים להביע דעות שנחשבות כיום לשמאלניות – מהקריאות לסיים את המלחמה והרעב בעזה ועד הדרישות להחזיר את החטופים הביתה. באקלים הנוכחי, אפילו זה מעורר שנאה. הם מפחדים – אבל ממשיכים.</p>
-        <a href="https://www.haaretz.com/israel-news/2025-08-04/ty-article-magazine/.premium/children-arent-supposed-to-die-in-wars-israeli-influencers-dare-to-talk-about-gaza/00000198-7551-d802-add9-f7ff4d250000" target="_blank">קרא עוד</a>
+        <p dir="rtl">באינסטגרם ובטיקטוק, רק קומץ של משפיענים ישראלים מעזים להביע דעות שנחשבות כיום לשמאלניות – מהקריאות לסיים את המלחמה והרעב בעזה ועד הדרישות להחזיר את החטופים הביתה. באקלים הנוכחי, אפילו זה מעורר שנאה. הם מפחדים – אבל ממשיכים הלאה.</p>
+        <a href="https://www.haaretz.com/israel-news/2025-08-04/ty-article-magazine/.premium/children-arent-supposed-to-die-in-wars-israeli-influencers-dare-to-talk-about-gaza/00000198-7551-d802-add9-f7ff4d250000" target="_blank" rel="noopener noreferrer">קרא עוד</a>
     </div>
     <div class="lang ru">
         <h3>«Дети не должны умирать»: израильские инфлюенсеры осмеливаются говорить о Газе.</h3>
-        <p>На Instagram и TikTok лишь немногие израильские инфлюенсеры осмеливаются высказывать мнения, которые теперь воспринимаются как левые – от призывов прекратить войну и голод в Газе до требований вернуть заложников домой. В нынешней обстановке даже это вызывает ненависть. Они напуганы, но продолжают действовать.</p>
-        <a href="https://www.haaretz.com/israel-news/2025-08-04/ty-article-magazine/.premium/children-arent-supposed-to-die-in-wars-israeli-influencers-dare-to-talk-about-gaza/00000198-7551-d802-add9-f7ff4d250000" target="_blank">Читать далее</a>
+        <p>На Instagram и TikTok лишь немногие израильские инфлюенсеры осмеливаются высказывать мнения, которые сейчас воспринимаются как левые – от призывов прекратить войну и голод в Газе до требований вернуть заложников домой. В нынешней обстановке даже это вызывает ненависть. Они боятся, но продолжают.</p>
+        <a href="https://www.haaretz.com/israel-news/2025-08-04/ty-article-magazine/.premium/children-arent-supposed-to-die-in-wars-israeli-influencers-dare-to-talk-about-gaza/00000198-7551-d802-add9-f7ff4d250000" target="_blank" rel="noopener noreferrer">Читать далее</a>
     </div>
     <div class="lang el">
         <h3>«Τα παιδιά δεν πρέπει να πεθαίνουν»: Ισραηλινοί influencers τολμούν να μιλήσουν για τη Γάζα.</h3>
-        <p>Στο Instagram και το TikTok, μόνο μια χούφτα Ισραηλινών influencers τολμούν να εκφράσουν απόψεις που θεωρούνται αριστερές – από εκκλήσεις για τερματισμό του πολέμου και της πείνας στη Γάζα μέχρι απαιτήσεις για την επιστροφή των ομήρων. Στο σημερινό κλίμα, ακόμη και αυτό προκαλεί μίσος. Είναι φοβισμένοι – αλλά συνεχίζουν.</p>
-        <a href="https://www.haaretz.com/israel-news/2025-08-04/ty-article-magazine/.premium/children-arent-supposed-to-die-in-wars-israeli-influencers-dare-to-talk-about-gaza/00000198-7551-d802-add9-f7ff4d250000" target="_blank">Διαβάστε περισσότερα</a>
+        <p>Στο Instagram και το TikTok, μόνο λίγοι Ισραηλινοί influencers τολμούν να εκφράσουν απόψεις που θεωρούνται αριστερές – από εκκλήσεις για τερματισμό του πολέμου και της πείνας στη Γάζα μέχρι απαιτήσεις για επιστροφή των ομήρων. Στο σημερινό κλίμα, ακόμη και αυτό προκαλεί μίσος. Είναι φοβισμένοι – αλλά συνεχίζουν.</p>
+        <a href="https://www.haaretz.com/israel-news/2025-08-04/ty-article-magazine/.premium/children-arent-supposed-to-die-in-wars-israeli-influencers-dare-to-talk-about-gaza/00000198-7551-d802-add9-f7ff4d250000" target="_blank" rel="noopener noreferrer">Διαβάστε περισσότερα</a>
     </div>
 </div><div class="article">
     <div class="lang en active">
         <h3>Netanyahu pushes full Gaza conquest despite IDF concerns</h3>
         <p>IDF Chief of Staff Lt. Gen. Eyal Zamir is expected to present the cabinet with the risks of launching a...</p>
-        <a href="https://www.israelhayom.com/2025/08/07/netanyahu-pushes-full-gaza-conquest-despite-idf-concerns/" target="_blank">Read more</a>
+        <a href="https://www.israelhayom.com/2025/08/07/netanyahu-pushes-full-gaza-conquest-despite-idf-concerns/" target="_blank" rel="noopener noreferrer">Read more</a>
     </div>
     <div class="lang he" dir="rtl">
         <h3 dir="rtl">נתניהו דוחף לכיבוש מלא של עזה למרות החששות בצה"ל</h3>
-        <p dir="rtl">רמטכ"ל צה"ל, אלוף איתן זמיר, צפוי להציג לממשלה את הסיכונים בהשקת...</p>
-        <a href="https://www.israelhayom.com/2025/08/07/netanyahu-pushes-full-gaza-conquest-despite-idf-concerns/" target="_blank">קרא עוד</a>
+        <p dir="rtl">רמטכ"ל צה"ל, אלוף אייל זמיר, צפוי להציג לממשלה את הסיכונים בהשקת...</p>
+        <a href="https://www.israelhayom.com/2025/08/07/netanyahu-pushes-full-gaza-conquest-despite-idf-concerns/" target="_blank" rel="noopener noreferrer">קרא עוד</a>
     </div>
     <div class="lang ru">
         <h3>Нетаньяху настаивает на полном завоевании Газы, несмотря на опасения ЦАХАЛа.</h3>
-        <p>Начальник Генерального штаба ЦАХАЛа генерал-лейтенант Эйял Замир ожидается на заседании кабинета, где он представит риски запуска...</p>
-        <a href="https://www.israelhayom.com/2025/08/07/netanyahu-pushes-full-gaza-conquest-despite-idf-concerns/" target="_blank">Читать далее</a>
+        <p>Начальник Генерального штаба ЦАХАЛа генерал-лейтенант Эйял Замир ожидается на заседании кабинета министров, где он представит риски запуска...</p>
+        <a href="https://www.israelhayom.com/2025/08/07/netanyahu-pushes-full-gaza-conquest-despite-idf-concerns/" target="_blank" rel="noopener noreferrer">Читать далее</a>
     </div>
     <div class="lang el">
         <h3>Νετανιάχου προχωρά σε πλήρη κατάληψη της Γάζας παρά τις ανησυχίες του IDF.</h3>
-        <p>Ο Αρχηγός ΓΕΕΘΑ, Αντιστράτηγος Εyal Zamir, αναμένεται να παρουσιάσει στο υπουργικό συμβούλιο τους κινδύνους που συνεπάγεται η εκκίνηση ενός...</p>
-        <a href="https://www.israelhayom.com/2025/08/07/netanyahu-pushes-full-gaza-conquest-despite-idf-concerns/" target="_blank">Διαβάστε περισσότερα</a>
+        <p>Ο Αρχηγός ΓΕΕΘΑ, Αντιστράτηγος Εyal Zamir, αναμένεται να παρουσιάσει στο υπουργικό συμβούλιο τους κινδύνους της εκκίνησης ενός...</p>
+        <a href="https://www.israelhayom.com/2025/08/07/netanyahu-pushes-full-gaza-conquest-despite-idf-concerns/" target="_blank" rel="noopener noreferrer">Διαβάστε περισσότερα</a>
     </div>
 </div><div class="article">
     <div class="lang en active">
         <h3>How Hamas became a trending social media influencer</h3>
         <p>The customs of mourning on Tisha B’Av are rooted primarily in the destruction of the First and Second Temples. But...</p>
-        <a href="https://www.israelhayom.com/2025/08/03/how-hamas-became-a-social-media-influencer/" target="_blank">Read more</a>
+        <a href="https://www.israelhayom.com/2025/08/03/how-hamas-became-a-social-media-influencer/" target="_blank" rel="noopener noreferrer">Read more</a>
     </div>
     <div class="lang he" dir="rtl">
         <h3 dir="rtl">איך חמאס הפך להשפעה פופולרית ברשתות החברתיות</h3>
-        <p dir="rtl">מנהגי האבלות בתשעה באב נובעים בעיקר מהרס המקדש הראשון והשני. אבל...</p>
-        <a href="https://www.israelhayom.com/2025/08/03/how-hamas-became-a-social-media-influencer/" target="_blank">קרא עוד</a>
+        <p dir="rtl">מנהגי האבלות בתשעה באב נובעים בעיקרם מהחורבן של המקדש הראשון והשני. אבל...</p>
+        <a href="https://www.israelhayom.com/2025/08/03/how-hamas-became-a-social-media-influencer/" target="_blank" rel="noopener noreferrer">קרא עוד</a>
     </div>
     <div class="lang ru">
         <h3>Как ХАМАС стал популярным влиятельным лицом в социальных сетях</h3>
         <p>Обычаи траура в Тишу Б'Ав в первую очередь связаны с разрушением Первого и Второго Храмов. Но...</p>
-        <a href="https://www.israelhayom.com/2025/08/03/how-hamas-became-a-social-media-influencer/" target="_blank">Читать далее</a>
+        <a href="https://www.israelhayom.com/2025/08/03/how-hamas-became-a-social-media-influencer/" target="_blank" rel="noopener noreferrer">Читать далее</a>
     </div>
     <div class="lang el">
         <h3>Πώς η Χαμάς έγινε δημοφιλής influencer στα μέσα κοινωνικής δικτύωσης</h3>
         <p>Οι συνήθειες πένθους κατά την Τίσα Μπ'Αβ έχουν τις ρίζες τους κυρίως στην καταστροφή του Πρώτου και του Δεύτερου Ναού. Αλλά...</p>
-        <a href="https://www.israelhayom.com/2025/08/03/how-hamas-became-a-social-media-influencer/" target="_blank">Διαβάστε περισσότερα</a>
+        <a href="https://www.israelhayom.com/2025/08/03/how-hamas-became-a-social-media-influencer/" target="_blank" rel="noopener noreferrer">Διαβάστε περισσότερα</a>
     </div>
 </div><div class="article">
     <div class="lang en active">
         <h3>This is Khalil al-Hayya, the Hamas powerbroker rising after Sinwar</h3>
         <p>With or without deal, the political echelon must decide whether to conquer, besiege or maintain current situation the strip.</p>
-        <a href="https://www.israelhayom.com/2025/08/03/this-is-khalil-al-hayya-the-hamas-powerbroker-rising-after-sinwar/" target="_blank">Read more</a>
+        <a href="https://www.israelhayom.com/2025/08/03/this-is-khalil-al-hayya-the-hamas-powerbroker-rising-after-sinwar/" target="_blank" rel="noopener noreferrer">Read more</a>
     </div>
     <div class="lang he" dir="rtl">
         <h3 dir="rtl">זהו חליל אל-חיה, הברוקר של חמאס המתרומם לאחר סינוואר.</h3>
         <p dir="rtl">עם או בלי הסכם, הדרג הפוליטי חייב להחליט אם לכבוש, להטיל מצור או לשמור על המצב הנוכחי ברצועה.</p>
-        <a href="https://www.israelhayom.com/2025/08/03/this-is-khalil-al-hayya-the-hamas-powerbroker-rising-after-sinwar/" target="_blank">קרא עוד</a>
+        <a href="https://www.israelhayom.com/2025/08/03/this-is-khalil-al-hayya-the-hamas-powerbroker-rising-after-sinwar/" target="_blank" rel="noopener noreferrer">קרא עוד</a>
     </div>
     <div class="lang ru">
         <h3>Это Халиль аль-Хайя, влиятельный деятель ХАМАСа, который поднимается после Синвара.</h3>
         <p>Сделка или без нее, политическому эшелону необходимо решить, завоевывать, осаждать или поддерживать текущую ситуацию в секторе.</p>
-        <a href="https://www.israelhayom.com/2025/08/03/this-is-khalil-al-hayya-the-hamas-powerbroker-rising-after-sinwar/" target="_blank">Читать далее</a>
+        <a href="https://www.israelhayom.com/2025/08/03/this-is-khalil-al-hayya-the-hamas-powerbroker-rising-after-sinwar/" target="_blank" rel="noopener noreferrer">Читать далее</a>
     </div>
     <div class="lang el">
         <h3>Αυτός είναι ο Χαλίλ αλ-Χάγια, ο ισχυρός άνδρας της Χαμάς που αναδύεται μετά τον Σινουάρ.</h3>
         <p>Με ή χωρίς συμφωνία, η πολιτική ηγεσία πρέπει να αποφασίσει αν θα κατακτήσει, θα πολιορκήσει ή θα διατηρήσει την τρέχουσα κατάσταση στη λωρίδα.</p>
-        <a href="https://www.israelhayom.com/2025/08/03/this-is-khalil-al-hayya-the-hamas-powerbroker-rising-after-sinwar/" target="_blank">Διαβάστε περισσότερα</a>
+        <a href="https://www.israelhayom.com/2025/08/03/this-is-khalil-al-hayya-the-hamas-powerbroker-rising-after-sinwar/" target="_blank" rel="noopener noreferrer">Διαβάστε περισσότερα</a>
     </div>
 </div><div class="article">
     <div class="lang en active">
         <h3>The dark history of Tisha B'Av in Jewish memory</h3>
         <p>As residents of Israel's frontline communities return to their homes, the CEO of the Kibbutz Movement Rehabilitation Fund warns of...</p>
-        <a href="https://www.israelhayom.com/2025/08/03/the-dark-history-of-tisha-bav-in-jewish-memory/" target="_blank">Read more</a>
+        <a href="https://www.israelhayom.com/2025/08/03/the-dark-history-of-tisha-bav-in-jewish-memory/" target="_blank" rel="noopener noreferrer">Read more</a>
     </div>
     <div class="lang he" dir="rtl">
         <h3 dir="rtl">ההיסטוריה האפלה של תשעה באב בזיכרון היהודי</h3>
-        <p dir="rtl">כשהתושבים בקהילות הקו הראשון בישראל חוזרים לבתיהם, מנכ"ל קרן השיקום של תנועת הקיבוצים מזהיר מ...</p>
-        <a href="https://www.israelhayom.com/2025/08/03/the-dark-history-of-tisha-bav-in-jewish-memory/" target="_blank">קרא עוד</a>
+        <p dir="rtl">כשהתושבים בקהילות החזית של ישראל חוזרים לבתיהם, מנכ"ל קרן השיקום של תנועת הקיבוצים מזהיר מ...</p>
+        <a href="https://www.israelhayom.com/2025/08/03/the-dark-history-of-tisha-bav-in-jewish-memory/" target="_blank" rel="noopener noreferrer">קרא עוד</a>
     </div>
     <div class="lang ru">
-        <h3>Темная история Тиш'а Б'Ав в еврейской памяти</h3>
-        <p>По мере того как жители приграничных общин Израиля возвращаются в свои дома, генеральный директор Фонда реабилитации киббуцев предупреждает о...</p>
-        <a href="https://www.israelhayom.com/2025/08/03/the-dark-history-of-tisha-bav-in-jewish-memory/" target="_blank">Читать далее</a>
+        <h3>Темная история Тиш'а бе-Ав в еврейской памяти</h3>
+        <p>По мере того как жители приграничных общин Израиля возвращаются в свои дома, генеральный директор Фонда реабилитации киббуцного движения предупреждает о...</p>
+        <a href="https://www.israelhayom.com/2025/08/03/the-dark-history-of-tisha-bav-in-jewish-memory/" target="_blank" rel="noopener noreferrer">Читать далее</a>
     </div>
     <div class="lang el">
         <h3>Η σκοτεινή ιστορία του Τίσα Μπ'Αβ στη μνήμη των Εβραίων</h3>
         <p>Καθώς οι κάτοικοι των μεθοριακών κοινοτήτων του Ισραήλ επιστρέφουν στα σπίτια τους, ο διευθύνων σύμβουλος του Ταμείου Αποκατάστασης του Κιμπούτζ προειδοποιεί για...</p>
-        <a href="https://www.israelhayom.com/2025/08/03/the-dark-history-of-tisha-bav-in-jewish-memory/" target="_blank">Διαβάστε περισσότερα</a>
+        <a href="https://www.israelhayom.com/2025/08/03/the-dark-history-of-tisha-bav-in-jewish-memory/" target="_blank" rel="noopener noreferrer">Διαβάστε περισσότερα</a>
     </div>
 </div><div class="article">
     <div class="lang en active">
         <h3>Without Nasrallah and Iran funding, Hezbollah's empire crumbles</h3>
         <p>Hezbollah's training over the years included the following topics – how to counter the Israeli narrative, how to train social...</p>
-        <a href="https://www.israelhayom.com/2025/08/01/without-nasrallah-and-iran-funding-hezbollahs-empire-crumbles/" target="_blank">Read more</a>
+        <a href="https://www.israelhayom.com/2025/08/01/without-nasrallah-and-iran-funding-hezbollahs-empire-crumbles/" target="_blank" rel="noopener noreferrer">Read more</a>
     </div>
     <div class="lang he" dir="rtl">
         <h3 dir="rtl">בלי נסראללה ומימון איראן, האימפריה של חיזבאללה מתמוטטת</h3>
-        <p dir="rtl">ההכשרה של חיזבאללה במהלך השנים כללה את הנושאים הבאים – כיצד להתמודד עם הנרטיב הישראלי, כיצד לאמן חברתי...</p>
-        <a href="https://www.israelhayom.com/2025/08/01/without-nasrallah-and-iran-funding-hezbollahs-empire-crumbles/" target="_blank">קרא עוד</a>
+        <p dir="rtl">ההכשרה של חיזבאללה במהלך השנים כללה את הנושאים הבאים – כיצד להתמודד עם הנרטיב הישראלי, כיצד לאמן את החברה...</p>
+        <a href="https://www.israelhayom.com/2025/08/01/without-nasrallah-and-iran-funding-hezbollahs-empire-crumbles/" target="_blank" rel="noopener noreferrer">קרא עוד</a>
     </div>
     <div class="lang ru">
         <h3>Без Насраллы и финансирования Ирана империя Хезболлы рушится.</h3>
-        <p>Обучение Хезболлы за эти годы включало следующие темы – как противостоять израильскому нарративу, как обучать социальным...</p>
-        <a href="https://www.israelhayom.com/2025/08/01/without-nasrallah-and-iran-funding-hezbollahs-empire-crumbles/" target="_blank">Читать далее</a>
+        <p>Обучение Хезболлы за годы включало следующие темы – как противостоять израильскому нарративу, как обучать социальным...</p>
+        <a href="https://www.israelhayom.com/2025/08/01/without-nasrallah-and-iran-funding-hezbollahs-empire-crumbles/" target="_blank" rel="noopener noreferrer">Читать далее</a>
     </div>
     <div class="lang el">
-        <h3>Χωρίς τον Νασράλα και τη χρηματοδότηση του Ιράν, η αυτοκρατορία της Χεζμπολάχ καταρρέει.</h3>
+        <h3>Χωρίς τον Νασράλαχ και τη χρηματοδότηση από το Ιράν, η αυτοκρατορία της Χεζμπολάχ καταρρέει.</h3>
         <p>Η εκπαίδευση της Χεζμπολάχ τα τελευταία χρόνια περιλάμβανε τα εξής θέματα – πώς να αντεπεξέλθουν στην ισραηλινή αφήγηση, πώς να εκπαιδεύσουν κοινωνικά...</p>
-        <a href="https://www.israelhayom.com/2025/08/01/without-nasrallah-and-iran-funding-hezbollahs-empire-crumbles/" target="_blank">Διαβάστε περισσότερα</a>
+        <a href="https://www.israelhayom.com/2025/08/01/without-nasrallah-and-iran-funding-hezbollahs-empire-crumbles/" target="_blank" rel="noopener noreferrer">Διαβάστε περισσότερα</a>
     </div>
 </div><div class="article">
     <div class="lang en active">
         <h3>Israel's 3 options in the Gaza war</h3>
         <p>Linked to Iran, imprisoned in Israel, and narrowly escaping several assassination attempts that claimed the lives of his family members,...</p>
-        <a href="https://www.israelhayom.com/2025/07/22/israels-3-options-in-the-gaza-war/" target="_blank">Read more</a>
+        <a href="https://www.israelhayom.com/2025/07/22/israels-3-options-in-the-gaza-war/" target="_blank" rel="noopener noreferrer">Read more</a>
     </div>
     <div class="lang he" dir="rtl">
         <h3 dir="rtl">שלוש האפשרויות של ישראל במלחמת עזה</h3>
         <p dir="rtl">קשור לאיראן, כלוא בישראל, ונמלט בקושי מכמה ניסי רצח שגבו את חייהם של בני משפחתו,...</p>
-        <a href="https://www.israelhayom.com/2025/07/22/israels-3-options-in-the-gaza-war/" target="_blank">קרא עוד</a>
+        <a href="https://www.israelhayom.com/2025/07/22/israels-3-options-in-the-gaza-war/" target="_blank" rel="noopener noreferrer">קרא עוד</a>
     </div>
     <div class="lang ru">
         <h3>Три варианта Израиля в войне с Газой</h3>
-        <p>Связанный с Ираном, заключенный в Израиле и едва избежавший нескольких попыток убийства, в результате которых погибли члены его семьи,...</p>
-        <a href="https://www.israelhayom.com/2025/07/22/israels-3-options-in-the-gaza-war/" target="_blank">Читать далее</a>
+        <p>Связан с Ираном, заключён в Израиле и едва избежав нескольких покушений, в результате которых погибли члены его семьи,...</p>
+        <a href="https://www.israelhayom.com/2025/07/22/israels-3-options-in-the-gaza-war/" target="_blank" rel="noopener noreferrer">Читать далее</a>
     </div>
     <div class="lang el">
         <h3>Οι 3 επιλογές του Ισραήλ στον πόλεμο της Γάζας</h3>
-        <p>Συνδεδεμένος με το Ιράν, φυλακισμένος στο Ισραήλ και μερικώς διαφεύγοντας από αρκετές απόπειρες δολοφονίας που κόστισαν τη ζωή μελών της οικογένειάς του,...</p>
-        <a href="https://www.israelhayom.com/2025/07/22/israels-3-options-in-the-gaza-war/" target="_blank">Διαβάστε περισσότερα</a>
+        <p>Συνδεδεμένος με το Ιράν, φυλακισμένος στο Ισραήλ και μερικώς διαφεύγοντας από πολλές απόπειρες δολοφονίας που κόστισαν τη ζωή μελών της οικογένειάς του,...</p>
+        <a href="https://www.israelhayom.com/2025/07/22/israels-3-options-in-the-gaza-war/" target="_blank" rel="noopener noreferrer">Διαβάστε περισσότερα</a>
     </div>
 </div>
 
@@ -271,6 +618,9 @@
             <p><a href="https://ainews.eu.com">ainews.eu.com</a></p>
             </div>
             </div>
+            
+            <!-- Back to Top Button -->
+            <button class="back-to-top" id="backToTop" onclick="scrollToTop()" title="Back to top">↑</button>
 
             <script>
                 let currentLang = 'en';
@@ -283,8 +633,61 @@
                     currentLang = lang;
                 }
 
+                // Back to top functionality
+                function scrollToTop() {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                }
+
+                // Show/hide back to top button based on scroll position
+                function toggleBackToTopButton() {
+                    const backToTopButton = document.getElementById('backToTop');
+                    if (window.pageYOffset > 300) {
+                        backToTopButton.classList.add('visible');
+                    } else {
+                        backToTopButton.classList.remove('visible');
+                    }
+                }
+
+                // Add smooth scrolling and better UX
                 document.addEventListener('DOMContentLoaded', function() {
                     setLang('en');
+                    
+                    // Show back to top button on scroll
+                    window.addEventListener('scroll', toggleBackToTopButton);
+                    
+                    // Add loading states to external links
+                    document.querySelectorAll('a[target="_blank"]').forEach(link => {
+                        link.addEventListener('click', function() {
+                            this.style.opacity = '0.7';
+                            setTimeout(() => {
+                                this.style.opacity = '1';
+                            }, 1000);
+                        });
+                    });
+                    
+                    // Add keyboard navigation
+                    document.addEventListener('keydown', function(e) {
+                        // Press 'T' to scroll to top
+                        if (e.key === 't' || e.key === 'T') {
+                            if (!e.ctrlKey && !e.altKey && !e.metaKey) {
+                                e.preventDefault();
+                                scrollToTop();
+                            }
+                        }
+                        
+                        // Press number keys 1-4 to switch languages
+                        if (e.key >= '1' && e.key <= '4' && !e.ctrlKey && !e.altKey && !e.metaKey) {
+                            e.preventDefault();
+                            const langs = ['en', 'he', 'ru', 'el'];
+                            const langIndex = parseInt(e.key) - 1;
+                            if (langs[langIndex]) {
+                                setLang(langs[langIndex]);
+                            }
+                        }
+                    });
                 });
             </script>
             </body>
