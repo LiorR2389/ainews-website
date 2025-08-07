@@ -60,21 +60,19 @@
                     transform: translateY(-2px);
                 }
                 
-                .live-button {
-                    background: linear-gradient(135deg, #ff4444 0%, #cc0000 100%) !important;
-                    animation: pulse-live 2s infinite !important;
-                    font-weight: bold !important;
-                    box-shadow: 0 4px 15px rgba(255, 68, 68, 0.3) !important;
+                .live-news-link {
+                    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%) !important;
+                    animation: pulse 2s infinite;
                 }
                 
-                .live-button:hover {
-                    background: linear-gradient(135deg, #ff6666 0%, #ff0000 100%) !important;
-                    transform: translateY(-3px) scale(1.05) !important;
+                .live-news-link:hover {
+                    background: linear-gradient(135deg, #ee5a24 0%, #d63031 100%) !important;
                 }
                 
-                @keyframes pulse-live {
-                    0%, 100% { opacity: 1; box-shadow: 0 4px 15px rgba(255, 68, 68, 0.3); }
-                    50% { opacity: 0.8; box-shadow: 0 6px 20px rgba(255, 68, 68, 0.5); }
+                @keyframes pulse {
+                    0% { box-shadow: 0 0 0 0 rgba(255, 107, 107, 0.7); }
+                    70% { box-shadow: 0 0 0 10px rgba(255, 107, 107, 0); }
+                    100% { box-shadow: 0 0 0 0 rgba(255, 107, 107, 0); }
                 }
                 
                 .lang-buttons { 
@@ -171,7 +169,6 @@
                     margin: 15px 0; 
                     font-size: 1rem;
                     line-height: 1.6;
-                    /* Ensure full paragraph is visible */
                     display: block;
                     word-wrap: break-word;
                     overflow-wrap: break-word;
@@ -258,7 +255,6 @@
                     margin: 20px 0;
                 }
                 
-                /* Back to Top Button */
                 .back-to-top {
                     position: fixed;
                     bottom: 30px;
@@ -286,7 +282,6 @@
                     display: block;
                 }
                 
-                /* Category Headers */
                 h2 {
                     color: #2d3748;
                     font-size: 1.5rem;
@@ -296,7 +291,6 @@
                     border-bottom: 2px solid #e2e8f0;
                 }
                 
-                /* Mobile Responsive Design */
                 @media (max-width: 768px) {
                     body {
                         padding: 10px;
@@ -358,7 +352,7 @@
                     .subscription input {
                         width: 90%;
                         margin: 8px 0;
-                        font-size: 16px; /* Prevents zoom on iOS */
+                        font-size: 16px;
                     }
                     
                     .subscription button {
@@ -412,7 +406,7 @@
                 <a href="../cyprus/index.html">🇨🇾 Cyprus</a>
                 <a href="../israel/index.html">🇮🇱 Israel</a>
                 <a href="../greece/index.html">🇬🇷 Greece</a>
-                <a href="../live/index.html" class="live-button">🔴 LIVE NEWS</a>
+                <a href="https://ainews.eu.com" class="live-news-link" target="_blank" rel="noopener noreferrer">🔴 Live News</a>
             </div>
 
             <div class="lang-buttons">
@@ -429,24 +423,45 @@
     <span class="lang el">Γενικές Ειδήσεις</span>
 </h2><div class="article">
     <div class="lang en active">
-        <h3>'Children Aren't Supposed to Die': Israeli Influencers Dare to Talk About Gaza'Children Aren't Supposed to Die in Wars': Israeli Influencers Dare to Talk About Gaza</h3>
-        <p>On Instagram and TikTok, only a handful of Israeli influencers dare voice opinions now seen as leftist – from calls to end the war and famine in Gaza to demands to bring the hostages home. In today's climate, even that invites hate. They're scared – but they keep going</p>
-        <a href="https://www.haaretz.com/israel-news/2025-08-04/ty-article-magazine/.premium/children-arent-supposed-to-die-in-wars-israeli-influencers-dare-to-talk-about-gaza/00000198-7551-d802-add9-f7ff4d250000" target="_blank" rel="noopener noreferrer">Read more</a>
+        <h3>Ugandan, 'Jewpanese' and Queer: Comic Anthology Redraws Meaning of JewishnessUgandan, 'Jewpanese' and Queer: New Comic Anthology Redraws What It Means to Be Jewish</h3>
+        <p>Amid conservative book bans and post-October 7 backlash, 'Hyphen' tells 12 first-person Jewish stories – from a trans Jew's journey to a family heirloom kimono – that expand the narrative of Jewish identity</p>
+        <a href="https://www.haaretz.com/jewish/2025-08-05/ty-article-magazine/.premium/ugandan-jewpanese-and-queer-new-comic-anthology-redraws-what-it-means-to-be-jewish/00000198-5bd2-dc50-a9bf-fff3ea340000" target="_blank" rel="noopener noreferrer">Read more</a>
     </div>
     <div class="lang he" dir="rtl">
-        <h3 dir="rtl">"ילדים לא אמורים למות": משפיענים ישראלים מעזים לדבר על עזה</h3>
-        <p dir="rtl">באינסטגרם ובטיקטוק, רק קומץ של משפיענים ישראלים מעזים להביע דעות שנחשבות כיום לשמאלניות – מהקריאות לסיים את המלחמה והרעב בעזה ועד הדרישות להחזיר את החטופים הביתה. באקלים הנוכחי, אפילו זה מעורר שנאה. הם מפחדים – אבל ממשיכים.</p>
-        <a href="https://www.haaretz.com/israel-news/2025-08-04/ty-article-magazine/.premium/children-arent-supposed-to-die-in-wars-israeli-influencers-dare-to-talk-about-gaza/00000198-7551-d802-add9-f7ff4d250000" target="_blank" rel="noopener noreferrer">קרא עוד</a>
+        <h3 dir="rtl">אוגנדי, 'ג'ואפנזי' וקוויר: אנתולוגיית קומיקס חדשה מחדש את משמעות היהדות</h3>
+        <p dir="rtl">בע amid איסורי ספרים שמרניים ותגובות לאחר ה-7 באוקטובר, 'היפן' מספרת 12 סיפורים יהודיים בגוף ראשון – מהמסע של יהודי טרנס ועד קימונו משפחתי – המרחיבים את הנרטיב של זהות יהודית.</p>
+        <a href="https://www.haaretz.com/jewish/2025-08-05/ty-article-magazine/.premium/ugandan-jewpanese-and-queer-new-comic-anthology-redraws-what-it-means-to-be-jewish/00000198-5bd2-dc50-a9bf-fff3ea340000" target="_blank" rel="noopener noreferrer">קרא עוד</a>
     </div>
     <div class="lang ru">
-        <h3>«Дети не должны умирать»: израильские инфлюенсеры осмеливаются говорить о Газе.</h3>
-        <p>На Instagram и TikTok лишь немногие израильские инфлюенсеры осмеливаются высказывать мнения, которые теперь считаются левыми – от призывов прекратить войну и голод в Газе до требований вернуть заложников домой. В сегодняшней обстановке даже это вызывает ненависть. Они боятся, но продолжают.</p>
-        <a href="https://www.haaretz.com/israel-news/2025-08-04/ty-article-magazine/.premium/children-arent-supposed-to-die-in-wars-israeli-influencers-dare-to-talk-about-gaza/00000198-7551-d802-add9-f7ff4d250000" target="_blank" rel="noopener noreferrer">Читать далее</a>
+        <h3>Угандийцы, «джюпанцы» и квиры: Комикс-антология переосмысляет значение еврейства.</h3>
+        <p>На фоне запретов на книги в консервативных кругах и реакции после 7 октября, «Гипен» рассказывает 12 личных еврейских историй — от пути трансеврея до семейного наследия в виде кимоно — которые расширяют представление о еврейской идентичности.</p>
+        <a href="https://www.haaretz.com/jewish/2025-08-05/ty-article-magazine/.premium/ugandan-jewpanese-and-queer-new-comic-anthology-redraws-what-it-means-to-be-jewish/00000198-5bd2-dc50-a9bf-fff3ea340000" target="_blank" rel="noopener noreferrer">Читать далее</a>
     </div>
     <div class="lang el">
-        <h3>«Τα παιδιά δεν πρέπει να πεθαίνουν»: Ισραηλινοί influencers τολμούν να μιλήσουν για τη Γάζα.</h3>
-        <p>Στο Instagram και το TikTok, μόνο λίγοι Ισραηλινοί influencers τολμούν να εκφράσουν απόψεις που θεωρούνται αριστερές – από εκκλήσεις για να σταματήσει ο πόλεμος και η πείνα στη Γάζα μέχρι απαιτήσεις να επιστρέψουν οι όμηροι. Στο σημερινό κλίμα, ακόμη και αυτό προκαλεί μίσος. Είναι φοβισμένοι – αλλά συνεχίζουν.</p>
-        <a href="https://www.haaretz.com/israel-news/2025-08-04/ty-article-magazine/.premium/children-arent-supposed-to-die-in-wars-israeli-influencers-dare-to-talk-about-gaza/00000198-7551-d802-add9-f7ff4d250000" target="_blank" rel="noopener noreferrer">Διαβάστε περισσότερα</a>
+        <h3>Ουγκαντέζοι, 'Jewpanese' και Queer: Νέα Κωμική Ανθολογία Επανακαθορίζει την Έννοια του Ιουδαϊσμού</h3>
+        <p>Μέσα σε απαγορεύσεις συντηρητικών βιβλίων και την αντίδραση μετά τις 7 Οκτωβρίου, το 'Hyphen' αφηγείται 12 πρώτες-person ιστορίες Εβραίων – από το ταξίδι ενός τρανς Εβραίου μέχρι ένα κληρονομικό κιμονό – που διευρύνουν την αφήγηση της εβραϊκής ταυτότητας.</p>
+        <a href="https://www.haaretz.com/jewish/2025-08-05/ty-article-magazine/.premium/ugandan-jewpanese-and-queer-new-comic-anthology-redraws-what-it-means-to-be-jewish/00000198-5bd2-dc50-a9bf-fff3ea340000" target="_blank" rel="noopener noreferrer">Διαβάστε περισσότερα</a>
+    </div>
+</div><div class="article">
+    <div class="lang en active">
+        <h3>IDF Chief: 'We will continue to voice our position without fear'</h3>
+        <p>"We are continuing to fight on all fronts. The echo of our strikes is constantly heard throughout the Middle East," Zamir said during the session.</p>
+        <a href="https://www.israelhayom.com/2025/08/07/idf-chief-we-will-continue-to-voice-our-position-without-fear/" target="_blank" rel="noopener noreferrer">Read more</a>
+    </div>
+    <div class="lang he" dir="rtl">
+        <h3 dir="rtl">רמטכ"ל צה"ל: 'נמשיך לבטא את עמדתנו ללא פחד'</h3>
+        <p dir="rtl">"We are continuing to fight on all fronts. The echo of our strikes is constantly heard throughout the Middle East," Zamir said during the session.</p>
+        <a href="https://www.israelhayom.com/2025/08/07/idf-chief-we-will-continue-to-voice-our-position-without-fear/" target="_blank" rel="noopener noreferrer">קרא עוד</a>
+    </div>
+    <div class="lang ru">
+        <h3>Глава ЦАХАЛа: «Мы будем продолжать озвучивать нашу позицию без страха»</h3>
+        <p>"We are continuing to fight on all fronts. The echo of our strikes is constantly heard throughout the Middle East," Zamir said during the session.</p>
+        <a href="https://www.israelhayom.com/2025/08/07/idf-chief-we-will-continue-to-voice-our-position-without-fear/" target="_blank" rel="noopener noreferrer">Читать далее</a>
+    </div>
+    <div class="lang el">
+        <h3>Αρχηγός IDF: 'Θα συνεχίσουμε να εκφράζουμε τη θέση μας χωρίς φόβο'</h3>
+        <p>"We are continuing to fight on all fronts. The echo of our strikes is constantly heard throughout the Middle East," Zamir said during the session.</p>
+        <a href="https://www.israelhayom.com/2025/08/07/idf-chief-we-will-continue-to-voice-our-position-without-fear/" target="_blank" rel="noopener noreferrer">Διαβάστε περισσότερα</a>
     </div>
 </div><div class="article">
     <div class="lang en active">
@@ -486,8 +501,8 @@
         <a href="https://www.israelhayom.com/2025/08/03/this-is-khalil-al-hayya-the-hamas-powerbroker-rising-after-sinwar/" target="_blank" rel="noopener noreferrer">Читать далее</a>
     </div>
     <div class="lang el">
-        <h3>Αυτός είναι ο Χαλίλ αλ-Χάγια, ο ισχυρός άνδρας της Χαμάς που αναδύεται μετά τον Σινουάρ.</h3>
-        <p>Με ή χωρίς συμφωνία, η πολιτική ηγεσία πρέπει να αποφασίσει αν θα κατακτήσει, θα πολιορκήσει ή θα διατηρήσει την τρέχουσα κατάσταση στη λωρίδα.</p>
+        <h3>Αυτός είναι ο Χαλίλ αλ-Χάγια, ο ισχυρός άνδρας της Χαμάς που αναδεικνύεται μετά τον Σινουάρ.</h3>
+        <p>Με ή χωρίς συμφωνία, η πολιτική ηγεσία πρέπει να αποφασίσει αν θα καταλάβει, θα πολιορκήσει ή θα διατηρήσει την τρέχουσα κατάσταση στη λωρίδα.</p>
         <a href="https://www.israelhayom.com/2025/08/03/this-is-khalil-al-hayya-the-hamas-powerbroker-rising-after-sinwar/" target="_blank" rel="noopener noreferrer">Διαβάστε περισσότερα</a>
     </div>
 </div><div class="article">
@@ -502,8 +517,8 @@
         <a href="https://www.israelhayom.com/2025/08/03/the-dark-history-of-tisha-bav-in-jewish-memory/" target="_blank" rel="noopener noreferrer">קרא עוד</a>
     </div>
     <div class="lang ru">
-        <h3>Темная история Тиш'а Б'Ав в еврейской памяти</h3>
-        <p>По мере того как жители приграничных общин Израиля возвращаются в свои дома, генеральный директор Фонда реабилитации киббуцев предупреждает о...</p>
+        <h3>Темная история Тиши бе-Ав в еврейской памяти</h3>
+        <p>По мере того как жители приграничных общин Израиля возвращаются в свои дома, генеральный директор Фонда реабилитации киббуцного движения предупреждает о...</p>
         <a href="https://www.israelhayom.com/2025/08/03/the-dark-history-of-tisha-bav-in-jewish-memory/" target="_blank" rel="noopener noreferrer">Читать далее</a>
     </div>
     <div class="lang el">
@@ -519,17 +534,17 @@
     </div>
     <div class="lang he" dir="rtl">
         <h3 dir="rtl">בלי נסראללה ומימון איראן, האימפריה של חיזבאללה מתמוטטת</h3>
-        <p dir="rtl">ההכשרה של חיזבאללה במהלך השנים כללה את הנושאים הבאים – כיצד להתמודד עם הנרטיב הישראלי, כיצד לאמן חברתי...</p>
+        <p dir="rtl">ההכשרה של חיזבאללה במהלך השנים כללה את הנושאים הבאים – כיצד להתמודד עם הנרטיב הישראלי, כיצד לאמן את החברה...</p>
         <a href="https://www.israelhayom.com/2025/08/01/without-nasrallah-and-iran-funding-hezbollahs-empire-crumbles/" target="_blank" rel="noopener noreferrer">קרא עוד</a>
     </div>
     <div class="lang ru">
         <h3>Без Насраллы и финансирования Ирана империя Хезболлы рушится.</h3>
-        <p>Обучение Хезболлы за эти годы включало следующие темы – как противостоять израильскому нарративу, как обучать социальным...</p>
+        <p>Обучение Хезболлы за годы включало следующие темы – как противостоять израильскому нарративу, как обучать социальным...</p>
         <a href="https://www.israelhayom.com/2025/08/01/without-nasrallah-and-iran-funding-hezbollahs-empire-crumbles/" target="_blank" rel="noopener noreferrer">Читать далее</a>
     </div>
     <div class="lang el">
         <h3>Χωρίς τον Νασράλα και τη χρηματοδότηση του Ιράν, η αυτοκρατορία της Χεζμπολάχ καταρρέει.</h3>
-        <p>Η εκπαίδευση της Χεζμπολάχ τα χρόνια περιλάμβανε τα εξής θέματα – πώς να αντεπεξέλθουν στην ισραηλινή αφήγηση, πώς να εκπαιδεύσουν κοινωνικά...</p>
+        <p>Η εκπαίδευση της Χεζμπολάχ τα χρόνια περιλάμβανε τα εξής θέματα – πώς να αντεπεξέλθουν στην ισραηλινή αφήγηση, πώς να εκπαιδεύσουν κοινωνικούς...</p>
         <a href="https://www.israelhayom.com/2025/08/01/without-nasrallah-and-iran-funding-hezbollahs-empire-crumbles/" target="_blank" rel="noopener noreferrer">Διαβάστε περισσότερα</a>
     </div>
 </div><div class="article">
@@ -550,34 +565,8 @@
     </div>
     <div class="lang el">
         <h3>Οι 3 επιλογές του Ισραήλ στον πόλεμο της Γάζας</h3>
-        <p>Συνδεδεμένος με το Ιράν, φυλακισμένος στο Ισραήλ και μερικώς διαφεύγοντας από πολλές απόπειρες δολοφονίας που κόστισαν τη ζωή μελών της οικογένειάς του,...</p>
+        <p>Συνδεδεμένος με το Ιράν, φυλακισμένος στο Ισραήλ και μερικώς διαφεύγοντας από αρκετές απόπειρες δολοφονίας που κόστισαν τη ζωή μελών της οικογένειάς του,...</p>
         <a href="https://www.israelhayom.com/2025/07/22/israels-3-options-in-the-gaza-war/" target="_blank" rel="noopener noreferrer">Διαβάστε περισσότερα</a>
-    </div>
-</div><h2>
-    <span class="lang en active">Technology</span>
-    <span class="lang he" dir="rtl">טכנולוגיה</span>
-    <span class="lang ru">Технологии</span>
-    <span class="lang el">Τεχνολογία</span>
-</h2><div class="article">
-    <div class="lang en active">
-        <h3>Protest flotilla of hostage families sets sail toward Gaza</h3>
-        <p>A flotilla of 11 vessels, organized by the families of Israeli hostages held by the Hamas terrorist organization, set out Thursday morning from the Ashkelon marina toward the waters off Gaza, in what they called an urgent plea for their loved ones' return. Dubbed "Flotilla 50," the protest will last...</p>
-        <a href="https://www.israelhayom.com/2025/08/07/protest-flotilla-of-hostage-families-sets-sail-toward-gaza/" target="_blank" rel="noopener noreferrer">Read more</a>
-    </div>
-    <div class="lang he" dir="rtl">
-        <h3 dir="rtl">משט מחאות של משפחות בני ערובה יוצא לדרך לעבר עזה</h3>
-        <p dir="rtl">A flotilla of 11 vessels, organized by the families of Israeli hostages held by the Hamas terrorist organization, set out Thursday morning from the Ashkelon marina toward the waters off Gaza, in what they called an urgent plea for their loved ones' return. Dubbed "Flotilla 50," the protest will last...</p>
-        <a href="https://www.israelhayom.com/2025/08/07/protest-flotilla-of-hostage-families-sets-sail-toward-gaza/" target="_blank" rel="noopener noreferrer">קרא עוד</a>
-    </div>
-    <div class="lang ru">
-        <h3>Протестная флотилия семей заложников отправляется в сторону Газы.</h3>
-        <p>A flotilla of 11 vessels, organized by the families of Israeli hostages held by the Hamas terrorist organization, set out Thursday morning from the Ashkelon marina toward the waters off Gaza, in what they called an urgent plea for their loved ones' return. Dubbed "Flotilla 50," the protest will last...</p>
-        <a href="https://www.israelhayom.com/2025/08/07/protest-flotilla-of-hostage-families-sets-sail-toward-gaza/" target="_blank" rel="noopener noreferrer">Читать далее</a>
-    </div>
-    <div class="lang el">
-        <h3>Προβληματική φλοτίλα οικογενειών ομήρων αναχωρεί προς τη Γάζα</h3>
-        <p>A flotilla of 11 vessels, organized by the families of Israeli hostages held by the Hamas terrorist organization, set out Thursday morning from the Ashkelon marina toward the waters off Gaza, in what they called an urgent plea for their loved ones' return. Dubbed "Flotilla 50," the protest will last...</p>
-        <a href="https://www.israelhayom.com/2025/08/07/protest-flotilla-of-hostage-families-sets-sail-toward-gaza/" target="_blank" rel="noopener noreferrer">Διαβάστε περισσότερα</a>
     </div>
 </div>
 
@@ -642,7 +631,6 @@
             </div>
             </div>
             
-            <!-- Back to Top Button -->
             <button class="back-to-top" id="backToTop" onclick="scrollToTop()" title="Back to top">↑</button>
 
             <script>
@@ -656,7 +644,6 @@
                     currentLang = lang;
                 }
 
-                // Back to top functionality
                 function scrollToTop() {
                     window.scrollTo({
                         top: 0,
@@ -664,7 +651,6 @@
                     });
                 }
 
-                // Show/hide back to top button based on scroll position
                 function toggleBackToTopButton() {
                     const backToTopButton = document.getElementById('backToTop');
                     if (window.pageYOffset > 300) {
@@ -674,14 +660,11 @@
                     }
                 }
 
-                // Add smooth scrolling and better UX
                 document.addEventListener('DOMContentLoaded', function() {
                     setLang('en');
                     
-                    // Show back to top button on scroll
                     window.addEventListener('scroll', toggleBackToTopButton);
                     
-                    // Add loading states to external links
                     document.querySelectorAll('a[target="_blank"]').forEach(link => {
                         link.addEventListener('click', function() {
                             this.style.opacity = '0.7';
@@ -691,9 +674,7 @@
                         });
                     });
                     
-                    // Add keyboard navigation
                     document.addEventListener('keydown', function(e) {
-                        // Press 'T' to scroll to top
                         if (e.key === 't' || e.key === 'T') {
                             if (!e.ctrlKey && !e.altKey && !e.metaKey) {
                                 e.preventDefault();
@@ -701,7 +682,6 @@
                             }
                         }
                         
-                        // Press number keys 1-4 to switch languages
                         if (e.key >= '1' && e.key <= '4' && !e.ctrlKey && !e.altKey && !e.metaKey) {
                             e.preventDefault();
                             const langs = ['en', 'he', 'ru', 'el'];
