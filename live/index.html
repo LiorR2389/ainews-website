@@ -1,377 +1,691 @@
-        <!DOCTYPE html>
-        <html lang="en">
-        <head>
-            <title>🔴 LIVE: Cyprus Breaking News | AI News</title>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <meta http-equiv="refresh" content="300"> <!-- Auto refresh every 5 minutes -->
-            <meta name="description" content="Live breaking news from Cyprus - Real-time updates from @cyprus_control">
-            <style>
-                body { 
-                    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
-                    margin: 0; 
-                    padding: 20px; 
-                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                    min-height: 100vh;
-                    line-height: 1.6;
-                }
-                .container { 
-                    max-width: 800px; 
-                    margin: 0 auto; 
-                    background: white; 
-                    padding: 30px; 
-                    border-radius: 15px; 
-                    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-                }
-                .header { 
-                    text-align: center; 
-                    margin-bottom: 30px; 
-                    padding-bottom: 20px;
-                    border-bottom: 2px solid #f0f0f0;
-                }
-                .live-indicator { 
-                    background: #ff4444; 
-                    color: white; 
-                    padding: 8px 16px; 
-                    border-radius: 25px; 
-                    display: inline-block; 
-                    margin-bottom: 15px; 
-                    font-weight: bold;
-                    animation: pulse 2s infinite; 
-                }
-                @keyframes pulse { 
-                    0%, 100% { opacity: 1; transform: scale(1); } 
-                    50% { opacity: 0.8; transform: scale(1.05); } 
-                }
-                .logo {
-                    font-size: 2.5rem;
-                    font-weight: bold;
-                    color: #667eea;
-                    margin-bottom: 10px;
-                }
-                .navigation {
-                    text-align: center;
-                    margin: 20px 0;
-                    padding: 15px;
-                    background: #f8f9fa;
-                    border-radius: 10px;
-                }
-                .navigation a {
-                    display: inline-block;
-                    margin: 0 10px;
-                    padding: 8px 16px;
-                    background: #667eea;
-                    color: white;
-                    text-decoration: none;
-                    border-radius: 20px;
-                    transition: all 0.3s;
-                }
-                .navigation a:hover {
-                    background: #764ba2;
-                    transform: translateY(-2px);
-                }
-                .message { 
-                    margin: 20px 0; 
-                    padding: 25px; 
-                    border-left: 4px solid #4CAF50; 
-                    background: #f9f9f9; 
-                    border-radius: 10px;
-                    transition: all 0.3s ease;
-                }
-                .message:hover {
-                    transform: translateY(-2px);
-                    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-                }
-                .message.breaking { 
-                    border-left-color: #ff4444; 
-                    background: linear-gradient(135deg, #fff5f5 0%, #ffebee 100%);
-                }
-                .message.urgent { 
-                    border-left-color: #ff9800; 
-                    background: linear-gradient(135deg, #fff8f0 0%, #fff3e0 100%);
-                }
-                .timestamp { 
-                    color: #666; 
-                    font-size: 0.9rem; 
-                    margin-bottom: 10px; 
-                    font-weight: 500;
-                }
-                .text { 
-                    font-size: 1.1rem; 
-                    line-height: 1.7; 
-                    color: #333;
-                    margin-bottom: 10px;
-                }
-                .priority { 
-                    display: inline-block; 
-                    padding: 4px 12px; 
-                    border-radius: 15px; 
-                    font-size: 0.8rem; 
-                    font-weight: bold;
-                    margin-bottom: 10px; 
-                }
-                .priority-1 { 
-                    background: #ffcdd2; 
-                    color: #c62828; 
-                }
-                .priority-2 { 
-                    background: #ffe0b2; 
-                    color: #f57c00; 
-                }
-                .priority-3 { 
-                    background: #e1bee7; 
-                    color: #7b1fa2; 
-                }
-                .stats {
-                    display: grid;
-                    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-                    gap: 15px;
-                    margin: 20px 0;
-                    padding: 20px;
-                    background: #f8f9fa;
-                    border-radius: 10px;
-                }
-                .stat-item {
-                    text-align: center;
-                    padding: 15px;
-                    background: white;
-                    border-radius: 8px;
-                    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-                }
-                .stat-number {
-                    font-size: 1.8rem;
-                    font-weight: bold;
-                    color: #667eea;
-                    margin-bottom: 5px;
-                }
-                .stat-label {
-                    font-size: 0.9rem;
-                    color: #666;
-                }
-                .footer {
-                    text-align: center;
-                    margin-top: 40px;
-                    padding: 20px 0;
-                    border-top: 2px solid #f0f0f0;
-                    color: #666;
-                }
-                .footer a {
-                    color: #667eea;
-                    text-decoration: none;
-                    font-weight: 500;
-                }
-                .footer a:hover {
-                    text-decoration: underline;
-                }
-                .no-messages {
-                    text-align: center;
-                    padding: 60px 20px;
-                    color: #666;
-                    background: #f8f9fa;
-                    border-radius: 10px;
-                    margin: 20px 0;
-                }
-                @media (max-width: 768px) {
-                    body { padding: 10px; }
-                    .container { padding: 20px; }
-                    .logo { font-size: 2rem; }
-                    .navigation a { 
-                        display: block; 
-                        margin: 5px 0; 
-                        padding: 12px 20px; 
-                    }
-                    .stats { grid-template-columns: repeat(2, 1fr); }
-                }
-            </style>
-        </head>
-        <body>
-        <div class="container">
-            <div class="header">
-                <div class="live-indicator">🔴 LIVE</div>
-                <div class="logo">🤖 AI News</div>
-                <h1>🇨🇾 Cyprus Breaking News</h1>
-                <p>Real-time updates from @cyprus_control</p>
-                <p><strong>Monday, August 11, 2025</strong></p>
-                <p style="font-size: 0.9rem; color: #666;">Last updated: 2025-08-11 08:04:00</p>
-            </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>🔴 LIVE: Cyprus Breaking News | AI News</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="300">
+    <meta name="description" content="Live breaking news from Cyprus - Real-time updates from @cyprus_control">
+    <style>
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            margin: 0; 
+            padding: 20px; 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+        .container { 
+            max-width: 800px; 
+            margin: 0 auto; 
+            background: white; 
+            padding: 30px; 
+            border-radius: 15px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .header { 
+            text-align: center; 
+            margin-bottom: 30px; 
+            padding-bottom: 20px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        .live-indicator { 
+            background: #ff4444; 
+            color: white; 
+            padding: 8px 16px; 
+            border-radius: 25px; 
+            display: inline-block; 
+            margin-bottom: 15px; 
+            font-weight: bold;
+            animation: pulse 2s infinite; 
+        }
+        @keyframes pulse { 
+            0%, 100% { opacity: 1; transform: scale(1); } 
+            50% { opacity: 0.8; transform: scale(1.05); } 
+        }
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        .navigation {
+            text-align: center;
+            margin: 20px 0;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+        .navigation a {
+            display: inline-block;
+            margin: 0 10px;
+            padding: 8px 16px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 20px;
+            transition: all 0.3s;
+        }
+        .navigation a:hover {
+            background: #764ba2;
+            transform: translateY(-2px);
+        }
+        .lang-buttons { 
+            text-align: center; 
+            margin: 30px 0; 
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+        }
+        .lang-buttons button { 
+            padding: 10px 16px; 
+            border: none; 
+            border-radius: 20px; 
+            background: #667eea; 
+            color: white; 
+            cursor: pointer; 
+            font-size: 0.9rem;
+            min-width: 80px;
+            transition: all 0.3s ease;
+        }
+        .lang-buttons button.active { 
+            background: #764ba2; 
+            transform: scale(1.05);
+        }
+        .lang-buttons button:hover { 
+            background: #764ba2; 
+        }
+        .lang { display: none; }
+        .lang.active { display: block; }
+        .lang.he { 
+            direction: rtl; 
+            text-align: right; 
+            font-family: 'Arial', 'Tahoma', 'Noto Sans Hebrew', sans-serif; 
+        }
+        .lang.he .text { 
+            direction: rtl; 
+            text-align: right; 
+        }
+        .message { 
+            margin: 20px 0; 
+            padding: 25px; 
+            border-left: 4px solid #4CAF50; 
+            background: #f9f9f9; 
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        .message:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .message.breaking { 
+            border-left-color: #ff4444; 
+            background: linear-gradient(135deg, #fff5f5 0%, #ffebee 100%);
+        }
+        .message.urgent { 
+            border-left-color: #ff9800; 
+            background: linear-gradient(135deg, #fff8f0 0%, #fff3e0 100%);
+        }
+        .timestamp { 
+            color: #666; 
+            font-size: 0.9rem; 
+            margin-bottom: 10px; 
+            font-weight: 500;
+        }
+        .text { 
+            font-size: 1.1rem; 
+            line-height: 1.7; 
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .priority { 
+            display: inline-block; 
+            padding: 4px 12px; 
+            border-radius: 15px; 
+            font-size: 0.8rem; 
+            font-weight: bold;
+            margin-bottom: 10px; 
+        }
+        .priority-1 { 
+            background: #ffcdd2; 
+            color: #c62828; 
+        }
+        .priority-2 { 
+            background: #ffe0b2; 
+            color: #f57c00; 
+        }
+        .priority-3 { 
+            background: #e1bee7; 
+            color: #7b1fa2; 
+        }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+        .stat-item {
+            text-align: center;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+        .stat-label {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px 0;
+            border-top: 2px solid #f0f0f0;
+            color: #666;
+        }
+        .footer a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        .no-messages {
+            text-align: center;
+            padding: 60px 20px;
+            color: #666;
+            background: #f8f9fa;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        @media (max-width: 768px) {
+            body { padding: 10px; }
+            .container { padding: 20px; }
+            .logo { font-size: 2rem; }
+            .navigation a { 
+                display: block; 
+                margin: 5px 0; 
+                padding: 12px 20px; 
+            }
+            .stats { grid-template-columns: repeat(2, 1fr); }
+            .lang-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            .lang-buttons button {
+                width: 90%;
+                max-width: 200px;
+                margin: 5px 0;
+                padding: 12px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <div class="live-indicator">🔴 LIVE</div>
+        <div class="logo">🤖 AI News</div>
+        <h1>🇨🇾 Cyprus Breaking News</h1>
+        <p>Real-time updates from @cyprus_control</p>
+        <p><strong>Monday, August 11, 2025</strong></p>
+        <p style="font-size: 0.9rem; color: #666;">Last updated: 2025-08-11 09:14:05</p>
+    </div>
+    
+    <div class="navigation">
+        <a href="../index.html">🏠 Home</a>
+        <a href="../cyprus/index.html">📰 Daily Cyprus</a>
+        <a href="../israel/index.html">🇮🇱 Israel</a>
+        <a href="../greece/index.html">🇬🇷 Greece</a>
+        <a href="https://t.me/cyprus_control" target="_blank">📱 @cyprus_control</a>
+    </div>
 
-            <div class="navigation">
-                <a href="../index.html">🏠 Home</a>
-                <a href="../cyprus/index.html">📰 Daily Cyprus</a>
-                <a href="../israel/index.html">🇮🇱 Israel</a>
-                <a href="../greece/index.html">🇬🇷 Greece</a>
-                <a href="https://t.me/cyprus_control" target="_blank">📱 @cyprus_control</a>
-            </div>
+    <div class="lang-buttons">
+        <button onclick="setLang('en')" class="active" id="btn-en">🇬🇧 English</button>
+        <button onclick="setLang('he')" id="btn-he">🇮🇱 עברית</button>
+        <button onclick="setLang('ru')" id="btn-ru">🇷🇺 Русский</button>
+        <button onclick="setLang('el')" id="btn-el">🇬🇷 Ελληνικά</button>
+    </div>
 
-            <div class="stats">
-                <div class="stat-item">
-                    <div class="stat-number">20</div>
-                    <div class="stat-label">Recent Messages</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">0</div>
-                    <div class="stat-label">Breaking News</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">0</div>
-                    <div class="stat-label">Urgent Updates</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">10 min</div>
-                    <div class="stat-label">Update Frequency</div>
-                </div>
-            </div>
+    <div class="stats">
+        <div class="stat-item">
+            <div class="stat-number">20</div>
+            <div class="stat-label">Recent Messages</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">0</div>
+            <div class="stat-label">Breaking News</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">0</div>
+            <div class="stat-label">Urgent Updates</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">10 min</div>
+            <div class="stat-label">Update Frequency</div>
+        </div>
+    </div>
 
-            <div class="message">
+    <div class="message">
     <div class="timestamp">📅 2025-08-11 07:04:20</div>
     <div class="priority priority-3">
         📢 NEWS
     </div>
-    <div class="text">🏊 В Лимассоле отдыхающие спасли утопающего на пляже GSO. Вечером 10 августа молодой иностранец заплыл слишком далеко и начал тонуть. Очевидцы бросились в воду, чтобы вытащить его, пока на суше искали врача и ждали скорую. Мужчина был без сознания, но благодаря быстрой реакции отдыхающих его удалось спасти. Туристов призывают быть осторожнее и не заплывать на большую глубину. @cyprus_control</div>
+    <div class="lang en active">
+        <div class="text">🏊 В Лимассоле отдыхающие спасли утопающего на пляже GSO. Вечером 10 августа молодой иностранец заплыл слишком далеко и начал тонуть. Очевидцы бросились в воду, чтобы вытащить его, пока на суше искали врача и ждали скорую. Мужчина был без сознания, но благодаря быстрой реакции отдыхающих его удалось спасти. Туристов призывают быть осторожнее и не заплывать на большую глубину. @cyprus_control</div>
+    </div>
+    <div class="lang he" dir="rtl">
+        <div class="text" dir="rtl">🏊 בלימסול, נופשים הצילו אדם שטבע בחוף GSO. בערב ה-10 באוגוסט, צעיר זר שחה רחוק מדי והחל לטבוע. עדים קפצו למים כדי לחלץ אותו, בעוד אחרים חיפשו רופא והמתינו לאמבולנס. האיש היה חסר הכרה, אך בזכות התגובה המהירה של הנופשים, הצליחו להציל אותו. תיירים מתבקשים להיות זהירים ולא לשחות לעומק רב. @cyprus_control</div>
+    </div>
+    <div class="lang ru">
+        <div class="text">🏊 В Лимассоле отдыхающие спасли утопающего на пляже GSO. Вечером 10 августа молодой иностранец заплыл слишком далеко и начал тонуть. Очевидцы бросились в воду, чтобы вытащить его, пока на суше искали врача и ждали скорую. Мужчина был без сознания, но благодаря быстрой реакции отдыхающих его удалось спасти. Туристов призывают быть осторожнее и не заплывать на большую глубину. @cyprus_control</div>
+    </div>
+    <div class="lang el">
+        <div class="text">🏊 Στη Λεμεσό, παραθεριστές έσωσαν έναν πνιγμένο στην παραλία GSO. Το βράδυ της 10ης Αυγούστου, ένας νεαρός ξένος κολύμπησε πολύ μακριά και άρχισε να πνίγεται. Μάρτυρες έπεσαν στη θάλασσα για να τον βγάλουν, ενώ στην ακτή αναζητούσαν γιατρό και περίμεναν ασθενοφόρο. Ο άνδρας ήταν αναίσθητος, αλλά χάρη στην γρήγορη αντίδραση των παραθεριστών, κατάφεραν να τον σώσουν. Οι τουρίστες καλούνται να είναι πιο προσεκτικοί και να μην κολυμπούν σε μεγάλο βάθος. @cyprus_control</div>
+    </div>
 </div>
 <div class="message">
     <div class="timestamp">📅 2025-08-11 06:46:23</div>
     <div class="priority priority-3">
         📢 NEWS
     </div>
-    <div class="text">🔫 В Айя-Напе вооружённый мужчина ограбил киоск и угрожал сотруднице пистолетом. Инцидент произошёл около 1:15 ночи. Злоумышленник похитил товары и попытался скрыться на автомобиле. 37-летняя работница попыталась его задержать, однако грабитель направил на неё пистолет. Полиция Фамагусты ведёт расследование и разыскивает преступника. @cyprus_control</div>
+    <div class="lang en active">
+        <div class="text">🔫 В Айя-Напе вооружённый мужчина ограбил киоск и угрожал сотруднице пистолетом. Инцидент произошёл около 1:15 ночи. Злоумышленник похитил товары и попытался скрыться на автомобиле. 37-летняя работница попыталась его задержать, однако грабитель направил на неё пистолет. Полиция Фамагусты ведёт расследование и разыскивает преступника. @cyprus_control</div>
+    </div>
+    <div class="lang he" dir="rtl">
+        <div class="text" dir="rtl">🔫 באיה נאפה, גבר חמוש שדד דוכן ואיים על עובדת באקדח. האירוע התרחש בסביבות השעה 1:15 בלילה. העבריין גנב מוצרים וניסה להימלט ברכב. העובדת בת 37 ניסתה לעכב אותו, אך השודד כיוון לעברה את האקדח. משטרת פמגוסטה מנהלת חקירה ומחפשת את העבריין. @cyprus_control</div>
+    </div>
+    <div class="lang ru">
+        <div class="text">🔫 В Айя-Напе вооружённый мужчина ограбил киоск и угрожал сотруднице пистолетом. Инцидент произошёл около 1:15 ночи. Злоумышленник похитил товары и попытался скрыться на автомобиле. 37-летняя работница попыталась его задержать, однако грабитель направил на неё пистолет. Полиция Фамагусты ведёт расследование и разыскивает преступника. @cyprus_control</div>
+    </div>
+    <div class="lang el">
+        <div class="text">🔫 Στην Αγία Νάπα, ένοπλος άνδρας λήστεψε ένα περίπτερο και απείλησε μια υπάλληλο με πιστόλι. Το περιστατικό συνέβη γύρω στη 1:15 τα ξημερώματα. Ο δράστης έκλεψε προϊόντα και προσπάθησε να διαφύγει με αυτοκίνητο. Η 37χρονη υπάλληλος προσπάθησε να τον κρατήσει, αλλά ο ληστής της έστρεψε το πιστόλι. Η αστυνομία της Αμμοχώστου διεξάγει έρευνα και αναζητά τον εγκληματία. @cyprus_control</div>
+    </div>
 </div>
 <div class="message">
     <div class="timestamp">📅 2025-08-11 04:40:16</div>
     <div class="priority priority-3">
         📢 NEWS
     </div>
-    <div class="text">🔪 В Ларнаке 26-летний гражданин ЕС получил удар ножом в спину. Инцидент произошёл вечером в районе Продрому на парковке жилого дома. Пострадавшего доставили в больницу Ларнаки в тяжёлом, но стабильном состоянии. Полиция задержала 29-летнего африканца, которого подозревают в нападении, и изъяла нож. По предварительным данным, конфликт произошёл из-за финансовых разногласий. Расследование продолжается, и следователи выясняют все обстоятельства происшествия. @cyprus_control</div>
+    <div class="lang en active">
+        <div class="text">🔪 В Ларнаке 26-летний гражданин ЕС получил удар ножом в спину. Инцидент произошёл вечером в районе Продрому на парковке жилого дома. Пострадавшего доставили в больницу Ларнаки в тяжёлом, но стабильном состоянии. Полиция задержала 29-летнего африканца, которого подозревают в нападении, и изъяла нож. По предварительным данным, конфликт произошёл из-за финансовых разногласий. Расследование продолжается, и следователи выясняют все обстоятельства происшествия. @cyprus_control</div>
+    </div>
+    <div class="lang he" dir="rtl">
+        <div class="text" dir="rtl">🔪 בלרנקה, אזרח האיחוד האירופי בן 26 נדקר בגבו. האירוע התרחש בערב באזור פרודרום בחניון של בניין מגורים. הפצוע פונה לבית החולים בלרנקה במצב קשה אך יציב. המשטרה עצרה אפריקאי בן 29, החשוד במעשה, והחרימה את הסכין. לפי נתונים ראשוניים, הסכסוך נגרם ממחלוקות פיננסיות. החקירה נמשכת, והחוקרים בודקים את כל הנסיבות של המקרה. @cyprus_control</div>
+    </div>
+    <div class="lang ru">
+        <div class="text">🔪 В Ларнаке 26-летний гражданин ЕС получил ножевое ранение в спину. Инцидент произошёл вечером в районе Продрому на парковке жилого дома. Пострадавшего доставили в больницу Ларнаки в тяжёлом, но стабильном состоянии. Полиция задержала 29-летнего африканца, подозреваемого в нападении, и изъяла нож. По предварительным данным, конфликт возник из-за финансовых разногласий. Расследование продолжается, следователи выясняют все обстоятельства происшествия. @cyprus_control</div>
+    </div>
+    <div class="lang el">
+        <div class="text">🔪 Στη Λάρνακα, 26χρονος πολίτης της ΕΕ δέχθηκε μαχαιριά στην πλάτη. Το περιστατικό συνέβη το βράδυ στην περιοχή Προδρόμου, σε πάρκινγκ πολυκατοικίας. Ο τραυματίας μεταφέρθηκε στο νοσοκομείο Λάρνακας σε σοβαρή, αλλά σταθερή κατάσταση. Η αστυνομία συνέλαβε έναν 29χρονο Αφρικανό, ο οποίος φέρεται να είναι ο δράστης, και κατέσχεσε το μαχαίρι. Σύμφωνα με προκαταρκτικές πληροφορίες, η σύγκρουση προήλθε από οικονομικές διαφορές. Η έρευνα συνεχίζεται και οι ανακριτές εξετάζουν όλες τις συνθήκες του περιστατικού. @cyprus_control</div>
+    </div>
 </div>
 <div class="message">
     <div class="timestamp">📅 2025-08-11 04:20:16</div>
     <div class="priority priority-3">
         📢 NEWS
     </div>
-    <div class="text">🌫️ С 16:00 10 августа над Кипром ожидается пылевое облако с Ближнего Востока. По данным метеослужбы, оно задержится до вечера 13 августа и приведёт к ухудшению качества воздуха на всей территории острова. Жителям, особенно с заболеваниями дыхательных путей, рекомендуют оставаться в помещениях, избегать физической активности на улице и держать окна закрытыми. Соблюдение этих мер поможет снизить риски для здоровья в период повышенной запылённости. @cyprus_control</div>
+    <div class="lang en active">
+        <div class="text">🌫️ С 16:00 10 августа над Кипром ожидается пылевое облако с Ближнего Востока. По данным метеослужбы, оно задержится до вечера 13 августа и приведёт к ухудшению качества воздуха на всей территории острова. Жителям, особенно с заболеваниями дыхательных путей, рекомендуют оставаться в помещениях, избегать физической активности на улице и держать окна закрытыми. Соблюдение этих мер поможет снизить риски для здоровья в период повышенной запылённости. @cyprus_control</div>
+    </div>
+    <div class="lang he" dir="rtl">
+        <div class="text" dir="rtl">🌫️ החל מ-16:00 ב-10 באוגוסט צפוי ענן אבק מעל קפריסין מהמזרח התיכון. לפי נתוני השירות המטאורולוגי, הוא יישאר עד ערב ה-13 באוגוסט ויגרום להחמרת איכות האוויר בכל רחבי האי. תושבים, במיוחד עם מחלות בדרכי הנשימה, מתבקשים להישאר בתוך הבית, להימנע מפעילות גופנית בחוץ ולשמור על חלונות סגורים. הקפדה על אמצעים אלה תסייע להפחית את הסיכונים לבריאות בתקופת האבק המוגברת. @cyprus_control</div>
+    </div>
+    <div class="lang ru">
+        <div class="text">🌫️ С 16:00 10 августа над Кипром ожидается пылевое облако с Ближнего Востока. По данным метеослужбы, оно задержится до вечера 13 августа и приведёт к ухудшению качества воздуха на всей территории острова. Жителям, особенно с заболеваниями дыхательных путей, рекомендуют оставаться в помещениях, избегать физической активности на улице и держать окна закрытыми. Соблюдение этих мер поможет снизить риски для здоровья в период повышенной запылённости. @cyprus_control</div>
+    </div>
+    <div class="lang el">
+        <div class="text">🌫️ Από τις 16:00 της 10ης Αυγούστου, αναμένεται σύννεφο σκόνης από τη Μέση Ανατολή πάνω από την Κύπρο. Σύμφωνα με την μετεωρολογική υπηρεσία, θα παραμείνει μέχρι το βράδυ της 13ης Αυγούστου και θα οδηγήσει σε επιδείνωση της ποιότητας του αέρα σε όλη την επικράτεια του νησιού. Συνιστάται στους κατοίκους, ιδιαίτερα σε αυτούς με αναπνευστικά προβλήματα, να παραμείνουν σε κλειστούς χώρους, να αποφεύγουν τη σωματική δραστηριότητα έξω και να κρατούν τα παράθυρα κλειστά. Η τήρηση αυτών των μέτρων θα βοηθήσει στη μείωση των κινδύνων για την υγεία κατά</div>
+    </div>
 </div>
 <div class="message">
     <div class="timestamp">📅 2025-08-11 04:04:35</div>
     <div class="priority priority-3">
         📢 NEWS
     </div>
-    <div class="text">🗓️ Понедельник, 11 августа 2025 года☀️ Жарко и без осадков, местами лёгкий ветер. Давление пониженное, действует оранжевое предупреждение о жаре.🌡 Температура по городам:- Лимассол: до +36°C- Никосия: до +43°C- Ларнака: до +38°C- Пафос: до +33°C🇨🇾 @cyprus_control</div>
+    <div class="lang en active">
+        <div class="text">🗓️ Понедельник, 11 августа 2025 года☀️ Жарко и без осадков, местами лёгкий ветер. Давление пониженное, действует оранжевое предупреждение о жаре.🌡 Температура по городам:- Лимассол: до +36°C- Никосия: до +43°C- Ларнака: до +38°C- Пафос: до +33°C🇨🇾 @cyprus_control</div>
+    </div>
+    <div class="lang he" dir="rtl">
+        <div class="text" dir="rtl">🗓️ יום שני, 11 באוגוסט 2025☀️ חם וללא משקעים, במקומות רוח קלה. הלחץ נמוך, יש אזהרת חום כתומה.🌡 טמפרטורות לפי ערים: - לימסול: עד +36°C - ניקוסיה: עד +43°C - לרנקה: עד +38°C - פאפוס: עד +33°C 🇨🇾 @cyprus_control</div>
+    </div>
+    <div class="lang ru">
+        <div class="text">🗓️ Понедельник, 11 августа 2025 года☀️ Жарко и без осадков, местами лёгкий ветер. Давление пониженное, действует оранжевое предупреждение о жаре.🌡 Температура по городам:- Лимассол: до +36°C- Никосия: до +43°C- Ларнака: до +38°C- Пафос: до +33°C🇨🇾 @cyprus_control</div>
+    </div>
+    <div class="lang el">
+        <div class="text">🗓️ Δευτέρα, 11 Αυγούστου 2025☀️ Ζέστη και χωρίς βροχές, τοπικά ελαφρύς άνεμος. Η πίεση είναι χαμηλή, ισχύει πορτοκαλί προειδοποίηση για τη ζέστη.🌡 Θερμοκρασία ανά πόλη: - Λεμεσός: έως +36°C - Λευκωσία: έως +43°C - Λάρνακα: έως +38°C - Πάφος: έως +33°C 🇨🇾 @cyprus_control</div>
+    </div>
 </div>
 <div class="message">
     <div class="timestamp">📅 2025-08-10 16:53:35</div>
     <div class="priority priority-3">
         📢 NEWS
     </div>
-    <div class="text">🍇 В Каллепии готовятся к празднику сбора винограда. 16 августа деревня округа Пафос проведёт ежегодный фестиваль с музыкой, танцами, бесплатным палузесом и свежим виноградом. Вход свободный, начало в 20:00. Такие события поддерживают традиции и сохраняют атмосферу кипрских деревень. @cyprus_control</div>
+    <div class="lang en active">
+        <div class="text">🍇 В Каллепии готовятся к празднику сбора винограда. 16 августа деревня округа Пафос проведёт ежегодный фестиваль с музыкой, танцами, бесплатным палузесом и свежим виноградом. Вход свободный, начало в 20:00. Такие события поддерживают традиции и сохраняют атмосферу кипрских деревень. @cyprus_control</div>
+    </div>
+    <div class="lang he" dir="rtl">
+        <div class="text" dir="rtl">🍇 בכפר קלליפיה מתכוננים לחגיגות אסיף הענבים. ב-16 באוגוסט הכפר במחוז פאפוס יערוך פסטיבל שנתי עם מוזיקה, ריקודים, פלאוס חינם וענבים טריים. הכניסה חופשית, מתחילים בשעה 20:00. אירועים כאלה תומכים במסורות ושומרים על האווירה של הכפרים הקפריסאיים. @cyprus_control</div>
+    </div>
+    <div class="lang ru">
+        <div class="text">🍇 В Каллепии готовятся к празднику сбора винограда. 16 августа деревня округа Пафос проведёт ежегодный фестиваль с музыкой, танцами, бесплатным палузесом и свежим виноградом. Вход свободный, начало в 20:00. Такие события поддерживают традиции и сохраняют атмосферу кипрских деревень. @cyprus_control</div>
+    </div>
+    <div class="lang el">
+        <div class="text">🍇 Στην Καλλέπεια ετοιμάζονται για το φεστιβάλ συγκομιδής σταφυλιών. Στις 16 Αυγούστου, το χωριό της επαρχίας Πάφου θα διοργανώσει το ετήσιο φεστιβάλ με μουσική, χορούς, δωρεάν παλούζες και φρέσκα σταφύλια. Η είσοδος είναι ελεύθερη και αρχίζει στις 20:00. Τέτοιες εκδηλώσεις υποστηρίζουν τις παραδόσεις και διατηρούν την ατμόσφαιρα των κυπριακών χωριών. @cyprus_control</div>
+    </div>
 </div>
 <div class="message">
     <div class="timestamp">📅 2025-08-10 13:09:29</div>
     <div class="priority priority-3">
         📢 NEWS
     </div>
-    <div class="text">🛫 В аэропорту Ларнаки днём зафиксированы большие очереди на паспортном контроле. Зона прибытия оказалась переполнена пассажирами, что значительно замедлило прохождение проверок. Ситуация привела к увеличению времени ожидания и осложнила работу служб. @cyprus_control</div>
+    <div class="lang en active">
+        <div class="text">🛫 В аэропорту Ларнаки днём зафиксированы большие очереди на паспортном контроле. Зона прибытия оказалась переполнена пассажирами, что значительно замедлило прохождение проверок. Ситуация привела к увеличению времени ожидания и осложнила работу служб. @cyprus_control</div>
+    </div>
+    <div class="lang he" dir="rtl">
+        <div class="text" dir="rtl">🛫 בשדה התעופה בלרנקה נרשמו היום תורים ארוכים בביקורת הגבולות. אזור ההגעה היה מלא בנוסעים, מה שהאט משמעותית את תהליך הבדיקות. המצב הוביל להגדלת זמני ההמתנה והקשה על עבודת השירותים. @cyprus_control</div>
+    </div>
+    <div class="lang ru">
+        <div class="text">🛫 В аэропорту Ларнаки днём наблюдаются большие очереди на паспортном контроле. Зона прибытия переполнена пассажирами, что значительно замедляет прохождение проверок. Это привело к увеличению времени ожидания и усложнило работу служб. @cyprus_control</div>
+    </div>
+    <div class="lang el">
+        <div class="text">🛫 Στο αεροδρόμιο Λάρνακας καταγράφηκαν μεγάλες ουρές στον έλεγχο διαβατηρίων κατά τη διάρκεια της ημέρας. Η ζώνη άφιξης ήταν γεμάτη από επιβάτες, γεγονός που επιβράδυνε σημαντικά τη διαδικασία ελέγχου. Η κατάσταση οδήγησε σε αύξηση του χρόνου αναμονής και περιέπλεξε τη λειτουργία των υπηρεσιών. @cyprus_control</div>
+    </div>
 </div>
 <div class="message">
     <div class="timestamp">📅 2025-08-10 10:41:01</div>
     <div class="priority priority-3">
         📢 NEWS
     </div>
-    <div class="text">⚠️ В Республике Кипр приостановили работы на открытом воздухе из-за экстремальной жары. Министерство труда сообщило, что с 12:00 до 16:00 запрещены тяжёлые работы под открытым небом, а также доставка на мотоциклах, велосипедах и электросамокатах. Работодатели обязаны измерять температуру и влажность, корректировать график и обеспечивать условия для защиты от теплового стресса. Меры направлены на предотвращение опасных для здоровья последствий жары. @cyprus_control</div>
+    <div class="lang en active">
+        <div class="text">⚠️ В Республике Кипр приостановили работы на открытом воздухе из-за экстремальной жары. Министерство труда сообщило, что с 12:00 до 16:00 запрещены тяжёлые работы под открытым небом, а также доставка на мотоциклах, велосипедах и электросамокатах. Работодатели обязаны измерять температуру и влажность, корректировать график и обеспечивать условия для защиты от теплового стресса. Меры направлены на предотвращение опасных для здоровья последствий жары. @cyprus_control</div>
+    </div>
+    <div class="lang he" dir="rtl">
+        <div class="text" dir="rtl">⚠️ ברפובליקה של קפריסין הושעו עבודות בשטח פתוח בשל חום קיץ קיצוני. משרד העבודה הודיע כי בין השעות 12:00 ל-16:00 אסורות עבודות כבדות בשטח פתוח, כמו גם הובלה על אופנועים, אופניים וסקוטרים חשמליים. מעסיקים מחויבים למדוד טמפרטורה ולחות, להתאים את לוח הזמנים ולספק תנאים להגנה מפני לחץ חום. הצעדים נועדו למנוע תוצאות מסוכנות לבריאות בעקבות החום. @cyprus_control</div>
+    </div>
+    <div class="lang ru">
+        <div class="text">⚠️ В Республике Кипр приостановили работы на открытом воздухе из-за экстремальной жары. Министерство труда сообщило, что с 12:00 до 16:00 запрещены тяжёлые работы под открытым небом, а также доставка на мотоциклах, велосипедах и электросамокатах. Работодатели обязаны измерять температуру и влажность, корректировать график и обеспечивать условия для защиты от теплового стресса. Меры направлены на предотвращение опасных для здоровья последствий жары. @cyprus_control</div>
+    </div>
+    <div class="lang el">
+        <div class="text">⚠️ Στην Κυπριακή Δημοκρατία αναστάλθηκαν οι εργασίες σε εξωτερικούς χώρους λόγω ακραίας ζέστης. Το Υπουργείο Εργασίας ανακοίνωσε ότι από τις 12:00 έως τις 16:00 απαγορεύονται οι βαριές εργασίες σε εξωτερικούς χώρους, καθώς και οι μεταφορές με μοτοσικλέτες, ποδήλατα και ηλεκτρικά πατίνια. Οι εργοδότες υποχρεούνται να μετρούν τη θερμοκρασία και την υγρασία, να προσαρμόζουν το πρόγραμμα και να εξασφαλίζουν συνθήκες προστασίας από τη θερμική καταπόνηση. Τα μέτρα αποσκοπούν στην πρόληψη επικίνδυνων για την υγεία συνεπειών από τη ζέστη. @cyprus_control</div>
+    </div>
 </div>
 <div class="message">
     <div class="timestamp">📅 2025-08-10 10:40:05</div>
     <div class="priority priority-3">
         📢 NEWS
     </div>
-    <div class="text">🐬 В Като Пафос туристов порадовало появление дельфинов. Утром на пляже два дельфина подплыли близко к берегу и время от времени показывались на поверхности. Подобные появления дельфинов в прибрежной зоне Республики Кипр случаются нечасто. @cyprus_control</div>
+    <div class="lang en active">
+        <div class="text">🐬 В Като Пафос туристов порадовало появление дельфинов. Утром на пляже два дельфина подплыли близко к берегу и время от времени показывались на поверхности. Подобные появления дельфинов в прибрежной зоне Республики Кипр случаются нечасто. @cyprus_control</div>
+    </div>
+    <div class="lang he" dir="rtl">
+        <div class="text" dir="rtl">🐬 בקאטו פאפוס, תיירים התלהבו מהמראה של דולפינים. בבוקר, שני דולפינים התקרבו לחוף והופיעו על פני המים מעת לעת. מקרים כאלה של הופעת דולפינים באזור החופי של הרפובליקה של קפריסין אינם קורים לעיתים קרובות. @cyprus_control</div>
+    </div>
+    <div class="lang ru">
+        <div class="text">🐬 В Като Пафос туристов порадовало появление дельфинов. Утром на пляже два дельфина подплыли близко к берегу и время от времени показывались на поверхности. Подобные появления дельфинов в прибрежной зоне Республики Кипр случаются нечасто. @cyprus_control</div>
+    </div>
+    <div class="lang el">
+        <div class="text">🐬 Στο Κάτω Πάφο, οι τουρίστες ενθουσιάστηκαν με την εμφάνιση δελφινιών. Το πρωί, δύο δελφίνια πλησίασαν την ακτή και εμφανίζονταν στην επιφάνεια από καιρό σε καιρό. Παρόμοιες εμφανίσεις δελφινιών στην παράκτια ζώνη της Κυπριακής Δημοκρατίας δεν συμβαίνουν συχνά. @cyprus_control</div>
+    </div>
 </div>
 <div class="message">
     <div class="timestamp">📅 2025-08-10 07:22:20</div>
     <div class="priority priority-3">
         📢 NEWS
     </div>
-    <div class="text">👮‍♂️ В Пафосе задержаны двое мужчин по делу о похищении 48-летней гражданки Румынии. Полиция установила, что женщина была привезена на Кипр 51-летним мужчиной и удерживалась в отеле без возможности покинуть его. По её словам, её дважды возили в заведение Пафоса, где заставляли встречаться с клиентами за деньги. Задержаны 51-летний и 79-летний мужчины, третий подозреваемый, 44 лет, находится в розыске. @cyprus_control</div>
+    <div class="lang en active">
+        <div class="text">👮‍♂️ В Пафосе задержаны двое мужчин по делу о похищении 48-летней гражданки Румынии. Полиция установила, что женщина была привезена на Кипр 51-летним мужчиной и удерживалась в отеле без возможности покинуть его. По её словам, её дважды возили в заведение Пафоса, где заставляли встречаться с клиентами за деньги. Задержаны 51-летний и 79-летний мужчины, третий подозреваемый, 44 лет, находится в розыске. @cyprus_control</div>
+    </div>
+    <div class="lang he" dir="rtl">
+        <div class="text" dir="rtl">👮‍♂️ בפאפוס נעצרו שני גברים בחשד לחטיפת אזרחית רומניה בת 48. המשטרה גילתה שהאישה הובאה לקפריסין על ידי גבר בן 51 ונשמרה במלון ללא אפשרות לעזוב. לדבריה, היא הובלה פעמיים למוסד בפאפוס שם אילצו אותה להיפגש עם לקוחות בתמורה לכסף. נעצרו גבר בן 51 וגבר בן 79, חשוד שלישי בן 44 נמצא במעצר. @cyprus_control</div>
+    </div>
+    <div class="lang ru">
+        <div class="text">👮‍♂️ В Пафосе задержаны двое мужчин по делу о похищении 48-летней гражданки Румынии. Полиция выяснила, что женщину привез на Кипр 51-летний мужчина, и она удерживалась в отеле без возможности покинуть его. По её словам, её дважды возили в заведение Пафоса, где заставляли встречаться с клиентами за деньги. Задержаны 51-летний и 79-летний мужчины, третий подозреваемый, 44 лет, находится в розыске. @cyprus_control</div>
+    </div>
+    <div class="lang el">
+        <div class="text">👮‍♂️ Στην Πάφο, συνελήφθησαν δύο άνδρες για υπόθεση απαγωγής 48χρονης πολίτισσας της Ρουμανίας. Η αστυνομία διαπίστωσε ότι η γυναίκα είχε μεταφερθεί στην Κύπρο από έναν 51χρονο άνδρα και κρατούνταν σε ξενοδοχείο χωρίς δυνατότητα εξόδου. Σύμφωνα με τα λεγόμενά της, την είχαν μεταφέρει δύο φορές σε κατάστημα στην Πάφο, όπου την υποχρέωναν να συναντά πελάτες έναντι χρημάτων. Συνελήφθησαν οι 51 και 79 ετών άνδρες, ενώ ο τρίτος ύποπτος, 44 ετών, είναι καταζητούμενος. @cyprus_control</div>
+    </div>
 </div>
 <div class="message">
     <div class="timestamp">📅 2025-08-10 05:15:18</div>
     <div class="priority priority-3">
         📢 NEWS
     </div>
-    <div class="text">🏖 В Лачи в районе Пафоса пляж превратился в свалку после вечеринки молодежи. В сети появилось видео, на котором видно, что после отдыхающих остались бутылки, пакеты, одежда, обувь, остатки еды и даже установленная фуко для барбекю. Среди мусора были и разбитые стеклянные бутылки, что делает место опасным даже после уборки. Случай вызвал волну возмущения и обсуждения необходимости ужесточения контроля за чистотой общественных зон. @cyprus_control</div>
+    <div class="lang en active">
+        <div class="text">🏖 В Лачи в районе Пафоса пляж превратился в свалку после вечеринки молодежи. В сети появилось видео, на котором видно, что после отдыхающих остались бутылки, пакеты, одежда, обувь, остатки еды и даже установленная фуко для барбекю. Среди мусора были и разбитые стеклянные бутылки, что делает место опасным даже после уборки. Случай вызвал волну возмущения и обсуждения необходимости ужесточения контроля за чистотой общественных зон. @cyprus_control</div>
+    </div>
+    <div class="lang he" dir="rtl">
+        <div class="text" dir="rtl">🏖 בחוף בלצ'י באזור פאפוס הפך החוף למזבלה לאחר מסיבת צעירים. ברשת פורסם סרטון שבו נראה כי לאחר הבילוי נותרו בקבוקים, שקיות, בגדים, נעליים, שאריות אוכל ואפילו גריל ברביקיו שהוקם במקום. בין הזבל היו גם בקבוקי זכוכית שבורים, מה שהופך את המקום למסוכן גם לאחר ניקוי. המקרה עורר גל של זעם ודיבור על הצורך בהחמרת הפיקוח על ניקיון אזורים ציבוריים. @cyprus_control</div>
+    </div>
+    <div class="lang ru">
+        <div class="text">🏖 В Лачи, районе Пафоса, пляж стал свалкой после вечеринки молодежи. В сети появилось видео, на котором видно, что после отдыхающих остались бутылки, пакеты, одежда, обувь, остатки еды и даже установленный мангал для барбекю. Среди мусора были и разбитые стеклянные бутылки, что делает место опасным даже после уборки. Этот случай вызвал волну возмущения и обсуждение необходимости ужесточения контроля за чистотой общественных зон. @cyprus_control</div>
+    </div>
+    <div class="lang el">
+        <div class="text">🏖 Στο Λάτσι, στην περιοχή της Πάφου, η παραλία μετατράπηκε σε χωματερή μετά από πάρτι νέων. Στο διαδίκτυο κυκλοφόρησε βίντεο που δείχνει ότι μετά τους λουόμενους έμειναν μπουκάλια, σακούλες, ρούχα, παπούτσια, υπολείμματα φαγητού και ακόμη και μια ψησταριά. Ανάμεσα στα σκουπίδια υπήρχαν και σπασμένα γυάλινα μπουκάλια, γεγονός που καθιστά το μέρος επικίνδυνο ακόμη και μετά τον καθαρισμό. Το περιστατικό προκάλεσε κύμα αγανάκτησης και συζητήσεις σχετικά με την ανάγκη αυστηρότερου ελέγχου της καθαριότητας στους δημόσιους χώρους. @cyprus_control</div>
+    </div>
 </div>
 <div class="message">
     <div class="timestamp">📅 2025-08-10 04:31:47</div>
     <div class="priority priority-3">
         📢 NEWS
     </div>
-    <div class="text">🚚 На трассе в районе Емба заметили грузовик с опасным грузом. В социальных сетях появились фото грузовика, перевозящего большую партию колючей проволоки без надлежащей фиксации. Пользователи выражают возмущение, указывая на риск для водителей, движущихся позади. Ситуация вызвала обсуждения о необходимости более строгого контроля перевозок опасных материалов на дорогах Кипра. @cyprus_control</div>
+    <div class="lang en active">
+        <div class="text">🚚 На трассе в районе Емба заметили грузовик с опасным грузом. В социальных сетях появились фото грузовика, перевозящего большую партию колючей проволоки без надлежащей фиксации. Пользователи выражают возмущение, указывая на риск для водителей, движущихся позади. Ситуация вызвала обсуждения о необходимости более строгого контроля перевозок опасных материалов на дорогах Кипра. @cyprus_control</div>
+    </div>
+    <div class="lang he" dir="rtl">
+        <div class="text" dir="rtl">🚚 בכביש באזור אמבה נצפה משאית עם מטען מסוכן. ברשתות החברתיות פורסמו תמונות של המשאית שמעבירה כמות גדולה של חוט תיל ללא קיבוע מתאים. משתמשים מביעים זעם, מצביעים על הסיכון לנהגים הנעים מאחור. המצב עורר דיונים על הצורך בבקרת מחמירה יותר על העברת חומרים מסוכנים בדרכי קפריסין. @cyprus_control</div>
+    </div>
+    <div class="lang ru">
+        <div class="text">🚚 На трассе в районе Емба заметили грузовик с опасным грузом. В социальных сетях появились фото грузовика, перевозящего большую партию колючей проволоки без надлежащей фиксации. Пользователи выражают возмущение, указывая на риск для водителей, движущихся позади. Ситуация вызвала обсуждения о необходимости более строгого контроля перевозок опасных материалов на дорогах Кипра. @cyprus_control</div>
+    </div>
+    <div class="lang el">
+        <div class="text">🚚 Στην εθνική οδό κοντά στην Εμπα παρατηρήθηκε φορτηγό με επικίνδυνο φορτίο. Στα κοινωνικά δίκτυα δημοσιεύτηκαν φωτογραφίες του φορτηγού που μεταφέρει μεγάλη ποσότητα συρματόπλεγμα χωρίς κατάλληλη στερέωση. Οι χρήστες εκφράζουν την αγανάκτησή τους, επισημαίνοντας τον κίνδυνο για τους οδηγούς που κινούνται πίσω. Η κατάσταση προκάλεσε συζητήσεις σχετικά με την ανάγκη αυστηρότερου ελέγχου των μεταφορών επικίνδυνων υλικών στους δρόμους της Κύπρου. @cyprus_control</div>
+    </div>
 </div>
 <div class="message">
     <div class="timestamp">📅 2025-08-10 04:02:47</div>
     <div class="priority priority-3">
         📢 NEWS
     </div>
-    <div class="text">🗓️ Воскресенье, 10 августа 2025 года.☀️ Жарко и без осадков, местами лёгкий ветер. Давление пониженное, действует оранжевое предупреждение о жаре.🌡 Температура по городам:- Лимассол: до +35°C- Никосия: до +43°C- Ларнака: до +37°C- Пафос: до +32°C🇨🇾 @cyprus_control</div>
+    <div class="lang en active">
+        <div class="text">🗓️ Воскресенье, 10 августа 2025 года.☀️ Жарко и без осадков, местами лёгкий ветер. Давление пониженное, действует оранжевое предупреждение о жаре.🌡 Температура по городам:- Лимассол: до +35°C- Никосия: до +43°C- Ларнака: до +37°C- Пафос: до +32°C🇨🇾 @cyprus_control</div>
+    </div>
+    <div class="lang he" dir="rtl">
+        <div class="text" dir="rtl">🗓️ יום ראשון, 10 באוגוסט 2025.☀️ חם וללא משקעים, במקומות רוח קלה. הלחץ נמוך, יש אזהרת חום כתומה.🌡 טמפרטורות לפי ערים: - לימסול: עד +35°C - ניקוסיה: עד +43°C - לרנקה: עד +37°C - פאפוס: עד +32°C 🇨🇾 @cyprus_control</div>
+    </div>
+    <div class="lang ru">
+        <div class="text">🗓️ Воскресенье, 10 августа 2025 года.☀️ Жарко и без осадков, местами лёгкий ветер. Давление пониженное, действует оранжевое предупреждение о жаре.🌡 Температура по городам: - Лимассол: до +35°C - Никосия: до +43°C - Ларнака: до +37°C - Пафос: до +32°C 🇨🇾 @cyprus_control</div>
+    </div>
+    <div class="lang el">
+        <div class="text">🗓️ Κυριακή, 10 Αυγούστου 2025.☀️ Ζέστη και χωρίς βροχές, τοπικά ελαφρύς άνεμος. Η πίεση είναι χαμηλή, ισχύει πορτοκαλί προειδοποίηση για τη ζέστη.🌡 Θερμοκρασία ανά πόλη:- Λεμεσός: έως +35°C- Λευκωσία: έως +43°C- Λάρνακα: έως +37°C- Πάφος: έως +32°C🇨🇾 @cyprus_control</div>
+    </div>
 </div>
 <div class="message">
     <div class="timestamp">📅 2025-08-09 18:15:45</div>
     <div class="priority priority-3">
         📢 NEWS
     </div>
-    <div class="text">🏍 Сотни байкеров со всей Республики Кипр прибыли в Паралимни на открытие памятника Тассосу Исааку и Соломосу Солому. Мотоциклетная колонна стартовала в Пафосе, проехала вдоль «зелёной линии» и завершила путь у мемориала с бронзовыми фигурами, установленного в память о двух погибших в 1996 году во время протестов против турецкой оккупации. Мероприятие стало символом единства киприотов и напоминанием о цене борьбы за свободу. @cyprus_control</div>
+    <div class="lang en active">
+        <div class="text">🏍 Сотни байкеров со всей Республики Кипр прибыли в Паралимни на открытие памятника Тассосу Исааку и Соломосу Солому. Мотоциклетная колонна стартовала в Пафосе, проехала вдоль «зелёной линии» и завершила путь у мемориала с бронзовыми фигурами, установленного в память о двух погибших в 1996 году во время протестов против турецкой оккупации. Мероприятие стало символом единства киприотов и напоминанием о цене борьбы за свободу. @cyprus_control</div>
+    </div>
+    <div class="lang he" dir="rtl">
+        <div class="text" dir="rtl">🏍 מאות רוכבי אופנועים מכל רחבי קפריסין הגיעו לפרלימני לפתיחת אנדרטת טסוס איסאקוס וסולומוס סולומו. שיירת האופנועים יצאה מפאפוס, נסעה לאורך "הקו הירוק" וסיימה את דרכם במונומנט עם דמויות ברונזה, שהוקם לזכר שניים שנהרגו בשנת 1996 במהלך הפגנות נגד הכיבוש הטורקי. האירוע הפך לסמל של אחדות הקפריסאים ותזכורת למחיר המאבק על חירות. @cyprus_control</div>
+    </div>
+    <div class="lang ru">
+        <div class="text">🏍 Сотни байкеров со всей Республики Кипр прибыли в Паралимни на открытие памятника Тассосу Исааку и Соломосу Солому. Мотоциклетная колонна стартовала в Пафосе, проехала вдоль «зелёной линии» и завершила путь у мемориала с бронзовыми фигурами, установленного в память о двух погибших в 1996 году во время протестов против турецкой оккупации. Мероприятие стало символом единства киприотов и напоминанием о цене борьбы за свободу. @cyprus_control</div>
+    </div>
+    <div class="lang el">
+        <div class="text">🏍 Χιλιάδες μοτοσικλετιστές από όλη την Κυπριακή Δημοκρατία συγκεντρώθηκαν στην Παραλίμνι για τα εγκαίνια του μνημείου του Τάσσου Ισαάκ και του Σολωμού Σολωμού. Η μοτοσικλετιστική πομπή ξεκίνησε από την Πάφο, διήλθε κατά μήκος της «πράσινης γραμμής» και ολοκλήρωσε τη διαδρομή της στο μνημείο με τις χάλκινες φιγούρες, που έχει στηθεί στη μνήμη των δύο που σκοτώθηκαν το 1996 κατά τη διάρκεια διαδηλώσεων κατά της τουρκικής κατοχής. Η εκδήλωση αποτέλεσε σύμβολο ενότητας των Κυπρίων και υπενθύμιση της τιμής του αγώνα για την ελευθερία. @</div>
+    </div>
 </div>
 <div class="message">
     <div class="timestamp">📅 2025-08-09 17:17:18</div>
     <div class="priority priority-3">
         📢 NEWS
     </div>
-    <div class="text">🔥 В Омодосе начали расследование причин пожара, который вызвал споры между пожарной службой и местным главой. Представитель службы Андреас Кеттис сообщил, что возгорание началось у обочины рядом с мусором, однако мукстарх Евгениос Михаиил заявил, что огонь появился возле заброшенного сада, где мусора не было. Разногласия вокруг версии происшествия усилили интерес к результатам проверки .@cyprus_control</div>
+    <div class="lang en active">
+        <div class="text">🔥 В Омодосе начали расследование причин пожара, который вызвал споры между пожарной службой и местным главой. Представитель службы Андреас Кеттис сообщил, что возгорание началось у обочины рядом с мусором, однако мукстарх Евгениос Михаиил заявил, что огонь появился возле заброшенного сада, где мусора не было. Разногласия вокруг версии происшествия усилили интерес к результатам проверки .@cyprus_control</div>
+    </div>
+    <div class="lang he" dir="rtl">
+        <div class="text" dir="rtl">🔥 באומודוס החלו בחקירה לגבי סיבות השריפה שגרמה למחלוקות בין שירותי הכבאות לראש המקומי. נציג השירות, אנדריאס קטיוס, דיווח כי הבעירה החלה בשולי הדרך ליד אשפה, אך המוקסטארח, אבגניוס מיכאיל, טען כי האש פרצה ליד גן נטוש, שבו לא הייתה אשפה. המחלוקות סביב גרסת האירוע הגבירו את העניין בתוצאות הבדיקה. @cyprus_control</div>
+    </div>
+    <div class="lang ru">
+        <div class="text">🔥 В Омодосе начали расследование причин пожара, который вызвал споры между пожарной службой и местным главой. Представитель службы Андреас Кеттис сообщил, что возгорание началось у обочины рядом с мусором, однако мукстарх Евгениос Михаиил заявил, что огонь появился возле заброшенного сада, где мусора не было. Разногласия вокруг версии происшествия усилили интерес к результатам проверки.</div>
+    </div>
+    <div class="lang el">
+        <div class="text">🔥 Στον Όμοδο ξεκίνησε έρευνα για τα αίτια της φωτιάς που προκάλεσε διαμάχες μεταξύ της πυροσβεστικής υπηρεσίας και του τοπικού αρχηγού. Ο εκπρόσωπος της υπηρεσίας, Ανδρέας Κέττης, δήλωσε ότι η φωτιά ξεκίνησε από την άκρη του δρόμου κοντά σε σκουπίδια, ωστόσο ο μουκστάρχης Ευγένιος Μιχαήλ ανέφερε ότι η φωτιά εμφανίστηκε κοντά σε εγκαταλελειμμένο κήπο, όπου δεν υπήρχαν σκουπίδια. Οι διαφωνίες γύρω από την εκδοχή του περιστατικού ενίσχυσαν το ενδιαφέρον για τα αποτελέσματα της έρευνας. @cyprus_control</div>
+    </div>
 </div>
 <div class="message">
     <div class="timestamp">📅 2025-08-09 17:14:03</div>
     <div class="priority priority-3">
         📢 NEWS
     </div>
-    <div class="text">✈️ Польша стала вторым по значимости туристическим рынком для Пафоса после Великобритании. По официальным данным, половина польских туристов, приезжающих в Республику Кипр, выбирают отдых именно в этом регионе, а воздушное сообщение с Польшей достигло рекордного уровня за последние 30 лет с 20 рейсами в неделю из шести крупных польских аэропортов. Туристические структуры Пафоса при поддержке заместителя министра туризма активизируют работу с польскими туроператорами для продвижения города как круглогодичного направления. Рост потока из Польши стал ключевым фактором развития туризма в регионе. @cyprus_control</div>
+    <div class="lang en active">
+        <div class="text">✈️ Польша стала вторым по значимости туристическим рынком для Пафоса после Великобритании. По официальным данным, половина польских туристов, приезжающих в Республику Кипр, выбирают отдых именно в этом регионе, а воздушное сообщение с Польшей достигло рекордного уровня за последние 30 лет с 20 рейсами в неделю из шести крупных польских аэропортов. Туристические структуры Пафоса при поддержке заместителя министра туризма активизируют работу с польскими туроператорами для продвижения города как круглогодичного направления. Рост потока из Польши стал ключевым фактором развития туризма в регионе. @cyprus_control</div>
+    </div>
+    <div class="lang he" dir="rtl">
+        <div class="text" dir="rtl">✈️ פולין הפכה לשוק התיירות השני בחשיבותו לפאפוס אחרי בריטניה. לפי נתונים רשמיים, חצי מהתיירים הפולנים המגיעים לרפובליקה של קפריסין בוחרים לנפוש דווקא באזור זה, וקווי התעופה עם פולין הגיעו לרמה שיא בעשרים השנים האחרונות עם 20 טיסות בשבוע משישה שדות תעופה פולניים גדולים. מבני התיירות של פאפוס, בתמיכת סגן שר התיירות, מגבירים את העבודה עם סוכנויות הנסיעות הפולניות לקידום העיר כיעד כל השנה. העלייה בזרם התיירים מפולין הפכה לגורם מרכזי בהתפתחות התיירות באזור. @cyprus_control</div>
+    </div>
+    <div class="lang ru">
+        <div class="text">✈️ Польша стала вторым по значимости туристическим рынком для Пафоса после Великобритании. По официальным данным, половина польских туристов, приезжающих в Республику Кипр, выбирают отдых именно в этом регионе, а воздушное сообщение с Польшей достигло рекордного уровня за последние 30 лет с 20 рейсами в неделю из шести крупных польских аэропортов. Туристические структуры Пафоса при поддержке заместителя министра туризма активизируют работу с польскими туроператорами для продвижения города как круглогодичного направления. Рост потока из Польши стал ключевым фактором развития туризма в регионе. @cyprus_control</div>
+    </div>
+    <div class="lang el">
+        <div class="text">✈️ Η Πολωνία έγινε η δεύτερη πιο σημαντική τουριστική αγορά για την Πάφο μετά το Ηνωμένο Βασίλειο. Σύμφωνα με επίσημα στοιχεία, το μισό των Πολωνών τουριστών που επισκέπτονται την Κυπριακή Δημοκρατία επιλέγουν να ξεκουραστούν σε αυτή την περιοχή, ενώ η αεροπορική σύνδεση με την Πολωνία έχει φτάσει σε επίπεδα ρεκόρ τα τελευταία 30 χρόνια με 20 πτήσεις την εβδομάδα από έξι μεγάλες πολωνικές αεροδρόμια. Οι τουριστικές δομές της Πάφου, με την υποστήριξη του αναπληρωτή υπουργού τουρισμού, εντείνουν τη συνεργασία τους με πολωνούς τουριστικούς πράκτορες για την προώθηση της πόλης ως προο</div>
+    </div>
 </div>
 <div class="message">
     <div class="timestamp">📅 2025-08-07 10:33:28</div>
     <div class="priority priority-3">
         📢 NEWS
     </div>
-    <div class="text">🛰 Кипрский институт запустил систему раннего обнаружения пожаров с использованием спутников и суперкомпьютера. Новая технология, разработанная на острове, уже в ближайшие 24 часа станет доступна для применения. Система анализирует спутниковые данные с помощью мощного вычислительного центра и уже во время тестов сумела точно выявить источник дыма. Разработка может ускорить реагирование на пожары и предотвратить катастрофы. @cyprus_control</div>
+    <div class="lang en active">
+        <div class="text">🛰 Кипрский институт запустил систему раннего обнаружения пожаров с использованием спутников и суперкомпьютера. Новая технология, разработанная на острове, уже в ближайшие 24 часа станет доступна для применения. Система анализирует спутниковые данные с помощью мощного вычислительного центра и уже во время тестов сумела точно выявить источник дыма. Разработка может ускорить реагирование на пожары и предотвратить катастрофы. @cyprus_control</div>
+    </div>
+    <div class="lang he" dir="rtl">
+        <div class="text" dir="rtl">טקסט בעברית</div>
+    </div>
+    <div class="lang ru">
+        <div class="text">Текст на русском</div>
+    </div>
+    <div class="lang el">
+        <div class="text">Κείμενο στα ελληνικά</div>
+    </div>
 </div>
 <div class="message">
     <div class="timestamp">📅 2025-08-07 08:28:13</div>
     <div class="priority priority-3">
         📢 NEWS
     </div>
-    <div class="text">💣 В Никосии рано утром прогремел взрыв у автосалона, жители района Энгоми сообщили о сильном шуме около 3:25. Повреждён главный вход выставочного зала, на месте работают следователи. Полиция начала расследование, причины взрыва выясняются. @cyprus_control</div>
+    <div class="lang en active">
+        <div class="text">💣 В Никосии рано утром прогремел взрыв у автосалона, жители района Энгоми сообщили о сильном шуме около 3:25. Повреждён главный вход выставочного зала, на месте работают следователи. Полиция начала расследование, причины взрыва выясняются. @cyprus_control</div>
+    </div>
+    <div class="lang he" dir="rtl">
+        <div class="text" dir="rtl">טקסט בעברית</div>
+    </div>
+    <div class="lang ru">
+        <div class="text">Текст на русском</div>
+    </div>
+    <div class="lang el">
+        <div class="text">Κείμενο στα ελληνικά</div>
+    </div>
 </div>
 <div class="message">
     <div class="timestamp">📅 2025-08-07 07:40:19</div>
     <div class="priority priority-3">
         📢 NEWS
     </div>
-    <div class="text">👮‍♂️ Полиция Лимассола проводит масштабные проверки в районах с повышенной криминальной активностью. С вечера вторника в Полемидии, Айя-Филе и на проспекте Молос задействованы подразделения дорожной полиции, спецотряд Group Z и региональное антитеррористическое управление. В ходе рейдов изъяты пять мотоциклов и два автомобиля, составлены штрафы на 37 водителей, один из которых управлял машиной под воздействием веществ. Также проведён обыск в жилом доме. Операция продолжается и направлена на повышение безопасности в городе. @cyprus_control</div>
+    <div class="lang en active">
+        <div class="text">👮‍♂️ Полиция Лимассола проводит масштабные проверки в районах с повышенной криминальной активностью. С вечера вторника в Полемидии, Айя-Филе и на проспекте Молос задействованы подразделения дорожной полиции, спецотряд Group Z и региональное антитеррористическое управление. В ходе рейдов изъяты пять мотоциклов и два автомобиля, составлены штрафы на 37 водителей, один из которых управлял машиной под воздействием веществ. Также проведён обыск в жилом доме. Операция продолжается и направлена на повышение безопасности в городе. @cyprus_control</div>
+    </div>
+    <div class="lang he" dir="rtl">
+        <div class="text" dir="rtl">טקסט בעברית</div>
+    </div>
+    <div class="lang ru">
+        <div class="text">Текст на русском</div>
+    </div>
+    <div class="lang el">
+        <div class="text">Κείμενο στα ελληνικά</div>
+    </div>
 </div>
 <div class="message">
     <div class="timestamp">📅 2025-08-07 07:15:18</div>
     <div class="priority priority-3">
         📢 NEWS
     </div>
-    <div class="text">🧗‍♀️ Женщина сорвалась со скал у морских пещер Каво Греко. Это второй подобный случай за двое суток. Спасатели эвакуировали пострадавшую и доставили в больницу Фамагусты. Её состояние пока неизвестно. Ранее травмы получила 16-летняя туристка. Власти напоминают, что приближаться к пещерам и прыгать с обрывов опасно. Геологическая служба признала этот участок нестабильным и подверженным эрозии. Несоблюдение запретов может привести к новым трагедиям. @cyprus_control</div>
+    <div class="lang en active">
+        <div class="text">🧗‍♀️ Женщина сорвалась со скал у морских пещер Каво Греко. Это второй подобный случай за двое суток. Спасатели эвакуировали пострадавшую и доставили в больницу Фамагусты. Её состояние пока неизвестно. Ранее травмы получила 16-летняя туристка. Власти напоминают, что приближаться к пещерам и прыгать с обрывов опасно. Геологическая служба признала этот участок нестабильным и подверженным эрозии. Несоблюдение запретов может привести к новым трагедиям. @cyprus_control</div>
+    </div>
+    <div class="lang he" dir="rtl">
+        <div class="text" dir="rtl">טקסט בעברית</div>
+    </div>
+    <div class="lang ru">
+        <div class="text">Текст на русском</div>
+    </div>
+    <div class="lang el">
+        <div class="text">Κείμενο στα ελληνικά</div>
+    </div>
 </div>
 
-            <div class="footer">
-                <p>🤖 <strong>Automated Live Monitoring</strong></p>
-                <p>Updates every 10 minutes • Source: <a href="https://t.me/cyprus_control" target="_blank">@cyprus_control</a></p>
-                <p><a href="https://ainews.eu.com">ainews.eu.com</a></p>
-                <p style="margin-top: 15px; font-size: 0.8rem;">
-                    This page automatically refreshes every 5 minutes<br>
-                    For daily comprehensive news, visit our <a href="../index.html">main homepage</a>
-                </p>
-            </div>
-        </div>
-        </body>
-        </html>
+    <div class="footer">
+        <p>🤖 <strong>Automated Live Monitoring</strong></p>
+        <p>Updates every 10 minutes • Source: <a href="https://t.me/cyprus_control" target="_blank">@cyprus_control</a></p>
+        <p><a href="https://ainews.eu.com">ainews.eu.com</a></p>
+        <p style="margin-top: 15px; font-size: 0.8rem;">
+            This page automatically refreshes every 5 minutes<br>
+            For daily comprehensive news, visit our <a href="../index.html">main homepage</a>
+        </p>
+    </div>
+</div>
+
+<script>
+    let currentLang = 'en';
+
+    function setLang(lang) {
+        document.querySelectorAll('.lang').forEach(el => el.classList.remove('active'));
+        document.querySelectorAll('.lang.' + lang).forEach(el => el.classList.add('active'));
+        document.querySelectorAll('.lang-buttons button').forEach(btn => btn.classList.remove('active'));
+        document.getElementById('btn-' + lang).classList.add('active');
+        currentLang = lang;
+        
+        try {
+            localStorage.setItem('liveNewsLang', lang);
+        } catch (e) {
+            // Silently fail if localStorage not available
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        let savedLang = 'en';
+        try {
+            savedLang = localStorage.getItem('liveNewsLang') || 'en';
+        } catch (e) {
+            // Silently fail if localStorage not available
+        }
+        setLang(savedLang);
+        
+        document.addEventListener('keydown', function(e) {
+            if (e.key >= '1' && e.key <= '4' && !e.ctrlKey && !e.altKey && !e.metaKey) {
+                e.preventDefault();
+                const langs = ['en', 'he', 'ru', 'el'];
+                const langIndex = parseInt(e.key) - 1;
+                if (langs[langIndex]) {
+                    setLang(langs[langIndex]);
+                }
+            }
+        });
+    });
+</script>
+</body>
+</html>
