@@ -13,20 +13,28 @@
                 
                 .live-site-button {
                     display: inline-block;
-                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
                     color: white;
-                    padding: 12px 24px;
+                    padding: 16px 32px;
                     text-decoration: none;
                     border-radius: 25px;
                     font-weight: 600;
-                    font-size: 1rem;
+                    font-size: 1.2rem;
                     transition: all 0.3s ease;
-                    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+                    box-shadow: 0 4px 12px rgba(255, 107, 107, 0.4);
+                    animation: pulse 2s infinite;
+                }
+                
+                @keyframes pulse {
+                    0% { box-shadow: 0 4px 12px rgba(255, 107, 107, 0.4); }
+                    50% { box-shadow: 0 6px 20px rgba(255, 107, 107, 0.6); }
+                    100% { box-shadow: 0 4px 12px rgba(255, 107, 107, 0.4); }
                 }
                 
                 .live-site-button:hover {
                     transform: translateY(-2px);
-                    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+                    box-shadow: 0 8px 25px rgba(255, 107, 107, 0.5);
+                    background: linear-gradient(135deg, #ee5a24 0%, #d63031 100%);
                 }
                 
                 .country-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin: 40px 0; }
@@ -50,8 +58,8 @@
             <div class="logo">🤖 AI News</div>
             <div class="tagline">Your Multi-Country Daily News Digest</div>
             <p>Automated news aggregation from Cyprus, Israel, and Greece • Monday, 2025-08-11</p>
-            <div style="margin-top: 20px;">
-                <a href="https://ainews.eu.com" class="live-site-button" target="_blank" rel="noopener noreferrer">🌐 View Live News Site</a>
+            <div style="margin-top: 30px;">
+                <a href="https://ainews.eu.com/live/" class="live-site-button">🔴 LIVE Breaking News</a>
             </div>
             </div>
 
@@ -59,7 +67,7 @@
             <h3>Today's News Summary</h3>
             <div class="stat-grid">
                 <div class="stat-item">
-                    <div class="stat-number">44</div>
+                    <div class="stat-number">43</div>
                     <div>Total Articles</div>
                 </div>
                 <div class="stat-item">
@@ -81,11 +89,11 @@
             <div class="country-card">
     <h3>🇨🇾 Cyprus</h3>
     <p>20 new articles today</p>
-    <p>Latest categories: General News, Holidays & Travel, Crime & Justice</p>
+    <p>Latest categories: General News, Holidays & Travel, Business & Economy</p>
     <a href="./cyprus/index.html" class="country-link">Read Cyprus News →</a>
 </div><div class="country-card">
     <h3>🇬🇷 Greece</h3>
-    <p>17 new articles today</p>
+    <p>16 new articles today</p>
     <p>Latest categories: General News, Technology</p>
     <a href="./greece/index.html" class="country-link">Read Greece News →</a>
 </div><div class="country-card">
